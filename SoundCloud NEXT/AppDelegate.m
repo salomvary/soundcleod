@@ -9,10 +9,13 @@
 #import "AppDelegate.h"
 
 @implementation AppDelegate
+@synthesize webView;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    [[webView mainFrame] loadRequest:
+	 [NSURLRequest requestWithURL:[NSURL URLWithString: @"http://soundcloud.com" ]
+    ]];
 }
 
 @end

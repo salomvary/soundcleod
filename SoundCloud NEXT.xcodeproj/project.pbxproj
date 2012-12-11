@@ -13,6 +13,7 @@
 		263C2BB11677152500EF4792 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BAF1677152500EF4792 /* Credits.rtf */; };
 		263C2BB41677152500EF4792 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C2BB31677152500EF4792 /* AppDelegate.m */; };
 		263C2BB71677152500EF4792 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BB51677152500EF4792 /* MainMenu.xib */; };
+		26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A0087016771DA5006FD03A /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		263C2BB21677152500EF4792 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		263C2BB31677152500EF4792 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		263C2BB61677152500EF4792 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		26A0087016771DA5006FD03A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */,
 				263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,6 +49,7 @@
 		263C2B911677152500EF4792 = {
 			isa = PBXGroup;
 			children = (
+				26A0087016771DA5006FD03A /* WebKit.framework */,
 				263C2BA61677152500EF4792 /* SoundCloud NEXT */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
 				263C2B9D1677152500EF4792 /* Products */,
@@ -297,6 +301,7 @@
 				263C2BBC1677152500EF4792 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
