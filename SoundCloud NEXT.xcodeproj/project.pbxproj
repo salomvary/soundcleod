@@ -14,6 +14,7 @@
 		263C2BB41677152500EF4792 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C2BB31677152500EF4792 /* AppDelegate.m */; };
 		263C2BB71677152500EF4792 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BB51677152500EF4792 /* MainMenu.xib */; };
 		26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A0087016771DA5006FD03A /* WebKit.framework */; };
+		26A0087516772D33006FD03A /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A0087416772D33006FD03A /* PopupController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		263C2BB31677152500EF4792 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		263C2BB61677152500EF4792 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		26A0087016771DA5006FD03A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		26A0087316772D33006FD03A /* PopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupController.h; sourceTree = "<group>"; };
+		26A0087416772D33006FD03A /* PopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				263C2BB31677152500EF4792 /* AppDelegate.m */,
 				263C2BB51677152500EF4792 /* MainMenu.xib */,
 				263C2BA71677152500EF4792 /* Supporting Files */,
+				26A0087316772D33006FD03A /* PopupController.h */,
+				26A0087416772D33006FD03A /* PopupController.m */,
 			);
 			path = "SoundCloud NEXT";
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			files = (
 				263C2BAD1677152500EF4792 /* main.m in Sources */,
 				263C2BB41677152500EF4792 /* AppDelegate.m in Sources */,
+				26A0087516772D33006FD03A /* PopupController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

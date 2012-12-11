@@ -10,6 +10,7 @@
 
 @implementation AppDelegate
 @synthesize webView;
+@synthesize popupController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -17,5 +18,17 @@
 	 [NSURLRequest requestWithURL:[NSURL URLWithString: @"http://soundcloud.com" ]
     ]];
 }
+
+- (void) awakeFromNib
+{
+    [webView setUIDelegate:self];
+}
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{
+    NSLog(@"webView: createWebViewWithRequest %@", request);
+    return [popupController show];
+}
+
 
 @end

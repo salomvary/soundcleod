@@ -8,11 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
+#import "PopupController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet WebView *webView;
+@property (weak) IBOutlet PopupController *popupController;
 
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
 
 @end
