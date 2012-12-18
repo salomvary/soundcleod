@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: %d}))";
+NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
+
 
 @interface WebPreferences (WebPreferencesPrivate)
 - (void)_setLocalStorageDatabasePath:(NSString *)path;
@@ -19,6 +21,9 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
 @synthesize webView;
 @synthesize popupController;
 @synthesize window;
+@synthesize urlPrompt;
+@synthesize urlInput;
+@synthesize urlError;
 
 +(void)initialize;
 {
@@ -108,6 +113,65 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
 	}
 }
 
+- (IBAction)promptForUrl:(id)sender
+{
+    [NSApp beginSheet: [self urlPrompt]
+       modalForWindow: [self window]
+        modalDelegate: self
+       didEndSelector: @selector(urlPromptDidEnd:returnCode:contextInfo:)
+          contextInfo: nil];
+}
+
+- (IBAction)closeUrlPrompt:(id)sender
+{
+    NSString *value = [[urlInput stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *permalink = nil;
+    NSString *error = nil;
+    [urlError setHidden:TRUE];
+    
+    if([sender tag] == 1) {
+        if(value.length > 0) {
+            NSURL *url = [NSURL URLWithString:value];
+            if(url != nil) {
+                if([url host] != nil) {
+                    if([[url host] isEqualToString:@"soundcloud.com"]) {
+                        permalink = [url path];
+                    } else {
+                        error = @"This is not a SoundCloud link";
+                    }
+                } else {
+                    permalink = [url path];
+                }
+            } else {
+                permalink = value;
+            }
+        }
+        if(permalink != nil) {
+            if([permalink characterAtIndex:0] != '/') {
+                permalink = [@"/" stringByAppendingString: permalink];
+            }
+            [self navigate:permalink];
+            [urlInput setStringValue:@""];
+            [urlPrompt orderOut:self];
+            [NSApp endSheet:urlPrompt returnCode:NSOKButton];
+        } else if(error != nil) {
+            [urlError setStringValue:error];
+            [urlError setHidden:FALSE];
+        }
+    } else {
+        [urlInput setStringValue:@""];
+        [urlPrompt orderOut:self];
+        [NSApp endSheet:urlPrompt returnCode:NSCancelButton];
+    }
+
+}
+
+- (void)urlPromptDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
+{
+    NSLog(@"Prompt end %d", returnCode == NSCancelButton);
+    if (returnCode == NSCancelButton) return;
+}
+
 - (IBAction)showHelp:(id)sender {
     [self help];
 }
@@ -144,4 +208,11 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
     NSString *title = [window title];
     return [title rangeOfString:@"▶"].location != NSNotFound;
 }
+
+-(void) navigate: (NSString*) permalink
+{
+    NSString *js = [NSString stringWithFormat:SCNavigateJS, permalink];
+    [webView stringByEvaluatingJavaScriptFromString:js];
+}
+
 @end

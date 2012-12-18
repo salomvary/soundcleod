@@ -20,7 +20,12 @@ NSString *const SCTriggerJS;
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet WebView *webView;
 @property (weak) IBOutlet PopupController *popupController;
+@property (unsafe_unretained) IBOutlet NSWindow *urlPrompt;
+@property (weak) IBOutlet NSTextField *urlInput;
+@property (weak) IBOutlet NSTextField *urlError;
 
+-(IBAction)promptForUrl:(id)sender;
+-(IBAction)closeUrlPrompt:(id)sender;
 -(IBAction)showHelp:(id)sender;
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
@@ -31,5 +36,6 @@ NSString *const SCTriggerJS;
 -(void)help;
 -(void) trigger: (int) keyCode;
 -(BOOL) isPlaying;
+-(void) navigate: (NSString*) permalink;
 
 @end
