@@ -25,6 +25,6 @@ NSString *const SCTriggerJS;
 -(void)next;
 -(void)prev;
 -(void)playPause;
--(void) trigger;
+-(void) trigger: (int) keyCode;
 
 @end
