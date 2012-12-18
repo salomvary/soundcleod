@@ -22,9 +22,11 @@ NSString *const SCTriggerJS;
 @property (weak) IBOutlet PopupController *popupController;
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
+-(void)receiveSleepNotification:(NSNotification*)note;
 -(void)next;
 -(void)prev;
 -(void)playPause;
 -(void) trigger: (int) keyCode;
+-(BOOL) isPlaying;
 
 @end

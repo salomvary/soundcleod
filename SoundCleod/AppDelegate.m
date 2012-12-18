@@ -47,6 +47,10 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
     
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
     [prefs setLocalStorageEnabled:YES];
+    
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(receiveSleepNotification:)
+                                                               name: NSWorkspaceWillSleepNotification object: NULL];
 }
 
 - (void) awakeFromNib
@@ -68,6 +72,12 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
     }
 }
 
+- (void)receiveSleepNotification:(NSNotification*)note
+{
+    if([self isPlaying]) {
+        [self playPause];
+    }
+}
 
 -(void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event;
 {
@@ -121,5 +131,12 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
     NSString *js = [NSString stringWithFormat:SCTriggerJS, keyCode];
     NSString *result = [webView stringByEvaluatingJavaScriptFromString:js];
     NSLog(@"JS result %@", result);
+}
+
+-(BOOL) isPlaying
+{
+    // FIXME find a better way to detect playing
+    NSString *title = [window title];
+    return [title rangeOfString:@"▶"].location != NSNotFound;
 }
 @end
