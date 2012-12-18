@@ -10,40 +10,41 @@
 		2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2618AE0016803F1900EC2E15 /* Carbon.framework */; };
 		2618AE0816806FC500EC2E15 /* soundcleod.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 2618AE0716806FC500EC2E15 /* soundcleod.iconset */; };
 		263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C2BA01677152500EF4792 /* Cocoa.framework */; };
-		263C2BAB1677152500EF4792 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BA91677152500EF4792 /* InfoPlist.strings */; };
-		263C2BAD1677152500EF4792 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C2BAC1677152500EF4792 /* main.m */; };
-		263C2BB11677152500EF4792 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BAF1677152500EF4792 /* Credits.rtf */; };
-		263C2BB41677152500EF4792 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C2BB31677152500EF4792 /* AppDelegate.m */; };
-		263C2BB71677152500EF4792 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BB51677152500EF4792 /* MainMenu.xib */; };
 		26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A0087016771DA5006FD03A /* WebKit.framework */; };
-		26A0087516772D33006FD03A /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A0087416772D33006FD03A /* PopupController.m */; };
 		26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B5793A167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m */; };
 		26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B5793C167A58CD0034D295 /* SPMediaKeyTap.m */; };
+		26FF310C1680734B0091448C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31001680734B0091448C /* AppDelegate.m */; };
+		26FF310D1680734B0091448C /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 26FF31011680734B0091448C /* Credits.rtf */; };
+		26FF310E1680734B0091448C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 26FF31031680734B0091448C /* InfoPlist.strings */; };
+		26FF310F1680734B0091448C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26FF31051680734B0091448C /* MainMenu.xib */; };
+		26FF31101680734B0091448C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31071680734B0091448C /* main.m */; };
+		26FF31111680734B0091448C /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31091680734B0091448C /* PopupController.m */; };
+		26FF31121680734B0091448C /* SoundCleod-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26FF310A1680734B0091448C /* SoundCleod-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2618AE0016803F1900EC2E15 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		2618AE0716806FC500EC2E15 /* soundcleod.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = soundcleod.iconset; sourceTree = "<group>"; };
-		263C2B9C1677152500EF4792 /* SoundCloud NEXT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoundCloud NEXT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		263C2B9C1677152500EF4792 /* SoundCleod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundCleod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		263C2BA01677152500EF4792 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		263C2BA31677152500EF4792 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		263C2BA41677152500EF4792 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		263C2BA51677152500EF4792 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		263C2BA81677152500EF4792 /* SoundCloud NEXT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SoundCloud NEXT-Info.plist"; sourceTree = "<group>"; };
-		263C2BAA1677152500EF4792 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		263C2BAC1677152500EF4792 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		263C2BAE1677152500EF4792 /* SoundCloud NEXT-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoundCloud NEXT-Prefix.pch"; sourceTree = "<group>"; };
-		263C2BB01677152500EF4792 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		263C2BB21677152500EF4792 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		263C2BB31677152500EF4792 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		263C2BB61677152500EF4792 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		26A0087016771DA5006FD03A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		26A0087316772D33006FD03A /* PopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupController.h; sourceTree = "<group>"; };
-		26A0087416772D33006FD03A /* PopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupController.m; sourceTree = "<group>"; };
 		26B57939167A58CD0034D295 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
 		26B5793A167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
 		26B5793B167A58CD0034D295 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
 		26B5793C167A58CD0034D295 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
+		26FF30FF1680734B0091448C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		26FF31001680734B0091448C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		26FF31021680734B0091448C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		26FF31041680734B0091448C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		26FF31061680734B0091448C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		26FF31071680734B0091448C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		26FF31081680734B0091448C /* PopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupController.h; sourceTree = "<group>"; };
+		26FF31091680734B0091448C /* PopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupController.m; sourceTree = "<group>"; };
+		26FF310A1680734B0091448C /* SoundCleod-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SoundCleod-Info.plist"; sourceTree = "<group>"; };
+		26FF310B1680734B0091448C /* SoundCleod-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SoundCleod-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +64,11 @@
 		263C2B911677152500EF4792 = {
 			isa = PBXGroup;
 			children = (
+				26FF30FE1680734B0091448C /* SoundCleod */,
 				2618AE0716806FC500EC2E15 /* soundcleod.iconset */,
 				2618AE0016803F1900EC2E15 /* Carbon.framework */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
 				26A0087016771DA5006FD03A /* WebKit.framework */,
-				263C2BA61677152500EF4792 /* SoundCloud NEXT */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
 				263C2B9D1677152500EF4792 /* Products */,
 			);
@@ -76,7 +77,7 @@
 		263C2B9D1677152500EF4792 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				263C2B9C1677152500EF4792 /* SoundCloud NEXT.app */,
+				263C2B9C1677152500EF4792 /* SoundCleod.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,31 +101,6 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		263C2BA61677152500EF4792 /* SoundCloud NEXT */ = {
-			isa = PBXGroup;
-			children = (
-				263C2BB21677152500EF4792 /* AppDelegate.h */,
-				263C2BB31677152500EF4792 /* AppDelegate.m */,
-				263C2BB51677152500EF4792 /* MainMenu.xib */,
-				263C2BA71677152500EF4792 /* Supporting Files */,
-				26A0087316772D33006FD03A /* PopupController.h */,
-				26A0087416772D33006FD03A /* PopupController.m */,
-			);
-			path = "SoundCloud NEXT";
-			sourceTree = "<group>";
-		};
-		263C2BA71677152500EF4792 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				263C2BA81677152500EF4792 /* SoundCloud NEXT-Info.plist */,
-				263C2BA91677152500EF4792 /* InfoPlist.strings */,
-				263C2BAC1677152500EF4792 /* main.m */,
-				263C2BAE1677152500EF4792 /* SoundCloud NEXT-Prefix.pch */,
-				263C2BAF1677152500EF4792 /* Credits.rtf */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		26B57925167A58CD0034D295 /* SPMediaKeyTap */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,12 +120,37 @@
 			path = SPInvocationGrabbing;
 			sourceTree = "<group>";
 		};
+		26FF30FE1680734B0091448C /* SoundCleod */ = {
+			isa = PBXGroup;
+			children = (
+				26FF30FF1680734B0091448C /* AppDelegate.h */,
+				26FF31001680734B0091448C /* AppDelegate.m */,
+				26FF311C168075A50091448C /* Resources */,
+				26FF31071680734B0091448C /* main.m */,
+				26FF31081680734B0091448C /* PopupController.h */,
+				26FF31091680734B0091448C /* PopupController.m */,
+				26FF310B1680734B0091448C /* SoundCleod-Prefix.pch */,
+			);
+			path = SoundCleod;
+			sourceTree = "<group>";
+		};
+		26FF311C168075A50091448C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				26FF31011680734B0091448C /* Credits.rtf */,
+				26FF31031680734B0091448C /* InfoPlist.strings */,
+				26FF31051680734B0091448C /* MainMenu.xib */,
+				26FF310A1680734B0091448C /* SoundCleod-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		263C2B9B1677152500EF4792 /* SoundCloud NEXT */ = {
+		263C2B9B1677152500EF4792 /* SoundCleod */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 263C2BBA1677152500EF4792 /* Build configuration list for PBXNativeTarget "SoundCloud NEXT" */;
+			buildConfigurationList = 263C2BBA1677152500EF4792 /* Build configuration list for PBXNativeTarget "SoundCleod" */;
 			buildPhases = (
 				263C2B981677152500EF4792 /* Sources */,
 				263C2B991677152500EF4792 /* Frameworks */,
@@ -159,9 +160,9 @@
 			);
 			dependencies = (
 			);
-			name = "SoundCloud NEXT";
-			productName = "SoundCloud NEXT";
-			productReference = 263C2B9C1677152500EF4792 /* SoundCloud NEXT.app */;
+			name = SoundCleod;
+			productName = SoundCleod;
+			productReference = 263C2B9C1677152500EF4792 /* SoundCleod.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +174,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Márton Salomváry";
 			};
-			buildConfigurationList = 263C2B961677152500EF4792 /* Build configuration list for PBXProject "SoundCloud NEXT" */;
+			buildConfigurationList = 263C2B961677152500EF4792 /* Build configuration list for PBXProject "SoundCleod" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -186,7 +187,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				263C2B9B1677152500EF4792 /* SoundCloud NEXT */,
+				263C2B9B1677152500EF4792 /* SoundCleod */,
 			);
 		};
 /* End PBXProject section */
@@ -196,10 +197,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				263C2BAB1677152500EF4792 /* InfoPlist.strings in Resources */,
-				263C2BB11677152500EF4792 /* Credits.rtf in Resources */,
-				263C2BB71677152500EF4792 /* MainMenu.xib in Resources */,
 				2618AE0816806FC500EC2E15 /* soundcleod.iconset in Resources */,
+				26FF310D1680734B0091448C /* Credits.rtf in Resources */,
+				26FF310E1680734B0091448C /* InfoPlist.strings in Resources */,
+				26FF310F1680734B0091448C /* MainMenu.xib in Resources */,
+				26FF31121680734B0091448C /* SoundCleod-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,37 +212,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				263C2BAD1677152500EF4792 /* main.m in Sources */,
-				263C2BB41677152500EF4792 /* AppDelegate.m in Sources */,
-				26A0087516772D33006FD03A /* PopupController.m in Sources */,
 				26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */,
+				26FF310C1680734B0091448C /* AppDelegate.m in Sources */,
+				26FF31101680734B0091448C /* main.m in Sources */,
+				26FF31111680734B0091448C /* PopupController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		263C2BA91677152500EF4792 /* InfoPlist.strings */ = {
+		26FF31011680734B0091448C /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				263C2BAA1677152500EF4792 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		263C2BAF1677152500EF4792 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				263C2BB01677152500EF4792 /* en */,
+				26FF31021680734B0091448C /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		263C2BB51677152500EF4792 /* MainMenu.xib */ = {
+		26FF31031680734B0091448C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				263C2BB61677152500EF4792 /* en */,
+				26FF31041680734B0091448C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		26FF31051680734B0091448C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26FF31061680734B0091448C /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -306,9 +308,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SoundCloud NEXT/SoundCloud NEXT-Prefix.pch";
-				INFOPLIST_FILE = "SoundCloud NEXT/SoundCloud NEXT-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "SoundCleod/SoundCleod-Prefix.pch";
+				INFOPLIST_FILE = "SoundCleod/SoundCleod-Info.plist";
+				PRODUCT_NAME = SoundCleod;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -318,9 +320,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SoundCloud NEXT/SoundCloud NEXT-Prefix.pch";
-				INFOPLIST_FILE = "SoundCloud NEXT/SoundCloud NEXT-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "SoundCleod/SoundCleod-Prefix.pch";
+				INFOPLIST_FILE = "SoundCleod/SoundCleod-Info.plist";
+				PRODUCT_NAME = SoundCleod;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -328,7 +330,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		263C2B961677152500EF4792 /* Build configuration list for PBXProject "SoundCloud NEXT" */ = {
+		263C2B961677152500EF4792 /* Build configuration list for PBXProject "SoundCleod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				263C2BB81677152500EF4792 /* Debug */,
@@ -337,7 +339,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		263C2BBA1677152500EF4792 /* Build configuration list for PBXNativeTarget "SoundCloud NEXT" */ = {
+		263C2BBA1677152500EF4792 /* Build configuration list for PBXNativeTarget "SoundCleod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				263C2BBB1677152500EF4792 /* Debug */,

@@ -42,7 +42,7 @@
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="694149608">
 						<reference key="NSMenu" ref="649796088"/>
-						<string key="NSTitle">SoundCloud NEXT</string>
+						<string key="NSTitle">SoundCleod</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -56,11 +56,11 @@
 						</object>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="110575045">
-							<string key="NSTitle">SoundCloud NEXT</string>
+							<string key="NSTitle">SoundCleod</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="238522557">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">About SoundCloud NEXT</string>
+									<string key="NSTitle">About SoundCleod</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
@@ -125,7 +125,7 @@
 								</object>
 								<object class="NSMenuItem" id="755159360">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Hide SoundCloud NEXT</string>
+									<string key="NSTitle">Hide SoundCleod</string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -163,7 +163,7 @@
 								</object>
 								<object class="NSMenuItem" id="632727374">
 									<reference key="NSMenu" ref="110575045"/>
-									<string key="NSTitle">Quit SoundCloud NEXT</string>
+									<string key="NSTitle">Quit SoundCleod</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1278,7 +1278,7 @@
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="105068016">
 									<reference key="NSMenu" ref="992780483"/>
-									<string key="NSTitle">SoundCloud NEXT Help</string>
+									<string key="NSTitle">SoundCleod Help</string>
 									<string key="NSKeyEquiv">?</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1297,13 +1297,13 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{137, 10}, {1024, 650}}</string>
 				<int key="NSWTFlags">1954021376</int>
-				<string key="NSWindowTitle">SoundCloud NEXT</string>
+				<string key="NSWindowTitle">SoundCleod</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{320, 320}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="WebView" id="958787108">
@@ -1345,7 +1345,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{1024, 650}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="958787108"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -1364,12 +1363,12 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 132}, {276, 378}}</string>
 				<int key="NSWTFlags">-461896704</int>
-				<string key="NSWindowTitle">Login - SoundCloud NEXT</string>
+				<string key="NSWindowTitle">Login - SoundCleod</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<object class="NSView" key="NSWindowView" id="14688574">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="WebView" id="538780827">
@@ -1394,7 +1393,6 @@
 							</set>
 							<string key="NSFrameSize">{276, 378}</string>
 							<reference key="NSSuperview" ref="14688574"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="FrameName"/>
@@ -1405,8 +1403,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{276, 378}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="538780827"/>
 					<string key="NSReuseIdentifierKey">_NS:21</string>
 				</object>
@@ -3496,11 +3492,11 @@
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="589.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="NO" key="589.NSWindowTemplate.visibleAtLaunch"/>
-				<array class="NSMutableArray" key="590.IBNSViewMetadataConstraints">
-					<reference ref="323956699"/>
-					<reference ref="796364323"/>
-					<reference ref="99772789"/>
+				<array key="590.IBNSViewMetadataConstraints">
 					<reference ref="154227770"/>
+					<reference ref="99772789"/>
+					<reference ref="796364323"/>
+					<reference ref="323956699"/>
 				</array>
 				<string key="590.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="NO" key="591.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>

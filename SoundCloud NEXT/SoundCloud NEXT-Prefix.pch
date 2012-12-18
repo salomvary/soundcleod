@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'SoundCloud NEXT' target in the 'SoundCloud NEXT' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
