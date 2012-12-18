@@ -10,6 +10,11 @@
 
 NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: %d}))";
 
+@interface WebPreferences (WebPreferencesPrivate)
+- (void)_setLocalStorageDatabasePath:(NSString *)path;
+- (void) setLocalStorageEnabled: (BOOL) localStorageEnabled;
+@end
+
 @implementation AppDelegate
 @synthesize webView;
 @synthesize popupController;
@@ -39,6 +44,9 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
     
     WebPreferences* prefs = [webView preferences];
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
+    
+    [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
+    [prefs setLocalStorageEnabled:YES];
 }
 
 - (void) awakeFromNib
