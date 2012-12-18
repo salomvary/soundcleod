@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: %d}))";
+
 @implementation AppDelegate
 @synthesize webView;
 @synthesize popupController;
@@ -59,14 +61,17 @@
 		switch (keyCode) {
 			case NX_KEYTYPE_PLAY:
 				NSLog(@"Play/pause pressed");
+                [self playPause];
 				break;
                 
 			case NX_KEYTYPE_FAST:
 				NSLog(@"Ffwd pressed");
-				break;
+				[self next];
+                break;
                 
 			case NX_KEYTYPE_REWIND:
 				NSLog(@"Rewind pressed");
+                [self prev];
 				break;
 			default:
 				NSLog(@"Key %d pressed", keyCode);
@@ -75,4 +80,25 @@
 	}
 }
 
+-(void)next
+{
+    [self trigger:74];
+}
+
+-(void)prev
+{
+    [self trigger:75];
+}
+
+-(void)playPause
+{
+    [self trigger:32];
+}
+
+-(void) trigger: (int) keyCode
+{
+    NSString *js = [NSString stringWithFormat:SCTriggerJS, keyCode];
+    NSString *result = [webView stringByEvaluatingJavaScriptFromString:js];
+    NSLog(@"JS result %@", result);
+}
 @end

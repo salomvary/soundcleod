@@ -11,6 +11,7 @@
 #import "PopupController.h"
 #import "../SPMediaKeyTap/SPMediaKeyTap.h"
 
+NSString *const SCTriggerJS;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     SPMediaKeyTap *keyTap;
@@ -21,5 +22,9 @@
 @property (weak) IBOutlet PopupController *popupController;
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
+-(void)next;
+-(void)prev;
+-(void)playPause;
+-(void) trigger;
 
 @end
