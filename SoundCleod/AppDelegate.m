@@ -91,17 +91,14 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
 	if (keyIsPressed) {
 		switch (keyCode) {
 			case NX_KEYTYPE_PLAY:
-				NSLog(@"Play/pause pressed");
                 [self playPause];
 				break;
                 
 			case NX_KEYTYPE_FAST:
-				NSLog(@"Ffwd pressed");
 				[self next];
                 break;
                 
 			case NX_KEYTYPE_REWIND:
-				NSLog(@"Rewind pressed");
                 [self prev];
 				break;
 			default:
@@ -138,8 +135,7 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
 -(void) trigger: (int) keyCode
 {
     NSString *js = [NSString stringWithFormat:SCTriggerJS, keyCode];
-    NSString *result = [webView stringByEvaluatingJavaScriptFromString:js];
-    NSLog(@"JS result %@", result);
+    [webView stringByEvaluatingJavaScriptFromString:js];
 }
 
 -(BOOL) isPlaying
