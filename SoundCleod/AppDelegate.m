@@ -13,6 +13,7 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
 @implementation AppDelegate
 @synthesize webView;
 @synthesize popupController;
+@synthesize window;
 
 +(void)initialize;
 {
@@ -40,6 +41,7 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
 - (void) awakeFromNib
 {
     [webView setUIDelegate:self];
+    [webView setFrameLoadDelegate:self];
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
@@ -47,6 +49,14 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
     NSLog(@"webView: createWebViewWithRequest %@", request);
     return [popupController show];
 }
+
+- (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
+{
+    if (frame == [webView mainFrame]) {
+        [window setTitle:title];
+    }
+}
+
 
 -(void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event;
 {
