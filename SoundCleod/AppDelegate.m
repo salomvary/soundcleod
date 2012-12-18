@@ -36,6 +36,9 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
     [[webView mainFrame] loadRequest:
 	 [NSURLRequest requestWithURL:[NSURL URLWithString: @"http://soundcloud.com" ]
     ]];
+    
+    WebPreferences* prefs = [webView preferences];
+    [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
 }
 
 - (void) awakeFromNib
