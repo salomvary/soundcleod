@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="286" height="286" version="1.0" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop stop-color="#F7950F" offset="0%"/>
+			<stop stop-color="#F7330E" offset="100%"/>
+		</linearGradient>
+	</defs>
+	<g transform="translate(15,15)">
+	  <rect width="256" height="256" fill="url(#gradient)" rx="40" ry="40"/>
+	  <text x="28" y="200" font-family="Arial Unicode MS" font-size="200" fill="white">☁</text>
+	</g>
+</svg>

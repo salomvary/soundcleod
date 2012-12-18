@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2618AE0016803F1900EC2E15 /* Carbon.framework */; };
+		2618AE0816806FC500EC2E15 /* soundcleod.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 2618AE0716806FC500EC2E15 /* soundcleod.iconset */; };
 		263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C2BA01677152500EF4792 /* Cocoa.framework */; };
 		263C2BAB1677152500EF4792 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BA91677152500EF4792 /* InfoPlist.strings */; };
 		263C2BAD1677152500EF4792 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C2BAC1677152500EF4792 /* main.m */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		2618AE0016803F1900EC2E15 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		2618AE0716806FC500EC2E15 /* soundcleod.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = soundcleod.iconset; sourceTree = "<group>"; };
 		263C2B9C1677152500EF4792 /* SoundCloud NEXT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoundCloud NEXT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		263C2BA01677152500EF4792 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		263C2BA31677152500EF4792 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -61,6 +63,7 @@
 		263C2B911677152500EF4792 = {
 			isa = PBXGroup;
 			children = (
+				2618AE0716806FC500EC2E15 /* soundcleod.iconset */,
 				2618AE0016803F1900EC2E15 /* Carbon.framework */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
 				26A0087016771DA5006FD03A /* WebKit.framework */,
@@ -196,6 +199,7 @@
 				263C2BAB1677152500EF4792 /* InfoPlist.strings in Resources */,
 				263C2BB11677152500EF4792 /* Credits.rtf in Resources */,
 				263C2BB71677152500EF4792 /* MainMenu.xib in Resources */,
+				2618AE0816806FC500EC2E15 /* soundcleod.iconset in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,21 @@
+<?xml version="1.1" standalone="no"?>
+<svg width="275" height="275" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+			<stop stop-color="#F7950F" offset="0%"/>
+			<stop stop-color="#F7330E" offset="100%"/>
+		</linearGradient>
+		<filter id="drop-shadow">
+			<feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+			<feOffset in="blur" dx="2" dy="4" result="offsetBlur"/>
+			<feMerge>
+					<feMergeNode in="offsetBlur"/>
+					<feMergeNode in="SourceGraphic"/>
+			</feMerge>
+	</filter>
+	</defs>
+	<g transform="translate(6,6)">
+	  <rect width="256" height="256" fill="url(#gradient)" rx="40" ry="40" filter="url(#drop-shadow)"/>
+	  <text x="28" y="200" font-family="Arial Unicode MS" font-size="200" fill="white">☁</text>
+	</g>
+</svg>
