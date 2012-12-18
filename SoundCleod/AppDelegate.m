@@ -111,6 +111,10 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
 	}
 }
 
+- (IBAction)showHelp:(id)sender {
+    [self help];
+}
+
 -(void)next
 {
     [self trigger:74];
@@ -124,6 +128,11 @@ NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: 
 -(void)playPause
 {
     [self trigger:32];
+}
+
+-(void)help
+{
+    [self trigger:72];
 }
 
 -(void) trigger: (int) keyCode
