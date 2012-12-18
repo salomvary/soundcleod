@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2618AE0016803F1900EC2E15 /* Carbon.framework */; };
 		263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C2BA01677152500EF4792 /* Cocoa.framework */; };
 		263C2BAB1677152500EF4792 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BA91677152500EF4792 /* InfoPlist.strings */; };
 		263C2BAD1677152500EF4792 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 263C2BAC1677152500EF4792 /* main.m */; };
@@ -15,9 +16,12 @@
 		263C2BB71677152500EF4792 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 263C2BB51677152500EF4792 /* MainMenu.xib */; };
 		26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A0087016771DA5006FD03A /* WebKit.framework */; };
 		26A0087516772D33006FD03A /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26A0087416772D33006FD03A /* PopupController.m */; };
+		26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B5793A167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m */; };
+		26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B5793C167A58CD0034D295 /* SPMediaKeyTap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2618AE0016803F1900EC2E15 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		263C2B9C1677152500EF4792 /* SoundCloud NEXT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SoundCloud NEXT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		263C2BA01677152500EF4792 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		263C2BA31677152500EF4792 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -34,6 +38,10 @@
 		26A0087016771DA5006FD03A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		26A0087316772D33006FD03A /* PopupController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupController.h; sourceTree = "<group>"; };
 		26A0087416772D33006FD03A /* PopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupController.m; sourceTree = "<group>"; };
+		26B57939167A58CD0034D295 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
+		26B5793A167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
+		26B5793B167A58CD0034D295 /* SPMediaKeyTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPMediaKeyTap.h; sourceTree = "<group>"; };
+		26B5793C167A58CD0034D295 /* SPMediaKeyTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPMediaKeyTap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */,
 				26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */,
 				263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */,
 			);
@@ -52,6 +61,8 @@
 		263C2B911677152500EF4792 = {
 			isa = PBXGroup;
 			children = (
+				2618AE0016803F1900EC2E15 /* Carbon.framework */,
+				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
 				26A0087016771DA5006FD03A /* WebKit.framework */,
 				263C2BA61677152500EF4792 /* SoundCloud NEXT */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
@@ -111,6 +122,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		26B57925167A58CD0034D295 /* SPMediaKeyTap */ = {
+			isa = PBXGroup;
+			children = (
+				26B57935167A58CD0034D295 /* SPInvocationGrabbing */,
+				26B5793B167A58CD0034D295 /* SPMediaKeyTap.h */,
+				26B5793C167A58CD0034D295 /* SPMediaKeyTap.m */,
+			);
+			path = SPMediaKeyTap;
+			sourceTree = "<group>";
+		};
+		26B57935167A58CD0034D295 /* SPInvocationGrabbing */ = {
+			isa = PBXGroup;
+			children = (
+				26B57939167A58CD0034D295 /* NSObject+SPInvocationGrabbing.h */,
+				26B5793A167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m */,
+			);
+			path = SPInvocationGrabbing;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,6 +176,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				English,
 			);
 			mainGroup = 263C2B911677152500EF4792;
 			productRefGroup = 263C2B9D1677152500EF4792 /* Products */;
@@ -178,6 +209,8 @@
 				263C2BAD1677152500EF4792 /* main.m in Sources */,
 				263C2BB41677152500EF4792 /* AppDelegate.m in Sources */,
 				26A0087516772D33006FD03A /* PopupController.m in Sources */,
+				26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */,
+				26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

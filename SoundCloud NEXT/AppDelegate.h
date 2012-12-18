@@ -9,8 +9,12 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 #import "PopupController.h"
+#import "../SPMediaKeyTap/SPMediaKeyTap.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+
+@interface AppDelegate : NSObject <NSApplicationDelegate> {
+    SPMediaKeyTap *keyTap;
+}
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet WebView *webView;
