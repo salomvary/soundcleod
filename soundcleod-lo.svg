@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="no"?>
-<svg width="256" height="256" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="256" height="256" version="1.0" xmlns="http://www.w3.org/2000/svg">
 	<defs>
 		<linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1" gradientTransform="rotate(-45, 0.5, 0.5)">
 			<stop stop-color="#F7950F" offset="0%"/>
@@ -8,6 +8,6 @@
 	</defs>
 	<g transform="translate(37.5,37.5)">
 	  <rect width="181" height="181" fill="url(#gradient)" rx="40" ry="40" transform="rotate(45, 90.5, 90.5)"/>
-	  <text x="17" y="145" font-family="Arial Unicode MS" font-size="150" fill="white">☁</text>
+	  <text x="18" y="150" font-size="150" fill="white">☁</text>
 	</g>
 </svg>
