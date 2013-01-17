@@ -9,11 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 #import "PopupController.h"
+#import "UrlPromptController.h"
 #import "../SPMediaKeyTap/SPMediaKeyTap.h"
 
 NSString *const SCTriggerJS;
-NSString *const SCHost;
-
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     SPMediaKeyTap *keyTap;
 }
@@ -21,12 +20,8 @@ NSString *const SCHost;
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet WebView *webView;
 @property (weak) IBOutlet PopupController *popupController;
-@property (unsafe_unretained) IBOutlet NSWindow *urlPrompt;
-@property (weak) IBOutlet NSTextField *urlInput;
-@property (weak) IBOutlet NSTextField *urlError;
+@property (weak) IBOutlet UrlPromptController *urlPromptController;
 
--(IBAction)promptForUrl:(id)sender;
--(IBAction)closeUrlPrompt:(id)sender;
 -(IBAction)showHelp:(id)sender;
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;

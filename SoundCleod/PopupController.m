@@ -6,8 +6,8 @@
 //  Copyright (c) 2012 Márton Salomváry. All rights reserved.
 //
 
+#import "AppConstants.h"
 #import "PopupController.h"
-#import "AppDelegate.h"
 
 @implementation PopupController
 

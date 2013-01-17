@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Márton Salomváry. All rights reserved.
 //
 
+#import "AppConstants.h"
 #import "AppDelegate.h"
 
 NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: %d}))";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
-NSString *const SCHost = @"soundcloud.com";
 
 @interface WebPreferences (WebPreferencesPrivate)
 - (void)_setLocalStorageDatabasePath:(NSString *)path;
@@ -21,9 +21,7 @@ NSString *const SCHost = @"soundcloud.com";
 @synthesize webView;
 @synthesize popupController;
 @synthesize window;
-@synthesize urlPrompt;
-@synthesize urlInput;
-@synthesize urlError;
+@synthesize urlPromptController;
 
 +(void)initialize;
 {
@@ -75,6 +73,7 @@ NSString *const SCHost = @"soundcloud.com";
     [webView setUIDelegate:self];
     [webView setFrameLoadDelegate:self];
     [webView setPolicyDelegate:self];
+    [urlPromptController setNavigateDelegate:self];
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
@@ -163,64 +162,6 @@ NSString *const SCHost = @"soundcloud.com";
 	}
 }
 
-- (IBAction)promptForUrl:(id)sender
-{
-    [NSApp beginSheet: [self urlPrompt]
-       modalForWindow: [self window]
-        modalDelegate: self
-       didEndSelector: @selector(urlPromptDidEnd:returnCode:contextInfo:)
-          contextInfo: nil];
-}
-
-- (IBAction)closeUrlPrompt:(id)sender
-{
-    NSString *value = [[urlInput stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *permalink = nil;
-    NSString *error = nil;
-    [urlError setHidden:TRUE];
-    
-    if([sender tag] == 1) {
-        if(value.length > 0) {
-            NSURL *url = [NSURL URLWithString:value];
-            if(url != nil) {
-                if([url host] != nil) {
-                    if([[url host] isEqualToString:SCHost]) {
-                        permalink = [url path];
-                    } else {
-                        error = @"This is not a SoundCloud link";
-                    }
-                } else {
-                    permalink = [url path];
-                }
-            } else {
-                permalink = value;
-            }
-        }
-        if(permalink != nil) {
-            if([permalink characterAtIndex:0] != '/') {
-                permalink = [@"/" stringByAppendingString: permalink];
-            }
-            [self navigate:permalink];
-            [urlInput setStringValue:@""];
-            [urlPrompt orderOut:self];
-            [NSApp endSheet:urlPrompt returnCode:NSOKButton];
-        } else if(error != nil) {
-            [urlError setStringValue:error];
-            [urlError setHidden:FALSE];
-        }
-    } else {
-        [urlInput setStringValue:@""];
-        [urlPrompt orderOut:self];
-        [NSApp endSheet:urlPrompt returnCode:NSCancelButton];
-    }
-
-}
-
-- (void)urlPromptDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
-{
-    NSLog(@"Prompt end %d", returnCode == NSCancelButton);
-    if (returnCode == NSCancelButton) return;
-}
 
 - (IBAction)showHelp:(id)sender {
     [self help];
