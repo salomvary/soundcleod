@@ -11,12 +11,12 @@ Why is that good?
 
 ## Screenshots? Yeah!
 
-![SoundCleod screenshot](screenshot.png)
+![SoundCleod screenshot](https://raw.github.com/salomvary/soundcleod/master/screenshot.png)
 
 ## How to get it?
 
 - [Download it from
-	here](https://raw.github.com/salomvary/soundcleod/dist/SoundCleod.zip)
+	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.zip?raw=true)
 - Open the zip file.
 - Move SoundCleod to the Applications folder.
 - Go to Applications, find SoundCleod.
