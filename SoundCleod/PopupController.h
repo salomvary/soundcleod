@@ -13,6 +13,8 @@
 
 @property (assign) IBOutlet NSPanel *window;
 @property (weak) IBOutlet WebView *webView;
+@property BOOL isFirstLoad;
+
 
 - (void)awakeFromNib;
 - (WebView *)show;
@@ -20,5 +22,6 @@
 - (void)webViewClose:(WebView *)sender;
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener;
++(BOOL)isLoginURL:(NSURL *)url;
 
 @end

@@ -10,7 +10,7 @@
 
 NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: %d}))";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
-
+NSString *const SCHost = @"soundcloud.com";
 
 @interface WebPreferences (WebPreferencesPrivate)
 - (void)_setLocalStorageDatabasePath:(NSString *)path;
@@ -35,6 +35,18 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
                                                              nil]];
 }
 
++(BOOL)isSCURL:(NSURL *)url
+{
+    if(url != nil) {
+        if([url host] != nil) {
+            if([[url host] isEqualToString:SCHost]) {
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
@@ -44,7 +56,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 		NSLog(@"Media key monitoring disabled");
 
     [[webView mainFrame] loadRequest:
-	 [NSURLRequest requestWithURL:[NSURL URLWithString: @"http://soundcloud.com" ]
+     [NSURLRequest requestWithURL:[NSURL URLWithString: [@"http://" stringByAppendingString:SCHost]]
     ]];
     
     WebPreferences* prefs = [webView preferences];
@@ -62,10 +74,12 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 {
     [webView setUIDelegate:self];
     [webView setFrameLoadDelegate:self];
+    [webView setPolicyDelegate:self];
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {
+    // request will always be null (probably a bug)
     NSLog(@"webView: createWebViewWithRequest %@", request);
     return [popupController show];
 }
@@ -75,6 +89,42 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     if (frame == [webView mainFrame]) {
         [window setTitle:title];
     }
+}
+
+- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+        request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
+{
+    // normal in-frame navigation
+ 	NSLog(@"main/webView: decidePolicyForNavigationAction: %@\n",  request);
+    // allow loading urls in sub-frames OR when they are sc urls 
+    if(frame != [webView mainFrame] || [AppDelegate isSCURL:[request URL]]) {
+        NSLog(@"main/webView: decidePolicyForNavigationAction local");
+        [listener use];
+    } else {
+        NSLog(@"main/webView: decidePolicyForNavigationAction external");
+        [listener ignore];
+        // open external links in external browser
+        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+    }
+}
+
+- (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id < WebPolicyDecisionListener >)listener
+{
+    // target=_blank or anything scenario
+    NSLog(@"main/webView: decidePolicyForNewWindowAction: %@\n",  request);
+    [listener ignore];
+    if([AppDelegate isSCURL:[request URL]]) {
+        NSLog(@"main/webView: decidePolicyForNewWindowAction local");
+        // open local links in the main frame
+        // TODO: maybe maintain a frame stack instead?
+        [[webView mainFrame] loadRequest: [NSURLRequest requestWithURL:
+                                           [actionInformation objectForKey:WebActionOriginalURLKey]]];
+    } else {
+        NSLog(@"main/webView: decidePolicyForNewWindowAction external");
+        // open external links in external browser
+        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+    }
+
 }
 
 - (void)receiveSleepNotification:(NSNotification*)note
@@ -134,7 +184,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
             NSURL *url = [NSURL URLWithString:value];
             if(url != nil) {
                 if([url host] != nil) {
-                    if([[url host] isEqualToString:@"soundcloud.com"]) {
+                    if([[url host] isEqualToString:SCHost]) {
                         permalink = [url path];
                     } else {
                         error = @"This is not a SoundCloud link";

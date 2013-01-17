@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26115150168B3A0E00F1566F /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2611514F168B3A0E00F1566F /* LoginWindow.xib */; };
 		2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2618AE0016803F1900EC2E15 /* Carbon.framework */; };
 		2618AE0816806FC500EC2E15 /* soundcleod.iconset in Resources */ = {isa = PBXBuildFile; fileRef = 2618AE0716806FC500EC2E15 /* soundcleod.iconset */; };
 		263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C2BA01677152500EF4792 /* Cocoa.framework */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2611514F168B3A0E00F1566F /* LoginWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindow.xib; sourceTree = "<group>"; };
 		2618AE0016803F1900EC2E15 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		2618AE0716806FC500EC2E15 /* soundcleod.iconset */ = {isa = PBXFileReference; lastKnownFileType = folder.iconset; path = soundcleod.iconset; sourceTree = "<group>"; };
 		263C2B9C1677152500EF4792 /* SoundCleod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundCleod.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 				26FF31031680734B0091448C /* InfoPlist.strings */,
 				26FF31051680734B0091448C /* MainMenu.xib */,
 				26FF310A1680734B0091448C /* SoundCleod-Info.plist */,
+				2611514F168B3A0E00F1566F /* LoginWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				26FF310E1680734B0091448C /* InfoPlist.strings in Resources */,
 				26FF310F1680734B0091448C /* MainMenu.xib in Resources */,
 				26FF31121680734B0091448C /* SoundCleod-Info.plist in Resources */,
+				26115150168B3A0E00F1566F /* LoginWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
