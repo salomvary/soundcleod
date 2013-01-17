@@ -18,10 +18,9 @@
 
 - (void)awakeFromNib;
 - (WebView *)show;
-- (void)webViewShow:(WebView *)sender;
 - (void)webViewClose:(WebView *)sender;
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener;
-+(BOOL)isLoginURL:(NSURL *)url;
++ (BOOL)isLoginURL:(NSURL *)url;
 
 @end

@@ -15,7 +15,7 @@
 @synthesize window;
 @synthesize isFirstLoad;
 
-- (void) awakeFromNib
+- (void)awakeFromNib
 {
     [webView setUIDelegate:self];
     [webView setPolicyDelegate:self];
@@ -23,7 +23,6 @@
 
 - (WebView *)show
 {
-    NSLog(@"popup/show %@", [self webView]);
     if(webView == nil) {
         [NSBundle loadNibNamed:@"LoginWindow" owner:self];
     }
@@ -31,14 +30,8 @@
     return [self webView];
 }
 
-- (void)webViewShow:(WebView *)sender
-{
-    NSLog(@"popup/webViewShow %@", sender);
-}
-
 - (void)webViewClose:(WebView *)sender
 {
-    NSLog(@"popup/webViewClose %@", sender);
     [window setIsVisible:FALSE];
     [webView close];
     [webView removeFromSuperview];
@@ -49,26 +42,24 @@
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
 {
     // window.open navigation
- 	NSLog(@"popup/webView: decidePolicyForNavigationAction: %@\n",  request);
     if(![self isFirstLoad] || [PopupController isLoginURL:[request URL]]) {
-        NSLog(@"popup/webView: decidePolicyForNavigationAction local");
+        // new popup can only opened with login url, from there navigation
+        // anywhere is allowed
         [listener use];
         [self setIsFirstLoad:FALSE];
         [window setIsVisible:TRUE];
     } else {
-        NSLog(@"popup/webView: decidePolicyForNavigationAction external");
         [listener ignore];
         // open external links in external browser
         [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
     }
 }
 
-+(BOOL)isLoginURL:(NSURL *)url
++ (BOOL)isLoginURL:(NSURL *)url
 {
-    NSLog(@"popup/isLoginUrl: %@ - %@ - %@", url, [url host], [url pathComponents]);
     return [[url host] isEqualToString: SCHost]
-    // for some strange reason, objectAtIndex:0 is "/"
-    && [[[url pathComponents] objectAtIndex:1] isEqualToString: @"connect"];
+        // for some strange reason, objectAtIndex:0 is "/"
+        && [[[url pathComponents] objectAtIndex:1] isEqualToString: @"connect"];
 }
 
 @end

@@ -18,12 +18,13 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 @end
 
 @implementation AppDelegate
+
 @synthesize webView;
 @synthesize popupController;
 @synthesize window;
 @synthesize urlPromptController;
 
-+(void)initialize;
++ (void)initialize;
 {
 	if([self class] != [AppDelegate class]) return;
     
@@ -31,18 +32,6 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
                                                              [SPMediaKeyTap defaultMediaKeyUserBundleIdentifiers], kMediaKeyUsingBundleIdentifiersDefaultsKey,
                                                              nil]];
-}
-
-+(BOOL)isSCURL:(NSURL *)url
-{
-    if(url != nil) {
-        if([url host] != nil) {
-            if([[url host] isEqualToString:SCHost]) {
-                return TRUE;
-            }
-        }
-    }
-    return FALSE;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -68,7 +57,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
                                                                name: NSWorkspaceWillSleepNotification object: NULL];
 }
 
-- (void) awakeFromNib
+- (void)awakeFromNib
 {
     [webView setUIDelegate:self];
     [webView setFrameLoadDelegate:self];
@@ -79,7 +68,6 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {
     // request will always be null (probably a bug)
-    NSLog(@"webView: createWebViewWithRequest %@", request);
     return [popupController show];
 }
 
@@ -94,13 +82,10 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
 {
     // normal in-frame navigation
- 	NSLog(@"main/webView: decidePolicyForNavigationAction: %@\n",  request);
-    // allow loading urls in sub-frames OR when they are sc urls 
     if(frame != [webView mainFrame] || [AppDelegate isSCURL:[request URL]]) {
-        NSLog(@"main/webView: decidePolicyForNavigationAction local");
+        // allow loading urls in sub-frames OR when they are sc urls
         [listener use];
     } else {
-        NSLog(@"main/webView: decidePolicyForNavigationAction external");
         [listener ignore];
         // open external links in external browser
         [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
@@ -110,16 +95,13 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 - (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id < WebPolicyDecisionListener >)listener
 {
     // target=_blank or anything scenario
-    NSLog(@"main/webView: decidePolicyForNewWindowAction: %@\n",  request);
     [listener ignore];
     if([AppDelegate isSCURL:[request URL]]) {
-        NSLog(@"main/webView: decidePolicyForNewWindowAction local");
         // open local links in the main frame
         // TODO: maybe maintain a frame stack instead?
         [[webView mainFrame] loadRequest: [NSURLRequest requestWithURL:
                                            [actionInformation objectForKey:WebActionOriginalURLKey]]];
     } else {
-        NSLog(@"main/webView: decidePolicyForNewWindowAction external");
         // open external links in external browser
         [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
     }
@@ -133,7 +115,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     }
 }
 
--(void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event;
+- (void)mediaKeyTap:(SPMediaKeyTap*)keyTap receivedMediaKeyEvent:(NSEvent*)event;
 {
 	NSAssert([event type] == NSSystemDefined && [event subtype] == SPSystemDefinedEventMediaKeys, @"Unexpected NSEvent in mediaKeyTap:receivedMediaKeyEvent:");
 	// here be dragons...
@@ -163,47 +145,60 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 }
 
 
-- (IBAction)showHelp:(id)sender {
+- (IBAction)showHelp:(id)sender
+{
     [self help];
 }
 
--(void)next
+- (void)next
 {
     [self trigger:74];
 }
 
--(void)prev
+- (void)prev
 {
     [self trigger:75];
 }
 
--(void)playPause
+- (void)playPause
 {
     [self trigger:32];
 }
 
--(void)help
+- (void)help
 {
     [self trigger:72];
 }
 
--(void) trigger: (int) keyCode
+- (void)trigger:(int)keyCode
 {
     NSString *js = [NSString stringWithFormat:SCTriggerJS, keyCode];
     [webView stringByEvaluatingJavaScriptFromString:js];
 }
 
--(BOOL) isPlaying
+- (BOOL)isPlaying
 {
     // FIXME find a better way to detect playing
     NSString *title = [window title];
     return [title rangeOfString:@"▶"].location != NSNotFound;
 }
 
--(void) navigate: (NSString*) permalink
+- (void)navigate:(NSString*)permalink
 {
     NSString *js = [NSString stringWithFormat:SCNavigateJS, permalink];
     [webView stringByEvaluatingJavaScriptFromString:js];
+}
+
++ (BOOL)isSCURL:(NSURL *)url
+{
+    if(url != nil) {
+        if([url host] != nil) {
+            if([[url host] isEqualToString:SCHost]) {
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
 }
 
 @end

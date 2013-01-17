@@ -24,6 +24,6 @@
 @property (weak) IBOutlet NSTextField *urlError;
 @property (retain) id navigateDelegate;
 
--(IBAction)promptForUrl:(id)sender;
--(IBAction)closeUrlPrompt:(id)sender;
+- (IBAction)promptForUrl:(id)sender;
+- (IBAction)closeUrlPrompt:(id)sender;
 @end

@@ -21,7 +21,6 @@
 {
     if(urlPrompt == nil) {
         [NSBundle loadNibNamed:@"UrlPrompt" owner:self];
-        NSLog(@"Loaded %@ %@", urlPrompt, urlInput);
     }
     [NSApp beginSheet: [self urlPrompt]
        modalForWindow: [self mainWindow]
@@ -33,7 +32,6 @@
 
 - (IBAction)closeUrlPrompt:(id)sender
 {
-    NSLog(@"closeUrlPrompt %li",[sender tag]);
     NSString *value = [[urlInput stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *permalink = nil;
     NSString *error = nil;
@@ -78,7 +76,6 @@
 
 - (void)urlPromptDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
-    NSLog(@"Prompt end %d", returnCode == NSCancelButton);
     if (returnCode == NSCancelButton) return;
 }
 
