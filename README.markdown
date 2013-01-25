@@ -1,4 +1,4 @@
-![SoundCleod logo](https://raw.github.com/salomvary/soundcleod/master/soundcleod.iconset/icon_256x256.png)
+![SoundCleod logo](https://raw.github.com/salomvary/soundcleod/master/soundcleod.iconset/icon_512x512@2x.png)
 
 ## What's SoundCleod?
 
