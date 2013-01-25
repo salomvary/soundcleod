@@ -1,3 +1,5 @@
+![SoundCleod logo](https://raw.github.com/salomvary/soundcleod/master/soundcleod.iconset/icon_256x256.png)
+
 ## What's SoundCleod?
 
 SoundCleod is a Mac OS X application which brings
