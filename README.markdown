@@ -10,20 +10,14 @@ Why is that good?
 - Media keys support! (Yeah, those with ▶ ❚❚ on them.)
 - Stops on suspend.
 
+SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart/soundcleod)
+
 ## How to get it?
 
 - [Download from
-	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.zip?raw=true)
-- Open the zip file.
-- Move SoundCleod to the Applications folder.
-- Go to Applications, find SoundCleod.
-- Double click SoundCleod.
-- If it greets with a prompt about an 'unidentified developer', do the
-	following steps ([why is that?](http://support.apple.com/kb/HT5290)):
-	- Right click (or Control-click) SoundCleod
-	- Select __Open__ from the menu
-	- Click __Open__ in the dialog box.
-	- If prompted, enter an administrator name and password.
+	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.pkg?raw=true)
+- Double click the file, follow the installer instructions.
+- Go to Applications, double click SoundCleod.
 
 ## Screenshots? Yeah!
 
