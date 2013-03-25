@@ -17,6 +17,10 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 - (void) setLocalStorageEnabled: (BOOL) localStorageEnabled;
 @end
 
+@interface AppDelegate ()
+- (void) windowDidToggleFullScreen:(NSNotification*)note;
+@end
+
 @implementation AppDelegate
 
 @synthesize webView;
@@ -53,9 +57,25 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
     [prefs setLocalStorageEnabled:YES];
     
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self
+           selector:@selector(windowDidToggleFullScreen:)
+               name:NSWindowDidEnterFullScreenNotification
+             object:self.window];
+    [nc addObserver:self
+           selector:@selector(windowDidToggleFullScreen:)
+               name:NSWindowDidExitFullScreenNotification
+             object:self.window];
+  
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
                                                            selector: @selector(receiveSleepNotification:)
                                                                name: NSWorkspaceWillSleepNotification object: NULL];
+}
+
+- (void)dealloc
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+  [[[NSWorkspace sharedWorkspace] notificationCenter] removeObserver:self];
 }
 
 - (void)awakeFromNib
@@ -107,6 +127,11 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
         [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
     }
 
+}
+
+- (void) windowDidToggleFullScreen:(NSNotification*)note
+{
+  [self.webView reload:self];
 }
 
 - (void)receiveSleepNotification:(NSNotification*)note
