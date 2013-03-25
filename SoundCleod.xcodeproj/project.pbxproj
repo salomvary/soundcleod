@@ -23,7 +23,6 @@
 		26FF310F1680734B0091448C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26FF31051680734B0091448C /* MainMenu.xib */; };
 		26FF31101680734B0091448C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31071680734B0091448C /* main.m */; };
 		26FF31111680734B0091448C /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31091680734B0091448C /* PopupController.m */; };
-		26FF31121680734B0091448C /* SoundCleod-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 26FF310A1680734B0091448C /* SoundCleod-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,7 +216,6 @@
 				26FF310D1680734B0091448C /* Credits.rtf in Resources */,
 				26FF310E1680734B0091448C /* InfoPlist.strings in Resources */,
 				26FF310F1680734B0091448C /* MainMenu.xib in Resources */,
-				26FF31121680734B0091448C /* SoundCleod-Info.plist in Resources */,
 				26115150168B3A0E00F1566F /* LoginWindow.xib in Resources */,
 				2624EBA716A821B100490144 /* UrlPrompt.xib in Resources */,
 			);
