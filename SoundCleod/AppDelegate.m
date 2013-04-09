@@ -61,12 +61,12 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
 {
-	if (flag == NO)
+    if (flag == NO)
     {
-		[window makeKeyAndOrderFront:self];
-	}
+        [window makeKeyAndOrderFront:self];
+    }
 
-	return YES;
+    return YES;
 }
 
 
