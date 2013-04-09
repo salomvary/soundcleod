@@ -58,6 +58,18 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
                                                                name: NSWorkspaceWillSleepNotification object: NULL];
 }
 
+
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
+{
+    if (flag == NO)
+    {
+        [window makeKeyAndOrderFront:self];
+    }
+
+    return YES;
+}
+
+
 - (void)awakeFromNib
 {
     [webView setUIDelegate:self];
