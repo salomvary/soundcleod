@@ -75,9 +75,7 @@
 			children = (
 				26FF30FE1680734B0091448C /* SoundCleod */,
 				2618AE0716806FC500EC2E15 /* soundcleod.iconset */,
-				2618AE0016803F1900EC2E15 /* Carbon.framework */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
-				26A0087016771DA5006FD03A /* WebKit.framework */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
 				263C2B9D1677152500EF4792 /* Products */,
 			);
@@ -94,8 +92,10 @@
 		263C2B9F1677152500EF4792 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2618AE0016803F1900EC2E15 /* Carbon.framework */,
 				263C2BA01677152500EF4792 /* Cocoa.framework */,
 				263C2BA21677152500EF4792 /* Other Frameworks */,
+				26A0087016771DA5006FD03A /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,17 +132,17 @@
 		26FF30FE1680734B0091448C /* SoundCleod */ = {
 			isa = PBXGroup;
 			children = (
+				2624EBA816A82B2400490144 /* AppConstants.h */,
+				2624EBAB16A82EF100490144 /* AppConstants.m */,
 				26FF30FF1680734B0091448C /* AppDelegate.h */,
 				26FF31001680734B0091448C /* AppDelegate.m */,
-				2624EBA216A81FA100490144 /* UrlPromptController.h */,
-				2624EBA316A81FA100490144 /* UrlPromptController.m */,
-				26FF311C168075A50091448C /* Resources */,
 				26FF31071680734B0091448C /* main.m */,
 				26FF31081680734B0091448C /* PopupController.h */,
 				26FF31091680734B0091448C /* PopupController.m */,
+				26FF311C168075A50091448C /* Resources */,
 				26FF310B1680734B0091448C /* SoundCleod-Prefix.pch */,
-				2624EBA816A82B2400490144 /* AppConstants.h */,
-				2624EBAB16A82EF100490144 /* AppConstants.m */,
+				2624EBA216A81FA100490144 /* UrlPromptController.h */,
+				2624EBA316A81FA100490144 /* UrlPromptController.m */,
 			);
 			path = SoundCleod;
 			sourceTree = "<group>";
