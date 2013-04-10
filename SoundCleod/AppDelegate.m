@@ -56,6 +56,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
                                                            selector: @selector(receiveSleepNotification:)
                                                                name: NSWorkspaceWillSleepNotification object: NULL];
+    [window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 }
 
 
