@@ -21,6 +21,10 @@ Current version is 0.6 (April 17, 2013) [see changes](https://github.com/salomva
 - Double click the file, follow the installer instructions.
 - Go to Applications, double click SoundCleod.
 
+**Important!** Only OSX 10.8.3 (Mountain Lion) is supported at the moment,
+keep your eyes on [this GitHub issue](https://github.com/salomvary/soundcleod/issues/4)
+if you want to be updated about support for older versions.
+
 ## Screenshots? Yeah!
 
 ![SoundCleod screenshot](https://raw.github.com/salomvary/soundcleod/master/screenshot.png)
