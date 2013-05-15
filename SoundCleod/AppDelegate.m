@@ -8,6 +8,7 @@
 
 #import "AppConstants.h"
 #import "AppDelegate.h"
+#import <Foundation/NSNotification.h>
 
 NSString *const SCTriggerJS = @"$(document).trigger($.Event('keydown',{keyCode: %d}))";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
@@ -45,7 +46,6 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     [[webView mainFrame] loadRequest:
      [NSURLRequest requestWithURL:[NSURL URLWithString: [@"http://" stringByAppendingString:SCHost]]
     ]];
-    
     WebPreferences* prefs = [webView preferences];
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
     [prefs setPlugInsEnabled:FALSE]; // fixes the FlashBlock issue
@@ -89,6 +89,11 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 {
     if (frame == [webView mainFrame]) {
         [window setTitle:title];
+        if ([title rangeOfString:@"▶"].location != NSNotFound) {
+            title = [title stringByReplacingOccurrencesOfString:@"▶ " withString:@""];
+            NSArray *info = [title componentsSeparatedByString:@" by "];
+            [self showNotification:info[0] withArtist:info[1]];
+        }
     }
 }
 
@@ -166,12 +171,23 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 
 - (void)next
 {
+    [self trigger:48]; // set time on current song back to 0 before switching track
     [self trigger:74];
 }
 
 - (void)prev
 {
-    [self trigger:75];
+    // if the track is < 5 seconds in, go to the previous song, otherwise skip back to start
+    if ([self checkTrackProgress] < 5000) {
+        [self trigger:48]; // set time on current song back to 0 before switching track
+        [self trigger:75];
+    } else {
+        [self trigger:48];
+    }
+}
+
+- (void)swipeWithEvent:(NSEvent *)event {
+    NSLog(@"swiped");
 }
 
 - (void)playPause
@@ -182,6 +198,20 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 - (void)help
 {
     [self trigger:72];
+}
+
+- (NSInteger) checkTrackProgress {
+    NSString *js = @"\
+    (function() {\
+        for (sound in soundManager.sounds) {\
+            var currentSound = soundManager.sounds[sound];\
+            if(currentSound.playState == 1 && currentSound.paused === false) {\
+                return currentSound.position;\
+            }\
+        }\
+        return -1;\
+    })();";
+    return [[webView stringByEvaluatingJavaScriptFromString:js] integerValue];
 }
 
 - (void)trigger:(int)keyCode
@@ -202,6 +232,16 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     NSString *js = [NSString stringWithFormat:SCNavigateJS, permalink];
     [webView stringByEvaluatingJavaScriptFromString:js];
 }
+
+
+- (void)showNotification:(NSString*)song withArtist:(NSString*)artist{
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    notification.title = artist;
+    notification.informativeText = song;
+    
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+}
+
 
 + (BOOL)isSCURL:(NSURL *)url
 {

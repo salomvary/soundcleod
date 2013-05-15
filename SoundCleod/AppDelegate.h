@@ -17,9 +17,9 @@
 }
 
 @property (assign) IBOutlet NSWindow *window;
-@property (weak) IBOutlet WebView *webView;
-@property (weak) IBOutlet PopupController *popupController;
-@property (weak) IBOutlet UrlPromptController *urlPromptController;
+@property (unsafe_unretained) IBOutlet WebView *webView;
+@property (unsafe_unretained) IBOutlet PopupController *popupController;
+@property (unsafe_unretained) IBOutlet UrlPromptController *urlPromptController;
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
