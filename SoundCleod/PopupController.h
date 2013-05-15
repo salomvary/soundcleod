@@ -12,7 +12,7 @@
 @interface PopupController : NSObject
 
 @property (assign) IBOutlet NSPanel *window;
-@property (weak) IBOutlet WebView *webView;
+@property (unsafe_unretained) IBOutlet WebView *webView;
 @property BOOL isFirstLoad;
 
 

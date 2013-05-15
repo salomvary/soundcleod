@@ -20,8 +20,8 @@
 
 @property (assign) IBOutlet NSWindow *mainWindow;
 @property (unsafe_unretained) IBOutlet NSWindow *urlPrompt;
-@property (weak) IBOutlet NSTextField *urlInput;
-@property (weak) IBOutlet NSTextField *urlError;
+@property (unsafe_unretained) IBOutlet NSTextField *urlInput;
+@property (unsafe_unretained) IBOutlet NSTextField *urlError;
 @property (retain) id navigateDelegate;
 
 - (IBAction)promptForUrl:(id)sender;
