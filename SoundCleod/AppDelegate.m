@@ -50,8 +50,9 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
     [prefs setPlugInsEnabled:FALSE]; // fixes the FlashBlock issue
     
-    [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
+    [prefs _setLocalStorageDatabasePath:@"~/Library/Safari/LocalStorage"];
     [prefs setLocalStorageEnabled:YES];
+
     
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
                                                            selector: @selector(receiveSleepNotification:)
