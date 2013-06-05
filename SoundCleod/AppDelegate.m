@@ -36,6 +36,8 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [window setFrameAutosaveName:@"SoundCleod"];
+    
     keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
 	if([SPMediaKeyTap usesGlobalMediaKeyTap])
 		[keyTap startWatchingMediaKeys];
