@@ -11,13 +11,15 @@
 #import "PopupController.h"
 #import "UrlPromptController.h"
 #import "../SPMediaKeyTap/SPMediaKeyTap.h"
+#import "../DHSwipeWebView/DHSwipeWebView.h"
+
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     SPMediaKeyTap *keyTap;
 }
 
 @property (assign) IBOutlet NSWindow *window;
-@property (weak) IBOutlet WebView *webView;
+@property (weak) IBOutlet DHSwipeWebView *webView;
 @property (weak) IBOutlet PopupController *popupController;
 @property (weak) IBOutlet UrlPromptController *urlPromptController;
 
