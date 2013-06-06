@@ -45,7 +45,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 		NSLog(@"Media key monitoring disabled");
 
     [[webView mainFrame] loadRequest:
-     [NSURLRequest requestWithURL:[NSURL URLWithString: [@"http://" stringByAppendingString:SCHost]]
+     [NSURLRequest requestWithURL:[NSURL URLWithString: [@"https://" stringByAppendingString:SCHost]]
     ]];
     
     WebPreferences* prefs = [WebPreferences standardPreferences];
