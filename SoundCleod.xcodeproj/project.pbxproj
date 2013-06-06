@@ -23,6 +23,7 @@
 		26FF310F1680734B0091448C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 26FF31051680734B0091448C /* MainMenu.xib */; };
 		26FF31101680734B0091448C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31071680734B0091448C /* main.m */; };
 		26FF31111680734B0091448C /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31091680734B0091448C /* PopupController.m */; };
+		3A295065175FDF560038B28C /* SCDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A295064175FDF560038B28C /* SCDApplication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		26FF31091680734B0091448C /* PopupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupController.m; sourceTree = "<group>"; };
 		26FF310A1680734B0091448C /* SoundCleod-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SoundCleod-Info.plist"; sourceTree = "<group>"; };
 		26FF310B1680734B0091448C /* SoundCleod-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SoundCleod-Prefix.pch"; sourceTree = "<group>"; };
+		3A295063175FDF560038B28C /* SCDApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDApplication.h; sourceTree = "<group>"; };
+		3A295064175FDF560038B28C /* SCDApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDApplication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				26FF31081680734B0091448C /* PopupController.h */,
 				26FF31091680734B0091448C /* PopupController.m */,
 				26FF311C168075A50091448C /* Resources */,
+				3A295063175FDF560038B28C /* SCDApplication.h */,
+				3A295064175FDF560038B28C /* SCDApplication.m */,
 				26FF310B1680734B0091448C /* SoundCleod-Prefix.pch */,
 				2624EBA216A81FA100490144 /* UrlPromptController.h */,
 				2624EBA316A81FA100490144 /* UrlPromptController.m */,
@@ -235,6 +240,7 @@
 				26FF31111680734B0091448C /* PopupController.m in Sources */,
 				2624EBA416A81FA100490144 /* UrlPromptController.m in Sources */,
 				2624EBAC16A82EF100490144 /* AppConstants.m in Sources */,
+				3A295065175FDF560038B28C /* SCDApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

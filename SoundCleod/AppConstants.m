@@ -9,3 +9,4 @@
 #import "AppConstants.h"
 
 NSString *const SCHost = @"soundcloud.com";
+NSString *const SCApplicationDidPressSpaceBarKey = @"SCApplicationDidPressSpaceBarKey";

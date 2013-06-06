@@ -61,6 +61,11 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
                                                            selector: @selector(receiveSleepNotification:)
                                                                name: NSWorkspaceWillSleepNotification object: NULL];
+
+    [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
+                                                           selector: @selector(didPressSpaceBarKey:)
+                                                               name: SCApplicationDidPressSpaceBarKey object: NULL];
+
     [window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 }
 
@@ -219,5 +224,14 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     }
     return FALSE;
 }
+
+
+#pragma mark - Notifications
+- (void)didPressSpaceBarKey:(NSNotification *)notification
+{
+    NSEvent *event = (NSEvent *)notification.object;
+    [self.window sendEvent:event];
+}
+
 
 @end
