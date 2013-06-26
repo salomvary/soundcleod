@@ -1,6 +1,6 @@
 ## 0.8 (June 13, 2013)
 
-- enabled Flash plugin whih is required for playing certain sounds
+- enabled Flash plugin which is required for playing certain sounds
 
 ## 0.7 (June 13, 2013)
 
