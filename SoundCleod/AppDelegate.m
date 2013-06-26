@@ -51,7 +51,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     WebPreferences* prefs = [WebPreferences standardPreferences];
     
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
-    [prefs setPlugInsEnabled:FALSE]; // fixes the FlashBlock issue
+    [prefs setPlugInsEnabled:TRUE]; // Flash is required for playing sounds in certain cases
     
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
     [prefs setLocalStorageEnabled:YES];
