@@ -1,4 +1,4 @@
-## 0.8 (June 13, 2013)
+## 0.8 (June 26, 2013)
 
 - enabled Flash plugin which is required for playing certain sounds
 
