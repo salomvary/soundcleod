@@ -1,3 +1,8 @@
+## 0.9 (July 5, 2013)
+
+- fixed ▶ media key
+- support the new upload ui
+
 ## 0.8 (June 13, 2013)
 
 - enabled Flash plugin whih is required for playing certain sounds
