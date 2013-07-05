@@ -132,6 +132,30 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 
 }
 
+// based on http://stackoverflow.com/questions/5177640
+- (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id < WebOpenPanelResultListener >)resultListener allowMultipleFiles:(BOOL)allowMultipleFiles
+{
+    // Create the File Open Dialog class.
+    NSOpenPanel* openDlg = [NSOpenPanel openPanel];
+
+    // Enable the selection of files in the dialog.
+    [openDlg setCanChooseFiles:YES];
+
+    // Enable the selection of directories in the dialog.
+    [openDlg setCanChooseDirectories:NO];
+
+    // Allow multiple files
+    [openDlg setAllowsMultipleSelection:allowMultipleFiles];
+
+    // Display the dialog.  If the OK button was pressed,
+    // process the files.
+    if ( [openDlg runModalForDirectory:nil file:nil] == NSOKButton )
+    {
+        // Do something with the filenames.
+        [resultListener chooseFilenames:[openDlg filenames]];
+    }
+}
+
 - (void)receiveSleepNotification:(NSNotification*)note
 {
     if([self isPlaying]) {
