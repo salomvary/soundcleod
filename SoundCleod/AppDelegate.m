@@ -156,6 +156,21 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     }
 }
 
+// stolen from MacGap
+- (BOOL)webView:(WebView *)sender runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
+    [alert setMessageText:message];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    if ([alert runModal] == NSAlertFirstButtonReturn)
+        return YES;
+    else
+        return NO;
+}
+
 - (void)receiveSleepNotification:(NSNotification*)note
 {
     if([self isPlaying]) {
