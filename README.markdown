@@ -14,16 +14,16 @@ SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart
 
 ## How to get it?
 
-Current version is 0.9 (July 5, 2013) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
+Current version is 0.9.1 (August 1, 2013) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
 
 - [Download from
-	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.pkg?raw=true)
-- Double click the file, follow the installer instructions.
+	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.dmg?raw=true)
+- Double click the file.
+- Drag SoundCleod into your Applications folder.
 - Go to Applications, double click SoundCleod.
+- Optionally drag SoundCleod from Applications into the Dock.
 
-**Important!** Only OSX 10.8.3 (Mountain Lion) is supported at the moment,
-keep your eyes on [this GitHub issue](https://github.com/salomvary/soundcleod/issues/4)
-if you want to be updated about support for older versions.
+**Important!** Minimum required OSX version is 10.7.x (Lion).
 
 ## Screenshots? Yeah!
 

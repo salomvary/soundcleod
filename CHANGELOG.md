@@ -1,3 +1,7 @@
+## 0.9.1 (August 1, 2013)
+- distributed as .dmg package instead of Mac Installer
+- compatible with OSX 10.7 Lion
+
 ## 0.9 (July 5, 2013)
 
 - fixed ▶ media key
