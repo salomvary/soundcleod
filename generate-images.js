@@ -10,3 +10,5 @@ svg2png('soundcleod.svg', 'soundcleod.iconset/icon_256x256.png', 1, function(e) 
 svg2png('soundcleod.svg', 'soundcleod.iconset/icon_256x256@2x.png', 2, function(e) {});
 svg2png('soundcleod.svg', 'soundcleod.iconset/icon_512x512.png', 2, function(e) {});
 svg2png('soundcleod.svg', 'soundcleod.iconset/icon_512x512@2x.png', 4, function(e) {});
+
+svg2png('background.svg', 'background.png', 1, function(e) {});
