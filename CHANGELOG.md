@@ -1,3 +1,7 @@
+## 0.10 (September 13, 2013)
+- added reload menu item and Cmd+R shortcut
+- added main window menu item and Cmd+1 shortcut
+
 ## 0.9.1 (August 1, 2013)
 - distributed as .dmg package instead of Mac Installer
 - compatible with OSX 10.7 Lion
