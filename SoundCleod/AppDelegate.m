@@ -218,6 +218,11 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     [window makeKeyAndOrderFront:self];
 }
 
+- (IBAction)reload:(id)sender
+{
+    [webView reload:self];
+}
+
 - (void)next
 {
     [self trigger:74];
