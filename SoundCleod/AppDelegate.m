@@ -213,6 +213,11 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
     [self help];
 }
 
+- (IBAction)restoreWindow:(id)sender
+{
+    [window makeKeyAndOrderFront:self];
+}
+
 - (void)next
 {
     [self trigger:74];
