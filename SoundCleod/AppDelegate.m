@@ -99,6 +99,14 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 {
     if (frame == [webView mainFrame]) {
         [window setTitle:title];
+        if ([self isPlaying]) {
+            title = [title stringByReplacingOccurrencesOfString:@"▶ " withString:@""];
+            NSArray *info = [title componentsSeparatedByString:@" by "];
+            NSUserNotification *notification = [[NSUserNotification alloc] init];
+            notification.title = info[0]; // track
+            notification.informativeText = info[1]; // artist
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        }
     }
 }
 
