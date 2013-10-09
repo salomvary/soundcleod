@@ -99,6 +99,18 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 {
     if (frame == [webView mainFrame]) {
         [window setTitle:title];
+        if ([self isPlaying]) {
+            title = [title stringByReplacingOccurrencesOfString:@"▶ " withString:@""];
+            NSArray *info = [title componentsSeparatedByString:@" by "];
+            if (info.count == 1) {
+                // current track is part of a set
+                info = [title componentsSeparatedByString:@" in "];
+            }
+            NSUserNotification *notification = [[NSUserNotification alloc] init];
+            notification.title = info[0]; // track
+            notification.informativeText = info[1]; // artist
+            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        }
     }
 }
 
@@ -149,10 +161,12 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 
     // Display the dialog.  If the OK button was pressed,
     // process the files.
-    if ( [openDlg runModalForDirectory:nil file:nil] == NSOKButton )
+    if ( [openDlg runModal] == NSOKButton )
     {
+		NSArray *urls = [openDlg URLs];
+		NSArray *filenames = [urls valueForKey:@"path"];
         // Do something with the filenames.
-        [resultListener chooseFilenames:[openDlg filenames]];
+        [resultListener chooseFilenames:filenames];
     }
 }
 
