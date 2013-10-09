@@ -102,6 +102,10 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
         if ([self isPlaying]) {
             title = [title stringByReplacingOccurrencesOfString:@"▶ " withString:@""];
             NSArray *info = [title componentsSeparatedByString:@" by "];
+            if (info.count == 1) {
+                // current track is part of a set
+                info = [title componentsSeparatedByString:@" in "];
+            }
             NSUserNotification *notification = [[NSUserNotification alloc] init];
             notification.title = info[0]; // track
             notification.informativeText = info[1]; // artist
