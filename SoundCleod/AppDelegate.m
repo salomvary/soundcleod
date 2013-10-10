@@ -70,9 +70,6 @@ id tmpHostWindow;
                                                                name: SCApplicationDidPressSpaceBarKey object: NULL];
 
     [window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
-    
-    // stored for adding back later, see windowWillClose
-    contentView = [window contentView];
 }
 
 
@@ -95,7 +92,9 @@ id tmpHostWindow;
     [webView setPolicyDelegate:self];
 
     [urlPromptController setNavigateDelegate:self];
-
+    
+    // stored for adding back later, see windowWillClose
+    contentView = [window contentView];
 }
 
 - (void)windowDidBecomeKey:(NSNotification *)notification
