@@ -11,6 +11,8 @@
 
 NSString *const SCTriggerJS = @"$(document.body).trigger($.Event('keydown',{keyCode: %d}))";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
+NSURL *baseUrl = nil;
+
 
 @interface WebPreferences (WebPreferencesPrivate)
 - (void)_setLocalStorageDatabasePath:(NSString *)path;
@@ -46,10 +48,13 @@ id tmpHostWindow;
 		[keyTap startWatchingMediaKeys];
 	else
 		NSLog(@"Media key monitoring disabled");
+    
+    baseUrl = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"BaseUrl"]];
+    if (baseUrl == nil) {
+        baseUrl = [NSURL URLWithString: [@"https://" stringByAppendingString:SCHost]];
+    }
 
-    [[webView mainFrame] loadRequest:
-     [NSURLRequest requestWithURL:[NSURL URLWithString: [@"https://" stringByAppendingString:SCHost]]
-    ]];
+    [[webView mainFrame] loadRequest: [NSURLRequest requestWithURL:baseUrl]];
     
     WebPreferences* prefs = [WebPreferences standardPreferences];
     
@@ -315,7 +320,7 @@ id tmpHostWindow;
 {
     if(url != nil) {
         if([url host] != nil) {
-            if([[url host] isEqualToString:SCHost]) {
+            if([[url host] isEqualToString:SCHost] || [[url host] isEqualToString:[baseUrl host]]) {
                 return TRUE;
             }
         }

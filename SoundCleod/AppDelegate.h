@@ -12,7 +12,9 @@
 #import "UrlPromptController.h"
 #import "../SPMediaKeyTap/SPMediaKeyTap.h"
 #import "../DHSwipeWebView/DHSwipeWebView.h"
+#import "AppDelegate.h"
 
+extern NSURL *baseUrl;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate> {
     SPMediaKeyTap *keyTap;
@@ -39,5 +41,6 @@
 
 - (void)navigate:(NSString*)permalink;
 - (IBAction)showHelp:(id)sender;
++ (BOOL)isSCURL:(NSURL *)url;
 
 @end
