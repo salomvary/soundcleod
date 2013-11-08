@@ -2,16 +2,18 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"	xmlns:dc="http://purl.org/dc/elements/1.1/">
 	 <channel>
 			<title>SoundCleod's Changelog</title>
-			<link>https://raw.github.com/salomvary/soundcleod/automatic-updates/appcast.xml</link>
+			<link>https://raw.github.com/salomvary/soundcleod/master/appcast.xml</link>
 			<description>Most recent changes with links to updates.</description>
 			<language>en</language>
 				 <item>
-						<title>Version 0.1.1 (1 bug fixed; 1 new feature)</title>
-						<sparkle:releaseNotesLink>
-							https://github.com/salomvary/soundcleod/blob/automatic-updates/CHANGELOG.md#011-october-10-2013
-						</sparkle:releaseNotesLink>
-						<pubDate>Thu, 10 Oct 2013 19:20:11 +0000</pubDate>
-						<enclosure url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg" sparkle:version="0.11" length="679811" type="application/octet-stream" sparkle:dsaSignature="MCwCFCvavMI8kicnPkcecMfWgA4E84glAhR+VyhleHSztOrOlBO3WZkXk6BRZQ==" />
+						<title>Version 0.12</title>
+						<description><![CDATA[
+							<ul>
+								<li>Automatic updates yay!</li>
+							</ul>
+						]]></description>
+						<pubDate>Fri, 08 Nov 2013 16:03:08 +0100</pubDate>
+						<enclosure url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg" sparkle:version="0.12" length="1033493" type="application/octet-stream" sparkle:dsaSignature="MCwCFDpRxmXdaTDu9kAc5aqwtFWVCr2pAhQIe0cTpm1EEFL/VjNBPqqfU+71KQ==" />
 				 </item>
 	 </channel>
 </rss>
