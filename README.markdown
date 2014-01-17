@@ -29,6 +29,10 @@ Current version is 0.12 (November 8, 2013) [see changes](https://github.com/salo
 
 ![SoundCleod screenshot](https://raw.github.com/salomvary/soundcleod/master/screenshot.png)
 
+## Alternatives
+- Any modern web browser
+- [BeardedSpice](http://beardedspice.com/) (Mac)
+
 ## Disclaimer
 
 Use at your own risk. It might destroy the Earth. Or better don't use
