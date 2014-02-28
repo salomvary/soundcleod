@@ -8,5 +8,5 @@
 
 #import "AppConstants.h"
 
-NSString *const SCHost = @"soundcloud.com";
-NSString *const SCApplicationDidPressSpaceBarKey = @"SCApplicationDidPressSpaceBarKey";
+NSString *const BMHost = @"listen.beatsmusic.com";
+NSString *const BMApplicationDidPressSpaceBarKey = @"BMApplicationDidPressSpaceBarKey";

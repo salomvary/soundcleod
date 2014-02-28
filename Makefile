@@ -1,5 +1,5 @@
-APP = dist/SoundCleod.app
-DMG = dist/SoundCleod.dmg
+APP = dist/BeotsMusic.app
+DMG = dist/BeotsMusic.dmg
 
 build: $(APP)
 
@@ -10,7 +10,7 @@ $(DMG): build
 
 $(APP):
 	. .codesign
-	xcodebuild -project SoundCleod.xcodeproj -target SoundCleod -configuration Release CODE_SIGN_IDENTITY="$(CODE_SIGN_IDENTITY)" CONFIGURATION_BUILD_DIR=dist DWARF_DSYM_FOLDER_PATH=build/Release
+	xcodebuild -project BeotsMusic.xcodeproj -target BeotsMusic -configuration Release CODE_SIGN_IDENTITY="$(CODE_SIGN_IDENTITY)" CONFIGURATION_BUILD_DIR=dist DWARF_DSYM_FOLDER_PATH=build/Release
 
 run: build
 	open $(APP)

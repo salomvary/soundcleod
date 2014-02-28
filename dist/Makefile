@@ -18,10 +18,10 @@
 # Customizable variables
 ################################################################################
 
-NAME ?= SoundCleod
+NAME ?= BeotsMusic
 
 SOURCE_DIR ?= .
-SOURCE_FILES ?= SoundCleod.app
+SOURCE_FILES ?= BeotsMusic.app
 
 TEMPLATE_DMG ?= template.dmg
 

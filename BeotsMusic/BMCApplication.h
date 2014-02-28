@@ -10,7 +10,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface SCDApplication : NSApplication
+@interface BMCApplication : NSApplication
 
 
 @end

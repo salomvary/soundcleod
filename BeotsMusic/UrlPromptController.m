@@ -46,7 +46,7 @@
                     if([AppDelegate isSCURL:url]) {
                         permalink = [url path];
                     } else {
-                        error = @"This is not a SoundCloud link";
+                        error = @"This is not a Beats Music link";
                     }
                 } else {
                     permalink = [url path];

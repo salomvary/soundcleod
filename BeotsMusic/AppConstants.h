@@ -8,5 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const SCHost;
-extern NSString *const SCApplicationDidPressSpaceBarKey;
+extern NSString *const BMHost;
+extern NSString *const BMApplicationDidPressSpaceBarKey;

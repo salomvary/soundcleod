@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>soundcleod</string>
 	<key>CFBundleIdentifier</key>
-	<string>sc.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>bm.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,21 +17,23 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.12</string>
+	<string>0.1</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.12</string>
+	<string>0.1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.music</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2012 Márton Salomváry. All rights reserved.</string>
+	<string>Copyright © 2014 Dongsung Kim. Some Rights Reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>SCDApplication</string>
 	<key>SUFeedURL</key>
-	<string>https://raw.github.com/salomvary/soundcleod/master/appcast.xml</string>
+	<string>FIXME</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>

@@ -41,7 +41,7 @@ id tmpHostWindow;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [window setFrameAutosaveName:@"SoundCleod"];
+    [window setFrameAutosaveName:@"BeotsMusic"];
     
     keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
 	if([SPMediaKeyTap usesGlobalMediaKeyTap])
@@ -51,7 +51,7 @@ id tmpHostWindow;
     
     baseUrl = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"BaseUrl"]];
     if (baseUrl == nil) {
-        baseUrl = [NSURL URLWithString: [@"https://" stringByAppendingString:SCHost]];
+        baseUrl = [NSURL URLWithString: [@"https://" stringByAppendingString:BMHost]];
     }
 
     [[webView mainFrame] loadRequest: [NSURLRequest requestWithURL:baseUrl]];
@@ -61,7 +61,7 @@ id tmpHostWindow;
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
     [prefs setPlugInsEnabled:TRUE]; // Flash is required for playing sounds in certain cases
     
-    [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
+    [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/BeotsMusic"];
     [prefs setLocalStorageEnabled:YES];
     
     [webView setPreferences:prefs];
@@ -72,7 +72,7 @@ id tmpHostWindow;
 
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
                                                            selector: @selector(didPressSpaceBarKey:)
-                                                               name: SCApplicationDidPressSpaceBarKey object: NULL];
+                                                               name: BMApplicationDidPressSpaceBarKey object: NULL];
 
     [window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
 }

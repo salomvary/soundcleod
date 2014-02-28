@@ -8,10 +8,10 @@
 
 
 #import "AppConstants.h"
-#import "SCDApplication.h"
+#import "BMCApplication.h"
 
 
-@implementation SCDApplication
+@implementation BMCApplication
 
 
 - (void)sendEvent:(NSEvent *)theEvent
@@ -20,7 +20,7 @@
         theEvent.keyCode == 49)
     {
         // Handle the space-bar, even if the window is closed
-        [[[NSWorkspace sharedWorkspace] notificationCenter] postNotificationName:SCApplicationDidPressSpaceBarKey object:theEvent];
+        [[[NSWorkspace sharedWorkspace] notificationCenter] postNotificationName:BMApplicationDidPressSpaceBarKey object:theEvent];
         return;
     }
 
