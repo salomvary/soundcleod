@@ -34,6 +34,10 @@ extern NSURL *baseUrl;
 - (void)receiveSleepNotification:(NSNotification*)note;
 
 - (IBAction)search:(id)sender;
+- (IBAction)love:(id)sender;
+- (IBAction)hate:(id)sender;
+- (IBAction)addToMyLibrary:(id)sender;
+
 - (void)next;
 - (void)prev;
 - (void)playPause;

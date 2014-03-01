@@ -286,6 +286,21 @@ id tmpHostWindow;
     [webView stringByEvaluatingJavaScriptFromString:@"$('.menu_item--search').click()"];
 }
 
+- (IBAction)love:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"$('#t-love').click()"];
+}
+
+- (IBAction)hate:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"$('#t-hate').click()"];
+}
+
+- (IBAction)addToMyLibrary:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"$('.transport__context .add_to_my_music').click()"];
+}
+
 - (void)next
 {
     [webView stringByEvaluatingJavaScriptFromString:@"$('#t-next').click()"];
