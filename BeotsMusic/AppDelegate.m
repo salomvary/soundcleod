@@ -9,7 +9,6 @@
 #import "AppConstants.h"
 #import "AppDelegate.h"
 
-NSString *const SCTriggerJS = @"$(document.body).trigger($.Event('keydown',{keyCode: %d}))";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
 NSURL *baseUrl = nil;
 
@@ -282,28 +281,17 @@ id tmpHostWindow;
 
 - (void)next
 {
-    [self trigger:74];
+    [webView stringByEvaluatingJavaScriptFromString:@"$('#t-next').click()"];
 }
 
 - (void)prev
 {
-    [self trigger:75];
+    [webView stringByEvaluatingJavaScriptFromString:@"$('#t-prev').click()"];
 }
 
 - (void)playPause
 {
-    [self trigger:32];
-}
-
-- (void)help
-{
-    [self trigger:72];
-}
-
-- (void)trigger:(int)keyCode
-{
-    NSString *js = [NSString stringWithFormat:SCTriggerJS, keyCode];
-    [webView stringByEvaluatingJavaScriptFromString:js];
+    [webView stringByEvaluatingJavaScriptFromString:@"$('#t-play').click()"];
 }
 
 - (BOOL)isPlaying

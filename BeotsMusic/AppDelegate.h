@@ -35,8 +35,6 @@ extern NSURL *baseUrl;
 - (void)next;
 - (void)prev;
 - (void)playPause;
-- (void)help;
-- (void)trigger:(int)keyCode;
 - (BOOL)isPlaying;
 
 - (void)navigate:(NSString*)permalink;
