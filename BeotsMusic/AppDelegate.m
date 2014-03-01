@@ -279,6 +279,11 @@ id tmpHostWindow;
     [webView reload:self];
 }
 
+- (IBAction)search:(id)sender
+{
+    [webView stringByEvaluatingJavaScriptFromString:@"$('.menu_item--search').click()"];
+}
+
 - (void)next
 {
     [webView stringByEvaluatingJavaScriptFromString:@"$('#t-next').click()"];
