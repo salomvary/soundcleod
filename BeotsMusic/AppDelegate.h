@@ -30,9 +30,13 @@ extern NSURL *baseUrl;
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener;
 - (void)webView:(WebView *)webView decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id < WebPolicyDecisionListener >)listener;
+- (void)webView:(WebView *)sender runOpenPanelForFileButtonWithResultListener:(id < WebOpenPanelResultListener >)resultListener allowMultipleFiles:(BOOL)allowMultipleFiles;
+- (BOOL)webView:(WebView *)sender runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WebFrame *)frame;
 
 - (void)receiveSleepNotification:(NSNotification*)note;
 
+- (IBAction)restoreWindow:(id)sender;
+- (IBAction)reload:(id)sender;
 - (IBAction)search:(id)sender;
 - (IBAction)love:(id)sender;
 - (IBAction)hate:(id)sender;
