@@ -137,6 +137,13 @@ id tmpHostWindow;
     return [popupController show];
 }
 
+// http://stackoverflow.com/questions/7020842/
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
+    NSScrollView *mainScrollView = sender.mainFrame.frameView.documentView.enclosingScrollView;
+    [mainScrollView setVerticalScrollElasticity:NSScrollElasticityNone];
+    [mainScrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
+}
+
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
 {
     if (frame == [webView mainFrame]) {

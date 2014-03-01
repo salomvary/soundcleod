@@ -26,6 +26,7 @@ extern NSURL *baseUrl;
 @property (weak) IBOutlet UrlPromptController *urlPromptController;
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener;
 - (void)webView:(WebView *)webView decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id < WebPolicyDecisionListener >)listener;
