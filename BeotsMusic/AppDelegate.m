@@ -154,10 +154,18 @@ id tmpHostWindow;
             title = [title stringByReplacingOccurrencesOfString:@" | Beats Music" withString:@""];
             NSArray *info = [title componentsSeparatedByString:@" by "];
             if (info.count == 2) {
+                NSUserNotificationCenter *defaultCenter = [NSUserNotificationCenter defaultUserNotificationCenter];
+                
+                // Remove all delivered notifications.
+                [defaultCenter removeAllDeliveredNotifications];
+                
+                // Make a new notification.
                 NSUserNotification *notification = [[NSUserNotification alloc] init];
                 notification.title = info[0]; // track
                 notification.informativeText = info[1]; // artist
-                [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+
+                // Deliver the notification.
+                [defaultCenter deliverNotification:notification];
             }
         }
     }
