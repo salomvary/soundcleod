@@ -366,7 +366,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="174587703">
+								<object class="NSMenuItem" id="850455655">
 									<reference key="NSMenu" ref="789758025"/>
 									<string key="NSTitle">Search</string>
 									<string key="NSKeyEquiv">f</string>
@@ -493,23 +493,7 @@
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
-						<string key="NSAction">submenuAction:</string>
-						<reference key="NSTarget" ref="992780483"/>
-						<object class="NSMenu" key="NSSubmenu" id="992780483">
-							<string key="NSTitle">Help</string>
-							<array class="NSMutableArray" key="NSMenuItems">
-								<object class="NSMenuItem" id="105068016">
-									<reference key="NSMenu" ref="992780483"/>
-									<string key="NSTitle">BeotsMusic Help</string>
-									<string key="NSKeyEquiv">?</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
-							</array>
-							<string key="NSName">_NSHelpMenu</string>
-						</object>
+						<reference key="NSTarget"/>
 					</object>
 				</array>
 				<string key="NSName">_NSMainMenu</string>
@@ -789,14 +773,6 @@
 					<int key="connectionID">597</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">showHelp:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="105068016"/>
-					</object>
-					<int key="connectionID">600</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">urlPromptController</string>
 						<reference key="source" ref="976324537"/>
@@ -824,7 +800,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">search:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="174587703"/>
+						<reference key="destination" ref="850455655"/>
 					</object>
 					<int key="connectionID">674</int>
 				</object>
@@ -976,7 +952,7 @@
 							<reference ref="1040322652"/>
 							<reference ref="790794224"/>
 							<reference ref="82994268"/>
-							<reference ref="174587703"/>
+							<reference ref="850455655"/>
 						</array>
 						<reference key="parent" ref="952259628"/>
 					</object>
@@ -1237,23 +1213,8 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">490</int>
 						<reference key="object" ref="448692316"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="992780483"/>
-						</array>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="649796088"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">491</int>
-						<reference key="object" ref="992780483"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="105068016"/>
-						</array>
-						<reference key="parent" ref="448692316"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">492</int>
-						<reference key="object" ref="105068016"/>
-						<reference key="parent" ref="992780483"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">494</int>
@@ -1350,7 +1311,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">672</int>
-						<reference key="object" ref="174587703"/>
+						<reference key="object" ref="850455655"/>
 						<reference key="parent" ref="789758025"/>
 					</object>
 				</array>
@@ -1401,8 +1362,6 @@
 				<string key="420.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="485.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="490.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="491.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="492.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="494.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="536.CustomClassName">DHSwipeWebView</string>
@@ -1451,7 +1410,6 @@
 						<string key="reload:">id</string>
 						<string key="restoreWindow:">id</string>
 						<string key="search:">id</string>
-						<string key="showHelp:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="reload:">
@@ -1464,10 +1422,6 @@
 						</object>
 						<object class="IBActionInfo" key="search:">
 							<string key="name">search:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showHelp:">
-							<string key="name">showHelp:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

@@ -271,11 +271,6 @@ id tmpHostWindow;
 }
 
 
-- (IBAction)showHelp:(id)sender
-{
-    [self help];
-}
-
 - (IBAction)restoreWindow:(id)sender
 {
     [window makeKeyAndOrderFront:self];
