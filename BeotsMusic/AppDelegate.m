@@ -149,16 +149,16 @@ id tmpHostWindow;
     if (frame == [webView mainFrame]) {
         [window setTitle:title];
         if ([self isPlaying]) {
-            title = [title stringByReplacingOccurrencesOfString:@"▶ " withString:@""];
+            // main.js:17889 "Song: " + i + " by " + n + " | Beats Music"
+            title = [title stringByReplacingOccurrencesOfString:@"Song: " withString:@""];
+            title = [title stringByReplacingOccurrencesOfString:@" | Beats Music" withString:@""];
             NSArray *info = [title componentsSeparatedByString:@" by "];
-            if (info.count == 1) {
-                // current track is part of a set
-                info = [title componentsSeparatedByString:@" in "];
+            if (info.count == 2) {
+                NSUserNotification *notification = [[NSUserNotification alloc] init];
+                notification.title = info[0]; // track
+                notification.informativeText = info[1]; // artist
+                [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
             }
-            NSUserNotification *notification = [[NSUserNotification alloc] init];
-            notification.title = info[0]; // track
-            notification.informativeText = info[1]; // artist
-            [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
         }
     }
 }
@@ -304,8 +304,7 @@ id tmpHostWindow;
 - (BOOL)isPlaying
 {
     // FIXME find a better way to detect playing
-    NSString *title = [window title];
-    return [title rangeOfString:@"▶"].location != NSNotFound;
+    return [webView stringByEvaluatingJavaScriptFromString:@"$('.playing')[0].toString()"] ? YES : NO;
 }
 
 - (void)navigate:(NSString*)permalink
