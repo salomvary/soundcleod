@@ -57,9 +57,7 @@
 
 + (BOOL)isLoginURL:(NSURL *)url
 {
-    return [[url host] isEqualToString: BMHost]
-        // for some strange reason, objectAtIndex:0 is "/"
-        && [[[url pathComponents] objectAtIndex:1] isEqualToString: @"connect"];
+    return [[url host] isEqualToString: BMFacebookHost] || [[url host] isEqualToString: BMTwitterHost];
 }
 
 @end

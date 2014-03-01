@@ -59,10 +59,13 @@ id tmpHostWindow;
     WebPreferences* prefs = [WebPreferences standardPreferences];
     
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
-    [prefs setPlugInsEnabled:TRUE]; // Flash is required for playing sounds in certain cases
+    [prefs setPlugInsEnabled:TRUE]; // Flash is required
     
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/BeotsMusic"];
     [prefs setLocalStorageEnabled:YES];
+    
+    [prefs setJavaScriptEnabled:YES];
+    [prefs setPrivateBrowsingEnabled:NO];
     
     [webView setPreferences:prefs];
     
@@ -158,7 +161,7 @@ id tmpHostWindow;
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
 {
     // normal in-frame navigation
-    if(frame != [webView mainFrame] || [AppDelegate isSCURL:[request URL]]) {
+    if(frame != [webView mainFrame] || [AppDelegate isBMURL:[request URL]]) {
         // allow loading urls in sub-frames OR when they are sc urls
         [listener use];
     } else {
@@ -172,7 +175,7 @@ id tmpHostWindow;
 {
     // target=_blank or anything scenario
     [listener ignore];
-    if([AppDelegate isSCURL:[request URL]]) {
+    if([AppDelegate isBMURL:[request URL]]) {
         // open local links in the main frame
         // TODO: maybe maintain a frame stack instead?
         [[webView mainFrame] loadRequest: [NSURLRequest requestWithURL:
@@ -316,11 +319,14 @@ id tmpHostWindow;
     [webView stringByEvaluatingJavaScriptFromString:js];
 }
 
-+ (BOOL)isSCURL:(NSURL *)url
++ (BOOL)isBMURL:(NSURL *)url
 {
     if(url != nil) {
         if([url host] != nil) {
-            if([[url host] isEqualToString:SCHost] || [[url host] isEqualToString:[baseUrl host]]) {
+            NSString *host = [url host];
+            if([host isEqualToString:BMHost]
+               || [host isEqualToString:BMAccountHost]
+               || [host isEqualToString:[baseUrl host]]) {
                 return TRUE;
             }
         }

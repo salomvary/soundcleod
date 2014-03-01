@@ -16,7 +16,7 @@
 
 extern NSURL *baseUrl;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate> {
     SPMediaKeyTap *keyTap;
 }
 
@@ -40,7 +40,6 @@ extern NSURL *baseUrl;
 - (BOOL)isPlaying;
 
 - (void)navigate:(NSString*)permalink;
-- (IBAction)showHelp:(id)sender;
-+ (BOOL)isSCURL:(NSURL *)url;
++ (BOOL)isBMURL:(NSURL *)url;
 
 @end

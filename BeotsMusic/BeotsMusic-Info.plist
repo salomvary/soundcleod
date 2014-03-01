@@ -32,7 +32,7 @@ Some Rights Reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>SCDApplication</string>
+	<string>BMCApplication</string>
 	<key>SUFeedURL</key>
 	<string>FIXME</string>
 	<key>SUPublicDSAKeyFile</key>

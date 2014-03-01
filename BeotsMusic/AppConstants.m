@@ -9,4 +9,7 @@
 #import "AppConstants.h"
 
 NSString *const BMHost = @"listen.beatsmusic.com";
+NSString *const BMAccountHost = @"account.beatsmusic.com";
+NSString *const BMFacebookHost = @"www.facebook.com";
+NSString *const BMTwitterHost = @"api.twitter.com";
 NSString *const BMApplicationDidPressSpaceBarKey = @"BMApplicationDidPressSpaceBarKey";

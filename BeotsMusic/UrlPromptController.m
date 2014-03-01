@@ -43,7 +43,7 @@
             NSURL *url = [NSURL URLWithString:value];
             if(url != nil) {
                 if([url host] != nil) {
-                    if([AppDelegate isSCURL:url]) {
+                    if([AppDelegate isBMURL:url]) {
                         permalink = [url path];
                     } else {
                         error = @"This is not a Beats Music link";
