@@ -165,24 +165,26 @@ id tmpHostWindow;
                 notification.informativeText = info[1]; // artist
 
                 // Get the album image.
-                NSString *css = [webView stringByEvaluatingJavaScriptFromString:@"$('#t-art').css('background-image')"];
-                if(![css isEqualToString:@""]) {
-                    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"url\\s*\\(\\s*['\"]?\\s*(.+?)\\s*['\"]?\\s*\\)"
-                                                                                           options:NSRegularExpressionCaseInsensitive
-                                                                                             error:nil];
-                    NSTextCheckingResult *result = [regex firstMatchInString:css options:0 range:NSMakeRange(0, [css length])];
-                    if(result) {
-                        NSRange range = [result rangeAtIndex:1];
-                        NSURL *url = [NSURL URLWithString:[css substringWithRange:range]];
-                        
-                        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:0 timeoutInterval:60];
-                        NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                                             returningResponse:nil
-                                                                         error:nil];
-                        if(data) {
-                            NSImage *image = [[NSImage alloc] initWithData:data];
-                            if(image) {
-                                notification.contentImage = image;
+                if([notification respondsToSelector:@selector(setContentImage:)]) {
+                    NSString *css = [webView stringByEvaluatingJavaScriptFromString:@"$('#t-art').css('background-image')"];
+                    if(![css isEqualToString:@""]) {
+                        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"url\\s*\\(\\s*['\"]?\\s*(.+?)\\s*['\"]?\\s*\\)"
+                                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                                 error:nil];
+                        NSTextCheckingResult *result = [regex firstMatchInString:css options:0 range:NSMakeRange(0, [css length])];
+                        if(result) {
+                            NSRange range = [result rangeAtIndex:1];
+                            NSURL *url = [NSURL URLWithString:[css substringWithRange:range]];
+                            
+                            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:0 timeoutInterval:60];
+                            NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                                                 returningResponse:nil
+                                                                             error:nil];
+                            if(data) {
+                                NSImage *image = [[NSImage alloc] initWithData:data];
+                                if(image) {
+                                    notification.contentImage = image;
+                                }
                             }
                         }
                     }
