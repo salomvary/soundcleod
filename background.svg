@@ -1,17 +1,12 @@
-<?xml version="1.0" standalone="no"?>
-<svg width="440" height="310" version="1.1" xmlns="http://www.w3.org/2000/svg">
-	<defs>
-		<radialGradient id="gradient">
-			<stop stop-color="#1e8bcc" offset="0%"/>
-			<stop stop-color="#2c3990" offset="100%"/>
-		</radialGradient>
-	</defs>
-  <rect width="440" height="310" fill="url(#gradient)"/>
-	<g transform="translate(25,65)">
-	  <text font-family="Lucida Grande" font-size="40" font-weight="bold" fill="white">SoundCleod</text>
-	</g>
-	<g transform="translate(200, 130)">
-		<polygon points="0,12 12,12 12,0 40,25 12,50 12,38 0,38"
-			fill="#f60"/>
-	</g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="86 241 440 310" enable-background="new 86 241 440 310" xml:space="preserve">
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-84.1091" y1="241.7433" x2="-84.4964" y2="240.7912" gradientTransform="matrix(612 0 0 431.1818 51901.7734 -103637.0469)">
+	<stop  offset="0" style="stop-color:#450338"/>
+	<stop  offset="1" style="stop-color:#7C0E1B"/>
+</linearGradient>
+<rect x="67" y="223" fill="url(#SVGID_1_)" width="483" height="340"/>
+<text transform="matrix(1 0 0 1 94 539)" fill="#A0212B" font-family="'MyriadPro-Cond'" font-size="14">Having trouble with launching the application? Try right-click and open.</text>
 </svg>
