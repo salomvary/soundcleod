@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"	xmlns:dc="http://purl.org/dc/elements/1.1/">
 	 <channel>
-			<title>SoundCleod's Changelog</title>
-			<link>https://raw.github.com/salomvary/soundcleod/master/appcast.xml</link>
+			<title>BeotsMusic's Changelog</title>
+			<link>https://raw.github.com/kiding/beotsmusic/master/appcast.xml</link>
 			<description>Most recent changes with links to updates.</description>
 			<language>en</language>
 				 <item>
-						<title>Version 0.12</title>
+						<title>Version 0.1</title>
 						<description><![CDATA[
 							<ul>
 								<li>Automatic updates yay!</li>
 							</ul>
 						]]></description>
 						<pubDate>Fri, 08 Nov 2013 16:03:08 +0100</pubDate>
-						<enclosure url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg" sparkle:version="0.12" length="1033493" type="application/octet-stream" sparkle:dsaSignature="MCwCFDpRxmXdaTDu9kAc5aqwtFWVCr2pAhQIe0cTpm1EEFL/VjNBPqqfU+71KQ==" />
+						<enclosure url="https://github.com/kiding/beotsmusic/releases/download/0.1/BeotsMusic.dmg" sparkle:version="0.1" length="1646233" type="application/octet-stream" sparkle:dsaSignature="MC0CFG5VYfgL3+b4gho3Ge8JUfcpgQdsAhUAgJN//G0vP+8Mvi3kYWcp5GS2LLY=" />
 				 </item>
 	 </channel>
 </rss>
