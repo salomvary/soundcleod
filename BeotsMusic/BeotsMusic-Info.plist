@@ -34,7 +34,7 @@ Some Rights Reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string>BMCApplication</string>
 	<key>SUFeedURL</key>
-	<string>FIXME</string>
+	<string>https://raw.github.com/kiding/beotsmusic/master/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>
