@@ -29,9 +29,15 @@ Current version is 0.12 (November 8, 2013) [see changes](https://github.com/salo
 
 ![SoundCleod screenshot](https://raw.github.com/salomvary/soundcleod/master/screenshot.png)
 
-## Alternatives
+## Alternatives:
+To play SoundCloud
 - Any modern web browser
 - [BeardedSpice](http://beardedspice.com/) (Mac)
+
+## Forks Using SoundCleod "Engine"
+To play other stuff:
+- [TwentyTwo](https://github.com/marcw/twentytwo)
+- [BeotsMusic](http://beotsmusic.kiding.net/)
 
 ## Disclaimer
 
