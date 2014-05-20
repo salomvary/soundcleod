@@ -30,6 +30,15 @@
 		DF590B9418C0E07900D0603C /* BMCApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = DF590B8518C0E07900D0603C /* BMCApplication.m */; };
 		DF590B9518C0E07900D0603C /* UrlPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF590B8618C0E07900D0603C /* UrlPrompt.xib */; };
 		DF590B9618C0E07900D0603C /* UrlPromptController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF590B8818C0E07900D0603C /* UrlPromptController.m */; };
+		DF77A8CC192B8C940045BE66 /* DDHidAppleMikey.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8BD192B8C930045BE66 /* DDHidAppleMikey.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DF77A8CD192B8C940045BE66 /* DDHidDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8BF192B8C930045BE66 /* DDHidDevice.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DF77A8CE192B8C940045BE66 /* DDHidElement.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8C1192B8C940045BE66 /* DDHidElement.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DF77A8CF192B8C940045BE66 /* DDHidEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8C3192B8C940045BE66 /* DDHidEvent.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DF77A8D0192B8C940045BE66 /* DDHidQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8C5192B8C940045BE66 /* DDHidQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DF77A8D1192B8C940045BE66 /* DDHidUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8C7192B8C940045BE66 /* DDHidUsage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DF77A8D2192B8C940045BE66 /* NSDictionary+DDHidExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8C9192B8C940045BE66 /* NSDictionary+DDHidExtras.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DF77A8D3192B8C940045BE66 /* NSXReturnThrowError.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8CB192B8C940045BE66 /* NSXReturnThrowError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		DF77A8D6192B8E690045BE66 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF77A8D5192B8E690045BE66 /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +93,23 @@
 		DF590B8618C0E07900D0603C /* UrlPrompt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UrlPrompt.xib; sourceTree = "<group>"; };
 		DF590B8718C0E07900D0603C /* UrlPromptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlPromptController.h; sourceTree = "<group>"; };
 		DF590B8818C0E07900D0603C /* UrlPromptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlPromptController.m; sourceTree = "<group>"; };
+		DF77A8BC192B8C930045BE66 /* DDHidAppleMikey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidAppleMikey.h; path = DDHidLib/DDHidAppleMikey.h; sourceTree = "<group>"; };
+		DF77A8BD192B8C930045BE66 /* DDHidAppleMikey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidAppleMikey.m; path = DDHidLib/DDHidAppleMikey.m; sourceTree = "<group>"; };
+		DF77A8BE192B8C930045BE66 /* DDHidDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidDevice.h; path = DDHidLib/DDHidDevice.h; sourceTree = "<group>"; };
+		DF77A8BF192B8C930045BE66 /* DDHidDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidDevice.m; path = DDHidLib/DDHidDevice.m; sourceTree = "<group>"; };
+		DF77A8C0192B8C940045BE66 /* DDHidElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidElement.h; path = DDHidLib/DDHidElement.h; sourceTree = "<group>"; };
+		DF77A8C1192B8C940045BE66 /* DDHidElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidElement.m; path = DDHidLib/DDHidElement.m; sourceTree = "<group>"; };
+		DF77A8C2192B8C940045BE66 /* DDHidEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidEvent.h; path = DDHidLib/DDHidEvent.h; sourceTree = "<group>"; };
+		DF77A8C3192B8C940045BE66 /* DDHidEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidEvent.m; path = DDHidLib/DDHidEvent.m; sourceTree = "<group>"; };
+		DF77A8C4192B8C940045BE66 /* DDHidQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidQueue.h; path = DDHidLib/DDHidQueue.h; sourceTree = "<group>"; };
+		DF77A8C5192B8C940045BE66 /* DDHidQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidQueue.m; path = DDHidLib/DDHidQueue.m; sourceTree = "<group>"; };
+		DF77A8C6192B8C940045BE66 /* DDHidUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDHidUsage.h; path = DDHidLib/DDHidUsage.h; sourceTree = "<group>"; };
+		DF77A8C7192B8C940045BE66 /* DDHidUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDHidUsage.m; path = DDHidLib/DDHidUsage.m; sourceTree = "<group>"; };
+		DF77A8C8192B8C940045BE66 /* NSDictionary+DDHidExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+DDHidExtras.h"; path = "DDHidLib/NSDictionary+DDHidExtras.h"; sourceTree = "<group>"; };
+		DF77A8C9192B8C940045BE66 /* NSDictionary+DDHidExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+DDHidExtras.m"; path = "DDHidLib/NSDictionary+DDHidExtras.m"; sourceTree = "<group>"; };
+		DF77A8CA192B8C940045BE66 /* NSXReturnThrowError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSXReturnThrowError.h; path = DDHidLib/NSXReturnThrowError.h; sourceTree = "<group>"; };
+		DF77A8CB192B8C940045BE66 /* NSXReturnThrowError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSXReturnThrowError.m; path = DDHidLib/NSXReturnThrowError.m; sourceTree = "<group>"; };
+		DF77A8D5192B8E690045BE66 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF77A8D6192B8E690045BE66 /* IOKit.framework in Frameworks */,
 				2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */,
 				26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */,
 				263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */,
@@ -107,6 +134,7 @@
 				DF590B7118C0E07900D0603C /* BeotsMusic */,
 				3A6AE39C17613C9900D67ADC /* DHSwipeWebView */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
+				DF77A8D4192B8C980045BE66 /* DDHidLib */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
 				263C2B9D1677152500EF4792 /* Products */,
 				DF57E20D18C389C800ADAB2E /* beotsmusic.iconset */,
@@ -124,6 +152,7 @@
 		263C2B9F1677152500EF4792 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DF77A8D5192B8E690045BE66 /* IOKit.framework */,
 				2666D13617E3104A0071A8BA /* Sparkle.framework */,
 				2618AE0016803F1900EC2E15 /* Carbon.framework */,
 				263C2BA01677152500EF4792 /* Cocoa.framework */,
@@ -201,6 +230,29 @@
 			path = BeotsMusic;
 			sourceTree = "<group>";
 		};
+		DF77A8D4192B8C980045BE66 /* DDHidLib */ = {
+			isa = PBXGroup;
+			children = (
+				DF77A8BC192B8C930045BE66 /* DDHidAppleMikey.h */,
+				DF77A8BD192B8C930045BE66 /* DDHidAppleMikey.m */,
+				DF77A8BE192B8C930045BE66 /* DDHidDevice.h */,
+				DF77A8BF192B8C930045BE66 /* DDHidDevice.m */,
+				DF77A8C0192B8C940045BE66 /* DDHidElement.h */,
+				DF77A8C1192B8C940045BE66 /* DDHidElement.m */,
+				DF77A8C2192B8C940045BE66 /* DDHidEvent.h */,
+				DF77A8C3192B8C940045BE66 /* DDHidEvent.m */,
+				DF77A8C4192B8C940045BE66 /* DDHidQueue.h */,
+				DF77A8C5192B8C940045BE66 /* DDHidQueue.m */,
+				DF77A8C6192B8C940045BE66 /* DDHidUsage.h */,
+				DF77A8C7192B8C940045BE66 /* DDHidUsage.m */,
+				DF77A8C8192B8C940045BE66 /* NSDictionary+DDHidExtras.h */,
+				DF77A8C9192B8C940045BE66 /* NSDictionary+DDHidExtras.m */,
+				DF77A8CA192B8C940045BE66 /* NSXReturnThrowError.h */,
+				DF77A8CB192B8C940045BE66 /* NSXReturnThrowError.m */,
+			);
+			name = DDHidLib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,16 +323,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF77A8D3192B8C940045BE66 /* NSXReturnThrowError.m in Sources */,
 				26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */,
+				DF77A8D2192B8C940045BE66 /* NSDictionary+DDHidExtras.m in Sources */,
 				DF590B8A18C0E07900D0603C /* AppConstants.m in Sources */,
+				DF77A8CE192B8C940045BE66 /* DDHidElement.m in Sources */,
+				DF77A8CC192B8C940045BE66 /* DDHidAppleMikey.m in Sources */,
+				DF77A8D1192B8C940045BE66 /* DDHidUsage.m in Sources */,
 				26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */,
 				DF590B8B18C0E07900D0603C /* AppDelegate.m in Sources */,
 				3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */,
 				3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */,
 				DF590B9418C0E07900D0603C /* BMCApplication.m in Sources */,
+				DF77A8D0192B8C940045BE66 /* DDHidQueue.m in Sources */,
+				DF77A8CF192B8C940045BE66 /* DDHidEvent.m in Sources */,
 				DF590B9218C0E07900D0603C /* main.m in Sources */,
 				DF590B9618C0E07900D0603C /* UrlPromptController.m in Sources */,
 				DF590B9318C0E07900D0603C /* PopupController.m in Sources */,
+				DF77A8CD192B8C940045BE66 /* DDHidDevice.m in Sources */,
 				3A6AE3A517613C9900D67ADC /* DHSwipeWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
