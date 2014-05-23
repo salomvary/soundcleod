@@ -39,6 +39,7 @@
 		DF77A8D2192B8C940045BE66 /* NSDictionary+DDHidExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8C9192B8C940045BE66 /* NSDictionary+DDHidExtras.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DF77A8D3192B8C940045BE66 /* NSXReturnThrowError.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8CB192B8C940045BE66 /* NSXReturnThrowError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DF77A8D6192B8E690045BE66 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF77A8D5192B8E690045BE66 /* IOKit.framework */; };
+		DFCFC5CA192F30DF00794B34 /* sound_up.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCFC5C9192F30DF00794B34 /* sound_up.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -110,6 +111,8 @@
 		DF77A8CA192B8C940045BE66 /* NSXReturnThrowError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSXReturnThrowError.h; path = DDHidLib/NSXReturnThrowError.h; sourceTree = "<group>"; };
 		DF77A8CB192B8C940045BE66 /* NSXReturnThrowError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSXReturnThrowError.m; path = DDHidLib/NSXReturnThrowError.m; sourceTree = "<group>"; };
 		DF77A8D5192B8E690045BE66 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		DFCFC5C8192F30DF00794B34 /* sound_up.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sound_up.h; sourceTree = "<group>"; };
+		DFCFC5C9192F30DF00794B34 /* sound_up.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sound_up.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,7 @@
 				3A6AE39C17613C9900D67ADC /* DHSwipeWebView */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
 				DF77A8D4192B8C980045BE66 /* DDHidLib */,
+				DFCFC5C7192F30DF00794B34 /* sound_up */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
 				263C2B9D1677152500EF4792 /* Products */,
 				DF57E20D18C389C800ADAB2E /* beotsmusic.iconset */,
@@ -253,6 +257,15 @@
 			name = DDHidLib;
 			sourceTree = "<group>";
 		};
+		DFCFC5C7192F30DF00794B34 /* sound_up */ = {
+			isa = PBXGroup;
+			children = (
+				DFCFC5C8192F30DF00794B34 /* sound_up.h */,
+				DFCFC5C9192F30DF00794B34 /* sound_up.m */,
+			);
+			path = sound_up;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -333,6 +346,7 @@
 				26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */,
 				DF590B8B18C0E07900D0603C /* AppDelegate.m in Sources */,
 				3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */,
+				DFCFC5CA192F30DF00794B34 /* sound_up.m in Sources */,
 				3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */,
 				DF590B9418C0E07900D0603C /* BMCApplication.m in Sources */,
 				DF77A8D0192B8C940045BE66 /* DDHidQueue.m in Sources */,
