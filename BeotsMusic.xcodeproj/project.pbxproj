@@ -40,6 +40,7 @@
 		DF77A8D3192B8C940045BE66 /* NSXReturnThrowError.m in Sources */ = {isa = PBXBuildFile; fileRef = DF77A8CB192B8C940045BE66 /* NSXReturnThrowError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		DF77A8D6192B8E690045BE66 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF77A8D5192B8E690045BE66 /* IOKit.framework */; };
 		DFCFC5CA192F30DF00794B34 /* sound_up.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCFC5C9192F30DF00794B34 /* sound_up.m */; };
+		DFCFC5CD192F310D00794B34 /* BMAppleMikeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCFC5CC192F310D00794B34 /* BMAppleMikeyManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +114,8 @@
 		DF77A8D5192B8E690045BE66 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		DFCFC5C8192F30DF00794B34 /* sound_up.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sound_up.h; sourceTree = "<group>"; };
 		DFCFC5C9192F30DF00794B34 /* sound_up.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sound_up.m; sourceTree = "<group>"; };
+		DFCFC5CB192F310D00794B34 /* BMAppleMikeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAppleMikeyManager.h; sourceTree = "<group>"; };
+		DFCFC5CC192F310D00794B34 /* BMAppleMikeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAppleMikeyManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,8 @@
 				DF590B8618C0E07900D0603C /* UrlPrompt.xib */,
 				DF590B8718C0E07900D0603C /* UrlPromptController.h */,
 				DF590B8818C0E07900D0603C /* UrlPromptController.m */,
+				DFCFC5CB192F310D00794B34 /* BMAppleMikeyManager.h */,
+				DFCFC5CC192F310D00794B34 /* BMAppleMikeyManager.m */,
 			);
 			path = BeotsMusic;
 			sourceTree = "<group>";
@@ -350,6 +355,7 @@
 				3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */,
 				DF590B9418C0E07900D0603C /* BMCApplication.m in Sources */,
 				DF77A8D0192B8C940045BE66 /* DDHidQueue.m in Sources */,
+				DFCFC5CD192F310D00794B34 /* BMAppleMikeyManager.m in Sources */,
 				DF77A8CF192B8C940045BE66 /* DDHidEvent.m in Sources */,
 				DF590B9218C0E07900D0603C /* main.m in Sources */,
 				DF590B9618C0E07900D0603C /* UrlPromptController.m in Sources */,
