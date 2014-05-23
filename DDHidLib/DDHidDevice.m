@@ -216,12 +216,20 @@ return retVal;
 
 - (void) openWithOptions: (UInt32) options;
 {
-    NSXThrowError((*mDeviceInterface)->open(mDeviceInterface, options));
+    NSError *error = nil;
+    NSXReturnError((*mDeviceInterface)->open(mDeviceInterface, options));
+    if(error) {
+        NSLog(@"ERROR: Failed to open DDHidDevice: %@", error);
+    }
 }
 
 - (void) close;
 {
-    NSXThrowError((*mDeviceInterface)->close(mDeviceInterface));
+    NSError *error = nil;
+    NSXReturnError((*mDeviceInterface)->close(mDeviceInterface));
+    if(error) {
+        NSLog(@"ERROR: Failed to close DDHidDevice: %@", error);
+    }
 }
 
 - (DDHidQueue *) createQueueWithSize: (unsigned) size;
