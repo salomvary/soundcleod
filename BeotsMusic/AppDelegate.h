@@ -12,12 +12,14 @@
 #import "UrlPromptController.h"
 #import "../SPMediaKeyTap/SPMediaKeyTap.h"
 #import "../DHSwipeWebView/DHSwipeWebView.h"
+#import "BMAppleMikeyManager.h"
 #import "AppDelegate.h"
 
 extern NSURL *baseUrl;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, BMAppleMikeyReceiverDelegate> {
     SPMediaKeyTap *keyTap;
+    BMAppleMikeyManager *mikeyManager;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -49,5 +51,9 @@ extern NSURL *baseUrl;
 
 - (void)navigate:(NSString*)permalink;
 + (BOOL)isBMURL:(NSURL *)url;
+
+- (void) mikeyDidPlayPause;
+- (void) mikeyDidNext;
+- (void) mikeyDidPrevious;
 
 @end
