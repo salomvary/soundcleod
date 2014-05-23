@@ -120,6 +120,8 @@ static void queueCallbackFunction(void* target,  IOReturn result, void* refcon,
     CFRunLoopRemoveSource([mRunLoop getCFRunLoop], mEventSource, kCFRunLoopDefaultMode);
     (*mQueue)->stop(mQueue);
     [mRunLoop release];
+    CFRelease(mEventSource);
+
     mRunLoop = nil;
     mStarted = NO;
 }
