@@ -58,4 +58,5 @@ extern NSURL *baseUrl;
 - (void)navigate:(NSString*)permalink;
 + (BOOL)isBMURL:(NSURL *)url;
 
+- (void)didPressSpaceBarKey:(NSNotification *)notification;
 @end
