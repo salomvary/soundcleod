@@ -7,7 +7,7 @@
 @interface BMAppleMikeyManager ()
 {
     NSArray *mikeys;            // An array of all the DDHidAppleMikey objects that are being listened to.
-                                // nil if the receiver is not listening.
+                                // nil if the manager is not listening.
     IOHIDManagerRef hidManager; // IOHIDManager to watch for plugging/unplugging mikey.
 }
 
@@ -53,7 +53,7 @@ static void hidCallback(void *                  context,
         // Initialize IOHIDManager, watch for every HID devices.
         hidManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
         if (IOHIDManagerOpen(hidManager, kIOHIDOptionsTypeNone) != kIOReturnSuccess) {
-            NSLog(@"BMAppleMikeyReceiver: Failed to open HID Manager.");
+            NSLog(@"BMAppleMikeyManager: Failed to open HID Manager.");
             return nil;
         }
         
@@ -153,7 +153,7 @@ static void hidCallback(void *                  context,
     }
 }
 
-#pragma mark BMAppleMikeyReceiverDelegate
+#pragma mark BMAppleMikeyManagerDelegate
 
 - (void) mikeyDidPlayPause
 {

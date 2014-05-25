@@ -17,7 +17,7 @@
 
 extern NSURL *baseUrl;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, BMAppleMikeyReceiverDelegate> {
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, BMAppleMikeyManagerDelegate> {
     SPMediaKeyTap *keyTap;
     BMAppleMikeyManager *mikeyManager;
 }
