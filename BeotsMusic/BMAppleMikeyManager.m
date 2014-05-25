@@ -135,7 +135,7 @@ static void hidCallback(void *                  context,
 
 - (void) ddhidAppleMikey:(DDHidAppleMikey *)mikey press:(unsigned int)usageId upOrDown:(BOOL)upOrDown
 {
-   if(upOrDown) { // Up state!
+   if(!upOrDown) { // Down state!
        // There are five commands; from 0x89 to 0x8d.
        unsigned command = usageId - 0x89; // from 0 to 4
        
