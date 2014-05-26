@@ -99,9 +99,7 @@ static void hidCallback(void *                  context,
     if (_isListening) {
         // Every time either plugging/unplugging Apple Mikey happens,
         // restart listening to all the existing Mikeys.
-        @synchronized(self) {
-            [self startListeningToAllMikeys];
-        }
+        [self startListeningToAllMikeys];
     }
 }
 
