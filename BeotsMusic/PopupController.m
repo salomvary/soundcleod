@@ -57,7 +57,7 @@
 
 + (BOOL)isLoginURL:(NSURL *)url
 {
-    return [[url host] isEqualToString: BMFacebookHost] || [[url host] isEqualToString: BMTwitterHost];
+    return [[url host] isEqualToString: BMAccountHost] || [[url host] isEqualToString: BMFacebookHost] || [[url host] isEqualToString: BMTwitterHost];
 }
 
 @end
