@@ -29,8 +29,6 @@
 #import "DDHidEvent.h"
 #include <IOKit/hid/IOHIDUsageTables.h>
 
-#define APPLE_MIC_ONLY 1
-
 @interface DDHidAppleMikey (DDHidAppleMikeyDelegate)
 
 - (void) ddhidAppleMikey: (DDHidAppleMikey *) mikey
@@ -50,13 +48,14 @@
 
 + (NSArray *) allMikeys;
 {
-    //add mikeys
-    id a2 = [self allDevicesMatchingUsagePage:12 usageId:1 withClass:self skipZeroLocations:NO];
-#if APPLE_MIC_ONLY
-    a2 = [a2 filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"productName == \"Apple Mikey HID Driver\""]];
-#endif
-    
-    return a2;
+	CFMutableDictionaryRef hidMatchDictionary = IOServiceNameMatching("AppleMikeyHIDDriver");
+    if(hidMatchDictionary) {
+        return [self allDevicesMatchingCFDictionary:hidMatchDictionary
+                                          withClass:self
+                                  skipZeroLocations:NO];
+    } else {
+        return @[];
+    }
 }
 
 - (id) initWithDevice: (io_object_t) device error: (NSError **) error_;

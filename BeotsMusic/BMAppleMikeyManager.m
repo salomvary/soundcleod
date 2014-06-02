@@ -34,10 +34,7 @@ static void hidCallback(void *                  context,
                         void *                  sender,
                         IOHIDDeviceRef          device)
 {
-    CFTypeRef val = IOHIDDeviceGetProperty(device, CFSTR(kIOHIDProductKey));
-    if(CFGetTypeID(val) == CFStringGetTypeID() && !CFStringCompare(val, CFSTR("Apple Mikey HID Driver"), 0)) {
-        [(__bridge BMAppleMikeyManager *)context hidCallback];
-    }
+    [(__bridge BMAppleMikeyManager *)context hidCallback];
 }
 
 @implementation BMAppleMikeyManager
@@ -50,14 +47,14 @@ static void hidCallback(void *                  context,
         // Initialize allMikeys.
         mikeys = nil;
 
-        // Initialize IOHIDManager, watch for every HID devices.
+        // Initialize IOHIDManager, watch for Apple Mikey HID Driver.
         hidManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
         if (IOHIDManagerOpen(hidManager, kIOHIDOptionsTypeNone) != kIOReturnSuccess) {
             NSLog(@"BMAppleMikeyManager: Failed to open HID Manager.");
             return nil;
         }
         
-        IOHIDManagerSetDeviceMatching(hidManager, NULL);
+        IOHIDManagerSetDeviceMatching(hidManager, IOServiceNameMatching("AppleMikeyHIDDriver"));
         IOHIDManagerScheduleWithRunLoop(hidManager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
         IOHIDManagerRegisterDeviceMatchingCallback(hidManager, hidCallback, (__bridge void *)self);
         IOHIDManagerRegisterDeviceRemovalCallback(hidManager, hidCallback, (__bridge void *)self);
