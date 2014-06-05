@@ -11,8 +11,6 @@
 
 @interface BMAppleMikeyManager : NSObject
 
-- (instancetype) init;
-
 - (void) startListening;
 - (void) stopListening;
 

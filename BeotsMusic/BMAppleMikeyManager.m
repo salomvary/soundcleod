@@ -1,23 +1,30 @@
 #import "BMAppleMikeyManager.h"
-#import "DDHidAppleMikey.h"
 #import "sound_up.h"
+#import <IOKit/hid/IOHIDLib.h>
+#import <Carbon/Carbon.h>
+
+typedef enum : NSUInteger {
+    BMAppleMikeyPlayPause = 0,
+    BMAppleMikeyNext,
+    BMAppleMikeyPrevious,
+    BMAppleMikeySoundUp,
+    BMAppleMikeySoundDown
+} BMAppleMikeyCommand;
 
 #pragma mark Private Declaration
 
 @interface BMAppleMikeyManager ()
 {
-    NSArray *mikeys;            // An array of all the DDHidAppleMikey objects that are being listened to.
-                                // nil if the manager is not listening.
-    IOHIDManagerRef hidManager; // IOHIDManager to watch for plugging/unplugging mikey.
+    IOHIDManagerRef dummyManager;
+    IOHIDManagerRef valueManager;
+    NSTimer *secureTimer;
 }
 
 - (void) dealloc;
 
-- (void) hidCallback;
-
-- (void) startListeningToAllMikeys;
-- (void) stopListeningToExistingMikeys;
-- (void) ddhidAppleMikey:(DDHidAppleMikey *)mikey press:(unsigned int)usageId upOrDown:(BOOL)upOrDown;
+- (void) dummyCallback;
+- (void) valueCallback: (BMAppleMikeyCommand) command;
+- (void) checkSecureEventInput;
 
 - (void) mikeyDidPlayPause;
 - (void) mikeyDidNext;
@@ -29,46 +36,44 @@
 
 #pragma mark Callback Function
 
-static void hidCallback(void *                  context,
-                        IOReturn                result,
-                        void *                  sender,
-                        IOHIDDeviceRef          device)
+static void dummyCallback(void *                  context,
+                          IOReturn                result,
+                          void *                  sender,
+                          IOHIDValueRef           value)
 {
-    [(__bridge BMAppleMikeyManager *)context hidCallback];
+    // val can be in [0, 1, 2, 3], but 1 is always the first data coming; 'down' event.
+    long val = IOHIDValueGetIntegerValue(value);
+
+    // Continue only if val is down.
+    if (val == 1) {
+        [(__bridge BMAppleMikeyManager *)context dummyCallback];
+    }
+}
+
+static void valueCallback(void *                  context,
+                          IOReturn                result,
+                          void *                  sender,
+                          IOHIDValueRef           value)
+{
+    // usage should be in range from 0x89 ~ 0x8d.
+    uint32_t usage = IOHIDElementGetUsage(IOHIDValueGetElement(value));
+    
+    // val can be in [0, 1, 2, 3], but 1 is always the first data coming; 'down' event.
+    long val = IOHIDValueGetIntegerValue(value);
+    
+    // Continue only if usage is in the range and val is down.
+    if (usage >= 0x89 && usage <= 0x8d && val == 1) {
+        [(__bridge BMAppleMikeyManager *)context valueCallback: (BMAppleMikeyCommand)(usage - 0x89)];
+    }
 }
 
 @implementation BMAppleMikeyManager
 
 #pragma mark Lifecycle
 
-- (instancetype) init
-{
-    if((self = [super init])) {
-        // Initialize allMikeys.
-        mikeys = nil;
-
-        // Initialize IOHIDManager, watch for Apple Mikey HID Driver.
-        hidManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
-        if (IOHIDManagerOpen(hidManager, kIOHIDOptionsTypeNone) != kIOReturnSuccess) {
-            NSLog(@"BMAppleMikeyManager: Failed to open HID Manager.");
-            return nil;
-        }
-        
-        IOHIDManagerSetDeviceMatching(hidManager, IOServiceNameMatching("AppleMikeyHIDDriver"));
-        IOHIDManagerScheduleWithRunLoop(hidManager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-        IOHIDManagerRegisterDeviceMatchingCallback(hidManager, hidCallback, (__bridge void *)self);
-        IOHIDManagerRegisterDeviceRemovalCallback(hidManager, hidCallback, (__bridge void *)self);
-    }
-    return self;
-}
-
 - (void) dealloc
 {
     [self stopListening];
-    
-    // Cleaning up IOHIDManager.
-    IOHIDManagerClose(hidManager, kIOHIDOptionsTypeNone);
-    CFRelease(hidManager);
 }
 
 #pragma mark Public
@@ -76,8 +81,33 @@ static void hidCallback(void *                  context,
 - (void) startListening
 {
     if(!_isListening) {
+        /*
+         To get commands from Apple Mikey device but not to allow any other applications to receive them, valueManager requests an exclusive access to the device. However, whenever Apple's SecureEventInput gets enabled; every time a password input field in _any_ application gets focus, the exclusivity is cancelled and never recovered. As a result, both valueManager's callback and a system daemon called rcd receive the same remote commands.
+         To resolve this issue, dummyManager registers another callback in non-exclusive way, so that as soon as a command without the exclusivity is sent; its callback will also be called for the first time, valueManager can try to re-acquire the access.
+         However, this solution can't prevent commands already sent to rcd while re-acquiring the exclusivity. For this problem, secureTimer periodically checks if any secure event input is enabled and takes care of the access.
+         */
+        
+        dummyManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
+        if (IOHIDManagerOpen(dummyManager, kIOHIDOptionsTypeNone) != kIOReturnSuccess) {
+            NSLog(@"BMAppleMikeyManager: Failed to open dummyManager.");
+        } else {
+            IOHIDManagerSetDeviceMatching(dummyManager, IOServiceNameMatching("AppleMikeyHIDDriver"));
+            IOHIDManagerScheduleWithRunLoop(dummyManager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+            IOHIDManagerRegisterInputValueCallback(dummyManager, dummyCallback, (__bridge void *)self);
+        }
+        
+        valueManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
+        if (IOHIDManagerOpen(valueManager, kIOHIDOptionsTypeSeizeDevice) != kIOReturnSuccess) {
+            NSLog(@"BMAppleMikeyManager: Failed to open valueManager.");
+        } else {
+            IOHIDManagerSetDeviceMatching(valueManager, IOServiceNameMatching("AppleMikeyHIDDriver"));
+            IOHIDManagerScheduleWithRunLoop(valueManager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+            IOHIDManagerRegisterInputValueCallback(valueManager, valueCallback, (__bridge void *)self);
+        }
+
+        secureTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkSecureEventInput) userInfo:nil repeats:YES];
+        
         _isListening = YES;
-        [self startListeningToAllMikeys];
     }
 }
 
@@ -85,66 +115,66 @@ static void hidCallback(void *                  context,
 {
     if(_isListening) {
         _isListening = NO;
-        [self stopListeningToExistingMikeys];
+        
+        IOHIDManagerClose(dummyManager, kIOHIDOptionsTypeNone);
+        CFRelease(dummyManager);
+        dummyManager = NULL;
+        
+        IOHIDManagerClose(valueManager, kIOHIDOptionsTypeNone);
+        CFRelease(valueManager);
+        valueManager = NULL;
+        
+        [secureTimer invalidate];
+        secureTimer = nil;
     }
 }
 
-#pragma mark IOHIDManager
+#pragma mark Callbacks
 
-- (void) hidCallback
+- (void) dummyCallback
 {
     if (_isListening) {
-        // Every time either plugging/unplugging Apple Mikey happens,
-        // restart listening to all the existing Mikeys.
-        [self startListeningToAllMikeys];
-    }
-}
-
-#pragma mark DDHidAppleMikey
-
-- (void) startListeningToAllMikeys
-{
-    // Stop listening first.
-    [self stopListeningToExistingMikeys];
-    
-    // Gather all the mikeys.
-    mikeys = [DDHidAppleMikey allMikeys];
-    
-    // Start listening.
-    for(DDHidAppleMikey *obj in mikeys) {
-        [obj setListenInExclusiveMode:YES];
-        [obj setDelegate:self];
-        [obj startListening];
-    }
-}
-
-- (void) stopListeningToExistingMikeys
-{
-    if(mikeys) {
-        for(DDHidAppleMikey *obj in mikeys) {
-            [obj stopListening];
+        // Re-open valueManager to re-acquire the exclusive access.
+        IOHIDManagerClose(valueManager, kIOHIDOptionsTypeNone);
+        if (IOHIDManagerOpen(valueManager, kIOHIDOptionsTypeSeizeDevice) != kIOReturnSuccess) {
+            NSLog(@"BMAppleMikeyManager: Failed to open valueManager.");
         }
-        mikeys = nil;
     }
 }
 
-- (void) ddhidAppleMikey:(DDHidAppleMikey *)mikey press:(unsigned int)usageId upOrDown:(BOOL)upOrDown
+- (void) valueCallback: (BMAppleMikeyCommand) command
 {
-   if(!upOrDown) { // Down state!
-       // There are five commands; from 0x89 to 0x8d.
-       unsigned command = usageId - 0x89; // from 0 to 4
-       
-       if(command == 0) {
-           [self mikeyDidPlayPause];
-       } else if(command == 1) {
-           [self mikeyDidNext];
-       } else if(command == 2) {
-           [self mikeyDidPrevious];
-       } else if(command == 3) {
-           [self mikeyDidSoundUp];
-       } else if(command == 4) {
-           [self mikeyDidSoundDown];
-       }
+    if (_isListening) {
+        // Route command!
+        switch (command) {
+            case BMAppleMikeyPlayPause:
+                [self mikeyDidPlayPause];
+                break;
+                
+            case BMAppleMikeyNext:
+                [self mikeyDidNext];
+                break;
+                
+            case BMAppleMikeyPrevious:
+                [self mikeyDidPrevious];
+                break;
+                
+            case BMAppleMikeySoundUp:
+                [self mikeyDidSoundUp];
+                break;
+                
+            case BMAppleMikeySoundDown:
+                [self mikeyDidSoundDown];
+                break;
+        }
+    }
+}
+
+- (void) checkSecureEventInput
+{
+    // Check if SecureEventInput is currently enabled.
+    if(_isListening && IsSecureEventInputEnabled()) {
+        [self dummyCallback];
     }
 }
 
