@@ -30,6 +30,9 @@
 		DF590B9418C0E07900D0603C /* BMCApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = DF590B8518C0E07900D0603C /* BMCApplication.m */; };
 		DF590B9518C0E07900D0603C /* UrlPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF590B8618C0E07900D0603C /* UrlPrompt.xib */; };
 		DF590B9618C0E07900D0603C /* UrlPromptController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF590B8818C0E07900D0603C /* UrlPromptController.m */; };
+		DF77A8D6192B8E690045BE66 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF77A8D5192B8E690045BE66 /* IOKit.framework */; };
+		DFCFC5CA192F30DF00794B34 /* sound_up.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCFC5C9192F30DF00794B34 /* sound_up.m */; };
+		DFCFC5CD192F310D00794B34 /* BMAppleMikeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DFCFC5CC192F310D00794B34 /* BMAppleMikeyManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +87,11 @@
 		DF590B8618C0E07900D0603C /* UrlPrompt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UrlPrompt.xib; sourceTree = "<group>"; };
 		DF590B8718C0E07900D0603C /* UrlPromptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlPromptController.h; sourceTree = "<group>"; };
 		DF590B8818C0E07900D0603C /* UrlPromptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UrlPromptController.m; sourceTree = "<group>"; };
+		DF77A8D5192B8E690045BE66 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		DFCFC5C8192F30DF00794B34 /* sound_up.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sound_up.h; sourceTree = "<group>"; };
+		DFCFC5C9192F30DF00794B34 /* sound_up.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sound_up.m; sourceTree = "<group>"; };
+		DFCFC5CB192F310D00794B34 /* BMAppleMikeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMAppleMikeyManager.h; sourceTree = "<group>"; };
+		DFCFC5CC192F310D00794B34 /* BMAppleMikeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMAppleMikeyManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF77A8D6192B8E690045BE66 /* IOKit.framework in Frameworks */,
 				2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */,
 				26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */,
 				263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */,
@@ -107,6 +116,7 @@
 				DF590B7118C0E07900D0603C /* BeotsMusic */,
 				3A6AE39C17613C9900D67ADC /* DHSwipeWebView */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
+				DFCFC5C7192F30DF00794B34 /* sound_up */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
 				263C2B9D1677152500EF4792 /* Products */,
 				DF57E20D18C389C800ADAB2E /* beotsmusic.iconset */,
@@ -124,6 +134,7 @@
 		263C2B9F1677152500EF4792 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DF77A8D5192B8E690045BE66 /* IOKit.framework */,
 				2666D13617E3104A0071A8BA /* Sparkle.framework */,
 				2618AE0016803F1900EC2E15 /* Carbon.framework */,
 				263C2BA01677152500EF4792 /* Cocoa.framework */,
@@ -197,8 +208,19 @@
 				DF590B8618C0E07900D0603C /* UrlPrompt.xib */,
 				DF590B8718C0E07900D0603C /* UrlPromptController.h */,
 				DF590B8818C0E07900D0603C /* UrlPromptController.m */,
+				DFCFC5CB192F310D00794B34 /* BMAppleMikeyManager.h */,
+				DFCFC5CC192F310D00794B34 /* BMAppleMikeyManager.m */,
 			);
 			path = BeotsMusic;
+			sourceTree = "<group>";
+		};
+		DFCFC5C7192F30DF00794B34 /* sound_up */ = {
+			isa = PBXGroup;
+			children = (
+				DFCFC5C8192F30DF00794B34 /* sound_up.h */,
+				DFCFC5C9192F30DF00794B34 /* sound_up.m */,
+			);
+			path = sound_up;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,8 +298,10 @@
 				26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */,
 				DF590B8B18C0E07900D0603C /* AppDelegate.m in Sources */,
 				3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */,
+				DFCFC5CA192F30DF00794B34 /* sound_up.m in Sources */,
 				3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */,
 				DF590B9418C0E07900D0603C /* BMCApplication.m in Sources */,
+				DFCFC5CD192F310D00794B34 /* BMAppleMikeyManager.m in Sources */,
 				DF590B9218C0E07900D0603C /* main.m in Sources */,
 				DF590B9618C0E07900D0603C /* UrlPromptController.m in Sources */,
 				DF590B9318C0E07900D0603C /* PopupController.m in Sources */,

@@ -48,6 +48,14 @@ id tmpHostWindow;
 	else
 		NSLog(@"Media key monitoring disabled");
     
+    mikeyManager = [[BMAppleMikeyManager alloc] init];
+    if(mikeyManager) {
+        mikeyManager.delegate = self;
+        [mikeyManager startListening];
+    } else
+        NSLog(@"AppDelegate: mikeyManager failed to initalize.");
+
+    
     baseUrl = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"BaseUrl"]];
     if (baseUrl == nil) {
         baseUrl = [NSURL URLWithString: [@"https://" stringByAppendingString:BMHost]];
@@ -129,6 +137,13 @@ id tmpHostWindow;
     [contentView removeFromSuperview];
     
     return TRUE;
+}
+
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    if(mikeyManager && mikeyManager.isListening) {
+        [mikeyManager stopListening];
+    }
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
@@ -385,5 +400,21 @@ id tmpHostWindow;
     [self.window sendEvent:event];
 }
 
+#pragma mark - BMAppleMikeyManagerDelegate
+
+- (void) mikeyDidPlayPause
+{
+    [self playPause];
+}
+
+- (void) mikeyDidNext
+{
+    [self next];
+}
+
+- (void) mikeyDidPrevious
+{
+    [self prev];
+}
 
 @end
