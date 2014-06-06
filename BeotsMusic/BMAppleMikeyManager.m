@@ -170,10 +170,8 @@ static void valueCallback(void *                  context,
 {
     if (_isListening) {
         // Re-open valueManager to re-acquire the exclusive access.
-        IOHIDManagerClose(valueManager, kIOHIDOptionsTypeNone);
-        if (IOHIDManagerOpen(valueManager, kIOHIDOptionsTypeSeizeDevice) != kIOReturnSuccess) {
-            NSLog(@"BMAppleMikeyManager: Failed to open valueManager.");
-        }
+        [self stopValueManager];
+        [self startValueManager];
     }
 }
 
