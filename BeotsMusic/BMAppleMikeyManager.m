@@ -22,6 +22,13 @@ typedef enum : NSUInteger {
 
 - (void) dealloc;
 
+- (void) startDummyManager;
+- (void) stopDummyManager;
+- (void) startValueManager;
+- (void) stopValueManager;
+- (void) startSecureTimer;
+- (void) stopSecureTimer;
+
 - (void) dummyCallback;
 - (void) valueCallback: (BMAppleMikeyCommand) command;
 - (void) checkSecureEventInput;
@@ -86,26 +93,10 @@ static void valueCallback(void *                  context,
          To resolve this issue, dummyManager registers another callback in non-exclusive way, so that as soon as a command without the exclusivity is sent; its callback will also be called for the first time, valueManager can try to re-acquire the access.
          However, this solution can't prevent commands already sent to rcd while re-acquiring the exclusivity. For this problem, secureTimer periodically checks if any secure event input is enabled and takes care of the access.
          */
-        
-        dummyManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
-        if (IOHIDManagerOpen(dummyManager, kIOHIDOptionsTypeNone) != kIOReturnSuccess) {
-            NSLog(@"BMAppleMikeyManager: Failed to open dummyManager.");
-        } else {
-            IOHIDManagerSetDeviceMatching(dummyManager, IOServiceNameMatching("AppleMikeyHIDDriver"));
-            IOHIDManagerScheduleWithRunLoop(dummyManager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-            IOHIDManagerRegisterInputValueCallback(dummyManager, dummyCallback, (__bridge void *)self);
-        }
-        
-        valueManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
-        if (IOHIDManagerOpen(valueManager, kIOHIDOptionsTypeSeizeDevice) != kIOReturnSuccess) {
-            NSLog(@"BMAppleMikeyManager: Failed to open valueManager.");
-        } else {
-            IOHIDManagerSetDeviceMatching(valueManager, IOServiceNameMatching("AppleMikeyHIDDriver"));
-            IOHIDManagerScheduleWithRunLoop(valueManager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-            IOHIDManagerRegisterInputValueCallback(valueManager, valueCallback, (__bridge void *)self);
-        }
 
-        secureTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkSecureEventInput) userInfo:nil repeats:YES];
+        [self startDummyManager];
+        [self startValueManager];
+        [self startSecureTimer];
         
         _isListening = YES;
     }
@@ -116,17 +107,61 @@ static void valueCallback(void *                  context,
     if(_isListening) {
         _isListening = NO;
         
-        IOHIDManagerClose(dummyManager, kIOHIDOptionsTypeNone);
-        CFRelease(dummyManager);
-        dummyManager = NULL;
-        
-        IOHIDManagerClose(valueManager, kIOHIDOptionsTypeNone);
-        CFRelease(valueManager);
-        valueManager = NULL;
-        
-        [secureTimer invalidate];
-        secureTimer = nil;
+        [self stopDummyManager];
+        [self stopValueManager];
+        [self stopSecureTimer];
     }
+}
+
+#pragma mark Listening
+
+- (void) startDummyManager
+{
+    dummyManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
+    if (IOHIDManagerOpen(dummyManager, kIOHIDOptionsTypeNone) != kIOReturnSuccess) {
+        NSLog(@"BMAppleMikeyManager: Failed to open dummyManager.");
+    } else {
+        IOHIDManagerSetDeviceMatching(dummyManager, IOServiceNameMatching("AppleMikeyHIDDriver"));
+        IOHIDManagerScheduleWithRunLoop(dummyManager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+        IOHIDManagerRegisterInputValueCallback(dummyManager, dummyCallback, (__bridge void *)self);
+    }
+}
+
+- (void) stopDummyManager
+{
+    IOHIDManagerClose(dummyManager, kIOHIDOptionsTypeNone);
+    CFRelease(dummyManager);
+    dummyManager = NULL;
+}
+
+- (void) startValueManager
+{
+    valueManager = IOHIDManagerCreate(kCFAllocatorDefault, kIOHIDOptionsTypeNone);
+    if (IOHIDManagerOpen(valueManager, kIOHIDOptionsTypeSeizeDevice) != kIOReturnSuccess) {
+        NSLog(@"BMAppleMikeyManager: Failed to open valueManager.");
+    } else {
+        IOHIDManagerSetDeviceMatching(valueManager, IOServiceNameMatching("AppleMikeyHIDDriver"));
+        IOHIDManagerScheduleWithRunLoop(valueManager, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+        IOHIDManagerRegisterInputValueCallback(valueManager, valueCallback, (__bridge void *)self);
+    }
+}
+
+- (void) stopValueManager
+{
+    IOHIDManagerClose(valueManager, kIOHIDOptionsTypeNone);
+    CFRelease(valueManager);
+    valueManager = NULL;
+}
+
+- (void) startSecureTimer
+{
+    secureTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(checkSecureEventInput) userInfo:nil repeats:YES];
+}
+
+- (void) stopSecureTimer
+{
+    [secureTimer invalidate];
+    secureTimer = nil;
 }
 
 #pragma mark Callbacks
