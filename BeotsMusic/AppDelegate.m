@@ -367,8 +367,8 @@ id tmpHostWindow;
 
 - (BOOL)isPlaying
 {
-    // FIXME find a better way to detect playing
-    return [webView stringByEvaluatingJavaScriptFromString:@"$('.playing')[0].toString()"] ? YES : NO;
+    NSString *res = [webView stringByEvaluatingJavaScriptFromString:@"($ && $('.playing')[0] && localStorage && localStorage.player && /\"playing\"\\s*:\\s*true/.test(localStorage.player) && /\"paused\"\\s*:\\s*false/.test(localStorage.player)) ? true : false"];
+    return res && [res isEqualToString:@"true"];
 }
 
 - (void)navigate:(NSString*)permalink

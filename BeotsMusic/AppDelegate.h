@@ -27,6 +27,14 @@ extern NSURL *baseUrl;
 @property (weak) IBOutlet PopupController *popupController;
 @property (weak) IBOutlet UrlPromptController *urlPromptController;
 
++ (void)initialize;
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification;
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag;
+- (void)awakeFromNib;
+- (void)windowDidBecomeKey:(NSNotification *)notification;
+- (BOOL)windowShouldClose:(NSNotification *)notification;
+- (void)applicationWillTerminate:(NSNotification *)aNotification;
+
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request;
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame;
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
@@ -52,8 +60,9 @@ extern NSURL *baseUrl;
 - (void)navigate:(NSString*)permalink;
 + (BOOL)isBMURL:(NSURL *)url;
 
+- (void)didPressSpaceBarKey:(NSNotification *)notification;
+
 - (void) mikeyDidPlayPause;
 - (void) mikeyDidNext;
 - (void) mikeyDidPrevious;
-
 @end

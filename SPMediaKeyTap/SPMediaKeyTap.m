@@ -272,12 +272,10 @@ NSString *kIgnoreMediaKeysDefaultsKey = @"SPIgnoreMediaKeys";
 {
 	NSValue *psnv = [NSValue valueWithBytes:&psn objCType:@encode(ProcessSerialNumber)];
 	
-	NSDictionary *processInfo = (__bridge id)ProcessInformationCopyDictionary(
-		&psn,
-		kProcessDictionaryIncludeAllInformationMask
-	);
-	NSString *bundleIdentifier = [processInfo objectForKey:(id)kCFBundleIdentifierKey];
-
+    CFDictionaryRef processInfo = ProcessInformationCopyDictionary(&psn, kProcessDictionaryIncludeAllInformationMask);
+    NSString *bundleIdentifier = [(__bridge NSDictionary *)processInfo objectForKey:(id)kCFBundleIdentifierKey];
+    CFRelease(processInfo);
+    
 	NSArray *whitelistIdentifiers = [[NSUserDefaults standardUserDefaults] arrayForKey:kMediaKeyUsingBundleIdentifiersDefaultsKey];
 	if(![whitelistIdentifiers containsObject:bundleIdentifier]) return;
 
