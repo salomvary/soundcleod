@@ -55,7 +55,7 @@
                 permalink = value;
             }
         }
-        if(permalink != nil) {
+        if(permalink != nil && permalink.length > 1) {
             if([permalink characterAtIndex:0] != '/') {
                 permalink = [@"/" stringByAppendingString: permalink];
             }
