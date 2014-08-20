@@ -6,6 +6,7 @@ BeotsMusic is a Mac OS X application which brings __[Beats Music](http://beatsmu
 
 - No more 'trying to find in which tab is __Beats Music__ running'..
 - Media keys support! (Yeah, those with ▶ ❚❚ on them.)
+- Headphones remote (Apple Mikey) support!
 - Stops on suspend.
 
 ### BeotsMusic is a weird name. How to pronounce it?
