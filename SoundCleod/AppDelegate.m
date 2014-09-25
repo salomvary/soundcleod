@@ -22,6 +22,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 @interface AppDelegate()
 
 @property BOOL applicationHasFinishedLaunching;
+@property (nonatomic, strong) NSURL *appLaunchURL;
 
 @property (nonatomic, strong) NSWindow *tmpHostWindow;
 @property (nonatomic, strong) id contentView;
@@ -38,6 +39,45 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
 	[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionaryWithObjectsAndKeys:
                                                              [SPMediaKeyTap defaultMediaKeyUserBundleIdentifiers], kMediaKeyUsingBundleIdentifiersDefaultsKey,
                                                              nil]];
+}
+
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification
+{
+    // Set up so we can handle cleod:// url's
+    [[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+}
+
+//
+// Handles cleod:// url's
+//
+- (void)handleURLEvent:(NSAppleEventDescriptor *)event withReplyEvent:(NSAppleEventDescriptor *)replyEvent
+{
+    NSString *urlString = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    //
+    // Ignore invalid URL's
+    //
+    if (!url) {
+        return;
+    }
+
+    //
+    // Handle soundcloud URL's by replacing the "cleod"-scheme with "https", and then loading
+    // them normally
+    //
+    if ([url isSoundCloudURL]) {
+        NSURLComponents *components = [[NSURLComponents alloc] initWithURL:url resolvingAgainstBaseURL:NO];
+        components.scheme = @"https";
+        NSURL *actualURL = [components URL];
+
+        if (_applicationHasFinishedLaunching) {
+            [self navigate:actualURL.absoluteString];
+        } else {
+            self.appLaunchURL = actualURL;
+        }
+    }
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -60,7 +100,8 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window
         self.baseURL = [NSURL URLWithString: [@"https://" stringByAppendingString:SCHost]];
     }
 
-    [[_webView mainFrame] loadRequest: [NSURLRequest requestWithURL:_baseURL]];
+    NSURL *urlToLoad = _appLaunchURL ? _appLaunchURL : _baseURL;
+    [[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:urlToLoad]];
     
     WebPreferences *prefs = [WebPreferences standardPreferences];
     

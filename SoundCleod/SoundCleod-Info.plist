@@ -34,5 +34,18 @@
 	<string>https://raw.github.com/salomvary/soundcleod/master/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.soundcleod.urlscheme</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cleod</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
