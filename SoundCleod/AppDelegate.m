@@ -8,10 +8,10 @@
 
 #import "AppConstants.h"
 #import "AppDelegate.h"
+#import "NSURL+SCUtils.h"
 
 NSString *const SCTriggerJS = @"$(document.body).trigger($.Event('keydown',{keyCode: %d}))";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
-NSURL *baseUrl = nil;
 
 
 @interface WebPreferences (WebPreferencesPrivate)
@@ -19,15 +19,16 @@ NSURL *baseUrl = nil;
 - (void) setLocalStorageEnabled: (BOOL) localStorageEnabled;
 @end
 
+@interface AppDelegate()
+
+@property BOOL applicationHasFinishedLaunching;
+
+@property (nonatomic, strong) NSWindow *tmpHostWindow;
+@property (nonatomic, strong) id contentView;
+
+@end
+
 @implementation AppDelegate
-
-@synthesize webView;
-@synthesize popupController;
-@synthesize window;
-@synthesize urlPromptController;
-
-id contentView;
-id tmpHostWindow;
 
 + (void)initialize;
 {
@@ -41,30 +42,35 @@ id tmpHostWindow;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [window setFrameAutosaveName:@"SoundCleod"];
+    [_window setFrameAutosaveName:@"SoundCleod"];
     
-    keyTap = [[SPMediaKeyTap alloc] initWithDelegate:self];
+    self.mediaKeyListener = [[SPMediaKeyTap alloc] initWithDelegate:self];
 	if([SPMediaKeyTap usesGlobalMediaKeyTap])
-		[keyTap startWatchingMediaKeys];
+		[_mediaKeyListener startWatchingMediaKeys];
 	else
 		NSLog(@"Media key monitoring disabled");
-    
-    baseUrl = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"BaseUrl"]];
-    if (baseUrl == nil) {
-        baseUrl = [NSURL URLWithString: [@"https://" stringByAppendingString:SCHost]];
+
+    //
+    // Set up base URL. It prefers any URL stored in user defaults
+    //
+    NSURL *storedBaseURL = [NSURL URLWithString:[[NSUserDefaults standardUserDefaults] stringForKey:@"BaseUrl"]];
+    if (storedBaseURL) {
+        self.baseURL = storedBaseURL;
+    } else {
+        self.baseURL = [NSURL URLWithString: [@"https://" stringByAppendingString:SCHost]];
     }
 
-    [[webView mainFrame] loadRequest: [NSURLRequest requestWithURL:baseUrl]];
+    [[_webView mainFrame] loadRequest: [NSURLRequest requestWithURL:_baseURL]];
     
-    WebPreferences* prefs = [WebPreferences standardPreferences];
+    WebPreferences *prefs = [WebPreferences standardPreferences];
     
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
-    [prefs setPlugInsEnabled:TRUE]; // Flash is required for playing sounds in certain cases
+    [prefs setPlugInsEnabled:YES]; // Flash is required for playing sounds in certain cases
     
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
     [prefs setLocalStorageEnabled:YES];
     
-    [webView setPreferences:prefs];
+    [_webView setPreferences:prefs];
     
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
                                                            selector: @selector(receiveSleepNotification:)
@@ -74,7 +80,8 @@ id tmpHostWindow;
                                                            selector: @selector(didPressSpaceBarKey:)
                                                                name: SCApplicationDidPressSpaceBarKey object: NULL];
 
-    [window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
+    [_window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
+    _applicationHasFinishedLaunching = YES;
 }
 
 
@@ -82,7 +89,7 @@ id tmpHostWindow;
 {
     if (flag == NO)
     {
-        [window makeKeyAndOrderFront:self];
+        [_window makeKeyAndOrderFront:self];
     }
 
     return YES;
@@ -91,15 +98,15 @@ id tmpHostWindow;
 
 - (void)awakeFromNib
 {
-    [window setDelegate:self];
-    [webView setUIDelegate:self];
-    [webView setFrameLoadDelegate:self];
-    [webView setPolicyDelegate:self];
+    [_window setDelegate:self];
+    [_webView setUIDelegate:self];
+    [_webView setFrameLoadDelegate:self];
+    [_webView setPolicyDelegate:self];
 
-    [urlPromptController setNavigateDelegate:self];
+    [_urlPromptController setNavigateDelegate:self];
     
     // stored for adding back later, see windowWillClose
-    contentView = [window contentView];
+    self.contentView = [_window contentView];
 }
 
 - (void)windowDidBecomeKey:(NSNotification *)notification
@@ -107,10 +114,10 @@ id tmpHostWindow;
     // restore "hidden" webview, see windowShouldClose
     // (would be better to do it in applicationShouldHandleReopen
     // but that seems to be too early (has no effect)
-    if ([window contentView] != contentView) {
-        [window setContentView:contentView];
-        [webView setHostWindow:nil];
-        tmpHostWindow = nil;
+    if ([_window contentView] != _contentView) {
+        [_window setContentView:_contentView];
+        [_webView setHostWindow:nil];
+        self.tmpHostWindow = nil;
     }
 }
 
@@ -121,10 +128,10 @@ id tmpHostWindow;
     // (windowWillClose would be better but that doesn't always work)
     // http://stackoverflow.com/questions/5307423/plugin-objects-in-webview-getting-destroyed
     // https://developer.apple.com/library/mac/documentation/Cocoa/Reference/WebKit/Classes/WebView_Class/Reference/Reference.html#//apple_ref/occ/instm/WebView/setHostWindow%3a
-    tmpHostWindow = [[NSWindow alloc] init];
-    [webView setHostWindow:tmpHostWindow];
-    [window setContentView:nil];
-    [contentView removeFromSuperview];
+    self.tmpHostWindow = [[NSWindow alloc] init];
+    [_webView setHostWindow:_tmpHostWindow];
+    [_window setContentView:nil];
+    [_contentView removeFromSuperview];
     
     return TRUE;
 }
@@ -132,13 +139,13 @@ id tmpHostWindow;
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
 {
     // request will always be null (probably a bug)
-    return [popupController show];
+    return [_popupController show];
 }
 
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
 {
-    if (frame == [webView mainFrame]) {
-        [window setTitle:title];
+    if (frame == [_webView mainFrame]) {
+        [_window setTitle:title];
         if ([self isPlaying]) {
             title = [title stringByReplacingOccurrencesOfString:@"▶ " withString:@""];
             NSArray *info = [title componentsSeparatedByString:@" by "];
@@ -158,7 +165,7 @@ id tmpHostWindow;
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
 {
     // normal in-frame navigation
-    if(frame != [webView mainFrame] || [AppDelegate isSCURL:[request URL]]) {
+    if(frame != [_webView mainFrame] || [[request URL] isSoundCloudURL]) {
         // allow loading urls in sub-frames OR when they are sc urls
         [listener use];
     } else {
@@ -172,10 +179,10 @@ id tmpHostWindow;
 {
     // target=_blank or anything scenario
     [listener ignore];
-    if([AppDelegate isSCURL:[request URL]]) {
+    if([[request URL] isSoundCloudURL]) {
         // open local links in the main frame
         // TODO: maybe maintain a frame stack instead?
-        [[webView mainFrame] loadRequest: [NSURLRequest requestWithURL:
+        [[_webView mainFrame] loadRequest: [NSURLRequest requestWithURL:
                                            [actionInformation objectForKey:WebActionOriginalURLKey]]];
     } else {
         // open external links in external browser
@@ -269,65 +276,52 @@ id tmpHostWindow;
 
 - (IBAction)restoreWindow:(id)sender
 {
-    [window makeKeyAndOrderFront:self];
+    [_window makeKeyAndOrderFront:self];
 }
 
 - (IBAction)reload:(id)sender
 {
-    [webView reload:self];
+    [_webView reload:self];
 }
 
 - (void)next
 {
-    [self trigger:74];
+    [self trigger:SCKeyCodeNext];
 }
 
 - (void)prev
 {
-    [self trigger:75];
+    [self trigger:SCKeyCodePrevious];
 }
 
 - (void)playPause
 {
-    [self trigger:32];
+    [self trigger:SCKeyCodePlayPause];
 }
 
 - (void)help
 {
-    [self trigger:72];
+    [self trigger:SCKeyCodeHelp];
 }
 
-- (void)trigger:(int)keyCode
+- (void)trigger:(SCKeyCode)keyCode
 {
-    NSString *js = [NSString stringWithFormat:SCTriggerJS, keyCode];
-    [webView stringByEvaluatingJavaScriptFromString:js];
+    NSString *js = [NSString stringWithFormat:SCTriggerJS, (int)keyCode];
+    [_webView stringByEvaluatingJavaScriptFromString:js];
 }
 
 - (BOOL)isPlaying
 {
     // FIXME find a better way to detect playing
-    NSString *title = [window title];
+    NSString *title = [_window title];
     return [title rangeOfString:@"▶"].location != NSNotFound;
 }
 
 - (void)navigate:(NSString*)permalink
 {
     NSString *js = [NSString stringWithFormat:SCNavigateJS, permalink];
-    [webView stringByEvaluatingJavaScriptFromString:js];
+    [_webView stringByEvaluatingJavaScriptFromString:js];
 }
-
-+ (BOOL)isSCURL:(NSURL *)url
-{
-    if(url != nil) {
-        if([url host] != nil) {
-            if([[url host] isEqualToString:SCHost] || [[url host] isEqualToString:[baseUrl host]]) {
-                return TRUE;
-            }
-        }
-    }
-    return FALSE;
-}
-
 
 #pragma mark - Notifications
 - (void)didPressSpaceBarKey:(NSNotification *)notification

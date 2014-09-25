@@ -8,5 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, SCKeyCode) {
+    SCKeyCodeNext = 74,
+    SCKeyCodePrevious = 75,
+    SCKeyCodePlayPause = 32,
+    SCKeyCodeHelp = 72
+};
+
 extern NSString *const SCHost;
 extern NSString *const SCApplicationDidPressSpaceBarKey;
