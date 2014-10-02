@@ -22,7 +22,7 @@
 }
 
 - (NSDictionary *)asDictWithIndex:(NSUInteger)index {
-    NSString *keyFormat = [NSString stringWithFormat:@"%%@[%u]", index];
+    NSString *keyFormat = [NSString stringWithFormat:@"%%@[%lu]", (unsigned long)index];
     return [self asDictWithKeyFormat:keyFormat];
 }
 

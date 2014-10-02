@@ -46,11 +46,14 @@
 }
 
 - (void)fire {
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Warc-performSelector-leaks"    
 	if(_identifier == nil) {
 		[_target performSelector:_selector withObject:_userInfo];
 	} else {
 		[_target performSelector:_selector withObject:_identifier withObject:_userInfo];
 	}
+    #pragma clang diagnostic pop
 }
 
 

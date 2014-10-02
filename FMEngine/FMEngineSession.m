@@ -77,7 +77,7 @@
     }
     NSMutableDictionary *allParams = [NSMutableDictionary dictionaryWithCapacity:1 + trackList.count * 3]; // there are 3 unique mandatory parameters, so allParams will be at least 3 * trackList.count + 1 for the session key
     [allParams setObject:self.key forKey:@"sk"];
-    for (unsigned i = 0, e = trackList.count; i < e; ++i) {
+    for (unsigned long i = 0, e = trackList.count; i < e; ++i) {
         FMEngineTrackParams *trackParams = [trackList objectAtIndex:i];
         [allParams addEntriesFromDictionary:[trackParams asDictWithIndex:i]];
     }
