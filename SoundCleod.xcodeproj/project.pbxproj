@@ -29,6 +29,13 @@
 		3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE39E17613C9900D67ADC /* DHSwipeClipView.m */; };
 		3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE3A017613C9900D67ADC /* DHSwipeIndicator.m */; };
 		3A6AE3A517613C9900D67ADC /* DHSwipeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE3A217613C9900D67ADC /* DHSwipeWebView.m */; };
+		D011EE9419DD76FF00CC680E /* FMCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = D011EE8919DD76FF00CC680E /* FMCallback.m */; };
+		D011EE9519DD76FF00CC680E /* FMEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D011EE8B19DD76FF00CC680E /* FMEngine.m */; };
+		D011EE9619DD76FF00CC680E /* FMEngineSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D011EE8D19DD76FF00CC680E /* FMEngineSession.m */; };
+		D011EE9719DD76FF00CC680E /* FMEngineTrackParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D011EE8F19DD76FF00CC680E /* FMEngineTrackParams.m */; };
+		D011EE9819DD76FF00CC680E /* FMEngineURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D011EE9119DD76FF00CC680E /* FMEngineURLConnection.m */; };
+		D011EE9919DD76FF00CC680E /* NSString+FMEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D011EE9319DD76FF00CC680E /* NSString+FMEngine.m */; };
+		D011EE9B19DD789B00CC680E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D011EE9A19DD789B00CC680E /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +89,19 @@
 		3A6AE3A017613C9900D67ADC /* DHSwipeIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSwipeIndicator.m; sourceTree = "<group>"; };
 		3A6AE3A117613C9900D67ADC /* DHSwipeWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSwipeWebView.h; sourceTree = "<group>"; };
 		3A6AE3A217613C9900D67ADC /* DHSwipeWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSwipeWebView.m; sourceTree = "<group>"; };
+		D011EE8819DD76FF00CC680E /* FMCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCallback.h; sourceTree = "<group>"; };
+		D011EE8919DD76FF00CC680E /* FMCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCallback.m; sourceTree = "<group>"; };
+		D011EE8A19DD76FF00CC680E /* FMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngine.h; sourceTree = "<group>"; };
+		D011EE8B19DD76FF00CC680E /* FMEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngine.m; sourceTree = "<group>"; };
+		D011EE8C19DD76FF00CC680E /* FMEngineSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngineSession.h; sourceTree = "<group>"; };
+		D011EE8D19DD76FF00CC680E /* FMEngineSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngineSession.m; sourceTree = "<group>"; };
+		D011EE8E19DD76FF00CC680E /* FMEngineTrackParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngineTrackParams.h; sourceTree = "<group>"; };
+		D011EE8F19DD76FF00CC680E /* FMEngineTrackParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngineTrackParams.m; sourceTree = "<group>"; };
+		D011EE9019DD76FF00CC680E /* FMEngineURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngineURLConnection.h; sourceTree = "<group>"; };
+		D011EE9119DD76FF00CC680E /* FMEngineURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngineURLConnection.m; sourceTree = "<group>"; };
+		D011EE9219DD76FF00CC680E /* NSString+FMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FMEngine.h"; sourceTree = "<group>"; };
+		D011EE9319DD76FF00CC680E /* NSString+FMEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FMEngine.m"; sourceTree = "<group>"; };
+		D011EE9A19DD789B00CC680E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D011EE9B19DD789B00CC680E /* Security.framework in Frameworks */,
 				2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */,
 				26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */,
 				263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */,
@@ -106,6 +127,7 @@
 				2618AE0716806FC500EC2E15 /* soundcleod.iconset */,
 				3A6AE39C17613C9900D67ADC /* DHSwipeWebView */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
+				D011EE8719DD76FF00CC680E /* FMEngine */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
 				263C2B9D1677152500EF4792 /* Products */,
 			);
@@ -122,6 +144,7 @@
 		263C2B9F1677152500EF4792 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D011EE9A19DD789B00CC680E /* Security.framework */,
 				2666D13617E3104A0071A8BA /* Sparkle.framework */,
 				2618AE0016803F1900EC2E15 /* Carbon.framework */,
 				263C2BA01677152500EF4792 /* Cocoa.framework */,
@@ -206,6 +229,25 @@
 			path = DHSwipeWebView;
 			sourceTree = SOURCE_ROOT;
 		};
+		D011EE8719DD76FF00CC680E /* FMEngine */ = {
+			isa = PBXGroup;
+			children = (
+				D011EE8819DD76FF00CC680E /* FMCallback.h */,
+				D011EE8919DD76FF00CC680E /* FMCallback.m */,
+				D011EE8A19DD76FF00CC680E /* FMEngine.h */,
+				D011EE8B19DD76FF00CC680E /* FMEngine.m */,
+				D011EE8C19DD76FF00CC680E /* FMEngineSession.h */,
+				D011EE8D19DD76FF00CC680E /* FMEngineSession.m */,
+				D011EE8E19DD76FF00CC680E /* FMEngineTrackParams.h */,
+				D011EE8F19DD76FF00CC680E /* FMEngineTrackParams.m */,
+				D011EE9019DD76FF00CC680E /* FMEngineURLConnection.h */,
+				D011EE9119DD76FF00CC680E /* FMEngineURLConnection.m */,
+				D011EE9219DD76FF00CC680E /* NSString+FMEngine.h */,
+				D011EE9319DD76FF00CC680E /* NSString+FMEngine.m */,
+			);
+			path = FMEngine;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -276,15 +318,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */,
+				D011EE9919DD76FF00CC680E /* NSString+FMEngine.m in Sources */,
+				D011EE9619DD76FF00CC680E /* FMEngineSession.m in Sources */,
 				26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */,
 				26FF310C1680734B0091448C /* AppDelegate.m in Sources */,
+				D011EE9419DD76FF00CC680E /* FMCallback.m in Sources */,
+				D011EE9519DD76FF00CC680E /* FMEngine.m in Sources */,
 				26FF31101680734B0091448C /* main.m in Sources */,
+				D011EE9719DD76FF00CC680E /* FMEngineTrackParams.m in Sources */,
 				26FF31111680734B0091448C /* PopupController.m in Sources */,
 				2624EBA416A81FA100490144 /* UrlPromptController.m in Sources */,
 				2624EBAC16A82EF100490144 /* AppConstants.m in Sources */,
 				3A295065175FDF560038B28C /* SCDApplication.m in Sources */,
 				3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */,
 				3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */,
+				D011EE9819DD76FF00CC680E /* FMEngineURLConnection.m in Sources */,
 				3A6AE3A517613C9900D67ADC /* DHSwipeWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
