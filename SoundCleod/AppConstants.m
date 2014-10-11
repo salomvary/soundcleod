@@ -10,3 +10,5 @@
 
 NSString *const SCHost = @"soundcloud.com";
 NSString *const SCApplicationDidPressSpaceBarKey = @"SCApplicationDidPressSpaceBarKey";
+NSString *const LastFMApiKey = @"efb748dc9476a9a55cf0084e875458c4";
+NSString *const LastFMApiSecret = @"fc8820a0917bf5f7e7eba606b6bef4dd";
