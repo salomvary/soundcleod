@@ -16,14 +16,11 @@
     [[connections allValues] makeObjectsPerformSelector:@selector(cancel)];
 }
 
--(void)cancelNonScrobbleConnections
+-(void)cancelTrackInfoConnections
 {
     [connections enumerateKeysAndObjectsUsingBlock:^(NSString* key, FMEngineURLConnection* obj, BOOL *stop) {
-        if (obj.callback.selector != @selector(didReceiveScrobbleResponse:data:)) {
+        if (obj.callback.selector == @selector(didReceiveTrackInfoResponse:data:)) {
             [obj cancel];
-            NSLog(@"cancel %@", obj.identifier);
-        } else {
-            NSLog(@"do not cancel %@", obj.identifier);
         }
     }];
 }

@@ -12,6 +12,6 @@
 @interface FMEngine (Cancel)
 
 - (void)cancelAllConnections;
-- (void)cancelNonScrobbleConnections;
+- (void)cancelTrackInfoConnections;
 
 @end
