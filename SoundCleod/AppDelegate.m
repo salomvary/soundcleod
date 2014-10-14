@@ -9,6 +9,7 @@
 #import "AppConstants.h"
 #import "AppDelegate.h"
 #import "LastfmScrobbler.h"
+#import "NSURL+SCUtils.h"
 
 NSString *const SCTriggerJS = @"e=new Event('keydown');e.keyCode=%d;document.dispatchEvent(e)";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Event('popstate');window.dispatchEvent(e)";
@@ -113,7 +114,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     
     [[LastfmScrobbler sharedManager] authentize];
     
-    [webView setPreferences:prefs];
+    [_webView setPreferences:prefs];
     
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
                                                            selector: @selector(receiveSleepNotification:)
