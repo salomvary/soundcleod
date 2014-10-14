@@ -1,3 +1,8 @@
+## 0.13 (October 14, 2014)
+- Fix broken media keys
+- Fix broken "open SoundCloud url" dialog
+- Support custom cleod:// url scheme
+
 ## 0.12 (November 8, 2013)
 - Automatic updates yay!
 

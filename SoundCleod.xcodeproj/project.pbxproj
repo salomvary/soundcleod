@@ -15,7 +15,7 @@
 		2624EBAC16A82EF100490144 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624EBAB16A82EF100490144 /* AppConstants.m */; };
 		263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C2BA01677152500EF4792 /* Cocoa.framework */; };
 		2666D13717E3104A0071A8BA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2666D13617E3104A0071A8BA /* Sparkle.framework */; };
-		2666D13917E310A20071A8BA /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2666D13617E3104A0071A8BA /* Sparkle.framework */; };
+		2666D13917E310A20071A8BA /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2666D13617E3104A0071A8BA /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A0087016771DA5006FD03A /* WebKit.framework */; };
 		26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B5793A167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m */; };
 		26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B5793C167A58CD0034D295 /* SPMediaKeyTap.m */; };
@@ -200,13 +200,15 @@
 		26FF30FE1680734B0091448C /* SoundCleod */ = {
 			isa = PBXGroup;
 			children = (
+				5DC7C71F19D405A00007FE30 /* Categories */,
 				2624EBA816A82B2400490144 /* AppConstants.h */,
 				2624EBAB16A82EF100490144 /* AppConstants.m */,
 				26FF30FF1680734B0091448C /* AppDelegate.h */,
 				26FF31001680734B0091448C /* AppDelegate.m */,
-				26FF31071680734B0091448C /* main.m */,
 				26FF31081680734B0091448C /* PopupController.h */,
 				26FF31091680734B0091448C /* PopupController.m */,
+				2624EBA216A81FA100490144 /* UrlPromptController.h */,
+				2624EBA316A81FA100490144 /* UrlPromptController.m */,
 				26FF311C168075A50091448C /* Resources */,
 				3A295063175FDF560038B28C /* SCDApplication.h */,
 				3A295064175FDF560038B28C /* SCDApplication.m */,
@@ -224,6 +226,7 @@
 		26FF311C168075A50091448C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				26FF31071680734B0091448C /* main.m */,
 				26FF31011680734B0091448C /* Credits.rtf */,
 				26FF31031680734B0091448C /* InfoPlist.strings */,
 				26FF31051680734B0091448C /* MainMenu.xib */,
@@ -298,7 +301,7 @@
 		263C2B931677152500EF4792 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Márton Salomváry";
 			};
 			buildConfigurationList = 263C2B961677152500EF4792 /* Build configuration list for PBXProject "SoundCleod" */;
@@ -357,6 +360,7 @@
 				2624EBA416A81FA100490144 /* UrlPromptController.m in Sources */,
 				2624EBAC16A82EF100490144 /* AppConstants.m in Sources */,
 				3A295065175FDF560038B28C /* SCDApplication.m in Sources */,
+				5DC7C72219D405D50007FE30 /* NSURL+SCUtils.m in Sources */,
 				3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */,
 				3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */,
 				D011EE9819DD76FF00CC680E /* FMEngineURLConnection.m in Sources */,
