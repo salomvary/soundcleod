@@ -9,7 +9,7 @@
 #import "AppConstants.h"
 #import "AppDelegate.h"
 
-NSString *const SCTriggerJS = @"$(document.body).trigger($.Event('keydown',{keyCode: %d}))";
+NSString *const SCTriggerJS = @"e=new Event('keydown');e.keyCode=%d;document.dispatchEvent(e)";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
 NSURL *baseUrl = nil;
 
