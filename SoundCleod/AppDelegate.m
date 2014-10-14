@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 NSString *const SCTriggerJS = @"e=new Event('keydown');e.keyCode=%d;document.dispatchEvent(e)";
-NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');$(window).trigger('popstate')";
+NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Event('popstate');window.dispatchEvent(e)";
 NSURL *baseUrl = nil;
 
 
