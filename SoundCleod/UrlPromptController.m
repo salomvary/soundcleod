@@ -8,7 +8,7 @@
 
 #import "AppConstants.h"
 #import "UrlPromptController.h"
-#import "AppDelegate.h"
+#import "NSURL+SCUtils.h"
 
 @implementation UrlPromptController
 
@@ -43,7 +43,7 @@
             NSURL *url = [NSURL URLWithString:value];
             if(url != nil) {
                 if([url host] != nil) {
-                    if([AppDelegate isSCURL:url]) {
+                    if([url isSoundCloudURL]) {
                         permalink = [url path];
                     } else {
                         error = @"This is not a SoundCloud link";
