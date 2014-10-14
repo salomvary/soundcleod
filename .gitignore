@@ -124,3 +124,4 @@ dist/wc.dmg
 
 *.xccheckout
 .codesign
+dsa_priv.pem
