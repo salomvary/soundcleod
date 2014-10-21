@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@protocol BMAppleMikeyManagerDelegate <NSObject>
+@protocol AppleMikeyManagerDelegate <NSObject>
 @optional
 - (void) mikeyDidPlayPause;
 - (void) mikeyDidNext;
@@ -9,12 +9,12 @@
 - (void) mikeyDidSoundDown;
 @end
 
-@interface BMAppleMikeyManager : NSObject
+@interface AppleMikeyManager : NSObject
 
 - (void) startListening;
 - (void) stopListening;
 
-@property (weak) id<BMAppleMikeyManagerDelegate> delegate;
+@property (weak) id<AppleMikeyManagerDelegate> delegate;
 @property (readonly) BOOL isListening;
 
 @end

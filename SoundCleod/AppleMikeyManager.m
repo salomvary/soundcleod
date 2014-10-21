@@ -1,19 +1,19 @@
-#import "BMAppleMikeyManager.h"
+#import "AppleMikeyManager.h"
 #import "sound_up.h"
 #import <IOKit/hid/IOHIDLib.h>
 #import <Carbon/Carbon.h>
 
-typedef NS_ENUM(NSInteger, BMAppleMikeyCommand) {
-    BMAppleMikeyPlayPause = 0,
-    BMAppleMikeyNext,
-    BMAppleMikeyPrevious,
-    BMAppleMikeySoundUp,
-    BMAppleMikeySoundDown
+typedef NS_ENUM(NSInteger, AppleMikeyCommand) {
+    AppleMikeyPlayPause = 0,
+    AppleMikeyNext,
+    AppleMikeyPrevious,
+    AppleMikeySoundUp,
+    AppleMikeySoundDown
 };
 
 #pragma mark Private Declaration
 
-@interface BMAppleMikeyManager ()
+@interface AppleMikeyManager ()
 {
     IOHIDManagerRef dummyManager;
     IOHIDManagerRef valueManager;
@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, BMAppleMikeyCommand) {
 - (void) stopSecureTimer;
 
 - (void) dummyCallback;
-- (void) valueCallback: (BMAppleMikeyCommand) command;
+- (void) valueCallback: (AppleMikeyCommand) command;
 - (void) checkSecureEventInput;
 
 - (void) mikeyDidPlayPause;
@@ -53,7 +53,7 @@ static void dummyCallback(void *                  context,
 
     // Continue only if val is down.
     if (val == 1) {
-        [(__bridge BMAppleMikeyManager *)context dummyCallback];
+        [(__bridge AppleMikeyManager *)context dummyCallback];
     }
 }
 
@@ -70,11 +70,11 @@ static void valueCallback(void *                  context,
     
     // Continue only if usage is in the range and val is down.
     if (usage >= 0x89 && usage <= 0x8d && val == 1) {
-        [(__bridge BMAppleMikeyManager *)context valueCallback: (BMAppleMikeyCommand)(usage - 0x89)];
+        [(__bridge AppleMikeyManager *)context valueCallback: (AppleMikeyCommand)(usage - 0x89)];
     }
 }
 
-@implementation BMAppleMikeyManager
+@implementation AppleMikeyManager
 
 #pragma mark Lifecycle
 
@@ -175,28 +175,28 @@ static void valueCallback(void *                  context,
     }
 }
 
-- (void) valueCallback: (BMAppleMikeyCommand) command
+- (void) valueCallback: (AppleMikeyCommand) command
 {
     if (_isListening) {
         // Route command!
         switch (command) {
-            case BMAppleMikeyPlayPause:
+            case AppleMikeyPlayPause:
                 [self mikeyDidPlayPause];
                 break;
                 
-            case BMAppleMikeyNext:
+            case AppleMikeyNext:
                 [self mikeyDidNext];
                 break;
                 
-            case BMAppleMikeyPrevious:
+            case AppleMikeyPrevious:
                 [self mikeyDidPrevious];
                 break;
                 
-            case BMAppleMikeySoundUp:
+            case AppleMikeySoundUp:
                 [self mikeyDidSoundUp];
                 break;
                 
-            case BMAppleMikeySoundDown:
+            case AppleMikeySoundDown:
                 [self mikeyDidSoundDown];
                 break;
         }
