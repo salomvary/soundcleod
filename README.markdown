@@ -41,6 +41,7 @@ Note: the homebrew method is supported by the [Caskroom team](https://github.com
 To play SoundCloud:
 - Any modern web browser
 - [BeardedSpice](http://beardedspice.com/) (Mac)
+- [SoundCocoa](http://soundcocoa.brunovieira.me/) (Mac)
 
 ## Forks Using SoundCleod "Engine"
 To play other stuff:
