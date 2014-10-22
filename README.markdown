@@ -25,6 +25,8 @@ Current version is 0.13 (October 14, 2014) [see changes](https://github.com/salo
 
 **Important!** Minimum required OSX version is 10.7.x (Lion).
 
+**Yosemite?** [Not yet](https://github.com/salomvary/soundcleod/issues/55).
+
 ### Using [Homebrew Cask](http://caskroom.io/)?
 
 ```sh
