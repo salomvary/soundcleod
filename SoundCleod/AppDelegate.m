@@ -90,6 +90,10 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 	else
 		NSLog(@"Media key monitoring disabled");
 
+    self.mikeyManager = [[AppleMikeyManager alloc] init];
+    _mikeyManager.delegate = self;
+    [_mikeyManager startListening];
+    
     //
     // Set up base URL. It prefers any URL stored in user defaults
     //
@@ -125,6 +129,12 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     _applicationHasFinishedLaunching = YES;
 }
 
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    if(_mikeyManager && _mikeyManager.isListening) {
+        [_mikeyManager stopListening];
+    }
+}
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
 {
@@ -371,5 +381,21 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [self.window sendEvent:event];
 }
 
+#pragma mark - BMAppleMikeyManagerDelegate
+
+- (void) mikeyDidPlayPause
+{
+    [self playPause];
+}
+
+- (void) mikeyDidNext
+{
+    [self next];
+}
+
+- (void) mikeyDidPrevious
+{
+    [self prev];
+}
 
 @end
