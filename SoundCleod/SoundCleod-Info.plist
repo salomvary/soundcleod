@@ -45,6 +45,29 @@
 	<string>SCDApplication</string>
 	<key>SUFeedURL</key>
 	<string>https://raw.github.com/salomvary/soundcleod/master/appcast.xml</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSPortName</key>
+			<string>SoundCleod</string>
+			<key>NSMessage</key>
+			<string>openURL</string>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Open in SoundCleod</string>
+			</dict>
+			<key>NSRequiredContext</key>
+			<dict/>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSStringPboardType</string>
+				<string>NSRTFPboardType</string>
+				<string>NSHTMLPboardType</string>
+				<string>NSRTFDPboardType</string>
+			</array>
+		</dict>
+	</array>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
 </dict>

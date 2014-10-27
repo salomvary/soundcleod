@@ -9,6 +9,7 @@
 #import "AppConstants.h"
 #import "AppDelegate.h"
 #import "NSURL+SCUtils.h"
+#import "SCURLService.h"
 
 NSString *const SCTriggerJS = @"e=new Event('keydown');e.keyCode=%d;document.dispatchEvent(e)";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Event('popstate');window.dispatchEvent(e)";
@@ -19,13 +20,14 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 - (void) setLocalStorageEnabled: (BOOL) localStorageEnabled;
 @end
 
-@interface AppDelegate()
+@interface AppDelegate() <SCURLServiceDelegate>
 
 @property BOOL applicationHasFinishedLaunching;
 @property (nonatomic, strong) NSURL *appLaunchURL;
 
 @property (nonatomic, strong) NSWindow *tmpHostWindow;
 @property (nonatomic, strong) id contentView;
+@property (nonatomic, strong) SCURLService *URLService;
 
 @end
 
@@ -73,7 +75,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
         NSURL *actualURL = [components URL];
 
         if (_applicationHasFinishedLaunching) {
-            [self navigate:actualURL.absoluteString];
+            [self navigateToURL:actualURL];
         } else {
             self.appLaunchURL = actualURL;
         }
@@ -122,6 +124,14 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
                                                                name: SCApplicationDidPressSpaceBarKey object: NULL];
 
     [_window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
+
+    //
+    // Register URL service (Open in SoundCleod...)
+    //
+    self.URLService = [[SCURLService alloc] init];
+    _URLService.delegate = self;
+    [NSApp setServicesProvider:_URLService];
+
     _applicationHasFinishedLaunching = YES;
 }
 
@@ -358,18 +368,35 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     return [title rangeOfString:@"▶"].location != NSNotFound;
 }
 
-- (void)navigate:(NSString*)permalink
+- (void)navigateToURL:(NSURL *)url
 {
-    NSString *js = [NSString stringWithFormat:SCNavigateJS, permalink];
+    NSString *js = [NSString stringWithFormat:SCNavigateJS, url.absoluteString];
     [_webView stringByEvaluatingJavaScriptFromString:js];
 }
 
 #pragma mark - Notifications
+
 - (void)didPressSpaceBarKey:(NSNotification *)notification
 {
     NSEvent *event = (NSEvent *)notification.object;
     [self.window sendEvent:event];
 }
 
+#pragma mark - SCURLServiceDelegate
+
+- (void)URLService:(SCURLService *)service didReceiveURL:(NSURL *)URL
+{
+    //
+    // If a song is playing, navigate with JS so we don't break the playback.
+    // Otherwise, load with URL request since the app may be launched from the URL,
+    // and in that case we can't navigate with JS because the base page won't
+    // be loaded yet.
+    //
+    if ([self isPlaying]) {
+        [self navigateToURL:URL];
+    } else {
+        [[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:URL]];
+    }
+}
 
 @end

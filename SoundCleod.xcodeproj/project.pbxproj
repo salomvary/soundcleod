@@ -29,6 +29,7 @@
 		3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE39E17613C9900D67ADC /* DHSwipeClipView.m */; };
 		3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE3A017613C9900D67ADC /* DHSwipeIndicator.m */; };
 		3A6AE3A517613C9900D67ADC /* DHSwipeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE3A217613C9900D67ADC /* DHSwipeWebView.m */; };
+		5D55928B19FE27A200552362 /* SCURLService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D55928A19FE27A200552362 /* SCURLService.m */; };
 		5DC7C72219D405D50007FE30 /* NSURL+SCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,8 @@
 		3A6AE3A017613C9900D67ADC /* DHSwipeIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSwipeIndicator.m; sourceTree = "<group>"; };
 		3A6AE3A117613C9900D67ADC /* DHSwipeWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSwipeWebView.h; sourceTree = "<group>"; };
 		3A6AE3A217613C9900D67ADC /* DHSwipeWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSwipeWebView.m; sourceTree = "<group>"; };
+		5D55928919FE27A200552362 /* SCURLService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCURLService.h; sourceTree = "<group>"; };
+		5D55928A19FE27A200552362 /* SCURLService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCURLService.m; sourceTree = "<group>"; };
 		5DC7C72019D405D50007FE30 /* NSURL+SCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SCUtils.h"; sourceTree = "<group>"; };
 		5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SCUtils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +178,8 @@
 				26FF31091680734B0091448C /* PopupController.m */,
 				2624EBA216A81FA100490144 /* UrlPromptController.h */,
 				2624EBA316A81FA100490144 /* UrlPromptController.m */,
+				5D55928919FE27A200552362 /* SCURLService.h */,
+				5D55928A19FE27A200552362 /* SCURLService.m */,
 				26FF311C168075A50091448C /* Resources */,
 				3A295063175FDF560038B28C /* SCDApplication.h */,
 				3A295064175FDF560038B28C /* SCDApplication.m */,
@@ -288,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D55928B19FE27A200552362 /* SCURLService.m in Sources */,
 				26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */,
 				26FF310C1680734B0091448C /* AppDelegate.m in Sources */,
