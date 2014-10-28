@@ -104,7 +104,8 @@
         NSString* durationString = [[json objectForKey:@"track"] objectForKey:@"duration"];
         
         if (![durationString isEqualToString:@"0"]) {
-            _currentTrack.duration = [NSNumber numberWithInteger:durationString.integerValue];
+            NSInteger durationInSeconds = durationString.integerValue / 1000;
+            _currentTrack.duration = [NSNumber numberWithInteger:durationInSeconds];
         }
         
         [_fmSession updateNowPlayingWithTarget:self action:@selector(didReceiveNowPlayingResponse:data:) track:_currentTrack];
@@ -174,7 +175,7 @@
     NSTimeInterval playedTime = [[NSDate date] timeIntervalSinceDate:_currentTrackStart];
     playedTime -= _currentTrackPauseTime;
     
-    if ((playedTime > 240) || (playedTime > 30 && playedTime > (_currentTrack.convertedDuation / 2))) {
+    if ((playedTime > 240) || (playedTime > 30 && playedTime > (_currentTrack.convertedDuration / 2))) {
         [_fmSession scrobbleWithTarget:self action:@selector(didReceiveScrobbleResponse:data:) track:_currentTrack];
         _currentTrack.scrobbled = YES;
     }

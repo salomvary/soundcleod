@@ -10,10 +10,10 @@
 
 @implementation FMEngineExtendedTrackParams
 
-- (double)convertedDuation
+- (double)convertedDuration
 {
     if (self.duration != nil) {
-        return self.duration.doubleValue / 1000;
+        return self.duration.doubleValue;
     } else {
         return 0;
     }

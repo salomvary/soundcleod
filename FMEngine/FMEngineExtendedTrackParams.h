@@ -12,7 +12,7 @@
 
 @property BOOL scrobbled;
 
-- (double)convertedDuation;
+- (double)convertedDuration;
 
 @end
 
