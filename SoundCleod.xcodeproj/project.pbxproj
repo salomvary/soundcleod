@@ -26,9 +26,6 @@
 		26FF31101680734B0091448C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31071680734B0091448C /* main.m */; };
 		26FF31111680734B0091448C /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31091680734B0091448C /* PopupController.m */; };
 		3A295065175FDF560038B28C /* SCDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A295064175FDF560038B28C /* SCDApplication.m */; };
-		3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE39E17613C9900D67ADC /* DHSwipeClipView.m */; };
-		3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE3A017613C9900D67ADC /* DHSwipeIndicator.m */; };
-		3A6AE3A517613C9900D67ADC /* DHSwipeWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE3A217613C9900D67ADC /* DHSwipeWebView.m */; };
 		5DC7C72219D405D50007FE30 /* NSURL+SCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */; };
 /* End PBXBuildFile section */
 
@@ -77,12 +74,6 @@
 		26FF310B1680734B0091448C /* SoundCleod-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SoundCleod-Prefix.pch"; sourceTree = "<group>"; };
 		3A295063175FDF560038B28C /* SCDApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDApplication.h; sourceTree = "<group>"; };
 		3A295064175FDF560038B28C /* SCDApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDApplication.m; sourceTree = "<group>"; };
-		3A6AE39D17613C9900D67ADC /* DHSwipeClipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSwipeClipView.h; sourceTree = "<group>"; };
-		3A6AE39E17613C9900D67ADC /* DHSwipeClipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSwipeClipView.m; sourceTree = "<group>"; };
-		3A6AE39F17613C9900D67ADC /* DHSwipeIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSwipeIndicator.h; sourceTree = "<group>"; };
-		3A6AE3A017613C9900D67ADC /* DHSwipeIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSwipeIndicator.m; sourceTree = "<group>"; };
-		3A6AE3A117613C9900D67ADC /* DHSwipeWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHSwipeWebView.h; sourceTree = "<group>"; };
-		3A6AE3A217613C9900D67ADC /* DHSwipeWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHSwipeWebView.m; sourceTree = "<group>"; };
 		5DC7C72019D405D50007FE30 /* NSURL+SCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SCUtils.h"; sourceTree = "<group>"; };
 		5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SCUtils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +98,6 @@
 			children = (
 				26FF30FE1680734B0091448C /* SoundCleod */,
 				2618AE0716806FC500EC2E15 /* soundcleod.iconset */,
-				3A6AE39C17613C9900D67ADC /* DHSwipeWebView */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
 				263C2B9D1677152500EF4792 /* Products */,
@@ -197,19 +187,6 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		3A6AE39C17613C9900D67ADC /* DHSwipeWebView */ = {
-			isa = PBXGroup;
-			children = (
-				3A6AE39D17613C9900D67ADC /* DHSwipeClipView.h */,
-				3A6AE39E17613C9900D67ADC /* DHSwipeClipView.m */,
-				3A6AE39F17613C9900D67ADC /* DHSwipeIndicator.h */,
-				3A6AE3A017613C9900D67ADC /* DHSwipeIndicator.m */,
-				3A6AE3A117613C9900D67ADC /* DHSwipeWebView.h */,
-				3A6AE3A217613C9900D67ADC /* DHSwipeWebView.m */,
-			);
-			path = DHSwipeWebView;
-			sourceTree = SOURCE_ROOT;
-		};
 		5DC7C71F19D405A00007FE30 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,9 +274,6 @@
 				2624EBAC16A82EF100490144 /* AppConstants.m in Sources */,
 				3A295065175FDF560038B28C /* SCDApplication.m in Sources */,
 				5DC7C72219D405D50007FE30 /* NSURL+SCUtils.m in Sources */,
-				3A6AE3A317613C9900D67ADC /* DHSwipeClipView.m in Sources */,
-				3A6AE3A417613C9900D67ADC /* DHSwipeIndicator.m in Sources */,
-				3A6AE3A517613C9900D67ADC /* DHSwipeWebView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
