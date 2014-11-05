@@ -1,3 +1,8 @@
+## 0.14 (November 5, 2014)
+- Fix scrolling issues with Yosemite
+- Removed swipe back-forward navigation
+- Added microphone start/stop button support
+
 ## 0.13 (October 14, 2014)
 - Fix broken media keys
 - Fix broken "open SoundCloud url" dialog

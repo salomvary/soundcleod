@@ -14,7 +14,7 @@ SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart
 
 ## How to get it?
 
-Current version is 0.13 (October 14, 2014) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
+Current version is 0.14 (November 5, 2014) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
 
 - [Download from
 	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.dmg?raw=true)
@@ -24,8 +24,6 @@ Current version is 0.13 (October 14, 2014) [see changes](https://github.com/salo
 - Optionally drag SoundCleod from Applications into the Dock.
 
 **Important!** Minimum required OSX version is 10.7.x (Lion).
-
-**Yosemite?** [Not yet](https://github.com/salomvary/soundcleod/issues/55).
 
 ### Using [Homebrew Cask](http://caskroom.io/)?
 

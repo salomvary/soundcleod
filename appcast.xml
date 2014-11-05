@@ -32,5 +32,22 @@
 							length="1041771"
 							sparkle:dsaSignature="MCwCFBtZVgjUuQZgcvcJu1HDvRs39WquAhQAvsXgoSl/c/KrpAev2wKjGoFxHg==" />
 				 </item>
+				 <item>
+						<title>Version 0.14</title>
+						<description><![CDATA[
+							<ul>
+								<li>Fix scrolling issues with Yosemite</li>
+								<li>Removed swipe back-forward navigation</li>
+								<li>Added microphone start/stop button support</li>
+							</ul>
+						]]></description>
+						<pubDate>Wed, 05 Nov 2014 14:23:14 +0100</pubDate>
+						<enclosure
+							url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+							type="application/octet-stream"
+							sparkle:version="0.14"
+							length="1071661"
+							sparkle:dsaSignature="MCwCFDjp/hHtPLZGVdyyO002pZ2VFZJHAhR4Fe7nLOp5EFFq6eNzjxAJ8rA34Q==" />
+				 </item>
 	 </channel>
 </rss>
