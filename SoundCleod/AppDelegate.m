@@ -153,6 +153,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [_webView setUIDelegate:self];
     [_webView setFrameLoadDelegate:self];
     [_webView setPolicyDelegate:self];
+    [_webView setWantsLayer:YES];
 
     [_urlPromptController setNavigateDelegate:self];
     
