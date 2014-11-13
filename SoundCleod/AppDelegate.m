@@ -154,6 +154,19 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [_webView setFrameLoadDelegate:self];
     [_webView setPolicyDelegate:self];
 
+    // Workaround for a bug in OSX 10.10 - fixed elements do not work
+    // https://bugs.webkit.org/show_bug.cgi?id=137851#c2
+    // Credits: https://github.com/scosman
+    if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)])
+    {
+        // TODO - put an upper limit on this fix once this bug is fixed in OSX since it introduces some flicker
+        NSOperatingSystemVersion operatingSystemVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
+        if (operatingSystemVersion.majorVersion == 10 && operatingSystemVersion.minorVersion == 10)
+        {
+            [_webView setWantsLayer:YES];
+        }
+    }
+
     [_urlPromptController setNavigateDelegate:self];
     
     // stored for adding back later, see windowWillClose
