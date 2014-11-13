@@ -49,5 +49,20 @@
 							length="1071661"
 							sparkle:dsaSignature="MCwCFDjp/hHtPLZGVdyyO002pZ2VFZJHAhR4Fe7nLOp5EFFq6eNzjxAJ8rA34Q==" />
 				 </item>
+				 <item>
+						<title>Version 0.15</title>
+						<description><![CDATA[
+							<ul>
+								<li>Another attempt to fix scrolling issues with Yosemite</li>
+							</ul>
+						]]></description>
+						<pubDate>Thu, 13 Nov 2014 22:38:11 +0100</pubDate>
+						<enclosure
+							url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+							type="application/octet-stream"
+							sparkle:version="0.15"
+							length="1072372"
+							sparkle:dsaSignature="MCwCFCENBlgYJAWA7XzGXfWsS94Dv/PjAhRD0bRNH2D/Qysqyi1wxg7ElFYASw==" />
+				 </item>
 	 </channel>
 </rss>

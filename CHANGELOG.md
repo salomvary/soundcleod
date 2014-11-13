@@ -1,3 +1,6 @@
+## 0.15 (November 13, 2014)
+- Another attempt to fix scrolling issues with Yosemite
+
 ## 0.14 (November 5, 2014)
 - Fix scrolling issues with Yosemite
 - Removed swipe back-forward navigation
