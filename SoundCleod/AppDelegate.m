@@ -153,6 +153,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [_webView setUIDelegate:self];
     [_webView setFrameLoadDelegate:self];
     [_webView setPolicyDelegate:self];
+    [_webView setWantsLayer:YES];
 
     // Workaround for a bug in OSX 10.10 - fixed elements do not work
     // https://bugs.webkit.org/show_bug.cgi?id=137851#c2
