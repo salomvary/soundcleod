@@ -160,6 +160,12 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     self.contentView = [_window contentView];
 }
 
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
+    NSScrollView *mainScrollView = [[[[sender mainFrame] frameView] documentView] enclosingScrollView];
+    [mainScrollView setVerticalScrollElasticity:NSScrollElasticityNone];
+    [mainScrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
+}
+
 - (void)windowDidBecomeKey:(NSNotification *)notification
 {
     // restore "hidden" webview, see windowShouldClose
