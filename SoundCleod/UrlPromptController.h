@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <WebKit/WebKit.h>
 
 @protocol NavigateDelegate <NSObject>
 @required
@@ -23,6 +24,7 @@
 @property (weak) IBOutlet NSTextField *urlInput;
 @property (weak) IBOutlet NSTextField *urlError;
 @property (retain) id navigateDelegate;
+@property (weak) IBOutlet WebView *webView;
 
 - (IBAction)promptForUrl:(id)sender;
 - (IBAction)closeUrlPrompt:(id)sender;

@@ -23,6 +23,10 @@
     if(urlPrompt == nil) {
         [NSBundle loadNibNamed:@"UrlPrompt" owner:self];
     }
+    
+    NSString *currentUrl = [[[[[[self webView] mainFrame] dataSource] request] URL] absoluteString];
+    [urlInput setStringValue:currentUrl];
+    
     [NSApp beginSheet: [self urlPrompt]
        modalForWindow: [self mainWindow]
         modalDelegate: self
