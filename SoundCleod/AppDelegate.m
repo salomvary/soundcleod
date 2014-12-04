@@ -400,8 +400,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 #pragma mark - Notifications
 - (void)didPressSpaceBarKey:(NSNotification *)notification
 {
-    NSEvent *event = (NSEvent *)notification.object;
-    [self.window sendEvent:event];
+    [self playPause];
 }
 
 #pragma mark - BMAppleMikeyManagerDelegate
