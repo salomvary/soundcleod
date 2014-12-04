@@ -31,6 +31,8 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 
 @implementation AppDelegate
 
+@synthesize flashCheckController;
+
 + (void)initialize;
 {
 	if([self class] != [AppDelegate class]) return;
@@ -127,6 +129,8 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 
     [_window setCollectionBehavior:NSWindowCollectionBehaviorFullScreenPrimary];
     _applicationHasFinishedLaunching = YES;
+    
+    [flashCheckController check];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification

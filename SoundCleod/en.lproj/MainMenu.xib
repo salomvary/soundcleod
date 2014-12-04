@@ -815,7 +815,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{320, 320}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="WebView" id="958787108">
@@ -840,6 +840,7 @@
 							</set>
 							<string key="NSFrameSize">{1050, 650}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<string key="FrameName"/>
@@ -857,6 +858,8 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{1050, 650}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="958787108"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
@@ -878,6 +881,9 @@
 			</object>
 			<object class="NSCustomObject" id="263225185">
 				<string key="NSClassName">SUUpdater</string>
+			</object>
+			<object class="NSCustomObject" id="427066418">
+				<string key="NSClassName">FlashCheckController</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -1284,6 +1290,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
+						<string key="label">flashCheckController</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="427066418"/>
+					</object>
+					<int key="connectionID">675</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
 						<string key="label">mainWindow</string>
 						<reference key="source" ref="616446004"/>
 						<reference key="destination" ref="972006081"/>
@@ -1305,6 +1319,22 @@
 						<reference key="destination" ref="191812421"/>
 					</object>
 					<int key="connectionID">671</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">webView</string>
+						<reference key="source" ref="427066418"/>
+						<reference key="destination" ref="958787108"/>
+					</object>
+					<int key="connectionID">673</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">mainWindow</string>
+						<reference key="source" ref="427066418"/>
+						<reference key="destination" ref="972006081"/>
+					</object>
+					<int key="connectionID">674</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2029,6 +2059,11 @@
 						<reference key="object" ref="191812421"/>
 						<reference key="parent" ref="110575045"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">672</int>
+						<reference key="object" ref="427066418"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2135,6 +2170,7 @@
 				<string key="667.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="669.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="670.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="672.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2148,7 +2184,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">671</int>
+			<int key="maxID">675</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
