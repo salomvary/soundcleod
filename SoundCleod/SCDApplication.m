@@ -16,7 +16,8 @@
 
 - (void)sendEvent:(NSEvent *)theEvent
 {
-    if (theEvent.type == NSKeyDown &&
+    if (![[self mainWindow] isVisible] &&
+        theEvent.type == NSKeyDown &&
         theEvent.keyCode == 49)
     {
         // Handle the space-bar, even if the window is closed
