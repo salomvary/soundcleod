@@ -91,6 +91,10 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 	else
 		NSLog(@"Media key monitoring disabled");
 
+    self.mikeyManager = [[AppleMikeyManager alloc] init];
+    _mikeyManager.delegate = self;
+    [_mikeyManager startListening];
+    
     //
     // Set up base URL. It prefers any URL stored in user defaults
     //
@@ -128,6 +132,12 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     _applicationHasFinishedLaunching = YES;
 }
 
+- (void)applicationWillTerminate:(NSNotification *)aNotification
+{
+    if(_mikeyManager && _mikeyManager.isListening) {
+        [_mikeyManager stopListening];
+    }
+}
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
 {
@@ -147,10 +157,29 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [_webView setFrameLoadDelegate:self];
     [_webView setPolicyDelegate:self];
 
+    // Workaround for a bug in OSX 10.10 - fixed elements do not work
+    // https://bugs.webkit.org/show_bug.cgi?id=137851#c2
+    // Credits: https://github.com/scosman
+    if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)])
+    {
+        // TODO - put an upper limit on this fix once this bug is fixed in OSX since it introduces some flicker
+        NSOperatingSystemVersion operatingSystemVersion = [[NSProcessInfo processInfo] operatingSystemVersion];
+        if (operatingSystemVersion.majorVersion == 10 && operatingSystemVersion.minorVersion == 10)
+        {
+            [_webView setWantsLayer:YES];
+        }
+    }
+
     [_urlPromptController setNavigateDelegate:self];
     
     // stored for adding back later, see windowWillClose
     self.contentView = [_window contentView];
+}
+
+- (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
+    NSScrollView *mainScrollView = [[[[sender mainFrame] frameView] documentView] enclosingScrollView];
+    [mainScrollView setVerticalScrollElasticity:NSScrollElasticityNone];
+    [mainScrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
 }
 
 - (void)windowDidBecomeKey:(NSNotification *)notification
@@ -378,5 +407,21 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [self.window sendEvent:event];
 }
 
+#pragma mark - BMAppleMikeyManagerDelegate
+
+- (void) mikeyDidPlayPause
+{
+    [self playPause];
+}
+
+- (void) mikeyDidNext
+{
+    [self next];
+}
+
+- (void) mikeyDidPrevious
+{
+    [self prev];
+}
 
 @end

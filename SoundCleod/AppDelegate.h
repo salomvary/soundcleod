@@ -11,17 +11,18 @@
 #import "PopupController.h"
 #import "UrlPromptController.h"
 #import "../SPMediaKeyTap/SPMediaKeyTap.h"
-#import "../DHSwipeWebView/DHSwipeWebView.h"
+#import "AppleMikeyManager.h"
 #import "AppDelegate.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, AppleMikeyManagerDelegate>
 
 @property (nonatomic, strong) NSURL *baseURL;
 @property (assign) IBOutlet NSWindow *window;
 
 @property (nonatomic, strong) SPMediaKeyTap *mediaKeyListener;
+@property (nonatomic, strong) AppleMikeyManager *mikeyManager;
 
-@property (weak) IBOutlet DHSwipeWebView *webView;
+@property (weak) IBOutlet WebView *webView;
 @property (weak) IBOutlet PopupController *popupController;
 @property (weak) IBOutlet UrlPromptController *urlPromptController;
 
