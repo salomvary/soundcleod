@@ -177,24 +177,24 @@
 		26FF30FE1680734B0091448C /* SoundCleod */ = {
 			isa = PBXGroup;
 			children = (
-				2657165F1A30CC8B00BB58B8 /* Safari.h */,
-				5DC7C71F19D405A00007FE30 /* Categories */,
 				2624EBA816A82B2400490144 /* AppConstants.h */,
 				2624EBAB16A82EF100490144 /* AppConstants.m */,
 				26FF30FF1680734B0091448C /* AppDelegate.h */,
 				26FF31001680734B0091448C /* AppDelegate.m */,
-				26FF31081680734B0091448C /* PopupController.h */,
-				2657165A1A307BA900BB58B8 /* FlashCheckController.h */,
-				2657165B1A307DAE00BB58B8 /* FlashCheckController.m */,
-				26FF31091680734B0091448C /* PopupController.m */,
-				2624EBA216A81FA100490144 /* UrlPromptController.h */,
-				2624EBA316A81FA100490144 /* UrlPromptController.m */,
 				DF1AA32419F64CF9008618E4 /* AppleMikeyManager.h */,
 				DF1AA32519F64CF9008618E4 /* AppleMikeyManager.m */,
+				5DC7C71F19D405A00007FE30 /* Categories */,
+				2657165A1A307BA900BB58B8 /* FlashCheckController.h */,
+				2657165B1A307DAE00BB58B8 /* FlashCheckController.m */,
+				26FF31081680734B0091448C /* PopupController.h */,
+				26FF31091680734B0091448C /* PopupController.m */,
 				26FF311C168075A50091448C /* Resources */,
+				2657165F1A30CC8B00BB58B8 /* Safari.h */,
 				3A295063175FDF560038B28C /* SCDApplication.h */,
 				3A295064175FDF560038B28C /* SCDApplication.m */,
 				26FF310B1680734B0091448C /* SoundCleod-Prefix.pch */,
+				2624EBA216A81FA100490144 /* UrlPromptController.h */,
+				2624EBA316A81FA100490144 /* UrlPromptController.m */,
 			);
 			path = SoundCleod;
 			sourceTree = "<group>";
@@ -202,14 +202,14 @@
 		26FF311C168075A50091448C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				26FF31071680734B0091448C /* main.m */,
 				26FF31011680734B0091448C /* Credits.rtf */,
+				2657165D1A309CB000BB58B8 /* FlashPrompt.xib */,
 				26FF31031680734B0091448C /* InfoPlist.strings */,
+				2611514F168B3A0E00F1566F /* LoginWindow.xib */,
+				26FF31071680734B0091448C /* main.m */,
 				26FF31051680734B0091448C /* MainMenu.xib */,
 				26FF310A1680734B0091448C /* SoundCleod-Info.plist */,
-				2611514F168B3A0E00F1566F /* LoginWindow.xib */,
 				2624EBA616A821B100490144 /* UrlPrompt.xib */,
-				2657165D1A309CB000BB58B8 /* FlashPrompt.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
