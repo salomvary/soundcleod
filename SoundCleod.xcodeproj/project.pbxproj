@@ -27,6 +27,17 @@
 		26FF31111680734B0091448C /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31091680734B0091448C /* PopupController.m */; };
 		3A295065175FDF560038B28C /* SCDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A295064175FDF560038B28C /* SCDApplication.m */; };
 		5DC7C72219D405D50007FE30 /* NSURL+SCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */; };
+		D0DBDCAE1A326D5600F40142 /* LastfmPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0DBDCA91A326D5600F40142 /* LastfmPrompt.xib */; };
+		D0DBDCAF1A326D5600F40142 /* LastfmPromptController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCAB1A326D5600F40142 /* LastfmPromptController.m */; };
+		D0DBDCB01A326D5600F40142 /* LastfmScrobbler.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCAD1A326D5600F40142 /* LastfmScrobbler.m */; };
+		D0DBDCC21A326DB400F40142 /* FMCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCB31A326DB400F40142 /* FMCallback.m */; };
+		D0DBDCC31A326DB400F40142 /* FMEngine+Cancel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCB51A326DB400F40142 /* FMEngine+Cancel.m */; };
+		D0DBDCC41A326DB400F40142 /* FMEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCB71A326DB400F40142 /* FMEngine.m */; };
+		D0DBDCC51A326DB400F40142 /* FMEngineExtendedTrackParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCB91A326DB400F40142 /* FMEngineExtendedTrackParams.m */; };
+		D0DBDCC61A326DB400F40142 /* FMEngineSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCBB1A326DB400F40142 /* FMEngineSession.m */; };
+		D0DBDCC71A326DB400F40142 /* FMEngineTrackParams.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCBD1A326DB400F40142 /* FMEngineTrackParams.m */; };
+		D0DBDCC81A326DB400F40142 /* FMEngineURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCBF1A326DB400F40142 /* FMEngineURLConnection.m */; };
+		D0DBDCC91A326DB400F40142 /* NSString+FMEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D0DBDCC11A326DB400F40142 /* NSString+FMEngine.m */; };
 		DF1AA32319F64CC1008618E4 /* sound_up.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1AA32219F64CC1008618E4 /* sound_up.m */; };
 		DF1AA32619F64CF9008618E4 /* AppleMikeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1AA32519F64CF9008618E4 /* AppleMikeyManager.m */; };
 		DF1AA32819F6513C008618E4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1AA32719F6513C008618E4 /* IOKit.framework */; };
@@ -79,6 +90,27 @@
 		3A295064175FDF560038B28C /* SCDApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDApplication.m; sourceTree = "<group>"; };
 		5DC7C72019D405D50007FE30 /* NSURL+SCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SCUtils.h"; sourceTree = "<group>"; };
 		5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SCUtils.m"; sourceTree = "<group>"; };
+		D0DBDCA91A326D5600F40142 /* LastfmPrompt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastfmPrompt.xib; sourceTree = "<group>"; };
+		D0DBDCAA1A326D5600F40142 /* LastfmPromptController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastfmPromptController.h; sourceTree = "<group>"; };
+		D0DBDCAB1A326D5600F40142 /* LastfmPromptController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastfmPromptController.m; sourceTree = "<group>"; };
+		D0DBDCAC1A326D5600F40142 /* LastfmScrobbler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastfmScrobbler.h; sourceTree = "<group>"; };
+		D0DBDCAD1A326D5600F40142 /* LastfmScrobbler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastfmScrobbler.m; sourceTree = "<group>"; };
+		D0DBDCB21A326DB400F40142 /* FMCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMCallback.h; sourceTree = "<group>"; };
+		D0DBDCB31A326DB400F40142 /* FMCallback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMCallback.m; sourceTree = "<group>"; };
+		D0DBDCB41A326DB400F40142 /* FMEngine+Cancel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FMEngine+Cancel.h"; sourceTree = "<group>"; };
+		D0DBDCB51A326DB400F40142 /* FMEngine+Cancel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FMEngine+Cancel.m"; sourceTree = "<group>"; };
+		D0DBDCB61A326DB400F40142 /* FMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngine.h; sourceTree = "<group>"; };
+		D0DBDCB71A326DB400F40142 /* FMEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngine.m; sourceTree = "<group>"; };
+		D0DBDCB81A326DB400F40142 /* FMEngineExtendedTrackParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngineExtendedTrackParams.h; sourceTree = "<group>"; };
+		D0DBDCB91A326DB400F40142 /* FMEngineExtendedTrackParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngineExtendedTrackParams.m; sourceTree = "<group>"; };
+		D0DBDCBA1A326DB400F40142 /* FMEngineSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngineSession.h; sourceTree = "<group>"; };
+		D0DBDCBB1A326DB400F40142 /* FMEngineSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngineSession.m; sourceTree = "<group>"; };
+		D0DBDCBC1A326DB400F40142 /* FMEngineTrackParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngineTrackParams.h; sourceTree = "<group>"; };
+		D0DBDCBD1A326DB400F40142 /* FMEngineTrackParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngineTrackParams.m; sourceTree = "<group>"; };
+		D0DBDCBE1A326DB400F40142 /* FMEngineURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMEngineURLConnection.h; sourceTree = "<group>"; };
+		D0DBDCBF1A326DB400F40142 /* FMEngineURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMEngineURLConnection.m; sourceTree = "<group>"; };
+		D0DBDCC01A326DB400F40142 /* NSString+FMEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FMEngine.h"; sourceTree = "<group>"; };
+		D0DBDCC11A326DB400F40142 /* NSString+FMEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FMEngine.m"; sourceTree = "<group>"; };
 		DF1AA32119F64CC1008618E4 /* sound_up.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sound_up.h; sourceTree = "<group>"; };
 		DF1AA32219F64CC1008618E4 /* sound_up.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sound_up.m; sourceTree = "<group>"; };
 		DF1AA32419F64CF9008618E4 /* AppleMikeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleMikeyManager.h; sourceTree = "<group>"; };
@@ -107,6 +139,7 @@
 			children = (
 				26FF30FE1680734B0091448C /* SoundCleod */,
 				2618AE0716806FC500EC2E15 /* soundcleod.iconset */,
+				D0DBDCB11A326DB400F40142 /* FMEngine */,
 				26B57925167A58CD0034D295 /* SPMediaKeyTap */,
 				DF1AA32019F64CC1008618E4 /* sound_up */,
 				263C2B9F1677152500EF4792 /* Frameworks */,
@@ -167,6 +200,7 @@
 		26FF30FE1680734B0091448C /* SoundCleod */ = {
 			isa = PBXGroup;
 			children = (
+				D0DBDCA81A326D4400F40142 /* LastFM */,
 				5DC7C71F19D405A00007FE30 /* Categories */,
 				2624EBA816A82B2400490144 /* AppConstants.h */,
 				2624EBAB16A82EF100490144 /* AppConstants.m */,
@@ -207,6 +241,41 @@
 				5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		D0DBDCA81A326D4400F40142 /* LastFM */ = {
+			isa = PBXGroup;
+			children = (
+				D0DBDCA91A326D5600F40142 /* LastfmPrompt.xib */,
+				D0DBDCAA1A326D5600F40142 /* LastfmPromptController.h */,
+				D0DBDCAB1A326D5600F40142 /* LastfmPromptController.m */,
+				D0DBDCAC1A326D5600F40142 /* LastfmScrobbler.h */,
+				D0DBDCAD1A326D5600F40142 /* LastfmScrobbler.m */,
+			);
+			name = LastFM;
+			sourceTree = "<group>";
+		};
+		D0DBDCB11A326DB400F40142 /* FMEngine */ = {
+			isa = PBXGroup;
+			children = (
+				D0DBDCB21A326DB400F40142 /* FMCallback.h */,
+				D0DBDCB31A326DB400F40142 /* FMCallback.m */,
+				D0DBDCB41A326DB400F40142 /* FMEngine+Cancel.h */,
+				D0DBDCB51A326DB400F40142 /* FMEngine+Cancel.m */,
+				D0DBDCB61A326DB400F40142 /* FMEngine.h */,
+				D0DBDCB71A326DB400F40142 /* FMEngine.m */,
+				D0DBDCB81A326DB400F40142 /* FMEngineExtendedTrackParams.h */,
+				D0DBDCB91A326DB400F40142 /* FMEngineExtendedTrackParams.m */,
+				D0DBDCBA1A326DB400F40142 /* FMEngineSession.h */,
+				D0DBDCBB1A326DB400F40142 /* FMEngineSession.m */,
+				D0DBDCBC1A326DB400F40142 /* FMEngineTrackParams.h */,
+				D0DBDCBD1A326DB400F40142 /* FMEngineTrackParams.m */,
+				D0DBDCBE1A326DB400F40142 /* FMEngineURLConnection.h */,
+				D0DBDCBF1A326DB400F40142 /* FMEngineURLConnection.m */,
+				D0DBDCC01A326DB400F40142 /* NSString+FMEngine.h */,
+				D0DBDCC11A326DB400F40142 /* NSString+FMEngine.m */,
+			);
+			path = FMEngine;
 			sourceTree = "<group>";
 		};
 		DF1AA32019F64CC1008618E4 /* sound_up */ = {
@@ -273,6 +342,7 @@
 			files = (
 				2618AE0816806FC500EC2E15 /* soundcleod.iconset in Resources */,
 				26FF310D1680734B0091448C /* Credits.rtf in Resources */,
+				D0DBDCAE1A326D5600F40142 /* LastfmPrompt.xib in Resources */,
 				26FF310E1680734B0091448C /* InfoPlist.strings in Resources */,
 				26FF310F1680734B0091448C /* MainMenu.xib in Resources */,
 				26115150168B3A0E00F1566F /* LoginWindow.xib in Resources */,
@@ -289,14 +359,24 @@
 			files = (
 				26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */,
 				26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */,
+				D0DBDCAF1A326D5600F40142 /* LastfmPromptController.m in Sources */,
+				D0DBDCC51A326DB400F40142 /* FMEngineExtendedTrackParams.m in Sources */,
+				D0DBDCC31A326DB400F40142 /* FMEngine+Cancel.m in Sources */,
+				D0DBDCB01A326D5600F40142 /* LastfmScrobbler.m in Sources */,
 				26FF310C1680734B0091448C /* AppDelegate.m in Sources */,
 				26FF31101680734B0091448C /* main.m in Sources */,
 				26FF31111680734B0091448C /* PopupController.m in Sources */,
 				2624EBA416A81FA100490144 /* UrlPromptController.m in Sources */,
+				D0DBDCC81A326DB400F40142 /* FMEngineURLConnection.m in Sources */,
 				2624EBAC16A82EF100490144 /* AppConstants.m in Sources */,
+				D0DBDCC21A326DB400F40142 /* FMCallback.m in Sources */,
 				DF1AA32619F64CF9008618E4 /* AppleMikeyManager.m in Sources */,
+				D0DBDCC91A326DB400F40142 /* NSString+FMEngine.m in Sources */,
+				D0DBDCC61A326DB400F40142 /* FMEngineSession.m in Sources */,
 				DF1AA32319F64CC1008618E4 /* sound_up.m in Sources */,
 				3A295065175FDF560038B28C /* SCDApplication.m in Sources */,
+				D0DBDCC71A326DB400F40142 /* FMEngineTrackParams.m in Sources */,
+				D0DBDCC41A326DB400F40142 /* FMEngine.m in Sources */,
 				5DC7C72219D405D50007FE30 /* NSURL+SCUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

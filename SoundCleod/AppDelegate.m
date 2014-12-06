@@ -8,6 +8,7 @@
 
 #import "AppConstants.h"
 #import "AppDelegate.h"
+#import "LastfmScrobbler.h"
 #import "NSURL+SCUtils.h"
 
 NSString *const SCTriggerJS = @"e=new Event('keydown');e.keyCode=%d;document.dispatchEvent(e)";
@@ -114,6 +115,8 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
     [prefs setLocalStorageEnabled:YES];
+    
+    [[LastfmScrobbler sharedManager] authentize];
     
     [_webView setPreferences:prefs];
     
@@ -227,6 +230,10 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
             notification.title = info[0]; // track
             notification.informativeText = info[1]; // artist
             [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+            
+            [[LastfmScrobbler sharedManager] scrobbleForArtist:info[1] track:info[0]];
+        } else {
+            [[LastfmScrobbler sharedManager] pauseTrack];
         }
     }
 }

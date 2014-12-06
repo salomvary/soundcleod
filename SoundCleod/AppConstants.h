@@ -17,3 +17,5 @@ typedef NS_ENUM(NSInteger, SCKeyCode) {
 
 extern NSString *const SCHost;
 extern NSString *const SCApplicationDidPressSpaceBarKey;
+extern NSString *const LastFMApiKey;
+extern NSString *const LastFMApiSecret;
