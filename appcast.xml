@@ -64,5 +64,22 @@
 							length="1072372"
 							sparkle:dsaSignature="MCwCFCENBlgYJAWA7XzGXfWsS94Dv/PjAhRD0bRNH2D/Qysqyi1wxg7ElFYASw==" />
 				 </item>
+				 <item>
+						<title>Version 0.16</title>
+						<description><![CDATA[
+							<ul>
+								<li>Prompt for installing the plugin when no Flash for Safari is detected</li>
+								<li>Show current URL in the "open location" dialog (Cmd+L)</li>
+								<li>Fixed spacebar for keyboard navigation and play/pause when hidden</li>
+							</ul>
+						]]></description>
+						<pubDate>Sun, 07 Dec 2014 21:19:29 +0100</pubDate>
+						<enclosure
+							url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+							type="application/octet-stream"
+							sparkle:version="0.16"
+							length="1079757"
+							sparkle:dsaSignature="MCwCFAGI28tZBpssmrt4ZxQsqcqhkpx7AhRiaS9Kk5L6TEsmGYTCCfn6wWQP6A==" />
+				 </item>
 	 </channel>
 </rss>

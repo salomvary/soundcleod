@@ -1,3 +1,8 @@
+## 0.16 (December 7, 2014)
+- Prompt for installing the plugin when no Flash for Safari is detected
+- Show current URL in the "open location" dialog (Cmd+L)
+- Fixed spacebar for keyboard navigation and play/pause when hidden
+
 ## 0.15 (November 13, 2014)
 - Another attempt to fix scrolling issues with Yosemite
 
