@@ -1,3 +1,6 @@
+## 0.17 (December 19, 2014)
+- detect and prompt when Flash Plugin is blocked by Safari
+
 ## 0.16 (December 7, 2014)
 - Prompt for installing the plugin when no Flash for Safari is detected
 - Show current URL in the "open location" dialog (Cmd+L)

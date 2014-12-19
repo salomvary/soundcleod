@@ -14,7 +14,7 @@ SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart
 
 ## How to get it?
 
-Current version is 0.16 (December 7, 2014) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
+Current version is 0.17 (December 19, 2014) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
 
 - [Download from
 	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.dmg?raw=true)

@@ -81,5 +81,20 @@
 							length="1079757"
 							sparkle:dsaSignature="MCwCFAGI28tZBpssmrt4ZxQsqcqhkpx7AhRiaS9Kk5L6TEsmGYTCCfn6wWQP6A==" />
 				 </item>
+				 <item>
+						<title>Version 0.17</title>
+						<description><![CDATA[
+							<ul>
+								<li>Detect and prompt when Flash Plugin is blocked by Safari</li>
+							</ul>
+						]]></description>
+						<pubDate>Fri, 19 Dec 2014 16:02:54 +0100</pubDate>
+						<enclosure
+							url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+							type="application/octet-stream"
+							sparkle:version="0.17"
+							length="1080770"
+							sparkle:dsaSignature="MCwCFHTzuNqBRf9RlJFRS7cBeJa1ZThkAhQ2OKUlkhM4jF5J9ofUFb/kZ854Yg==" />
+				 </item>
 	 </channel>
 </rss>
