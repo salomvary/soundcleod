@@ -14,6 +14,7 @@
 @property (strong) IBOutlet NSWindow *flashPrompt;
 @property (weak) IBOutlet NSButtonCell *startInstallButton;
 @property (weak) IBOutlet NSButtonCell *restartButton;
+@property (weak) IBOutlet NSTextField *text;
 
 - (void)check;
 

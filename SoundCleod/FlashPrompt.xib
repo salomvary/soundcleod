@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6250"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="FlashCheckController">
@@ -10,6 +10,7 @@
                 <outlet property="flashPrompt" destination="QvC-M9-y7g" id="qAN-pJ-Nmr"/>
                 <outlet property="restartButton" destination="stX-5v-Ze1" id="UPR-ug-PmV"/>
                 <outlet property="startInstallButton" destination="Dni-qV-Km4" id="dGi-Nl-SZC"/>
+                <outlet property="text" destination="LPe-KX-QfB" id="UzP-0m-exo"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>

@@ -16,21 +16,43 @@
 
 NSString *const FlashVersionJS = @"(function(){ var plugin = navigator.mimeTypes['application/x-shockwave-flash'].enabledPlugin; return plugin && plugin.description.match(/\\d+/)[0]})()";
 
+NSString *const FlashBlockedJS = @"(function() {var e = document.createElement('embed'); e.style.visibility = 'hidden'; e.type = 'application/x-shockwave-flash'; document.body.appendChild(e); return !('PercentLoaded' in e)})()";
+
+NSString *const FlashBlockedWarning = @"Flash Plugin is blocked by Safari. Please make sure the latest Flash Plugin for Safari is installed and enabled for soundcloud.com.";
+
+NSString *const NoFlashWarning = @"Playing certain tracks on soundcloud.com requires a recent version of Adobe Flash Plugin for Safari.";
+
+NSString *const InstallFlashUrl = @"http://get.adobe.com/flashplayer/";
+
+NSString *const FlashHelpUrl = @"http://helpx.adobe.com/flash-player.html";
+
+NSString *const UnblockFlash = @"Check Flash Player";
+
+NSString *const InstallFlash = @"Start Flash Install";
+
+
 @implementation FlashCheckController
 
 @synthesize webView;
 @synthesize flashPrompt;
 @synthesize mainWindow;
+@synthesize text;
+
+NSString *buttonUrl;
 
 - (void)check
 {
     NSInteger flashVersion = [[webView stringByEvaluatingJavaScriptFromString:FlashVersionJS] integerValue];
+    BOOL isFlashBlocked = [[webView stringByEvaluatingJavaScriptFromString:FlashBlockedJS] boolValue];
+    
     if (flashVersion < 10) {
-        [self showPrompt];
+        [self showPrompt: NoFlashWarning buttonTitle:InstallFlash url:InstallFlashUrl];
+    } else if (isFlashBlocked) {
+        [self showPrompt: FlashBlockedWarning buttonTitle:UnblockFlash url:FlashHelpUrl];
     }
 }
 
--(void)showPrompt
+-(void)showPrompt: (NSString*)message buttonTitle:(NSString*)buttonTitle url:(NSString*)url
 {
     if (flashPrompt == nil) {
         [NSBundle loadNibNamed:@"FlashPrompt" owner:self];
@@ -40,6 +62,9 @@ NSString *const FlashVersionJS = @"(function(){ var plugin = navigator.mimeTypes
         modalDelegate: self
        didEndSelector: @selector(flashPromptDidEnd:returnCode:contextInfo:)
           contextInfo: nil];
+    [text setStringValue: message];
+    [[self startInstallButton] setTitle: buttonTitle];
+    buttonUrl = url;
 }
 
 - (void)awakeFromNib
@@ -60,7 +85,7 @@ NSString *const FlashVersionJS = @"(function(){ var plugin = navigator.mimeTypes
 
 - (IBAction)openFlashInstall:(id)sender
 {
-    [self openSafari:@"http://get.adobe.com/flashplayer/"];
+    [self openSafari:buttonUrl];
     [[self startInstallButton] setEnabled:FALSE];
     [[self startInstallButton] setTransparent:TRUE];
     [[self restartButton] setEnabled:TRUE];
