@@ -46,6 +46,7 @@ To play SoundCloud:
 - [Soundnode App](http://www.soundnodeapp.com/) (Mac, Win, Linux)
 - [Cumulus](https://github.com/gillesdemey/Cumulus) (Mac)
 - [StreamCloud](http://streamcloud.cc) (Mac)
+- [Vox](http://coppertino.com/) (Mac)
 
 ## Forks Using SoundCleod "Engine"
 
