@@ -96,5 +96,22 @@
 				length="1080770"
 				sparkle:dsaSignature="MCwCFHTzuNqBRf9RlJFRS7cBeJa1ZThkAhQ2OKUlkhM4jF5J9ofUFb/kZ854Yg==" />
 		</item>
+		<item>
+			<title>Version 0.18</title>
+			<description><![CDATA[
+				<ul>
+					<li>Added "History" and "Controls" menu</li>
+<li>Removed the "Install Flash" dialog</li>
+<li>Added DockMenu support for pause/play, previous and next</li>
+				</ul>
+				]]></description>
+			<pubDate>Fri, 15 May 2015 15:58:42 +0200</pubDate>
+			<enclosure
+				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				type="application/octet-stream"
+				sparkle:version="0.18"
+				length="1076107"
+				sparkle:dsaSignature="MCwCFC7ghB3vfUfiCWiowSoPNlpR3NqiAhQ4KNRn9yMPrTORy+qxzXnVbxeXYw==" />
+		</item>
 	</channel>
 </rss>

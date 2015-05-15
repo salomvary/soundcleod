@@ -1,3 +1,8 @@
+## 0.18 (May 15, 2015)
+- Added "History" and "Controls" menu
+- Removed the "Install Flash" dialog
+- Added DockMenu support for pause/play, previous and next
+
 ## 0.17 (December 19, 2014)
 - detect and prompt when Flash Plugin is blocked by Safari
 
