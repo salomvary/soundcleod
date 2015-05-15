@@ -106,6 +106,9 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
         self.baseURL = [NSURL URLWithString: [@"https://" stringByAppendingString:SCHost]];
     }
 
+    // Fake UserAgent to real Safari so that brower sniffing does not break (needed for Flash-free playback)
+    [_webView setCustomUserAgent: @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/600.6.3 (KHTML, like Gecko) Version/7.1.6 Safari/537.85.15"];
+
     NSURL *urlToLoad = _appLaunchURL ? _appLaunchURL : _baseURL;
     [[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:urlToLoad]];
     
