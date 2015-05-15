@@ -24,9 +24,6 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 @property BOOL applicationHasFinishedLaunching;
 @property (nonatomic, strong) NSURL *appLaunchURL;
 
-@property (nonatomic, strong) NSWindow *tmpHostWindow;
-@property (nonatomic, strong) id contentView;
-
 @end
 
 @implementation AppDelegate
@@ -152,7 +149,6 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 
 - (void)awakeFromNib
 {
-    [_window setDelegate:self];
     [_webView setUIDelegate:self];
     [_webView setFrameLoadDelegate:self];
     [_webView setPolicyDelegate:self];
@@ -171,42 +167,12 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     }
 
     [_urlPromptController setNavigateDelegate:self];
-    
-    // stored for adding back later, see windowWillClose
-    self.contentView = [_window contentView];
 }
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
     NSScrollView *mainScrollView = [[[[sender mainFrame] frameView] documentView] enclosingScrollView];
     [mainScrollView setVerticalScrollElasticity:NSScrollElasticityNone];
     [mainScrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
-}
-
-- (void)windowDidBecomeKey:(NSNotification *)notification
-{
-    // restore "hidden" webview, see windowShouldClose
-    // (would be better to do it in applicationShouldHandleReopen
-    // but that seems to be too early (has no effect)
-    if ([_window contentView] != _contentView) {
-        [_window setContentView:_contentView];
-        [_webView setHostWindow:nil];
-        self.tmpHostWindow = nil;
-    }
-}
-
-- (BOOL)windowShouldClose:(NSNotification *)notification
-{
-    // set temporary hostWindow on WebView and remove it from
-    // the closed window to prevent stopping flash plugin
-    // (windowWillClose would be better but that doesn't always work)
-    // http://stackoverflow.com/questions/5307423/plugin-objects-in-webview-getting-destroyed
-    // https://developer.apple.com/library/mac/documentation/Cocoa/Reference/WebKit/Classes/WebView_Class/Reference/Reference.html#//apple_ref/occ/instm/WebView/setHostWindow%3a
-    self.tmpHostWindow = [[NSWindow alloc] init];
-    [_webView setHostWindow:_tmpHostWindow];
-    [_window setContentView:nil];
-    [_contentView removeFromSuperview];
-    
-    return TRUE;
 }
 
 - (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
