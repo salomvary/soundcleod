@@ -22,3 +22,14 @@ clean: dist-clean
 .PHONY: dist-clean
 dist-clean:
 	cd dist && make clean
+
+increment_version:
+	./release.sh increment_version
+
+history:
+	./release.sh history
+
+release: clean increment_version dist history
+	git add appcast.xml README.markdown CHANGELOG.md dist/SoundCleod.dmg SoundCleod/SoundCleod-Info.plist
+	git commit -m "v$$(./release.sh print_version)"
+	git tag -m "v$$(./release.sh print_version)" "v$$(./release.sh print_version)"

@@ -1,0 +1,15 @@
+		<item>
+			<title>Version VERSION</title>
+			<description><![CDATA[
+				<ul>
+					CHANGELOG
+				</ul>
+				]]></description>
+			<pubDate>DATE</pubDate>
+			<enclosure
+				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				type="application/octet-stream"
+				sparkle:version="VERSION"
+				length="LENGTH"
+				sparkle:dsaSignature="SIGNATURE" />
+		</item>
