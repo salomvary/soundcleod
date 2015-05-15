@@ -13,7 +13,6 @@
 #import "../SPMediaKeyTap/SPMediaKeyTap.h"
 #import "AppleMikeyManager.h"
 #import "AppDelegate.h"
-#import "FlashCheckController.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, AppleMikeyManagerDelegate>
 
@@ -26,6 +25,5 @@
 @property (weak) IBOutlet WebView *webView;
 @property (weak) IBOutlet PopupController *popupController;
 @property (weak) IBOutlet UrlPromptController *urlPromptController;
-@property (weak) IBOutlet FlashCheckController *flashCheckController;
 
 @end

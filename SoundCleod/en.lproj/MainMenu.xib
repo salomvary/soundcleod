@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
 		<string key="IBDocument.SystemVersion">13F34</string>
-		<string key="IBDocument.InterfaceBuilderVersion">6250</string>
+		<string key="IBDocument.InterfaceBuilderVersion">6751</string>
 		<string key="IBDocument.AppKitVersion">1265.21</string>
 		<string key="IBDocument.HIToolboxVersion">698.00</string>
 		<dictionary class="NSMutableDictionary" key="IBDocument.PluginVersions">
-			<string key="com.apple.InterfaceBuilder.CocoaPlugin">6250</string>
-			<string key="com.apple.WebKitIBPlugin">6250</string>
+			<string key="com.apple.InterfaceBuilder.CocoaPlugin">6751</string>
+			<string key="com.apple.WebKitIBPlugin">6751</string>
 		</dictionary>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
@@ -815,7 +815,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{320, 320}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="WebView" id="958787108">
@@ -857,9 +857,10 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{1050, 650}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="958787108"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1440, 878}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMinSize">{320, 342}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -878,9 +879,6 @@
 			</object>
 			<object class="NSCustomObject" id="263225185">
 				<string key="NSClassName">SUUpdater</string>
-			</object>
-			<object class="NSCustomObject" id="427066418">
-				<string key="NSClassName">FlashCheckController</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -1287,14 +1285,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">flashCheckController</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="427066418"/>
-					</object>
-					<int key="connectionID">675</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">mainWindow</string>
 						<reference key="source" ref="616446004"/>
 						<reference key="destination" ref="972006081"/>
@@ -1324,22 +1314,6 @@
 						<reference key="destination" ref="191812421"/>
 					</object>
 					<int key="connectionID">671</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">webView</string>
-						<reference key="source" ref="427066418"/>
-						<reference key="destination" ref="958787108"/>
-					</object>
-					<int key="connectionID">673</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">mainWindow</string>
-						<reference key="source" ref="427066418"/>
-						<reference key="destination" ref="972006081"/>
-					</object>
-					<int key="connectionID">674</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2064,11 +2038,6 @@
 						<reference key="object" ref="191812421"/>
 						<reference key="parent" ref="110575045"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">672</int>
-						<reference key="object" ref="427066418"/>
-						<reference key="parent" ref="0"/>
-					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2175,7 +2144,6 @@
 				<string key="667.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="669.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="670.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="672.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="73.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
