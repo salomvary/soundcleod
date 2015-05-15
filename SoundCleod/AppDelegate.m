@@ -115,7 +115,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     WebPreferences *prefs = [WebPreferences standardPreferences];
     
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
-    [prefs setPlugInsEnabled:YES]; // Flash is required for playing sounds in certain cases
+    [prefs setPlugInsEnabled:FALSE]; // Prevent loading outdated and disabled Flash plugin (and everything else too:)
     
     [prefs _setLocalStorageDatabasePath:@"~/Library/Application Support/SoundCleod"];
     [prefs setLocalStorageEnabled:YES];
