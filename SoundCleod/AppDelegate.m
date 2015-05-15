@@ -350,6 +350,21 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [_webView reload:self];
 }
 
+- (IBAction)next:(id)sender
+{
+    [self next];
+}
+
+- (IBAction)prev:(id)sender
+{
+    [self prev];
+}
+
+- (IBAction)playPause:(id)sender
+{
+    [self playPause];
+}
+
 - (void)next
 {
     [self trigger:SCKeyCodeNext];
