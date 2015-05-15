@@ -342,6 +342,33 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 	}
 }
 
+- (NSMenu *)applicationDockMenu:(NSApplication *)sender {
+    
+    NSMenu *dockMenu = [[NSMenu alloc] init];
+    
+    NSMenuItem *pausePlayItem = [[NSMenuItem alloc] init];
+    pausePlayItem.target = self;
+    pausePlayItem.action = @selector(playPause);
+    pausePlayItem.title = [self isPlaying] ? NSLocalizedString(@"Pause", @"") : NSLocalizedString(@"Play", @"");
+    [dockMenu addItem:pausePlayItem];
+    
+    [dockMenu addItem:[NSMenuItem separatorItem]];
+    
+    NSMenuItem *nextItem = [[NSMenuItem alloc] init];
+    nextItem.target = self;
+    nextItem.action = @selector(next);
+    nextItem.title = NSLocalizedString(@"Next", @"");
+    [dockMenu addItem:nextItem];
+    
+    NSMenuItem *previousItem = [[NSMenuItem alloc] init];
+    previousItem.target = self;
+    previousItem.action = @selector(prev);
+    previousItem.title = NSLocalizedString(@"Previous", @"");
+    [dockMenu addItem:previousItem];
+    
+    return dockMenu;
+}
+
 
 - (IBAction)showHelp:(id)sender
 {
