@@ -365,6 +365,11 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [self playPause];
 }
 
+- (IBAction)home:(id)sender
+{
+    [self navigate:@"/"];
+}
+
 - (void)next
 {
     [self trigger:SCKeyCodeNext];
