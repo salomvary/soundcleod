@@ -13,7 +13,7 @@
 
 @synthesize webView;
 @synthesize window;
-@synthesize isFirstLoad;
+@synthesize children;
 
 - (void)awakeFromNib
 {
@@ -21,12 +21,15 @@
     [webView setPolicyDelegate:self];
 }
 
+- (void)dealloc {
+    NSLog(@"_deallocing: %@", self);
+}
+
 - (WebView *)show
 {
-    if(webView == nil) {
-        [NSBundle loadNibNamed:@"LoginWindow" owner:self];
-    }
-    [self setIsFirstLoad:TRUE];
+    NSLog(@"showing %@", self);
+    [NSBundle loadNibNamed:@"LoginWindow" owner:self];
+    [window setIsVisible:TRUE];
     return [self webView];
 }
 
@@ -36,30 +39,33 @@
     [webView close];
     [webView removeFromSuperview];
     [self setWebView:nil];
+    [[children window] close];
+}
+
+- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+{
+    NSLog(@"requesting %@", request);
+    children = [PopupController alloc];
+    return [children show];
 }
 
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
 {
-    // window.open navigation
-    if(![self isFirstLoad] || [PopupController isLoginURL:[request URL]]) {
-        // new popup can only opened with login url, from there navigation
-        // anywhere is allowed
-        [listener use];
-        [self setIsFirstLoad:FALSE];
-        [window setIsVisible:TRUE];
-    } else {
-        [listener ignore];
-        // open external links in external browser
-        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
-    }
-}
-
-+ (BOOL)isLoginURL:(NSURL *)url
-{
-    return [[url host] isEqualToString: SCHost]
-        // for some strange reason, objectAtIndex:0 is "/"
-        && [[[url pathComponents] objectAtIndex:1] isEqualToString: @"connect"];
+    NSLog(@"deciding %@", request);
+    [listener use];
+//    // window.open navigation
+//    if(![self isFirstLoad] || [PopupController isLoginURL:[request URL]]) {
+//        // new popup can only opened with login url, from there navigation
+//        // anywhere is allowed
+//        [listener use];
+//        [self setIsFirstLoad:FALSE];
+//        [window setIsVisible:TRUE];
+//    } else {
+//        [listener ignore];
+//        // open external links in external browser
+//        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+//    }
 }
 
 @end
