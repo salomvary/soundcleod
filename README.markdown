@@ -43,7 +43,7 @@ To play SoundCloud:
 
 - Any modern web browser
 - [BeardedSpice](https://github.com/beardedspice/beardedspice) (Mac)
-- [Soundnode App](http://www.soundnodeapp.com/) (Mac, Win)
+- [Soundnode App](http://www.soundnodeapp.com/) (Mac, Win, Linux)
 - [Cumulus](https://github.com/gillesdemey/Cumulus) (Mac)
 - [StreamCloud](http://streamcloud.cc) (Mac)
 
