@@ -40,7 +40,7 @@ Note: the homebrew method is supported by the [Caskroom team](https://github.com
 ## Alternatives
 To play SoundCloud:
 - Any modern web browser
-- [BeardedSpice](http://beardedspice.com/) (Mac)
+- [BeardedSpice](https://github.com/beardedspice/beardedspice) (Mac)
 - [Soundnode App](http://www.soundnodeapp.com/) (Mac, Win)
 - [Cumulus](https://github.com/gillesdemey/Cumulus) (Mac)
 
