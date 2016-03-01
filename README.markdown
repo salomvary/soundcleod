@@ -1,4 +1,4 @@
-## What's SoundCleod?
+## What is SoundCleod?
 
 SoundCleod is a Mac OS X application which brings
 [SoundCloud](http://soundcloud.com) to the
@@ -52,6 +52,15 @@ To play other stuff:
 
 - [TwentyTwo](https://github.com/marcw/twentytwo)
 - [BeotsMusic](http://beotsmusic.kiding.net/)
+
+## Contributing, reporting bugs
+
+SoundCleod is an open source project ([MIT license](LICENSE)) [hosted on
+GitHub](https://github.com/salomvary/soundcleod). Feel free to fork the code
+and make any changes you want.
+
+Found a bug? Have a feature request? [Create a GitHub
+issue](https://github.com/salomvary/soundcleod/issues).
 
 ## Disclaimer
 
