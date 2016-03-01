@@ -45,6 +45,7 @@ To play SoundCloud:
 - [BeardedSpice](https://github.com/beardedspice/beardedspice) (Mac)
 - [Soundnode App](http://www.soundnodeapp.com/) (Mac, Win)
 - [Cumulus](https://github.com/gillesdemey/Cumulus) (Mac)
+- [StreamCloud](http://streamcloud.cc) (Mac)
 
 ## Forks Using SoundCleod "Engine"
 
