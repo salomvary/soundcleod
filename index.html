@@ -1,133 +1,37 @@
-<!DOCTYPE html>
+---
+---
+<!doctype html>
 <html>
-
   <head>
     <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="SoundCleod : Standalone Mac OS X browser for SoundCloud ">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
     <title>SoundCleod</title>
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-
   <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/salomvary/soundcleod">View on GitHub</a>
-
-          <h1 id="project_title">SoundCleod</h1>
-          <h2 id="project_tagline">Standalone Mac OS X browser for SoundCloud </h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/salomvary/soundcleod/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/salomvary/soundcleod/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h2>
-<a id="whats-soundcleod" class="anchor" href="#whats-soundcleod" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What's SoundCleod?</h2>
-
-<p>SoundCleod is a Mac OS X application which brings
-<a href="http://soundcloud.com">SoundCloud</a> to the
-desktop without using a browser.</p>
-
-<p>Why is that good?</p>
-
-<ul>
-<li>No more 'trying to find in which tab is SoundCloud running'..</li>
-<li>Media keys support! (Yeah, those with ▶ ❚❚ on them.)</li>
-<li>Stops on suspend.</li>
-</ul>
-
-<p>SoundCleod is a weird name. <a href="https://soundcloud.com/senart/soundcleod">How to pronounce it?</a></p>
-
-<h2>
-<a id="how-to-get-it" class="anchor" href="#how-to-get-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to get it?</h2>
-
-<p>Current version is 0.18 (May 15, 2015) <a href="https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md">see changes</a></p>
-
-<ul>
-<li><a href="https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.dmg?raw=true">Download from
-here</a></li>
-<li>Double click the file.</li>
-<li>Drag SoundCleod into your Applications folder.</li>
-<li>Go to Applications, double click SoundCleod.</li>
-<li>Optionally drag SoundCleod from Applications into the Dock.</li>
-</ul>
-
-<p><strong>Important!</strong> Minimum required OSX version is 10.7.x (Lion).</p>
-
-<h3>
-<a id="using-homebrew-cask" class="anchor" href="#using-homebrew-cask" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using <a href="http://caskroom.io/">Homebrew Cask</a>?</h3>
-
-<div class="highlight highlight-source-shell"><pre>brew cask install soundcleod</pre></div>
-
-<p>Note: the homebrew method is supported by the <a href="https://github.com/caskroom/homebrew-cask">Caskroom team</a>, please <a href="https://github.com/caskroom/homebrew-cask#reporting-bugs">report installation issues</a> there.</p>
-
-<h2>
-<a id="screenshots-yeah" class="anchor" href="#screenshots-yeah" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshots? Yeah!</h2>
-
-<p><img src="https://raw.github.com/salomvary/soundcleod/master/screenshot.png" alt="SoundCleod screenshot"></p>
-
-<h2>
-<a id="alternatives" class="anchor" href="#alternatives" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Alternatives</h2>
-
-<p>To play SoundCloud:</p>
-
-<ul>
-<li>Any modern web browser</li>
-<li>
-<a href="https://github.com/beardedspice/beardedspice">BeardedSpice</a> (Mac)</li>
-<li>
-<a href="http://www.soundnodeapp.com/">Soundnode App</a> (Mac, Win)</li>
-<li>
-<a href="https://github.com/gillesdemey/Cumulus">Cumulus</a> (Mac)</li>
-</ul>
-
-<h2>
-<a id="forks-using-soundcleod-engine" class="anchor" href="#forks-using-soundcleod-engine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Forks Using SoundCleod "Engine"</h2>
-
-<p>To play other stuff:</p>
-
-<ul>
-<li><a href="https://github.com/marcw/twentytwo">TwentyTwo</a></li>
-<li><a href="http://beotsmusic.kiding.net/">BeotsMusic</a></li>
-</ul>
-
-<h2>
-<a id="disclaimer" class="anchor" href="#disclaimer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Disclaimer</h2>
-
-<p>Use at your own risk. It might destroy the Earth. Or better don't use
-it.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">SoundCleod maintained by <a href="https://github.com/salomvary">salomvary</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-26943877-3");
-            pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
-
-
+    <header>
+      <div class="title-and-download">
+        <h1>SoundCleod</h1>
+        <a href="https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.dmg?raw=true"><button class="download-button">⬇ Download for Mac</button></a>
+      </div>
+      <h2>Standalone Mac OS X browser for SoundCloud</h2>
+    </header>
+    <section role="main">
+      {% capture readme %}{% include_relative README.markdown %}{% endcapture %}
+      {{ readme | markdownify }}
+    </section>
+    <footer>
+      SoundCleod is maintained by <a href="https://github.com/salomvary">Márton Salomváry</a><br>
+    </footer>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      try {
+        var pageTracker = _gat._getTracker("UA-26943877-3");
+        pageTracker._trackPageview();
+      } catch(err) {}
+    </script>
   </body>
 </html>

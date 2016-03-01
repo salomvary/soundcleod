@@ -1,0 +1,112 @@
+body {
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 0 20px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header h1 {
+  font-size: 48px;
+  margin: 5px 0;
+}
+
+header h2 {
+  font-size: 20px;
+  font-weight: 400;
+  margin: 5px 0;
+}
+
+footer {
+  padding: 20px 0;
+  font-weight: 300;
+  text-align: center;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+[role=main] h2 {
+	border-bottom: 1px solid #e5e5e5;
+	font-weight: 400;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+
+a {
+  color: #007fb6;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    color: #333;
+    line-height: 1;
+    position: relative;
+    white-space: nowrap;
+    box-sizing: border-box;
+    font-size: 14px;
+    min-height: 34px;
+    padding: 9px 10px;
+    transition: border-color 0.1s linear,background 0.1s linear,color 0.1s linear;
+}
+
+button:hover {
+  background-color: #f5f5f5;
+}
+
+button:active {
+  background-color: #e5e5e5;
+}
+
+button:focus {
+  outline: thin dotted;
+}
+
+pre {
+	border: 1px solid #eee;
+	padding: 10px;
+	background: #fcfcfc;
+	border-radius: 2px;
+}
+
+.download-button {
+	display: none;
+}
+
+@media only screen and (min-width: 480px) {
+	.title-and-download {
+		position: relative;
+	}
+
+	.download-button {
+		display: inline-block;
+		margin: 0;
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
