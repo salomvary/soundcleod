@@ -1,4 +1,4 @@
-## What's SoundCleod?
+## What is SoundCleod?
 
 SoundCleod is a Mac OS X application which brings
 [SoundCloud](http://soundcloud.com) to the
@@ -38,16 +38,29 @@ Note: the homebrew method is supported by the [Caskroom team](https://github.com
 ![SoundCleod screenshot](https://raw.github.com/salomvary/soundcleod/master/screenshot.png)
 
 ## Alternatives
+
 To play SoundCloud:
+
 - Any modern web browser
 - [BeardedSpice](https://github.com/beardedspice/beardedspice) (Mac)
 - [Soundnode App](http://www.soundnodeapp.com/) (Mac, Win)
 - [Cumulus](https://github.com/gillesdemey/Cumulus) (Mac)
 
 ## Forks Using SoundCleod "Engine"
+
 To play other stuff:
+
 - [TwentyTwo](https://github.com/marcw/twentytwo)
 - [BeotsMusic](http://beotsmusic.kiding.net/)
+
+## Contributing, reporting bugs
+
+SoundCleod is an open source project ([MIT license](LICENSE)) [hosted on
+GitHub](https://github.com/salomvary/soundcleod). Feel free to fork the code
+and make any changes you want.
+
+Found a bug? Have a feature request? [Create a GitHub
+issue](https://github.com/salomvary/soundcleod/issues).
 
 ## Disclaimer
 

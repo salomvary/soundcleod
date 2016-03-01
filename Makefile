@@ -33,3 +33,8 @@ release: clean increment_version dist history
 	git add appcast.xml README.markdown CHANGELOG.md dist/SoundCleod.dmg SoundCleod/SoundCleod-Info.plist
 	git commit -m "v$$(./release.sh print_version)"
 	git tag -m "v$$(./release.sh print_version)" "v$$(./release.sh print_version)"
+
+update-website:
+	git checkout gh-pages
+	make update-readme update-and-push
+	git checkout master
