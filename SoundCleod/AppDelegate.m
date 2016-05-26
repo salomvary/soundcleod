@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "NSURL+SCUtils.h"
 
-NSString *const SCTriggerJS = @"e=new Event('keydown');e.keyCode=%d;document.dispatchEvent(e)";
+NSString *const SCTriggerJS = @"e=new Event('keydown');e.keyCode=%d;document.dispatchEvent(e);e=new Event('keyup');e.keyCode=32;document.dispatchEvent(e)";
 NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Event('popstate');window.dispatchEvent(e)";
 
 
