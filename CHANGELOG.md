@@ -1,3 +1,6 @@
+## 0.19 (May 26, 2016)
+- Fix broken media keys
+
 ## 0.18 (May 15, 2015)
 - Added "History" and "Controls" menu
 - Removed the "Install Flash" dialog
