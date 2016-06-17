@@ -128,5 +128,21 @@
 				length="1035519"
 				sparkle:dsaSignature="MCwCFBq+cyroIcuAj17//cP1OQPvtOJDAhQQvc4LSa3wE3DMwY6lnRCyqfmWQg==" />
 		</item>
+		<item>
+			<title>Version 0.20</title>
+			<description><![CDATA[
+				<ul>
+					<li>Fix startup with blank screen (upgrade Sparkle to latest)</li>
+<li>Update the list of applications for media keys compatibility</li>
+				</ul>
+				]]></description>
+			<pubDate>Fri, 17 Jun 2016 10:36:46 +0200</pubDate>
+			<enclosure
+				url="https://github.com/salomvary/soundcleod/raw/v0.20/dist/SoundCleod.dmg"
+				type="application/octet-stream"
+				sparkle:version="0.20"
+				length="1658760"
+				sparkle:dsaSignature="" />
+		</item>
 	</channel>
 </rss>
