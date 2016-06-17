@@ -18,10 +18,12 @@ Current version is 0.20 (June 17, 2016) [see changes](https://github.com/salomva
 
 - [Download from
 	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.dmg?raw=true)
-- Double click the file.
-- Drag SoundCleod into your Applications folder.
-- Go to Applications, double click SoundCleod.
-- Optionally drag SoundCleod from Applications into the Dock.
+- Double click the file
+- Drag SoundCleod into your Applications folder
+- Go to Applications, right click (or control-click) on SoundCleod
+- Click Open
+- Click Open when prompted **“SoundCleod” is from an unidentified developer. Are you sure you want to open it?**
+- Optionally drag SoundCleod from Applications into the Dock
 
 **Important!** Minimum required OSX version is 10.7.x (Lion).
 
