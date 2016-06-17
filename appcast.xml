@@ -13,7 +13,7 @@
 				</ul>
 			]]></description>
 			<pubDate>Fri, 08 Nov 2013 16:03:08 +0100</pubDate>
-			<enclosure url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg" sparkle:version="0.12" length="1033493" type="application/octet-stream" sparkle:dsaSignature="MCwCFDpRxmXdaTDu9kAc5aqwtFWVCr2pAhQIe0cTpm1EEFL/VjNBPqqfU+71KQ==" />
+			<enclosure url="https://github.com/salomvary/soundcleod/raw/0.12/dist/SoundCleod.dmg" sparkle:version="0.12" length="1033493" type="application/octet-stream" sparkle:dsaSignature="MCwCFDpRxmXdaTDu9kAc5aqwtFWVCr2pAhQIe0cTpm1EEFL/VjNBPqqfU+71KQ==" />
 		</item>
 		<item>
 			<title>Version 0.13</title>
@@ -26,7 +26,7 @@
 			]]></description>
 			<pubDate>Tue, 14 Oct 2014 08:32:27 +0200</pubDate>
 			<enclosure
-				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				url="https://github.com/salomvary/soundcleod/raw/v0.13/dist/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="0.13"
 				length="1041771"
@@ -43,7 +43,7 @@
 			]]></description>
 			<pubDate>Wed, 05 Nov 2014 14:23:14 +0100</pubDate>
 			<enclosure
-				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				url="https://github.com/salomvary/soundcleod/raw/v0.14/dist/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="0.14"
 				length="1071661"
@@ -58,7 +58,7 @@
 			]]></description>
 			<pubDate>Thu, 13 Nov 2014 22:38:11 +0100</pubDate>
 			<enclosure
-				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				url="https://github.com/salomvary/soundcleod/raw/0.15/dist/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="0.15"
 				length="1072372"
@@ -75,7 +75,7 @@
 			]]></description>
 			<pubDate>Sun, 07 Dec 2014 21:19:29 +0100</pubDate>
 			<enclosure
-				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				url="https://github.com/salomvary/soundcleod/raw/v0.16/dist/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="0.16"
 				length="1079757"
@@ -90,7 +90,7 @@
 			]]></description>
 			<pubDate>Fri, 19 Dec 2014 16:02:54 +0100</pubDate>
 			<enclosure
-				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				url="https://github.com/salomvary/soundcleod/raw/v0.17/dist/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="0.17"
 				length="1080770"
@@ -107,7 +107,7 @@
 				]]></description>
 			<pubDate>Fri, 15 May 2015 15:58:42 +0200</pubDate>
 			<enclosure
-				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				url="https://github.com/salomvary/soundcleod/raw/v0.18/dist/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="0.18"
 				length="1076107"
@@ -122,7 +122,7 @@
 				]]></description>
 			<pubDate>Thu, 26 May 2016 10:30:46 +0200</pubDate>
 			<enclosure
-				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				url="https://github.com/salomvary/soundcleod/raw/v0.19/dist/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="0.19"
 				length="1035519"
