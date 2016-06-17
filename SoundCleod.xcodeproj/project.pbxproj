@@ -14,8 +14,6 @@
 		2624EBA716A821B100490144 /* UrlPrompt.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2624EBA616A821B100490144 /* UrlPrompt.xib */; };
 		2624EBAC16A82EF100490144 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 2624EBAB16A82EF100490144 /* AppConstants.m */; };
 		263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 263C2BA01677152500EF4792 /* Cocoa.framework */; };
-		2666D13717E3104A0071A8BA /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2666D13617E3104A0071A8BA /* Sparkle.framework */; };
-		2666D13917E310A20071A8BA /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2666D13617E3104A0071A8BA /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A0087016771DA5006FD03A /* WebKit.framework */; };
 		26B5794C167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B5793A167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m */; };
 		26B5794D167A58CD0034D295 /* SPMediaKeyTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B5793C167A58CD0034D295 /* SPMediaKeyTap.m */; };
@@ -27,6 +25,8 @@
 		26FF31111680734B0091448C /* PopupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26FF31091680734B0091448C /* PopupController.m */; };
 		3A295065175FDF560038B28C /* SCDApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A295064175FDF560038B28C /* SCDApplication.m */; };
 		5DC7C72219D405D50007FE30 /* NSURL+SCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */; };
+		C98A0DE81D13D7B000AFBB5B /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98A0DE71D13D7B000AFBB5B /* Sparkle.framework */; };
+		C98A0DEA1D13D89600AFBB5B /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C98A0DE71D13D7B000AFBB5B /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DF1AA32319F64CC1008618E4 /* sound_up.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1AA32219F64CC1008618E4 /* sound_up.m */; };
 		DF1AA32619F64CF9008618E4 /* AppleMikeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1AA32519F64CF9008618E4 /* AppleMikeyManager.m */; };
 		DF1AA32819F6513C008618E4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1AA32719F6513C008618E4 /* IOKit.framework */; };
@@ -39,7 +39,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2666D13917E310A20071A8BA /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C98A0DE91D13D87600AFBB5B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C98A0DEA1D13D89600AFBB5B /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +68,6 @@
 		263C2BA31677152500EF4792 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		263C2BA41677152500EF4792 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		263C2BA51677152500EF4792 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		2666D13617E3104A0071A8BA /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		26A0087016771DA5006FD03A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		26B57939167A58CD0034D295 /* NSObject+SPInvocationGrabbing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SPInvocationGrabbing.h"; sourceTree = "<group>"; };
 		26B5793A167A58CD0034D295 /* NSObject+SPInvocationGrabbing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SPInvocationGrabbing.m"; sourceTree = "<group>"; };
@@ -79,6 +87,7 @@
 		3A295064175FDF560038B28C /* SCDApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDApplication.m; sourceTree = "<group>"; };
 		5DC7C72019D405D50007FE30 /* NSURL+SCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SCUtils.h"; sourceTree = "<group>"; };
 		5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SCUtils.m"; sourceTree = "<group>"; };
+		C98A0DE71D13D7B000AFBB5B /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		DF1AA32119F64CC1008618E4 /* sound_up.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sound_up.h; sourceTree = "<group>"; };
 		DF1AA32219F64CC1008618E4 /* sound_up.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sound_up.m; sourceTree = "<group>"; };
 		DF1AA32419F64CF9008618E4 /* AppleMikeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleMikeyManager.h; sourceTree = "<group>"; };
@@ -93,9 +102,9 @@
 			files = (
 				2618AE0116803F1900EC2E15 /* Carbon.framework in Frameworks */,
 				26A0087116771DA5006FD03A /* WebKit.framework in Frameworks */,
+				C98A0DE81D13D7B000AFBB5B /* Sparkle.framework in Frameworks */,
 				263C2BA11677152500EF4792 /* Cocoa.framework in Frameworks */,
 				DF1AA32819F6513C008618E4 /* IOKit.framework in Frameworks */,
-				2666D13717E3104A0071A8BA /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,8 +134,8 @@
 		263C2B9F1677152500EF4792 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C98A0DE71D13D7B000AFBB5B /* Sparkle.framework */,
 				DF1AA32719F6513C008618E4 /* IOKit.framework */,
-				2666D13617E3104A0071A8BA /* Sparkle.framework */,
 				2618AE0016803F1900EC2E15 /* Carbon.framework */,
 				263C2BA01677152500EF4792 /* Cocoa.framework */,
 				263C2BA21677152500EF4792 /* Other Frameworks */,
@@ -177,7 +186,6 @@
 				26FF31081680734B0091448C /* PopupController.h */,
 				26FF31091680734B0091448C /* PopupController.m */,
 				26FF311C168075A50091448C /* Resources */,
-				2657165F1A30CC8B00BB58B8 /* Safari.h */,
 				3A295063175FDF560038B28C /* SCDApplication.h */,
 				3A295064175FDF560038B28C /* SCDApplication.m */,
 				26FF310B1680734B0091448C /* SoundCleod-Prefix.pch */,
@@ -191,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				26FF31011680734B0091448C /* Credits.rtf */,
-				2657165D1A309CB000BB58B8 /* FlashPrompt.xib */,
 				26FF31031680734B0091448C /* InfoPlist.strings */,
 				2611514F168B3A0E00F1566F /* LoginWindow.xib */,
 				26FF31071680734B0091448C /* main.m */,
@@ -231,6 +238,7 @@
 				263C2B991677152500EF4792 /* Frameworks */,
 				263C2B9A1677152500EF4792 /* Resources */,
 				2666D13817E3107A0071A8BA /* CopyFiles */,
+				C98A0DE91D13D87600AFBB5B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -390,11 +398,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SoundCleod/SoundCleod-Prefix.pch";
 				INFOPLIST_FILE = "SoundCleod/SoundCleod-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = SoundCleod;
 				SDKROOT = macosx;
@@ -408,11 +418,13 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SoundCleod/SoundCleod-Prefix.pch";
 				INFOPLIST_FILE = "SoundCleod/SoundCleod-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = SoundCleod;
 				SDKROOT = macosx;
