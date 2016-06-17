@@ -27,6 +27,7 @@
 		5DC7C72219D405D50007FE30 /* NSURL+SCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */; };
 		C98A0DE81D13D7B000AFBB5B /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98A0DE71D13D7B000AFBB5B /* Sparkle.framework */; };
 		C98A0DEA1D13D89600AFBB5B /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C98A0DE71D13D7B000AFBB5B /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C98A0DEC1D13E3D000AFBB5B /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = C98A0DEB1D13E3D000AFBB5B /* dsa_pub.pem */; };
 		DF1AA32319F64CC1008618E4 /* sound_up.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1AA32219F64CC1008618E4 /* sound_up.m */; };
 		DF1AA32619F64CF9008618E4 /* AppleMikeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DF1AA32519F64CF9008618E4 /* AppleMikeyManager.m */; };
 		DF1AA32819F6513C008618E4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1AA32719F6513C008618E4 /* IOKit.framework */; };
@@ -37,7 +38,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 7;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +89,7 @@
 		5DC7C72019D405D50007FE30 /* NSURL+SCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SCUtils.h"; sourceTree = "<group>"; };
 		5DC7C72119D405D50007FE30 /* NSURL+SCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SCUtils.m"; sourceTree = "<group>"; };
 		C98A0DE71D13D7B000AFBB5B /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		C98A0DEB1D13E3D000AFBB5B /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		DF1AA32119F64CC1008618E4 /* sound_up.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sound_up.h; sourceTree = "<group>"; };
 		DF1AA32219F64CC1008618E4 /* sound_up.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sound_up.m; sourceTree = "<group>"; };
 		DF1AA32419F64CF9008618E4 /* AppleMikeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleMikeyManager.h; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		26FF311C168075A50091448C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C98A0DEB1D13E3D000AFBB5B /* dsa_pub.pem */,
 				26FF31011680734B0091448C /* Credits.rtf */,
 				26FF31031680734B0091448C /* InfoPlist.strings */,
 				2611514F168B3A0E00F1566F /* LoginWindow.xib */,
@@ -281,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98A0DEC1D13E3D000AFBB5B /* dsa_pub.pem in Resources */,
 				2618AE0816806FC500EC2E15 /* soundcleod.iconset in Resources */,
 				26FF310D1680734B0091448C /* Credits.rtf in Resources */,
 				26FF310E1680734B0091448C /* InfoPlist.strings in Resources */,
