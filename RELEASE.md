@@ -17,5 +17,5 @@
 
 - `make release`
 - Check if everything looks good
-- `git push`
+- `git push --tags`
 - Update gh-pages on GitHub
