@@ -136,10 +136,22 @@ static CGEventRef tapEventCallback(CGEventTapProxy proxy, CGEventType type, CGEv
 		@"com.bitcartel.pandorajam",
 		@"org.clementine-player.clementine",
 		@"fm.last.Last.fm",
+		@"fm.last.Scrobbler",
 		@"com.beatport.BeatportPro",
 		@"com.Timenut.SongKey",
 		@"com.macromedia.fireworks", // the tap messes up their mouse input
-		@"com.radev.Spacebeat",
+		@"at.justp.Theremin",
+		@"ru.ya.themblsha.YandexMusic",
+		@"com.jriver.MediaCenter18",
+		@"com.jriver.MediaCenter19",
+		@"com.jriver.MediaCenter20",
+		@"co.rackit.mate",
+		@"com.ttitt.b-music",
+		@"com.beardedspice.BeardedSpice",
+		@"com.plug.Plug",
+		@"com.plug.Plug2",
+    @"com.netease.163music",
+    		@"org.quodlibet.quodlibet",
 		nil
 	];
 }
