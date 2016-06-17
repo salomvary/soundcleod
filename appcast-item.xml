@@ -7,7 +7,7 @@
 				]]></description>
 			<pubDate>DATE</pubDate>
 			<enclosure
-				url="https://github.com/salomvary/soundcleod/raw/master/dist/SoundCleod.dmg"
+				url="https://github.com/salomvary/soundcleod/raw/vVERSION/dist/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="VERSION"
 				length="LENGTH"

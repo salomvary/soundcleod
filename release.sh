@@ -86,7 +86,7 @@ appcast_item() {
 	length=$(stat -f %z dist/SoundCleod.dmg)
 	signature=$(ruby sign_update.rb dist/SoundCleod.dmg dsa_priv.pem)
 
-	item=$(m4 -DCHANGELOG="$history" -DVERSION="$version" -DDATE="$date" -DLENGTH="$length" -DSIGNATURE="$signature" appcast-item.xml)
+	item=$(m4 -DCHANGELOG="$history" -DvVERSION="v$version" -DVERSION="$version" -DDATE="$date" -DLENGTH="$length" -DSIGNATURE="$signature" appcast-item.xml)
 	echo "$item"
 }
 
