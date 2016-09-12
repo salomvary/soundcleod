@@ -22,7 +22,7 @@
 @property (nonatomic, strong) SPMediaKeyTap *mediaKeyListener;
 @property (nonatomic, strong) AppleMikeyManager *mikeyManager;
 
-@property (weak) IBOutlet WKWebView *webView;
+@property WKWebView *webView;
 @property (weak) IBOutlet PopupController *popupController;
 @property (weak) IBOutlet UrlPromptController *urlPromptController;
 

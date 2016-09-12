@@ -151,6 +151,26 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 
 - (void)awakeFromNib
 {
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:[_window frame]];
+    _webView = webView;
+    [[_window contentView] addSubview:_webView];
+    
+    [_webView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
+    
+    [[_window contentView] addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
+    [[_window contentView] addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webView]|"
+                                             options:0
+                                             metrics:nil
+                                               views:views]];
+    
     [_webView setUIDelegate:self];
     [_webView setNavigationDelegate:self];
     //[_webView setPolicyDelegate:self];
@@ -223,7 +243,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
         }
     } else {
         // normal in-frame navigation
-        if([navigationAction webFrame] != [_webView webFrame] || [[[navigationAction request] URL] isSoundCloudURL]) {
+        if(![[navigationAction sourceFrame] isMainFrame] || [[[navigationAction request] URL] isSoundCloudURL]) {
             // allow loading urls in sub-frames OR when they are sc
             decisionHandler(WKNavigationActionPolicyAllow);
         } else {
