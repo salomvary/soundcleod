@@ -18,10 +18,10 @@
 - (void)awakeFromNib
 {
     [webView setUIDelegate:self];
-    [webView setPolicyDelegate:self];
+    [webView setNavigationDelegate:self];
 }
 
-- (WebView *)show
+- (WKWebView *)show
 {
     if(webView == nil) {
         [NSBundle loadNibNamed:@"LoginWindow" owner:self];
@@ -30,28 +30,29 @@
     return [self webView];
 }
 
-- (void)webViewClose:(WebView *)sender
+- (void)webViewClose:(WKWebView *)sender
 {
     [window setIsVisible:FALSE];
-    [webView close];
+//    [webView close];
     [webView removeFromSuperview];
     [self setWebView:nil];
 }
 
-- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
-        request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
+//- (void)webView:(WKWebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+//        request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
+- (void)webView:(WKWebView *)sender decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
     // window.open navigation
-    if(![self isFirstLoad] || [PopupController isLoginURL:[request URL]]) {
+    if(![self isFirstLoad] || [PopupController isLoginURL:[navigationAction.request URL]]) {
         // new popup can only opened with login url, from there navigation
         // anywhere is allowed
-        [listener use];
+        decisionHandler(WKNavigationActionPolicyAllow);
         [self setIsFirstLoad:FALSE];
         [window setIsVisible:TRUE];
     } else {
-        [listener ignore];
+        decisionHandler(WKNavigationActionPolicyCancel);
         // open external links in external browser
-        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+        [[NSWorkspace sharedWorkspace] openURL:[navigationAction.request URL]];
     }
 }
 

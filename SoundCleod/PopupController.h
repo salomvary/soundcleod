@@ -12,14 +12,14 @@
 @interface PopupController : NSObject
 
 @property (assign) IBOutlet NSPanel *window;
-@property (weak) IBOutlet WebView *webView;
+@property (weak) IBOutlet WKWebView *webView;
 @property BOOL isFirstLoad;
 
 
 - (void)awakeFromNib;
-- (WebView *)show;
-- (void)webViewClose:(WebView *)sender;
-- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+- (WKWebView *)show;
+- (void)webViewClose:(WKWebView *)sender;
+- (void)webView:(WKWebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
         request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener;
 + (BOOL)isLoginURL:(NSURL *)url;
 

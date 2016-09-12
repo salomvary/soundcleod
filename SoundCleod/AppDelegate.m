@@ -105,9 +105,10 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [_webView setCustomUserAgent: @"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/600.6.3 (KHTML, like Gecko) Version/7.1.6 Safari/537.85.15"];
 
     NSURL *urlToLoad = _appLaunchURL ? _appLaunchURL : _baseURL;
-    [[_webView mainFrame] loadRequest:[NSURLRequest requestWithURL:urlToLoad]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:urlToLoad]];
     
-    WebPreferences *prefs = [WebPreferences standardPreferences];
+    /*
+    WKPreferences *prefs = [WKPreferences standardPreferences];
     
     [prefs setCacheModel:WebCacheModelPrimaryWebBrowser];
     [prefs setPlugInsEnabled:FALSE]; // Prevent loading outdated and disabled Flash plugin (and everything else too:)
@@ -116,6 +117,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [prefs setLocalStorageEnabled:YES];
     
     [_webView setPreferences:prefs];
+     */
     
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver: self
                                                            selector: @selector(receiveSleepNotification:)
@@ -150,8 +152,8 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 - (void)awakeFromNib
 {
     [_webView setUIDelegate:self];
-    [_webView setFrameLoadDelegate:self];
-    [_webView setPolicyDelegate:self];
+    [_webView setNavigationDelegate:self];
+    //[_webView setPolicyDelegate:self];
 
     // Workaround for a bug in OSX 10.10 - fixed elements do not work
     // https://bugs.webkit.org/show_bug.cgi?id=137851#c2
@@ -169,13 +171,16 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [_urlPromptController setNavigateDelegate:self];
 }
 
+// was: WebFrameLoadDelegate
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
     NSScrollView *mainScrollView = [[[[sender mainFrame] frameView] documentView] enclosingScrollView];
     [mainScrollView setVerticalScrollElasticity:NSScrollElasticityNone];
     [mainScrollView setHorizontalScrollElasticity:NSScrollElasticityNone];
 }
 
-- (WebView *)webView:(WebView *)sender createWebViewWithRequest:(NSURLRequest *)request
+
+// WebUIDelegate
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
 {
     // request will always be null (probably a bug)
     return [_popupController show];
@@ -183,7 +188,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
 {
-    if (frame == [_webView mainFrame]) {
+    if (frame == [_webView webFrame]) {
         [_window setTitle:title];
         if ([self isPlaying]) {
             title = [title stringByReplacingOccurrencesOfString:@"▶ " withString:@""];
@@ -200,34 +205,33 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     }
 }
 
-- (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
-        request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
-{
-    // normal in-frame navigation
-    if(frame != [_webView mainFrame] || [[request URL] isSoundCloudURL]) {
-        // allow loading urls in sub-frames OR when they are sc urls
-        [listener use];
-    } else {
-        [listener ignore];
-        // open external links in external browser
-        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
-    }
-}
+- (void)webView:(WKWebView *)sender decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 
-- (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id < WebPolicyDecisionListener >)listener
 {
-    // target=_blank or anything scenario
-    [listener ignore];
-    if([[request URL] isSoundCloudURL]) {
-        // open local links in the main frame
-        // TODO: maybe maintain a frame stack instead?
-        [[_webView mainFrame] loadRequest: [NSURLRequest requestWithURL:
-                                           [actionInformation objectForKey:WebActionOriginalURLKey]]];
+    // new window
+    if([navigationAction targetFrame] == nil) {
+        // target=_blank or anything scenario
+        decisionHandler(WKNavigationActionPolicyCancel);
+        if([[[navigationAction request] URL] isSoundCloudURL]) {
+            // open local links in the main frame
+            // TODO: maybe maintain a frame stack instead?
+            [[_webView webFrame] loadRequest: [NSURLRequest requestWithURL:
+                                               [[navigationAction request] URL]]];
+        } else {
+            // open external links in external browser
+            [[NSWorkspace sharedWorkspace] openURL:[[navigationAction request] URL]];
+        }
     } else {
-        // open external links in external browser
-        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+        // normal in-frame navigation
+        if([navigationAction webFrame] != [_webView webFrame] || [[[navigationAction request] URL] isSoundCloudURL]) {
+            // allow loading urls in sub-frames OR when they are sc
+            decisionHandler(WKNavigationActionPolicyAllow);
+        } else {
+            decisionHandler(WKNavigationActionPolicyCancel);
+            // open external links in external browser
+            [[NSWorkspace sharedWorkspace] openURL:[[navigationAction request] URL]];
+        }
     }
-
 }
 
 // based on http://stackoverflow.com/questions/5177640
@@ -392,8 +396,8 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 
 - (void)trigger:(SCKeyCode)keyCode
 {
-    NSString *js = [NSString stringWithFormat:SCTriggerJS, (int)keyCode];
-    [_webView stringByEvaluatingJavaScriptFromString:js];
+    NSString *js = [NSString stringWithFormat:SCTriggerJS, (int)keyCode, (int)keyCode];
+    [_webView evaluateJavaScript:js completionHandler:nil];
 }
 
 - (BOOL)isPlaying
@@ -406,7 +410,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 - (void)navigate:(NSString*)permalink
 {
     NSString *js = [NSString stringWithFormat:SCNavigateJS, permalink];
-    [_webView stringByEvaluatingJavaScriptFromString:js];
+    [_webView evaluateJavaScript:js completionHandler:nil];
 }
 
 #pragma mark - Notifications

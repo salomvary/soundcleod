@@ -14,7 +14,7 @@
 #import "AppleMikeyManager.h"
 #import "AppDelegate.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, AppleMikeyManagerDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate, AppleMikeyManagerDelegate, WKUIDelegate, WKNavigationDelegate>
 
 @property (nonatomic, strong) NSURL *baseURL;
 @property (assign) IBOutlet NSWindow *window;
@@ -22,7 +22,7 @@
 @property (nonatomic, strong) SPMediaKeyTap *mediaKeyListener;
 @property (nonatomic, strong) AppleMikeyManager *mikeyManager;
 
-@property (weak) IBOutlet WebView *webView;
+@property (weak) IBOutlet WKWebView *webView;
 @property (weak) IBOutlet PopupController *popupController;
 @property (weak) IBOutlet UrlPromptController *urlPromptController;
 
