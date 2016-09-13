@@ -13,54 +13,62 @@
 
 @synthesize webView;
 @synthesize window;
-@synthesize isFirstLoad;
 
-- (void)awakeFromNib
-{
-    [webView setUIDelegate:self];
-    [webView setNavigationDelegate:self];
-}
-
-- (WKWebView *)show
+- (WKWebView *)show:(WKWebViewConfiguration *)configuration
 {
     if(webView == nil) {
-        [NSBundle loadNibNamed:@"LoginWindow" owner:self];
+        [[NSBundle mainBundle] loadNibNamed:@"LoginWindow" owner:self topLevelObjects:nil];
+        
+        // Interface builder does not support WKWebView
+        webView = [[WKWebView alloc] initWithFrame:[window frame] configuration: configuration];
+        [[window contentView] addSubview:webView];
+        
+        [webView setTranslatesAutoresizingMaskIntoConstraints:NO];
+        
+        NSDictionary *views = NSDictionaryOfVariableBindings(webView);
+        
+        [[window contentView] addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[webView]|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:views]];
+        
+        [[window contentView] addConstraints:
+         [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[webView]|"
+                                                 options:0
+                                                 metrics:nil
+                                                   views:views]];
+        
+        [webView setUIDelegate:self];
+        [webView setNavigationDelegate:self];
     }
-    [self setIsFirstLoad:TRUE];
+
+    [window makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
+    
     return [self webView];
 }
 
 - (void)webViewClose:(WKWebView *)sender
 {
-    [window setIsVisible:FALSE];
+    [window orderOut:self];
 //    [webView close];
     [webView removeFromSuperview];
     [self setWebView:nil];
 }
 
-//- (void)webView:(WKWebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation
-//        request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id)listener
-- (void)webView:(WKWebView *)sender decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+- (void)webView:(WKWebView *)sender decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction
+    decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
     // window.open navigation
-    if(![self isFirstLoad] || [PopupController isLoginURL:[navigationAction.request URL]]) {
-        // new popup can only opened with login url, from there navigation
-        // anywhere is allowed
+    NSLog(@"%@", [navigationAction.request URL]);
+    if ([navigationAction targetFrame] != nil) {
         decisionHandler(WKNavigationActionPolicyAllow);
-        [self setIsFirstLoad:FALSE];
-        [window setIsVisible:TRUE];
     } else {
         decisionHandler(WKNavigationActionPolicyCancel);
         // open external links in external browser
         [[NSWorkspace sharedWorkspace] openURL:[navigationAction.request URL]];
     }
-}
-
-+ (BOOL)isLoginURL:(NSURL *)url
-{
-    return [[url host] isEqualToString: SCHost]
-        // for some strange reason, objectAtIndex:0 is "/"
-        && [[[url pathComponents] objectAtIndex:1] isEqualToString: @"connect"];
 }
 
 @end

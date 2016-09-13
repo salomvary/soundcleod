@@ -151,8 +151,8 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 
 - (void)awakeFromNib
 {
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:[_window frame]];
-    _webView = webView;
+    // Interface builder does not support WKWebView
+    _webView = [[WKWebView alloc] initWithFrame:[_window frame]];
     [[_window contentView] addSubview:_webView];
     
     [_webView setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -202,8 +202,7 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
 // WebUIDelegate
 - (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures
 {
-    // request will always be null (probably a bug)
-    return [_popupController show];
+    return [_popupController show:configuration];
 }
 
 - (void)webView:(WebView *)sender didReceiveTitle:(NSString *)title forFrame:(WebFrame *)frame
