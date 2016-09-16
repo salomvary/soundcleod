@@ -6,6 +6,7 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const globalShortcut = electron.globalShortcut
 const Menu = electron.Menu
+const ipcMain = electron.ipcMain
 
 var mainWindow = null
 
@@ -46,5 +47,13 @@ app.on('ready', function() {
 
   globalShortcut.register('MediaPreviousTrack', () => {
     mainWindow.webContents.send('previous')
+  })
+
+  require('electron').powerMonitor.on('suspend', () => {
+    ipcMain.once('isPlaying', (_, isPlaying) => {
+      if (isPlaying)
+        mainWindow.webContents.send('playPause')
+    })
+    mainWindow.webContents.send('isPlaying')
   })
 })

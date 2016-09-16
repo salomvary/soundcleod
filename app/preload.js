@@ -16,3 +16,7 @@ ipcRenderer.on('playPause', () => trigger(32))
 ipcRenderer.on('next', () => trigger(74))
 ipcRenderer.on('previous', () => trigger(75))
 ipcRenderer.on('help', () => trigger(72))
+ipcRenderer.on('isPlaying', (event) => {
+  const isPlaying = !!document.querySelector('.playing')
+  event.sender.send('isPlaying', isPlaying)
+})
