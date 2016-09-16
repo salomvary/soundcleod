@@ -18,8 +18,8 @@ app.on('window-all-closed', function() {
 })
 
 app.on('ready', function() {
-  console.log('ready')
   Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
+
   mainWindow = new BrowserWindow({
     width: 1290,
     height: 800,
