@@ -92,4 +92,12 @@ app.on('ready', function() {
     })
     mainWindow.webContents.send('isPlaying')
   })
+
+  mainWindow.on('page-title-updated', (_, title) => {
+    var titleParts = title.split(' by ', 2)
+    if (titleParts.length == 1)
+      titleParts = title.split(' in ', 2)
+    if (titleParts.length == 2)
+      mainWindow.webContents.send('notification', titleParts[0], titleParts[1])
+  })
 })

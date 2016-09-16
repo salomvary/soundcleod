@@ -29,3 +29,6 @@ ipcRenderer.on('isPlaying', (event) => {
 ipcRenderer.on('navigate', (_, url) => {
   navigate(url)
 })
+ipcRenderer.on('notification', (_, title, body) => {
+  new Notification(title, { body, silent: true })
+})
