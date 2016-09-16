@@ -1,10 +1,14 @@
 'use strict'
 
 const electron = require('electron')
+const Events = require('events')
+const Menu = electron.Menu
 const app = electron.app
 const shell = electron.shell
 
-const menu = module.exports = [
+const events = new Events()
+
+const menu = [
   {
     label: 'Edit',
     submenu: [
@@ -62,25 +66,45 @@ const menu = module.exports = [
     ]
   },
   {
+    label: 'History',
+    submenu: [
+      {
+        label: 'Home',
+        accelerator: 'CmdOrCtrl+Shift+H',
+        click() {
+          events.emit('home')
+        }
+      },
+      {
+        label: 'Back',
+        accelerator: 'CmdOrCtrl+Left',
+        click() {
+          events.emit('back')
+        }
+      },
+      {
+        label: 'Forward',
+        accelerator: 'CmdOrCtrl+Right',
+        click() {
+          events.emit('forward')
+        }
+      }
+    ]
+  },
+  {
     label: 'Controls',
     submenu: [
       {
         label: 'Play/Pause',
-        accelerator: 'Space',
-        click() {
-        }
+        accelerator: 'Space'
       },
       {
         label: 'Next',
-        accelerator: 'Shift+Right',
-        click() {
-        }
+        accelerator: 'Shift+Right'
       },
       {
         label: 'Previous',
-        accelerator: 'Shift+Left',
-        click() {
-        }
+        accelerator: 'Shift+Left'
       }
     ]
   },
@@ -192,3 +216,6 @@ if (process.platform == 'darwin') {
     }
   )
 }
+
+module.exports = Menu.buildFromTemplate(menu)
+module.exports.events = events

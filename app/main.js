@@ -19,7 +19,7 @@ app.on('window-all-closed', function() {
 })
 
 app.on('ready', function() {
-  Menu.setApplicationMenu(Menu.buildFromTemplate(menu))
+  Menu.setApplicationMenu(menu)
 
   mainWindow = new BrowserWindow({
     width: 1290,
@@ -33,6 +33,7 @@ app.on('ready', function() {
   })
 
   mainWindow.loadURL('https://soundcloud.com')
+
   mainWindow.on('closed', function() {
     mainWindow = null
   })
@@ -47,6 +48,18 @@ app.on('ready', function() {
 
   globalShortcut.register('MediaPreviousTrack', () => {
     mainWindow.webContents.send('previous')
+  })
+
+  menu.events.on('home', () => {
+    mainWindow.webContents.send('navigate', '/')
+  })
+
+  menu.events.on('back', () => {
+    mainWindow.webContents.goBack()
+  })
+
+  menu.events.on('forward', () => {
+    mainWindow.webContents.goForward()
   })
 
   require('electron').powerMonitor.on('suspend', () => {
