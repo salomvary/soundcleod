@@ -174,6 +174,9 @@ NSString *const SCNavigateJS = @"history.replaceState(null, null, '%@');e=new Ev
     [_webView setUIDelegate:self];
     [_webView setNavigationDelegate:self];
     //[_webView setPolicyDelegate:self];
+    
+    // Would be nice, but instead of showing the dev tools we get infinite flickering on the window
+    //[[[_webView configuration] preferences] setValue:@YES forKey:@"developerExtrasEnabled"];
 
     // Workaround for a bug in OSX 10.10 - fixed elements do not work
     // https://bugs.webkit.org/show_bug.cgi?id=137851#c2
