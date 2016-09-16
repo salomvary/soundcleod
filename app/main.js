@@ -20,6 +20,16 @@ app.on('before-quit', function() {
   quitting = true
 })
 
+const shouldQuit = app.makeSingleInstance(() => {
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) mainWindow.restore()
+    mainWindow.show()
+    mainWindow.focus()
+  }
+})
+
+if (shouldQuit) app.quit()
+
 app.on('ready', function() {
   Menu.setApplicationMenu(menu)
 
