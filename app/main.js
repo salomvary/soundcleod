@@ -14,8 +14,10 @@ const profile = process.env.SOUNDCLEOD_PROFILE
 if (profile)
   app.setPath('userData', app.getPath('userData') + ' ' + profile)
 
-app.on('window-all-closed', function() {
-  app.quit()
+var quitting = false
+
+app.on('before-quit', function() {
+  quitting = true
 })
 
 app.on('ready', function() {
@@ -33,6 +35,13 @@ app.on('ready', function() {
   })
 
   mainWindow.loadURL('https://soundcloud.com')
+
+  mainWindow.on('close', (event) => {
+    if (!quitting) {
+      event.preventDefault()
+      mainWindow.hide()
+    }
+  })
 
   mainWindow.on('closed', function() {
     mainWindow = null
@@ -60,6 +69,10 @@ app.on('ready', function() {
 
   menu.events.on('forward', () => {
     mainWindow.webContents.goForward()
+  })
+
+  menu.events.on('main-window', () => {
+    mainWindow.show()
   })
 
   require('electron').powerMonitor.on('suspend', () => {

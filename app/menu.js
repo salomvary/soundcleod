@@ -113,6 +113,13 @@ const menu = [
     role: 'window',
     submenu: [
       {
+        label: 'Main Window',
+        accelerator: 'CmdOrCtrl+1',
+        click() {
+          events.emit('main-window')
+        }
+      },
+      {
         label: 'Minimize',
         accelerator: 'CmdOrCtrl+M',
         role: 'minimize'
