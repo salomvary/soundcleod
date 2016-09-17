@@ -32,3 +32,13 @@ ipcRenderer.on('navigate', (_, url) => {
 ipcRenderer.on('notification', (_, title, body) => {
   new Notification(title, { body, silent: true })
 })
+
+const confirm = window.confirm
+
+window.confirm = function(message) {
+  // For some bizarre reason SoundCloud calls comfirm() with { string: 'The message' }
+  if (message && message.string)
+    return confirm(message.string)
+  else
+    return confirm(message)
+}
