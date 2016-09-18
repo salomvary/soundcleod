@@ -25,7 +25,6 @@
     "electron-packager": "^8.0.0",
     "electron-prebuilt": "^1.4.0",
     "eslint": "^3.5.0",
-    "svg2png": "^1.0.0",
     "svg2png": "^1.0.0"
   }
 }
