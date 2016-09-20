@@ -7,3 +7,4 @@ dist/wc.dmg
 .codesign
 dsa_priv.pem
 _site
+*.p12
