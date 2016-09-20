@@ -17,7 +17,7 @@ SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart
 Current version is 0.20 (June 17, 2016) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
 
 - [Download from
-	here](https://github.com/salomvary/soundcleod/blob/master/dist/SoundCleod.dmg?raw=true)
+	here](https://github.com/salomvary/soundcleod/releases/download/1.0.0-alpha.1/SoundCleod.dmg)
 - Double click the file
 - Drag SoundCleod into your Applications folder
 - Go to Applications, right click (or control-click) on SoundCleod

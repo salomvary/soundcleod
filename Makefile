@@ -8,6 +8,7 @@ DMG = dist/$(PRODUCT_NAME).dmg
 dist: $(DMG)
 
 $(DMG): package
+	rm -rf "$(APP)"
 	cp -R "target/$(PRODUCT_NAME)-darwin-x64/$(PRODUCT_NAME).app" "$(APP)"
 	cd dist && make
 
@@ -47,6 +48,7 @@ target/$(NAME).iconset target/background.png: $(NAME).svg $(NAME)-lo.svg backgro
 
 clean:
 	rm -rf target
+	make -C dist clean
 
 mrproper:
 	rm -rf target
@@ -59,7 +61,7 @@ history:
 	./release.sh history
 
 release: clean increment_version dist history
-	git add appcast.xml README.markdown CHANGELOG.md dist/SoundCleod.dmg SoundCleod/SoundCleod-Info.plist
+	git add README.markdown CHANGELOG.md package.json
 	git commit -m "v$$(./release.sh print_version)"
 	git tag -m "v$$(./release.sh print_version)" "v$$(./release.sh print_version)"
 

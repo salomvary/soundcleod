@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+dist/SoundCleod.dmg
 dist/SoundCleod.app
 dist/template.dmg
 dist/wc.dmg
