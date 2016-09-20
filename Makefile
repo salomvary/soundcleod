@@ -17,6 +17,7 @@ install-mac: package
 	cp -r "target/$(PRODUCT_NAME)-darwin-x64/$(PRODUCT_NAME).app" /Applications
 
 package: target/$(NAME).icns target/app/node_modules Credits.rtf
+	. .codesign && \
 	npm run electron-packager -- \
 		target/app \
 		"$(PRODUCT_NAME)" \
@@ -28,8 +29,9 @@ package: target/$(NAME).icns target/app/node_modules Credits.rtf
 		--app-copyright="$(shell head -n 1 LICENSE)" \
 		--asar=true \
 		--overwrite=true \
+		--extra-resource=Credits.rtf \
+		--osx-sign.identity="$$CODE_SIGN_IDENTITY" \
 		--out target
-	cp Credits.rtf "target/$(PRODUCT_NAME)-darwin-x64/$(PRODUCT_NAME).app/Contents/Resources/en.lproj"
 
 target/app/node_modules: target/app
 	cd target/app && npm install --production
