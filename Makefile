@@ -4,8 +4,13 @@ VERSION=$(shell node -e "console.log(require('./package.json').version)")
 ELECTRON_VERSION=$(shell npm --json list electron-prebuilt | node -e "console.log(JSON.parse(require('fs').readFileSync('/dev/stdin').toString()).dependencies['electron-prebuilt'].version)")
 APP = dist/$(PRODUCT_NAME).app
 DMG = dist/$(PRODUCT_NAME).dmg
+ZIP = dist/$(PRODUCT_NAME).zip
 
-dist: $(DMG)
+dist: $(DMG) $(ZIP)
+
+$(ZIP): package
+	rm $(ZIP)
+	cd dist && zip -r -y $(PRODUCT_NAME).zip $(PRODUCT_NAME).app
 
 $(DMG): package
 	rm -rf "$(APP)"
