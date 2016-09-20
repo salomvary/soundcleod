@@ -8,7 +8,7 @@
     "email": "salomvary@gmail.com"
   },
   "private": true,
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "main": "app/main.js",
   "engines": {
     "electron": "^1.4.0"
@@ -19,8 +19,7 @@
     "start": "NODE_ENV=development SOUNDCLEOD_PROFILE=development electron .",
     "electron-packager": "electron-packager"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "electron-packager": "^8.0.0",
     "electron-prebuilt": "^1.4.0",
