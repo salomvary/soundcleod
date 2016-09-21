@@ -109,7 +109,6 @@ if (process.env.NODE_ENV != 'development') {
   const version = app.getVersion()
 
   autoUpdater.setFeedURL(`https://soundcleod-updates.herokuapp.com/update/${platform}/${version}`)
-  autoUpdater.checkForUpdates()
 
   autoUpdater.on('checking-for-update', () => console.log('autoUpdater checking for update'))
   autoUpdater.on('update-available', () => console.log('autoUpdater update available'))
@@ -128,4 +127,6 @@ if (process.env.NODE_ENV != 'development') {
     // Check again in an hour
     setTimeout(() => autoUpdater.checkForUpdates(), oneHourInMs)
   })
+
+  autoUpdater.checkForUpdates()
 }
