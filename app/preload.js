@@ -29,9 +29,15 @@ ipcRenderer.on('isPlaying', (event) => {
 ipcRenderer.on('navigate', (_, url) => {
   navigate(url)
 })
+
+const Notification = window.Notification
 ipcRenderer.on('notification', (_, title, body) => {
   new Notification(title, { body, silent: true })
 })
+// Swallow SoundCloud's own notifications, because:
+// - They are not silent on macOS
+// - They are hidden behind a feature flag
+window.Notification = function() {}
 
 const confirm = window.confirm
 
