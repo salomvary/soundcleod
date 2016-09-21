@@ -111,9 +111,21 @@ if (process.env.NODE_ENV != 'development') {
   autoUpdater.setFeedURL(`https://soundcleod-updates.herokuapp.com/update/${platform}/${version}`)
   autoUpdater.checkForUpdates()
 
-  autoUpdater.on('error', error => console.error('autoUpdater error', error))
   autoUpdater.on('checking-for-update', () => console.log('autoUpdater checking for update'))
   autoUpdater.on('update-available', () => console.log('autoUpdater update available'))
-  autoUpdater.on('update-not-available', () => console.log('autoUpdater update not available'))
   autoUpdater.on('update-downloaded', () => console.log('autoUpdater update downloaded'))
+
+  const oneHourInMs = 60 * 60 * 1000
+
+  autoUpdater.on('update-not-available', () => {
+    console.log('autoUpdater update not available')
+    // Check again in an hour
+    setTimeout(() => autoUpdater.checkForUpdates(), oneHourInMs)
+  })
+
+  autoUpdater.on('error', error => {
+    console.error('autoUpdater error', error)
+    // Check again in an hour
+    setTimeout(() => autoUpdater.checkForUpdates(), oneHourInMs)
+  })
 }
