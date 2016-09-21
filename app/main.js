@@ -104,14 +104,16 @@ app.on('ready', function() {
   })
 })
 
-const platform = os.platform() + '_' + os.arch()
-const version = app.getVersion()
+if (process.env.NODE_ENV != 'development') {
+  const platform = os.platform() + '_' + os.arch()
+  const version = app.getVersion()
 
-autoUpdater.setFeedURL(`https://soundcleod-updates.herokuapp.com/update/${platform}/${version}`)
-autoUpdater.checkForUpdates()
+  autoUpdater.setFeedURL(`https://soundcleod-updates.herokuapp.com/update/${platform}/${version}`)
+  autoUpdater.checkForUpdates()
 
-autoUpdater.on('error', error => console.error('autoUpdater error', error))
-autoUpdater.on('checking-for-update', () => console.log('autoUpdater checking for update'))
-autoUpdater.on('update-available', () => console.log('autoUpdater update available'))
-autoUpdater.on('update-not-available', () => console.log('autoUpdater update not available'))
-autoUpdater.on('update-downloaded', () => console.log('autoUpdater update downloaded'))
+  autoUpdater.on('error', error => console.error('autoUpdater error', error))
+  autoUpdater.on('checking-for-update', () => console.log('autoUpdater checking for update'))
+  autoUpdater.on('update-available', () => console.log('autoUpdater update available'))
+  autoUpdater.on('update-not-available', () => console.log('autoUpdater update not available'))
+  autoUpdater.on('update-downloaded', () => console.log('autoUpdater update downloaded'))
+}
