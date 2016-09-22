@@ -60,16 +60,30 @@ app.on('ready', function() {
     mainWindow = null
   })
 
+  function trigger(keyCode) {
+    mainWindow.webContents.sendInputEvent({
+      type: 'keyDown',
+      keyCode
+    })
+
+    mainWindow.webContents.sendInputEvent({
+      type: 'keyUp',
+      keyCode
+    })
+  }
+
+  const playPause = () => trigger('Space')
+
   globalShortcut.register('MediaPlayPause', () => {
-    mainWindow.webContents.send('playPause')
+    playPause()
   })
 
   globalShortcut.register('MediaNextTrack', () => {
-    mainWindow.webContents.send('next')
+    trigger('J')
   })
 
   globalShortcut.register('MediaPreviousTrack', () => {
-    mainWindow.webContents.send('previous')
+    trigger('K')
   })
 
   menu.events.on('home', () => {
@@ -91,7 +105,7 @@ app.on('ready', function() {
   require('electron').powerMonitor.on('suspend', () => {
     ipcMain.once('isPlaying', (_, isPlaying) => {
       if (isPlaying)
-        mainWindow.webContents.send('playPause')
+        playPause()
     })
     mainWindow.webContents.send('isPlaying')
   })
