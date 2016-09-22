@@ -9,7 +9,7 @@ ZIP = dist/$(PRODUCT_NAME)-mac.zip
 dist: $(DMG) $(ZIP)
 
 $(ZIP): package
-	rm $(ZIP)
+	rm -f $(ZIP)
 	cd dist && zip -r -y $(PRODUCT_NAME)-mac.zip $(PRODUCT_NAME).app
 
 $(DMG): package
