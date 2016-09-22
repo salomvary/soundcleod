@@ -20,6 +20,7 @@
     "electron-packager": "electron-packager"
   },
   "dependencies": {
+    "debounce": "^1.0.0"
   },
   "devDependencies": {
     "electron-packager": "^8.0.0",
