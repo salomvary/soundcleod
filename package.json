@@ -19,7 +19,9 @@
     "start": "NODE_ENV=development SOUNDCLEOD_PROFILE=development electron .",
     "electron-packager": "electron-packager"
   },
-  "dependencies": {},
+  "dependencies": {
+    "debounce": "^1.0.0"
+  },
   "devDependencies": {
     "electron-packager": "^8.0.0",
     "electron-prebuilt": "^1.4.0",

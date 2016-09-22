@@ -9,6 +9,7 @@ const Menu = electron.Menu
 const ipcMain = electron.ipcMain
 const autoUpdater = electron.autoUpdater
 const os = require('os')
+const debounce = require('debounce')
 
 var mainWindow = null
 
@@ -95,13 +96,21 @@ app.on('ready', function() {
     mainWindow.webContents.send('isPlaying')
   })
 
-  mainWindow.on('page-title-updated', (_, title) => {
+  const titleDebounceWaitMs = 200
+
+  mainWindow.on('page-title-updated', debounce((_, title) => {
     var titleParts = title.split(' by ', 2)
     if (titleParts.length == 1)
       titleParts = title.split(' in ', 2)
-    if (titleParts.length == 2)
-      mainWindow.webContents.send('notification', titleParts[0], titleParts[1])
-  })
+    if (titleParts.length == 2) {
+      // Title has " in " in it when not playing but on a playlis page
+      ipcMain.once('isPlaying', (_, isPlaying) => {
+        if (isPlaying)
+          mainWindow.webContents.send('notification', titleParts[0], titleParts[1])
+      })
+      mainWindow.webContents.send('isPlaying')
+    }
+  }), titleDebounceWaitMs)
 })
 
 if (process.env.NODE_ENV != 'development') {
