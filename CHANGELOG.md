@@ -1,3 +1,6 @@
+## 1.0.0-alpha.4 (September 23, 2016)
+- ad
+
 ## 0.20 (June 17, 2016)
 - Fix startup with blank screen (upgrade Sparkle to latest)
 - Update the list of applications for media keys compatibility
