@@ -34,6 +34,7 @@ package: target/$(NAME).icns target/app/node_modules Credits.rtf
 		--app-copyright="$(shell head -n 1 LICENSE)" \
 		--asar=true \
 		--overwrite=true \
+		--extra-resource=dsa_pub.pem \
 		--extra-resource=Credits.rtf \
 		--osx-sign.identity="$$CODE_SIGN_IDENTITY" \
 		--out target
