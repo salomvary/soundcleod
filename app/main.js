@@ -33,6 +33,10 @@ const shouldQuit = app.makeSingleInstance(() => {
 
 if (shouldQuit) app.quit()
 
+app.on('activate', () => {
+  if (mainWindow) mainWindow.show()
+})
+
 app.on('ready', function() {
   Menu.setApplicationMenu(menu)
 
