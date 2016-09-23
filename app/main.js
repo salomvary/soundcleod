@@ -66,10 +66,13 @@ app.on('ready', function() {
       keyCode
     })
 
-    mainWindow.webContents.sendInputEvent({
-      type: 'keyUp',
-      keyCode
-    })
+    // Triggering keyUp immediately confuses SoundCloud
+    setTimeout(() => {
+      mainWindow.webContents.sendInputEvent({
+        type: 'keyUp',
+        keyCode
+      })
+    }, 50)
   }
 
   const playPause = () => trigger('Space')
