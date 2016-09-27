@@ -1,3 +1,6 @@
+## 1.0.0-beta.2 (September 27, 2016)
+- No autoUpdater on read-only fs
+
 ## 1.0.0-beta.1 (September 23, 2016)
 - SoundCleod was completely rewritten from scratch. This new version uses the [Electron framework](http://electron.atom.io/) which not only contains the latest cutting-edge Chrome version (hopefully solving all playback problems) but also enables much easier development in the future.
 - 
