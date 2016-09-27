@@ -10,6 +10,7 @@ const ipcMain = electron.ipcMain
 const autoUpdater = electron.autoUpdater
 const os = require('os')
 const debounce = require('debounce')
+const fs = require('fs')
 
 var mainWindow = null
 
@@ -134,7 +135,21 @@ app.on('ready', function() {
   }), titleDebounceWaitMs)
 })
 
-if (process.env.NODE_ENV != 'development') {
+function maybeStartAutoUpdater(callback) {
+  if (process.env.NODE_ENV == 'development')
+    console.log('Disabled automatic updates in development mode.')
+  else
+    // Test if updates can actually be installed, see also:
+    // https://github.com/electron/electron/issues/7357
+    fs.access(app.getPath('exe'), fs.constants.W_OK, err => {
+      if (err && err.code == 'EROFS')
+        console.log('Disabled automatic updates on a read-only file system.')
+      else
+        callback()
+    })
+}
+
+maybeStartAutoUpdater(() => {
   const platform = os.platform() + '_' + os.arch()
   const version = app.getVersion()
 
@@ -159,4 +174,4 @@ if (process.env.NODE_ENV != 'development') {
   })
 
   autoUpdater.checkForUpdates()
-}
+})
