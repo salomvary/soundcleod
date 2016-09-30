@@ -69,11 +69,6 @@ increment_version:
 history:
 	./release.sh history
 
-prerelease: clean increment_version dist
-	git add package.json
-	git commit -m "v$$(./release.sh print_version)"
-	git tag -m "v$$(./release.sh print_version)" "v$$(./release.sh print_version)"
-
 release: clean increment_version dist history
 	git add README.markdown CHANGELOG.md package.json
 	git commit -m "v$$(./release.sh print_version)"

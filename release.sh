@@ -8,7 +8,7 @@ print_version() {
 
 # Increment version in package.json
 increment_version() {
-  npm version --git-tag-version false prerelease
+  npm version --git-tag-version false patch
 }
 
 # Updates the current version in README.markdown
