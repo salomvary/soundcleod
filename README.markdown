@@ -1,6 +1,6 @@
 ## What is SoundCleod?
 
-SoundCleod is a Mac OS X application which brings
+SoundCleod is a macOS application which brings
 [SoundCloud](http://soundcloud.com) to the
 desktop without using a browser.
 
@@ -25,7 +25,7 @@ Current version is 1.0.0 (September 30, 2016) [see changes](https://github.com/s
 - Click Open when prompted **“SoundCleod” is from an unidentified developer. Are you sure you want to open it?**
 - Optionally drag SoundCleod from Applications into the Dock
 
-**Important!** Minimum required OSX version is 10.7.x (Lion).
+**Important!** Minimum required macOS version is 10.9.x (Mavericks).
 
 ### Using [Homebrew Cask](http://caskroom.io/)?
 

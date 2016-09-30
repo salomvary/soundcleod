@@ -12,7 +12,7 @@ This release fixes the following issues:
 - Sign in with Facebook does not work #109
 - Sign in with Google does no work #53
 
-The minimum supported macOS version changes from 10.8 (Lion) to 10.9 (Mavericks).
+The minimum supported macOS version changes from 10.7 (Lion) to 10.9 (Mavericks).
 
 Some features were temporarily removed from SoundCleod to make this release
 happen quickly. They will hopefully added back some time in the near future:
