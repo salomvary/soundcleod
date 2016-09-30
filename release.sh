@@ -2,32 +2,24 @@
 
 info_plist=SoundCleod/SoundCleod-Info.plist
 
-# Reads the project version from Info.plist
 print_version() {
-	/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$info_plist"
+  node -e "console.log(require('./package.json').version)"
 }
 
-# Increments the project version in Info.plist
-increment_plist_version() {
-	print_version | increment_version | set_version
-}
-
+# Increment version in package.json
 increment_version() {
-	awk -F . '{OFS="."; ++$2; print}'
+  npm version --git-tag-version false prerelease
 }
 
-set_version() {
-	new_version=$(cat)
-	/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $new_version" "$info_plist"
-	/usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $new_version" "$info_plist"
-}
-
-# Updates the current version in README.markdown from Info.plist
+# Updates the current version in README.markdown
 update_readme_version() {
 	version=$(print_version)
 	date=$(date '+%B %e, %Y')
 	sed -i '' -E -e\
 	 	"s/Current version is [^[:space:]]+ \([^(]+\)/Current version is $version ($date)/"\
+		README.markdown
+	sed -i '' -E -e\
+    "s/download\\/[^\\/]+\\/SoundCleod.dmg/download\\/$version\\/SoundCleod.dmg/"\
 		README.markdown
 }
 
@@ -68,35 +60,6 @@ write_changelog() {
 	mv "$tmp_changelog" CHANGELOG.md
 }
 
-# Reads history from stdin (one entry per line) and appennds it to appcast.xml
-update_appcast() {
-	format_changelog_html | appcast_item | append_appcast_item
-}
-
-format_changelog_html() {
-	while read line; do
-		echo "<li>$line</li>"
-	done
-}
-
-appcast_item() {
-	history=$(cat)
-	version=$(print_version)
-	date=$(date +"%a, %d %b %G %T %z")
-	length=$(stat -f %z dist/SoundCleod.dmg)
-	signature=$(ruby sign_update.rb dist/SoundCleod.dmg dsa_priv.pem)
-
-	item=$(m4 -DCHANGELOG="$history" -DvVERSION="v$version" -DVERSION="$version" -DDATE="$date" -DLENGTH="$length" -DSIGNATURE="$signature" appcast-item.xml)
-	echo "$item"
-}
-
-# Poor man's xml manipulator to add an <item> to appcast.xml
-append_appcast_item() {
-	item=$(sed -e 's/\//\\\//g' | sed -e 's/$/\\/')
-	sed -i '' -e "s/	<\\/channel>/$item
-	<\\/channel>/" appcast.xml
-}
-
 print_usage() {
   echo "Usage: $(basename "$0") increment_version Bump app version before build"
   echo "       $(basename "$0") print_version     Print app version"
@@ -109,12 +72,11 @@ main() {
 			print_version
 			;;
 		increment_version)
-			increment_plist_version
+			increment_version
 			;;
 		history)
 			update_readme_version
 			changes=$(read_changes)
-			echo "$changes" | update_appcast
 			echo "$changes" | update_changelog
 			;;
 		*)
