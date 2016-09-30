@@ -1,0 +1,23 @@
+{
+  "name": "soundcleod",
+  "productName": "SoundCleod",
+  "description": "Standalone macOS browser for SoundCloud",
+  "homepage": "http://soundcleod.com",
+  "author": {
+    "name": "Márton Salomváry",
+    "email": "salomvary@gmail.com"
+  },
+  "private": true,
+  "version": "1.1.4-pre.2",
+  "main": "./main.js",
+  "engines": {
+    "electron": "^1.4.6"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "debounce": "^1.0.0",
+    "electron-context-menu": "^0.6.0",
+    "electron-window-state": "^3.1.0"
+  }
+}
+

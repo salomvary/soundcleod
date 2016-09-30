@@ -1,33 +1,15 @@
 {
-  "name": "soundcleod",
-  "productName": "SoundCleod",
-  "description": "Standalone macOS browser for SoundCloud",
-  "homepage": "http://soundcleod.com",
-  "author": {
-    "name": "Márton Salomváry",
-    "email": "salomvary@gmail.com"
-  },
   "private": true,
-  "version": "1.1.4-pre.1",
-  "main": "app/main.js",
-  "engines": {
-    "electron": "^1.4.6"
-  },
-  "engineStrict": true,
   "scripts": {
     "eslint": "eslint",
-    "start": "NODE_ENV=development SOUNDCLEOD_PROFILE=development electron .",
-    "electron-packager": "electron-packager",
+    "pack": "build --dir",
+    "postinstall": "install-app-deps",
+    "start": "NODE_ENV=development SOUNDCLEOD_PROFILE=development electron ./app",
     "test": "mocha"
-  },
-  "dependencies": {
-    "debounce": "^1.0.0",
-    "electron-context-menu": "^0.6.0",
-    "electron-window-state": "^3.1.0"
   },
   "devDependencies": {
     "electron": "^1.4.6",
-    "electron-packager": "^8.0.0",
+    "electron-builder": "7.10.0",
     "eslint": "^3.5.0",
     "mocha": "^3.1.2",
     "spectron": "^3.4.0",
