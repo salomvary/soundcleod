@@ -11,7 +11,7 @@
   "version": "1.0.0",
   "main": "app/main.js",
   "engines": {
-    "electron": "^1.4.0"
+    "electron": "^1.4.2"
   },
   "engineStrict": true,
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "electron-packager": "^8.0.0",
-    "electron-prebuilt": "^1.4.0",
+    "electron-prebuilt": "^1.4.2",
     "eslint": "^3.5.0",
     "svg2png": "^1.0.0"
   }
