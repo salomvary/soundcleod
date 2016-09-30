@@ -6,4 +6,4 @@ run:
 
 update-and-push:
 	git commit -am 'Update site'
-	git push
+	git push -u origin gh-pages
