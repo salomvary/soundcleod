@@ -1,3 +1,29 @@
+## 1.0.0 (September 30, 2016)
+
+SoundCleod was completely rewritten from scratch.
+
+This new version uses the [Electron framework](http://electron.atom.io/) which
+not only contains the latest cutting-edge Chrome version (hopefully solving all
+playback problems) but also enables much easier development in the future.
+
+This release fixes the following issues:
+
+- Playback gets stuck frequently #107
+- Sign in with Facebook does not work #109
+- Sign in with Google does no work #53
+
+The minimum supported macOS version changes from 10.8 (Lion) to 10.9 (Mavericks).
+
+Some features were temporarily removed from SoundCleod to make this release
+happen quickly. They will hopefully added back some time in the near future:
+
+- The automatic updater no longer has any user interface, it downloads and
+  installs new versions without prompting (on application restart)
+- Dock menu controls were removed
+- The "Edit URL" dialog (Cmd+L) was removed
+- Microphone button controls were removed
+- Space bar play/pause control only works if SoundCleod is in foreground
+
 ## 0.20 (June 17, 2016)
 - Fix startup with blank screen (upgrade Sparkle to latest)
 - Update the list of applications for media keys compatibility
