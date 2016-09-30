@@ -1,15 +1,42 @@
 {
   "private": true,
   "scripts": {
+    "dist": "build",
     "eslint": "eslint",
     "pack": "build --dir",
     "postinstall": "install-app-deps",
     "start": "NODE_ENV=development SOUNDCLEOD_PROFILE=development electron ./app",
     "test": "mocha"
   },
+  "build": {
+    "appId": "com.soundcleod",
+    "extraResources": [
+      "dsa_pub.pem",
+      "Credits.rtf"
+    ],
+    "mac": {
+      "extend-info": "Info.plist"
+    },
+    "dmg": {
+      "iconSize": 128,
+      "contents": [
+        {
+          "x": 345,
+          "y": 153,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 95,
+          "y": 153,
+          "type": "file"
+        }
+      ]
+    }
+  },
   "devDependencies": {
     "electron": "^1.4.6",
-    "electron-builder": "7.10.0",
+    "electron-builder": "8.2.0",
     "eslint": "^3.5.0",
     "mocha": "^3.1.2",
     "spectron": "^3.4.0",
