@@ -144,5 +144,44 @@
 				length="1658760"
 				sparkle:dsaSignature="" />
 		</item>
+		<item>
+			<title>Version 1.0.0</title>
+			<description><![CDATA[
+<p>SoundCleod was completely rewritten from scratch.</p>
+
+<p>This new version uses the <a href="http://electron.atom.io/">Electron framework</a> which not only contains the latest cutting-edge Chrome version (hopefully solving all playback problems) but also enables much easier development in the future.</p>
+
+<p>This release fixes the following issues:</p>
+
+<ul>
+<li>Playback gets stuck frequently <a href="https://github.com/salomvary/soundcleod/issues/107" class="issue-link js-issue-link" data-id="162546868" data-error-text="Failed to load issue title" data-permission-text="Issue title is private" title="Playback Gets &quot;Stuck&quot; Frequently">#107</a>
+</li>
+<li>Sign in with Facebook does not work <a href="https://github.com/salomvary/soundcleod/issues/109" class="issue-link js-issue-link" data-id="170480948" data-error-text="Failed to load issue title" data-permission-text="Issue title is private" title="Login with facebook doesn't work">#109</a>
+</li>
+<li>Sign in with Google does no work <a href="https://github.com/salomvary/soundcleod/issues/53" class="issue-link js-issue-link" data-url="https://github.com/salomvary/soundcleod/issues/53" data-id="30602069" data-error-text="Failed to load issue title" data-permission-text="Issue title is private">#53</a>
+</li>
+</ul>
+
+<p>The minimum supported macOS version changes from 10.8 (Lion) to 10.9 (Mavericks).</p>
+
+<p>Some features were temporarily removed from SoundCleod to make this release happen quickly. They will hopefully added back some time in the near future:</p>
+
+<ul>
+<li>The automatic updater no longer has any user interface, it downloads and
+installs new versions without prompting (on application restart)</li>
+<li>Dock menu controls were removed</li>
+<li>The "Edit URL" dialog (Cmd+L) was removed</li>
+<li>Microphone button controls were removed</li>
+<li>Space bar play/pause control only works if SoundCleod is in foreground</li>
+</ul>
+				]]></description>
+			<pubDate></pubDate>
+			<enclosure
+				url="https://github.com/salomvary/soundcleod/releases/download/v1.0.0/SoundCleod.dmg"
+				type="application/octet-stream"
+				sparkle:version="1.0.0"
+				length="Fri, 30 Sep 2016 11:53:47 +0200"
+				sparkle:dsaSignature="MCwCFGDBWeoR+r6GYituo5bMMrWrouHnAhRrltmlvcnY8A++rhEOMx+7Ze7ufA==" />
+		</item>
 	</channel>
 </rss>
