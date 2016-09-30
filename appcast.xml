@@ -175,12 +175,12 @@ installs new versions without prompting (on application restart)</li>
 <li>Space bar play/pause control only works if SoundCleod is in foreground</li>
 </ul>
 				]]></description>
-			<pubDate></pubDate>
+			<pubDate>Fri, 30 Sep 2016 12:04:04 +0200</pubDate>
 			<enclosure
 				url="https://github.com/salomvary/soundcleod/releases/download/v1.0.0/SoundCleod.dmg"
 				type="application/octet-stream"
 				sparkle:version="1.0.0"
-				length="Fri, 30 Sep 2016 11:53:47 +0200"
+				length="42063017"
 				sparkle:dsaSignature="MCwCFGDBWeoR+r6GYituo5bMMrWrouHnAhRrltmlvcnY8A++rhEOMx+7Ze7ufA==" />
 		</item>
 	</channel>
