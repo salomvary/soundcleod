@@ -138,8 +138,9 @@ app.on('ready', function() {
     // Do not copy these from mainWindow to login popups
     delete options.minWidth
     delete options.minHeight
-    if (options.webPreferences)
-      delete options.webPreferences.preload
+    options.webPreferences = Object.assign({}, options.webPreferences, {
+      preload: `${__dirname}/preload-popup.js`
+    })
   })
 })
 
