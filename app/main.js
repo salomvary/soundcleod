@@ -133,6 +133,14 @@ app.on('ready', function() {
       mainWindow.webContents.send('isPlaying')
     }
   }), titleDebounceWaitMs)
+
+  mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
+    // Do not copy these from mainWindow to login popups
+    delete options.minWidth
+    delete options.minHeight
+    if (options.webPreferences)
+      delete options.webPreferences.preload
+  })
 })
 
 function maybeStartAutoUpdater(callback) {
