@@ -34,3 +34,18 @@ window.confirm = function(message) {
   else
     return confirm(message)
 }
+
+// Facebook login pupup fails to close and notify the main SoundCloud window
+// after a successful login because it relies on window.opener.frames being
+// available in the popup.
+//
+// This is an ugly and fragile hack that utilizes the fact that SoundCloud
+// provides a popup-less Facebook login link fallback in case the Facebook JS
+// SDK is not available on the page (eg. blocked by the browser)
+window.addEventListener('DOMContentLoaded', () => {
+  const css = document.createElement('style')
+  css.type = 'text/css'
+  css.innerHTML = '.signinInitialStep_fbButton { display: none !important }'
+    + '.signinInitialStep_fbLink { display: block !important }'
+  document.body.appendChild(css)
+})
