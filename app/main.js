@@ -79,22 +79,30 @@ app.on('ready', function() {
     }, 50)
   }
 
+  function goHome() {
+    mainWindow.webContents.send('navigate', '/')
+  }
+
   const playPause = () => trigger('Space')
+
+  const nextTrack = () => trigger('J')
+
+  const previousTrack = () => trigger('K')
 
   globalShortcut.register('MediaPlayPause', () => {
     playPause()
   })
 
   globalShortcut.register('MediaNextTrack', () => {
-    trigger('J')
+    nextTrack()
   })
 
   globalShortcut.register('MediaPreviousTrack', () => {
-    trigger('K')
+    previousTrack()
   })
 
   menu.events.on('home', () => {
-    mainWindow.webContents.send('navigate', '/')
+    goHome()
   })
 
   menu.events.on('back', () => {
@@ -160,6 +168,12 @@ app.on('ready', function() {
     event.preventDefault()
     const menu = new Menu()
     menu.append(new MenuItem({
+      label: 'Home',
+      click() {
+        goHome()
+      }
+    }))
+    menu.append(new MenuItem({
       label: 'Go back',
       enabled: mainWindow.webContents.canGoBack(),
       click() {
@@ -175,6 +189,28 @@ app.on('ready', function() {
     }))
     menu.popup(mainWindow)
   })
+
+  const dockMenu = new Menu()
+  dockMenu.append(new MenuItem({
+    label: 'Play/Pause',
+    click() {
+      playPause()
+    }
+  }))
+  dockMenu.append(new MenuItem({
+    label: 'Next',
+    click() {
+      nextTrack()
+    }
+  }))
+  dockMenu.append(new MenuItem({
+    label: 'Previous',
+    click() {
+      previousTrack()
+    }
+  }))
+
+  app.dock.setMenu(dockMenu)
 
   mainWindow.loadURL('https://soundcloud.com')
 })
