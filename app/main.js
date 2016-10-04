@@ -6,6 +6,7 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const globalShortcut = electron.globalShortcut
 const Menu = electron.Menu
+const MenuItem = electron.MenuItem
 const ipcMain = electron.ipcMain
 const autoUpdater = electron.autoUpdater
 const os = require('os')
@@ -153,6 +154,26 @@ app.on('ready', function() {
 
   mainWindow.webContents.on('did-stop-loading', () => {
     mainWindow.setTitle('SoundCleod')
+  })
+
+  mainWindow.webContents.on('context-menu', event => {
+    event.preventDefault()
+    const menu = new Menu()
+    menu.append(new MenuItem({
+      label: 'Go back',
+      enabled: mainWindow.webContents.canGoBack(),
+      click() {
+        mainWindow.webContents.goBack()
+      }
+    }))
+    menu.append(new MenuItem({
+      label: 'Go forward',
+      enabled: mainWindow.webContents.canGoForward(),
+      click() {
+        mainWindow.webContents.goForward()
+      }
+    }))
+    menu.popup(mainWindow)
   })
 
   mainWindow.loadURL('https://soundcloud.com')
