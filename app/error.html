@@ -1,0 +1,32 @@
+<!doctype html>
+<style>
+  html {
+    font: 16px sans-serif;
+    color: #333;
+  }
+  div {
+    top: 40%;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+  }
+  button a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+<script>
+  function onTryClick() {
+    document.body.innerHTML = ''
+  }
+</script>
+<div id="contents">
+  <p>
+    SoundCleod failed to connect to soundcloud.com :(
+  </p>
+  <p>
+    <button onclick="onTryClick()">
+      <a href="https://soundcloud.com">Try again</a>
+    </button>
+  </p>
+</div>

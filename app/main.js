@@ -52,8 +52,6 @@ app.on('ready', function() {
     }
   })
 
-  mainWindow.loadURL('https://soundcloud.com')
-
   mainWindow.on('close', (event) => {
     if (!quitting) {
       event.preventDefault()
@@ -142,6 +140,22 @@ app.on('ready', function() {
       preload: `${__dirname}/preload-popup.js`
     })
   })
+
+  mainWindow.webContents.on('did-fail-load', (event, errorCode) => {
+    const redirectErrorCode = -3
+    if (errorCode != redirectErrorCode)
+      mainWindow.loadURL(`file://${__dirname}/error.html`)
+  })
+
+  mainWindow.webContents.on('did-start-loading', () => {
+    mainWindow.setTitle('Loading soundcloud.com...')
+  })
+
+  mainWindow.webContents.on('did-stop-loading', () => {
+    mainWindow.setTitle('SoundCleod')
+  })
+
+  mainWindow.loadURL('https://soundcloud.com')
 })
 
 function maybeStartAutoUpdater(callback) {
