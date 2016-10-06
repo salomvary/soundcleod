@@ -13,6 +13,7 @@ const os = require('os')
 const debounce = require('debounce')
 const fs = require('fs')
 const windowState = require('electron-window-state')
+const contextMenu = require('electron-context-menu')
 
 var mainWindow = null
 
@@ -174,29 +175,38 @@ app.on('ready', function() {
     mainWindow.setTitle('SoundCleod')
   })
 
+  contextMenu({
+    window: mainWindow,
+    prepend: params => {
+      if (params.mediaType == 'none')
+        return [
+          {
+            label: 'Home',
+            click() {
+              goHome()
+            }
+          },
+          {
+            label: 'Go back',
+            enabled: mainWindow.webContents.canGoBack(),
+            click() {
+              mainWindow.webContents.goBack()
+            }
+          },
+          {
+            label: 'Go forward',
+            enabled: mainWindow.webContents.canGoForward(),
+            click() {
+              mainWindow.webContents.goForward()
+            }
+          }
+        ]
+    }
+  })
+
   mainWindow.webContents.on('context-menu', event => {
     event.preventDefault()
     const menu = new Menu()
-    menu.append(new MenuItem({
-      label: 'Home',
-      click() {
-        goHome()
-      }
-    }))
-    menu.append(new MenuItem({
-      label: 'Go back',
-      enabled: mainWindow.webContents.canGoBack(),
-      click() {
-        mainWindow.webContents.goBack()
-      }
-    }))
-    menu.append(new MenuItem({
-      label: 'Go forward',
-      enabled: mainWindow.webContents.canGoForward(),
-      click() {
-        mainWindow.webContents.goForward()
-      }
-    }))
     menu.popup(mainWindow)
   })
 
