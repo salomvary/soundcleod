@@ -43,10 +43,10 @@ app.on('ready', function() {
   Menu.setApplicationMenu(menu)
 
   mainWindow = new BrowserWindow({
-    width: 1290,
-    height: 800,
-    minWidth: 1024,
-    minHeight: 760,
+    width: 1024,
+    height: 640,
+    minWidth: 640,
+    minHeight: 320,
     webPreferences: {
       nodeIntegration: false,
       preload: `${__dirname}/preload.js`
