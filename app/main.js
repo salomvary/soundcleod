@@ -12,6 +12,7 @@ const autoUpdater = electron.autoUpdater
 const os = require('os')
 const debounce = require('debounce')
 const fs = require('fs')
+const windowState = require('electron-window-state')
 
 var mainWindow = null
 
@@ -42,9 +43,16 @@ app.on('activate', () => {
 app.on('ready', function() {
   Menu.setApplicationMenu(menu)
 
+  const mainWindowState = windowState({
+    defaultWidth: 1024,
+    defaultHeight: 640
+  })
+
   mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 640,
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height,
     minWidth: 640,
     minHeight: 320,
     webPreferences: {
@@ -52,6 +60,8 @@ app.on('ready', function() {
       preload: `${__dirname}/preload.js`
     }
   })
+
+  mainWindowState.manage(mainWindow)
 
   mainWindow.on('close', (event) => {
     if (!quitting) {

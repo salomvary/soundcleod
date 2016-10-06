@@ -20,7 +20,8 @@
     "electron-packager": "electron-packager"
   },
   "dependencies": {
-    "debounce": "^1.0.0"
+    "debounce": "^1.0.0",
+    "electron-window-state": "^3.0.4"
   },
   "devDependencies": {
     "electron-packager": "^8.0.0",
