@@ -1,3 +1,14 @@
+## 1.1.0 (October  7, 2016)
+- Fix Facebook login
+- Open external links in system browser
+- Add standard actions to the context menu
+- Remember window position and dimensions
+- Tweak miniumm and default window dimensions
+- Add Dock menu
+- Add context menu back/forward navigation
+- Add basic loading/error indicators
+- Fix login/share windows width/height
+
 ## 1.0.0 (September 30, 2016)
 
 SoundCleod was completely rewritten from scratch.
