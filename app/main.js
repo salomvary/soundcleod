@@ -14,6 +14,7 @@ const debounce = require('debounce')
 const fs = require('fs')
 const windowState = require('electron-window-state')
 const contextMenu = require('electron-context-menu')
+const shell = electron.shell
 
 var mainWindow = null
 
@@ -152,13 +153,38 @@ app.on('ready', function() {
     }
   }), titleDebounceWaitMs)
 
+  function isLoginURL(url) {
+    return [
+      /^https:\/\/accounts\.google\.com.*/i
+    ].some(re => url.match(re))
+  }
+
   mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
-    // Do not copy these from mainWindow to login popups
-    delete options.minWidth
-    delete options.minHeight
-    options.webPreferences = Object.assign({}, options.webPreferences, {
-      preload: `${__dirname}/preload-popup.js`
-    })
+    // Only allow login popups in SoundCleod, everything else open in external browser
+    if (url && isLoginURL(url)) {
+      // Do not copy these from mainWindow to login popups
+      delete options.minWidth
+      delete options.minHeight
+      options.webPreferences = Object.assign({}, options.webPreferences, {
+        preload: `${__dirname}/preload-popup.js`
+      })
+    } else {
+      event.preventDefault()
+      shell.openExternal(url)
+    }
+  })
+
+  function isSoundCloudURL(url) {
+    return [
+      /^https?:\/\/soundcloud\.com.*/i
+    ].some(re => url.match(re))
+  }
+
+  mainWindow.webContents.on('will-navigate', (event, url) => {
+    if (url && !isSoundCloudURL(url)) {
+      event.preventDefault()
+      shell.openExternal(url)
+    }
   })
 
   mainWindow.webContents.on('did-fail-load', (event, errorCode) => {
