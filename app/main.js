@@ -193,12 +193,8 @@ app.on('ready', function() {
       mainWindow.loadURL(`file://${__dirname}/error.html`)
   })
 
-  mainWindow.webContents.on('did-start-loading', () => {
+  mainWindow.webContents.once('did-start-loading', () => {
     mainWindow.setTitle('Loading soundcloud.com...')
-  })
-
-  mainWindow.webContents.on('did-stop-loading', () => {
-    mainWindow.setTitle('SoundCleod')
   })
 
   contextMenu({
