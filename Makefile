@@ -47,6 +47,7 @@ target/app/node_modules: target/app
 target/app: $(wildcard app/* package.json LICENSE)
 	mkdir -p $@
 	cp -r app package.json LICENSE $@
+	touch $@
 
 target/$(NAME).icns: target/$(NAME).iconset
 	iconutil -c icns -o $@ target/$(NAME).iconset
