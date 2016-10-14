@@ -161,8 +161,22 @@ app.on('ready', function() {
   }
 
   mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
-    // Only allow login popups in SoundCleod, everything else open in external browser
-    if (url && isLoginURL(url)) {
+    // Looks like disposition is 'new-window' on window.open and 'foreground-tab' on
+    // links with target=_blank. The behavior is not very well documented in Electron:
+    // http://electron.atom.io/docs/api/web-contents/#event-new-window
+    //
+    // What we want here is:
+    // - Open share popups within the app
+    // - Open login popups within the app
+    // - Open everything else in the system browser
+    //
+    // Assuming nothing else than share and login use window.open, we are only
+    // checking disposition here.
+    //
+    // Interestingly frameName is not set to _blank when clicking on links with
+    // target=_blank but it is one some programmatically opened links (eg.
+    // "Help forum" from the menu).
+    if (disposition == 'new-window' && frameName != '_blank') {
       // Do not copy these from mainWindow to login popups
       delete options.minWidth
       delete options.minHeight
