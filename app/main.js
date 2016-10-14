@@ -155,7 +155,8 @@ app.on('ready', function() {
 
   function isLoginURL(url) {
     return [
-      /^https:\/\/accounts\.google\.com.*/i
+      /^https:\/\/accounts\.google\.com.*/i,
+      /^https:\/\/www.facebook.com\/dialog\/oauth.*/i
     ].some(re => url.match(re))
   }
 
@@ -181,7 +182,7 @@ app.on('ready', function() {
   }
 
   mainWindow.webContents.on('will-navigate', (event, url) => {
-    if (url && !isSoundCloudURL(url)) {
+    if (url && !isSoundCloudURL(url) && !isLoginURL(url)) {
       event.preventDefault()
       shell.openExternal(url)
     }
