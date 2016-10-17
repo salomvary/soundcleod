@@ -15,19 +15,31 @@
     text-decoration: none;
     color: inherit;
   }
+  .soundcleod-error-title {
+    font-size: 130%;
+  }
+  .soundcleod-error-description {
+    color: #aaa;
+  }
 </style>
 <script>
   function onTryClick() {
     document.body.innerHTML = ''
   }
 </script>
-<div id="contents">
-  <p>
+<div>
+  <p class="soundcleod-error-title">
     SoundCleod failed to connect to soundcloud.com :(
   </p>
+  <p class="soundcleod-error-description"></p>
   <p>
     <button onclick="onTryClick()">
       <a href="https://soundcloud.com">Try again</a>
     </button>
   </p>
 </div>
+<script>
+  document
+    .querySelector('.soundcleod-error-description')
+    .textContent = new URL(location.href).searchParams.get('error')
+</script>
