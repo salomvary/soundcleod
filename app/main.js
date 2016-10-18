@@ -204,8 +204,10 @@ app.on('ready', function() {
 
   mainWindow.webContents.on('did-fail-load', (event, errorCode, description, url, isMainFrame) => {
     const redirectErrorCode = -3
-    if (isMainFrame && errorCode != redirectErrorCode)
+    if (isMainFrame && errorCode != redirectErrorCode) {
       mainWindow.loadURL(`file://${__dirname}/error.html?error=${encodeURIComponent(description)}`)
+      console.error(`Failed to load '${url}' with ${description}`)
+    }
   })
 
   mainWindow.webContents.once('did-start-loading', () => {
