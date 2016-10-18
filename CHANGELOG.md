@@ -1,3 +1,9 @@
+## 1.1.1 (October 18, 2016)
+- Improve when the error screen is shown
+- Show error code on the error screen
+- Open share windows within SoundCleod (again)
+- Fix Facebook login (again)
+
 ## 1.1.0 (October  7, 2016)
 - Fix Facebook login
 - Open external links in system browser
