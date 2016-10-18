@@ -214,6 +214,22 @@ app.on('ready', function() {
     mainWindow.setTitle('Loading soundcloud.com...')
   })
 
+  app.on('certificate-error', (event, webContents, url, error, certificate) => {
+    console.error(`Certificate error on '${url}': ${error}`)
+    console.error(`Certificate data: ${formatCertificate(certificate)}`)
+  })
+
+  function formatCertificate({issuerName, subjectName, serialNumber, validStart, validExpiry, fingerprint}) {
+    return JSON.stringify({
+      issuerName,
+      subjectName,
+      serialNumber,
+      validStart: new Date(validStart * 1000).toUTCString(),
+      validExpiry: new Date(validExpiry * 1000).toUTCString(),
+      fingerprint
+    })
+  }
+
   contextMenu({
     window: mainWindow,
     prepend: params => {
