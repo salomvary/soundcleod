@@ -1,3 +1,6 @@
+## 1.1.2 (October 18, 2016)
+- Log detailed errors for easier debugging
+
 ## 1.1.1 (October 18, 2016)
 - Improve when the error screen is shown
 - Show error code on the error screen
