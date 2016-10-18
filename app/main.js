@@ -15,6 +15,7 @@ const fs = require('fs')
 const windowState = require('electron-window-state')
 const contextMenu = require('electron-context-menu')
 const shell = electron.shell
+const nslog = require('nslog')
 
 var mainWindow = null
 
@@ -206,7 +207,7 @@ app.on('ready', function() {
     const redirectErrorCode = -3
     if (isMainFrame && errorCode != redirectErrorCode) {
       mainWindow.loadURL(`file://${__dirname}/error.html?error=${encodeURIComponent(description)}`)
-      console.error(`Failed to load '${url}' with ${description}`)
+      nslog(`Failed to load '${url}' with ${description}`)
     }
   })
 
@@ -215,8 +216,8 @@ app.on('ready', function() {
   })
 
   app.on('certificate-error', (event, webContents, url, error, certificate) => {
-    console.error(`Certificate error on '${url}': ${error}`)
-    console.error(`Certificate data: ${formatCertificate(certificate)}`)
+    nslog(`Certificate error on '${url}': ${error}`)
+    nslog(`Certificate data: ${formatCertificate(certificate)}`)
   })
 
   function formatCertificate({issuerName, subjectName, serialNumber, validStart, validExpiry, fingerprint}) {
