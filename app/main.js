@@ -2,13 +2,13 @@
 
 const electron = require('electron')
 const contextMenu = require('./context-menu')
+const dockMenu = require('./dock-menu')
 const errorHandlers = require('./error-handlers')
 const menu = require('./menu')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const globalShortcut = electron.globalShortcut
 const Menu = electron.Menu
-const MenuItem = electron.MenuItem
 const autoUpdater = electron.autoUpdater
 const os = require('os')
 const fs = require('fs')
@@ -66,6 +66,7 @@ app.on('ready', function() {
   const soundcloud = new SoundCloud(mainWindow)
   contextMenu(mainWindow, soundcloud)
   errorHandlers(mainWindow)
+  dockMenu(soundcloud)
 
   mainWindowState.manage(mainWindow)
 
@@ -171,28 +172,6 @@ app.on('ready', function() {
   mainWindow.webContents.once('did-start-loading', () => {
     mainWindow.setTitle('Loading soundcloud.com...')
   })
-
-  const dockMenu = new Menu()
-  dockMenu.append(new MenuItem({
-    label: 'Play/Pause',
-    click() {
-      soundcloud.playPause()
-    }
-  }))
-  dockMenu.append(new MenuItem({
-    label: 'Next',
-    click() {
-      soundcloud.nextTrack()
-    }
-  }))
-  dockMenu.append(new MenuItem({
-    label: 'Previous',
-    click() {
-      soundcloud.previousTrack()
-    }
-  }))
-
-  app.dock.setMenu(dockMenu)
 
   mainWindow.loadURL('https://soundcloud.com')
 })
