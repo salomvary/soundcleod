@@ -19,7 +19,7 @@ $(DMG): package
 
 install-mac: package
 	rm -rf "/Applications/$(PRODUCT_NAME).app"
-	cp -r "target/$(PRODUCT_NAME)-darwin-x64/$(PRODUCT_NAME).app" /Applications
+	cp -R "target/$(PRODUCT_NAME)-darwin-x64/$(PRODUCT_NAME).app" /Applications
 
 package: target/$(NAME).icns target/app/node_modules Credits.rtf
 	. .codesign && \
