@@ -2,6 +2,7 @@
 
 const electron = require('electron')
 const contextMenu = require('./context-menu')
+const autoUpdater = require('./auto-updater')
 const dockMenu = require('./dock-menu')
 const errorHandlers = require('./error-handlers')
 const menu = require('./menu')
@@ -9,9 +10,6 @@ const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const globalShortcut = electron.globalShortcut
 const Menu = electron.Menu
-const autoUpdater = electron.autoUpdater
-const os = require('os')
-const fs = require('fs')
 const windowState = require('electron-window-state')
 const shell = electron.shell
 const SoundCloud = require('./soundcloud')
@@ -37,6 +35,8 @@ const shouldQuit = app.makeSingleInstance(() => {
 })
 
 if (shouldQuit) app.quit()
+
+autoUpdater()
 
 app.on('activate', () => {
   if (mainWindow) mainWindow.show()
@@ -174,45 +174,4 @@ app.on('ready', function() {
   })
 
   mainWindow.loadURL('https://soundcloud.com')
-})
-
-function maybeStartAutoUpdater(callback) {
-  if (process.env.NODE_ENV == 'development')
-    console.log('Disabled automatic updates in development mode.')
-  else
-    // Test if updates can actually be installed, see also:
-    // https://github.com/electron/electron/issues/7357
-    fs.access(app.getPath('exe'), fs.constants.W_OK, err => {
-      if (err && err.code == 'EROFS')
-        console.log('Disabled automatic updates on a read-only file system.')
-      else
-        callback()
-    })
-}
-
-maybeStartAutoUpdater(() => {
-  const platform = os.platform() + '_' + os.arch()
-  const version = app.getVersion()
-
-  autoUpdater.setFeedURL(`https://soundcleod-updates.herokuapp.com/update/${platform}/${version}`)
-
-  autoUpdater.on('checking-for-update', () => console.log('autoUpdater checking for update'))
-  autoUpdater.on('update-available', () => console.log('autoUpdater update available'))
-  autoUpdater.on('update-downloaded', () => console.log('autoUpdater update downloaded'))
-
-  const oneHourInMs = 60 * 60 * 1000
-
-  autoUpdater.on('update-not-available', () => {
-    console.log('autoUpdater update not available')
-    // Check again in an hour
-    setTimeout(() => autoUpdater.checkForUpdates(), oneHourInMs)
-  })
-
-  autoUpdater.on('error', error => {
-    console.error('autoUpdater error', error)
-    // Check again in an hour
-    setTimeout(() => autoUpdater.checkForUpdates(), oneHourInMs)
-  })
-
-  autoUpdater.checkForUpdates()
 })
