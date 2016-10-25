@@ -7,14 +7,13 @@ const BrowserWindow = electron.BrowserWindow
 const globalShortcut = electron.globalShortcut
 const Menu = electron.Menu
 const MenuItem = electron.MenuItem
-const ipcMain = electron.ipcMain
 const autoUpdater = electron.autoUpdater
 const os = require('os')
-const debounce = require('debounce')
 const fs = require('fs')
 const windowState = require('electron-window-state')
 const contextMenu = require('electron-context-menu')
 const shell = electron.shell
+const SoundCloud = require('./soundcloud')
 
 var mainWindow = null
 
@@ -63,6 +62,8 @@ app.on('ready', function() {
     }
   })
 
+  const soundcloud = new SoundCloud(mainWindow)
+
   mainWindowState.manage(mainWindow)
 
   mainWindow.on('close', (event) => {
@@ -76,53 +77,28 @@ app.on('ready', function() {
     mainWindow = null
   })
 
-  function trigger(keyCode) {
-    mainWindow.webContents.sendInputEvent({
-      type: 'keyDown',
-      keyCode
-    })
-
-    // Triggering keyUp immediately confuses SoundCloud
-    setTimeout(() => {
-      mainWindow.webContents.sendInputEvent({
-        type: 'keyUp',
-        keyCode
-      })
-    }, 50)
-  }
-
-  function goHome() {
-    mainWindow.webContents.send('navigate', '/')
-  }
-
-  const playPause = () => trigger('Space')
-
-  const nextTrack = () => trigger('J')
-
-  const previousTrack = () => trigger('K')
-
   globalShortcut.register('MediaPlayPause', () => {
-    playPause()
+    soundcloud.playPause()
   })
 
   globalShortcut.register('MediaNextTrack', () => {
-    nextTrack()
+    soundcloud.nextTrack()
   })
 
   globalShortcut.register('MediaPreviousTrack', () => {
-    previousTrack()
+    soundcloud.previousTrack()
   })
 
   menu.events.on('home', () => {
-    goHome()
+    soundcloud.goHome()
   })
 
   menu.events.on('back', () => {
-    mainWindow.webContents.goBack()
+    soundcloud.goBack()
   })
 
   menu.events.on('forward', () => {
-    mainWindow.webContents.goForward()
+    soundcloud.goForward()
   })
 
   menu.events.on('main-window', () => {
@@ -130,28 +106,15 @@ app.on('ready', function() {
   })
 
   require('electron').powerMonitor.on('suspend', () => {
-    ipcMain.once('isPlaying', (_, isPlaying) => {
+    soundcloud.isPlaying().then(isPlaying => {
       if (isPlaying)
-        playPause()
+        soundcloud.playPause()
     })
-    mainWindow.webContents.send('isPlaying')
   })
 
-  const titleDebounceWaitMs = 200
-
-  mainWindow.on('page-title-updated', debounce((_, title) => {
-    var titleParts = title.split(' by ', 2)
-    if (titleParts.length == 1)
-      titleParts = title.split(' in ', 2)
-    if (titleParts.length == 2) {
-      // Title has " in " in it when not playing but on a playlis page
-      ipcMain.once('isPlaying', (_, isPlaying) => {
-        if (isPlaying)
-          mainWindow.webContents.send('notification', titleParts[0], titleParts[1])
-      })
-      mainWindow.webContents.send('isPlaying')
-    }
-  }), titleDebounceWaitMs)
+  soundcloud.on('play', (title, subtitle) => {
+    mainWindow.webContents.send('notification', title, subtitle)
+  })
 
   function isLoginURL(url) {
     return [
@@ -238,21 +201,21 @@ app.on('ready', function() {
           {
             label: 'Home',
             click() {
-              goHome()
+              soundcloud.goHome()
             }
           },
           {
             label: 'Go back',
-            enabled: mainWindow.webContents.canGoBack(),
+            enabled: soundcloud.canGoBack(),
             click() {
-              mainWindow.webContents.goBack()
+              soundcloud.goBack()
             }
           },
           {
             label: 'Go forward',
-            enabled: mainWindow.webContents.canGoForward(),
+            enabled: soundcloud.canGoForward(),
             click() {
-              mainWindow.webContents.goForward()
+              soundcloud.goForward()
             }
           }
         ]
@@ -269,19 +232,19 @@ app.on('ready', function() {
   dockMenu.append(new MenuItem({
     label: 'Play/Pause',
     click() {
-      playPause()
+      soundcloud.playPause()
     }
   }))
   dockMenu.append(new MenuItem({
     label: 'Next',
     click() {
-      nextTrack()
+      soundcloud.nextTrack()
     }
   }))
   dockMenu.append(new MenuItem({
     label: 'Previous',
     click() {
-      previousTrack()
+      soundcloud.previousTrack()
     }
   }))
 
