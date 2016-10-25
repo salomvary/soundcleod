@@ -23,7 +23,7 @@
   "dependencies": {
     "debounce": "^1.0.0",
     "electron-context-menu": "^0.6.0",
-    "electron-window-state": "^3.0.4"
+    "electron-window-state": "^3.1.0"
   },
   "devDependencies": {
     "electron-packager": "^8.0.0",
