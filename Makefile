@@ -1,7 +1,7 @@
 NAME=$(shell node -e "console.log(require('./package.json').name)")
 PRODUCT_NAME=$(shell node -e "console.log(require('./package.json').productName)")
 VERSION=$(shell node -e "console.log(require('./package.json').version)")
-ELECTRON_VERSION=$(shell npm --json list electron-prebuilt | node -e "console.log(JSON.parse(require('fs').readFileSync('/dev/stdin').toString()).dependencies['electron-prebuilt'].version)")
+ELECTRON_VERSION=$(shell npm --json list electron | node -e "console.log(JSON.parse(require('fs').readFileSync('/dev/stdin').toString()).dependencies['electron'].version)")
 APP = dist/$(PRODUCT_NAME).app
 DMG = dist/$(PRODUCT_NAME).dmg
 ZIP = dist/$(PRODUCT_NAME)-mac.zip
