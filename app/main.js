@@ -1,6 +1,7 @@
 'use strict'
 
 const electron = require('electron')
+const contextMenu = require('./context-menu')
 const menu = require('./menu')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -11,7 +12,6 @@ const autoUpdater = electron.autoUpdater
 const os = require('os')
 const fs = require('fs')
 const windowState = require('electron-window-state')
-const contextMenu = require('electron-context-menu')
 const shell = electron.shell
 const SoundCloud = require('./soundcloud')
 
@@ -63,6 +63,7 @@ app.on('ready', function() {
   })
 
   const soundcloud = new SoundCloud(mainWindow)
+  contextMenu(mainWindow, soundcloud)
 
   mainWindowState.manage(mainWindow)
 
@@ -193,40 +194,6 @@ app.on('ready', function() {
     })
   }
 
-  contextMenu({
-    window: mainWindow,
-    prepend: params => {
-      if (params.mediaType == 'none')
-        return [
-          {
-            label: 'Home',
-            click() {
-              soundcloud.goHome()
-            }
-          },
-          {
-            label: 'Go back',
-            enabled: soundcloud.canGoBack(),
-            click() {
-              soundcloud.goBack()
-            }
-          },
-          {
-            label: 'Go forward',
-            enabled: soundcloud.canGoForward(),
-            click() {
-              soundcloud.goForward()
-            }
-          }
-        ]
-    }
-  })
-
-  mainWindow.webContents.on('context-menu', event => {
-    event.preventDefault()
-    const menu = new Menu()
-    menu.popup(mainWindow)
-  })
 
   const dockMenu = new Menu()
   dockMenu.append(new MenuItem({
