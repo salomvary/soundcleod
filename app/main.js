@@ -139,11 +139,7 @@ app.on('ready', function() {
     //
     // Assuming nothing else than share and login use window.open, we are only
     // checking disposition here.
-    //
-    // Interestingly frameName is not set to _blank when clicking on links with
-    // target=_blank but it is one some programmatically opened links (eg.
-    // "Help forum" from the menu).
-    if (disposition == 'new-window' && frameName != '_blank') {
+    if (disposition == 'new-window') {
       // Do not copy these from mainWindow to login popups
       delete options.minWidth
       delete options.minHeight
