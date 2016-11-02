@@ -143,7 +143,7 @@ const menu = [
   }
 ]
 
-if (process.env.NODE_ENV == 'development')
+if (process.env.NODE_ENV == 'development' || process.env.NODE_ENV == 'test')
   menu[1].submenu.push(
     {
       label: 'Reload',

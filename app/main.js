@@ -17,7 +17,11 @@ const SoundCloud = require('./soundcloud')
 var mainWindow = null
 
 const profile = process.env.SOUNDCLEOD_PROFILE
-if (profile)
+const userData = process.env.SOUNDCLEOD_USER_DATA_PATH
+
+if (userData)
+  app.setPath('userData', userData)
+else if (profile)
   app.setPath('userData', app.getPath('userData') + ' ' + profile)
 
 var quitting = false
@@ -71,7 +75,10 @@ app.on('ready', function() {
   mainWindowState.manage(mainWindow)
 
   mainWindow.on('close', (event) => {
-    if (!quitting) {
+    // Due to (probably) a bug in Spectron this prevents quitting
+    // the app in tests:
+    // https://github.com/electron/spectron/issues/137
+    if (!quitting && process.env.NODE_ENV != 'test') {
       event.preventDefault()
       mainWindow.hide()
     }
@@ -169,5 +176,12 @@ app.on('ready', function() {
     mainWindow.setTitle('Loading soundcloud.com...')
   })
 
-  mainWindow.loadURL('https://soundcloud.com')
+  mainWindow.loadURL(getUrl())
 })
+
+function getUrl() {
+  if (process.env.SOUNDCLEOD_URL)
+    return process.env.SOUNDCLEOD_URL
+  else
+    return 'https://soundcloud.com'
+}

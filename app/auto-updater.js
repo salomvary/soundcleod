@@ -9,7 +9,7 @@ module.exports = function maybeStartAutoUpdater() {
 }
 
 function checkAutoUpdater(callback) {
-  if (process.env.NODE_ENV == 'development')
+  if (process.env.NODE_ENV == 'development' || process.env.NODE_ENV == 'test')
     console.log('Disabled automatic updates in development mode.')
   else
     // Test if updates can actually be installed, see also:

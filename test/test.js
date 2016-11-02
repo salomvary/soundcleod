@@ -3,14 +3,15 @@
 const { Application } = require('spectron')
 const assert = require('assert')
 
-describe('application launch', function() {
+describe('Application launch', function() {
 
   beforeEach(function() {
-    this.timeout(5000)
+    this.timeout(15000)
+
     this.app = new Application({
       args: [ 'app/main.js' ],
       env: {
-        NODE_ENV: 'development',
+        NODE_ENV: 'test',
         SOUNDCLEOD_PROFILE: 'test'
       },
       path: 'node_modules/.bin/electron'

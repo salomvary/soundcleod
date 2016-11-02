@@ -2,6 +2,10 @@
 
 const {ipcRenderer} = require('electron')
 
+// See https://github.com/electron/spectron#node-integration
+if (process.env.NODE_ENV == 'test')
+  window.electronRequire = require
+
 function navigate(url) {
   history.replaceState(null, null, url)
   const e = new Event('popstate')
