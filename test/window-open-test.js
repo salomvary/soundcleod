@@ -54,8 +54,8 @@ describe('Opening windows', function() {
     return this.app.client
       .click('=Facebook login')
       .then(() => this.app.client.getWindowCount())
-      .then(count => assert.equal(count, 1, 'opened no new window'))
       .waitForExist('#facebook')
+      .then(count => assert.equal(count, 1, 'opened no new window'))
   })
 
   xit('opens window.open with no options in browser', function() {
@@ -72,6 +72,7 @@ describe('Opening windows', function() {
   it('opens window.open with options in popup', function() {
     return this.app.client
       .click('=window.open with options')
+      .waitUntil(() => this.app.client.getWindowCount().then(count => count > 1))
       .then(() => this.app.client.getWindowCount())
       .then(count => assert.equal(count, 2, 'opened new window'))
       // Should verify URL, but:
