@@ -62,6 +62,14 @@ const menu = [
           if (focusedWindow)
             focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
         }
+      },
+      {
+        label: 'Reload',
+        accelerator: 'CmdOrCtrl+R',
+        click: function(item, focusedWindow) {
+          if (focusedWindow)
+            focusedWindow.reload()
+        }
       }
     ]
   },
@@ -145,14 +153,6 @@ const menu = [
 
 if (process.env.NODE_ENV == 'development' || process.env.NODE_ENV == 'test')
   menu[1].submenu.push(
-    {
-      label: 'Reload',
-      accelerator: 'CmdOrCtrl+R',
-      click: function(item, focusedWindow) {
-        if (focusedWindow)
-          focusedWindow.reload()
-      }
-    },
     {
       label: 'Toggle Developer Tools',
       accelerator: (function() {
