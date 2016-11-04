@@ -1,3 +1,7 @@
+## 1.1.3 (November  4, 2016)
+- Fix Google login (again)
+- Improve how window position is saved
+
 ## 1.1.2 (October 18, 2016)
 - Log detailed errors for easier debugging
 
