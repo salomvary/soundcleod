@@ -3,3 +3,6 @@ os:
 language: node_js
 node_js:
   - "6"
+before_install:
+  # See https://github.com/travis-ci/travis-ci/issues/6307
+  - rvm get head
