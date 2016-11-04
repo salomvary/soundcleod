@@ -29,7 +29,7 @@ describe('Logging in', function() {
 
   it('shows Facebook login in the main window', function() {
     return this.app.client
-      .waitForVisible('#content')
+      .waitForVisible('button=Sign in')
       .element('#content')
       .click('button=Sign in')
       .waitForVisible('=Continue with Facebook')
@@ -43,7 +43,7 @@ describe('Logging in', function() {
 
   it('shows Google login in a popup', function() {
     return this.app.client
-      .waitForVisible('#content')
+      .waitForVisible('button=Sign in')
       .element('#content')
       .click('button=Sign in')
       .waitForVisible('button=Continue with Google')
