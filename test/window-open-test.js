@@ -18,7 +18,8 @@ describe('Opening windows', function() {
         SOUNDCLEOD_URL: soundcleodURL
       },
       path: 'node_modules/.bin/electron',
-      requireName: 'electronRequire'
+      requireName: 'electronRequire',
+      waitTimeout: 10000
     })
     return this.app.start()
   })

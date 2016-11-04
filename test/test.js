@@ -14,7 +14,8 @@ describe('Application launch', function() {
         NODE_ENV: 'test',
         SOUNDCLEOD_PROFILE: 'test'
       },
-      path: 'node_modules/.bin/electron'
+      path: 'node_modules/.bin/electron',
+      waitTimeout: 10000
     })
     return this.app.start()
   })

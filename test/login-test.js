@@ -16,7 +16,8 @@ describe('Logging in', function() {
         NODE_ENV: 'test',
         SOUNDCLEOD_USER_DATA_PATH: this.userData.name
       },
-      path: 'node_modules/.bin/electron'
+      path: 'node_modules/.bin/electron',
+      waitTimeout: 10000
     })
     return this.app.start()
   })
