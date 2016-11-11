@@ -26,7 +26,7 @@ function startAutoUpdater() {
   const platform = os.platform() + '_' + os.arch()
   const version = app.getVersion()
 
-  autoUpdater.setFeedURL(`https://soundcleod-updates.herokuapp.com/update/${platform}/${version}`)
+  autoUpdater.setFeedURL(`https://updates.soundcleod.com/update/${platform}/${version}`)
 
   autoUpdater.on('checking-for-update', () => console.log('autoUpdater checking for update'))
   autoUpdater.on('update-available', () => console.log('autoUpdater update available'))
