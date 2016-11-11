@@ -30,6 +30,9 @@ module.exports = function contextMenu(window, soundcloud) {
             }
           }
         ]
+      else
+        // See https://github.com/sindresorhus/electron-context-menu/issues/24
+        return []
     }
   })
 
