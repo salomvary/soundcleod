@@ -1,14 +1,12 @@
 #!/bin/sh
 
-info_plist=SoundCleod/SoundCleod-Info.plist
-
 print_version() {
-  node -e "console.log(require('./package.json').version)"
+  node -e "console.log(require('./app/package.json').version)"
 }
 
 # Increment version in package.json
 increment_version() {
-  npm version --git-tag-version false patch
+  cd app && npm version --git-tag-version false patch && cd ..
 }
 
 # Updates the current version in README.markdown
