@@ -9,7 +9,7 @@
     "test": "mocha"
   },
   "build": {
-    "appId": "com.soundcleod",
+    "appId": "com.electron.soundcleod",
     "extraResources": [
       "dsa_pub.pem",
       "Credits.rtf"
