@@ -6,7 +6,7 @@ const assert = require('assert')
 describe('Application launch', function() {
 
   beforeEach(function() {
-    this.timeout(15000)
+    this.timeout(30000)
 
     this.app = new Application({
       args: [
