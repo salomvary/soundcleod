@@ -79,7 +79,8 @@ app.on('ready', function() {
   const soundcloud = new SoundCloud(mainWindow)
   contextMenu(mainWindow, soundcloud)
   errorHandlers(mainWindow)
-  dockMenu(soundcloud)
+  if (process.platform == 'darwin')
+    dockMenu(soundcloud)
 
   mainWindowState.manage(mainWindow)
 
