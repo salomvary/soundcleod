@@ -5,7 +5,7 @@ const contextMenu = require('./context-menu')
 const autoUpdater = require('./auto-updater')
 const dockMenu = require('./dock-menu')
 const errorHandlers = require('./error-handlers')
-const menu = require('./menu')
+const mainMenu = require('./menu')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 const globalShortcut = electron.globalShortcut
@@ -16,8 +16,16 @@ const SoundCloud = require('./soundcloud')
 
 var mainWindow = null
 
-const profile = process.env.SOUNDCLEOD_PROFILE
-const userData = process.env.SOUNDCLEOD_USER_DATA_PATH
+const argv = require('optimist')
+  .default('auto-updater', true)
+  .argv
+
+const baseUrl = argv['base-url']
+const developerTools = argv['developer-tools']
+const profile = argv['profile']
+const quitAfterLastWindow = argv['quit-after-last-window']
+const useAutoUpdater = argv['auto-updater']
+const userData = argv['user-data-path']
 
 if (userData)
   app.setPath('userData', userData)
@@ -40,13 +48,14 @@ const shouldQuit = app.makeSingleInstance(() => {
 
 if (shouldQuit) app.quit()
 
-autoUpdater()
+if (useAutoUpdater) autoUpdater()
 
 app.on('activate', () => {
   if (mainWindow) mainWindow.show()
 })
 
 app.on('ready', function() {
+  const menu = mainMenu({ developerTools })
   Menu.setApplicationMenu(menu)
 
   const mainWindowState = windowState({
@@ -78,7 +87,7 @@ app.on('ready', function() {
     // Due to (probably) a bug in Spectron this prevents quitting
     // the app in tests:
     // https://github.com/electron/spectron/issues/137
-    if (!quitting && process.env.NODE_ENV != 'test') {
+    if (!quitting && quitAfterLastWindow) {
       event.preventDefault()
       mainWindow.hide()
     }
@@ -180,8 +189,8 @@ app.on('ready', function() {
 })
 
 function getUrl() {
-  if (process.env.SOUNDCLEOD_URL)
-    return process.env.SOUNDCLEOD_URL
+  if (baseUrl)
+    return baseUrl
   else
     return 'https://soundcloud.com'
 }

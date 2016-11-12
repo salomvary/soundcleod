@@ -9,10 +9,14 @@ describe('Application launch', function() {
     this.timeout(15000)
 
     this.app = new Application({
-      args: [ 'app/main.js' ],
+      args: [
+        'app/main.js' ,
+        '--profile=test',
+        '--no-auto-updater',
+        '--developer-tools'
+      ],
       env: {
-        NODE_ENV: 'test',
-        SOUNDCLEOD_PROFILE: 'test'
+        SPECTRON: true
       },
       path: 'node_modules/.bin/electron',
       waitTimeout: 10000

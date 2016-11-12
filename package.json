@@ -5,7 +5,7 @@
     "eslint": "eslint",
     "pack": "build --dir",
     "postinstall": "install-app-deps",
-    "start": "NODE_ENV=development SOUNDCLEOD_PROFILE=development electron ./app",
+    "start": "electron ./app --profile=development --no-auto-updater --developer-tools",
     "test": "mocha"
   },
   "build": {

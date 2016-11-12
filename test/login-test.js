@@ -11,10 +11,14 @@ describe('Logging in', function() {
     // Start each test with a blank user profile
     this.userData = tmp.dirSync()
     this.app = new Application({
-      args: [ 'app/main.js' ],
+      args: [
+        'app/main.js' ,
+        '--user-data-path=' + this.userData.name,
+        '--no-auto-updater',
+        '--developer-tools'
+      ],
       env: {
-        NODE_ENV: 'test',
-        SOUNDCLEOD_USER_DATA_PATH: this.userData.name
+        SPECTRON: true
       },
       path: 'node_modules/.bin/electron',
       waitTimeout: 10000

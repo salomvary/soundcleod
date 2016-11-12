@@ -11,11 +11,15 @@ describe('Opening windows', function() {
 
   beforeEach(function() {
     this.app = new Application({
-      args: [ 'app/main.js' ],
+      args: [
+        'app/main.js' ,
+        '--profile=test',
+        '--no-auto-updater',
+        '--developer-tools',
+        '--base-url=' + soundcleodURL
+      ],
       env: {
-        NODE_ENV: 'test',
-        SOUNDCLEOD_PROFILE: 'test',
-        SOUNDCLEOD_URL: soundcleodURL
+        SPECTRON: true
       },
       path: 'node_modules/.bin/electron',
       requireName: 'electronRequire',

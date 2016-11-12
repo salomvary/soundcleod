@@ -9,17 +9,14 @@ module.exports = function maybeStartAutoUpdater() {
 }
 
 function checkAutoUpdater(callback) {
-  if (process.env.NODE_ENV == 'development' || process.env.NODE_ENV == 'test')
-    console.log('Disabled automatic updates in development mode.')
-  else
-    // Test if updates can actually be installed, see also:
-    // https://github.com/electron/electron/issues/7357
-    fs.access(app.getPath('exe'), fs.constants.W_OK, err => {
-      if (err && err.code == 'EROFS')
-        console.log('Disabled automatic updates on a read-only file system.')
-      else
-        callback()
-    })
+  // Test if updates can actually be installed, see also:
+  // https://github.com/electron/electron/issues/7357
+  fs.access(app.getPath('exe'), fs.constants.W_OK, err => {
+    if (err && err.code == 'EROFS')
+      console.log('Disabled automatic updates on a read-only file system.')
+    else
+      callback()
+  })
 }
 
 function startAutoUpdater() {

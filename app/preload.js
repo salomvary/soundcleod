@@ -3,7 +3,7 @@
 const {ipcRenderer} = require('electron')
 
 // See https://github.com/electron/spectron#node-integration
-if (process.env.NODE_ENV == 'test')
+if (process.env.SPECTRON)
   window.electronRequire = require
 
 function navigate(url) {
