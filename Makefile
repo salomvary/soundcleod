@@ -22,6 +22,9 @@ build/background.png: background.svg
 	node generate-background.js
 	touch $@
 
+build/icon.ico: build/icon.iconset
+	node_modules/.bin/png-to-ico build/icon.iconset/icon_256x256.png  > build/icon.ico
+
 clean:
 	rm -rf build dist
 
