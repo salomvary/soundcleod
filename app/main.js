@@ -95,6 +95,8 @@ app.on('ready', function() {
   })
 
   mainWindow.on('closed', function() {
+    if (process.platform !== 'darwin')
+      app.quit()
     mainWindow = null
   })
 
