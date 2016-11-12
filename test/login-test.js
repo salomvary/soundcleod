@@ -20,7 +20,7 @@ describe('Logging in', function() {
       env: {
         SPECTRON: true
       },
-      path: 'node_modules/.bin/electron',
+      path: require('electron'),
       waitTimeout: 10000
     })
     return this.app.start()

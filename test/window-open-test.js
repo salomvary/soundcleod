@@ -6,8 +6,7 @@ const { Application } = require('spectron')
 describe('Opening windows', function() {
   this.timeout(15000)
 
-  // Encode to allow comparison with getURL
-  const soundcleodURL = encodeURI(`file://${__dirname}/window-open.html`)
+  const soundcleodURL = `file://${__dirname}/window-open.html`
 
   beforeEach(function() {
     this.app = new Application({
@@ -21,7 +20,7 @@ describe('Opening windows', function() {
       env: {
         SPECTRON: true
       },
-      path: 'node_modules/.bin/electron',
+      path: require('electron'),
       requireName: 'electronRequire',
       waitTimeout: 10000
     })
