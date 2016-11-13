@@ -32,6 +32,12 @@
           "type": "file"
         }
       ]
+    },
+    "win": {
+      "target": [ "squirrel" ]
+    },
+    "squirrelWindows": {
+      "iconUrl": "https://soundcleod.com/favicon.ico"
     }
   },
   "devDependencies": {

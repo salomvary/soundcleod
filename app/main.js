@@ -1,5 +1,8 @@
 'use strict'
 
+// Handle the Squirrel.Windows install madnesss
+if (require('electron-squirrel-startup')) return
+
 const electron = require('electron')
 const contextMenu = require('./context-menu')
 const autoUpdater = require('./auto-updater')

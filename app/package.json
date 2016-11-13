@@ -17,6 +17,7 @@
   "dependencies": {
     "debounce": "^1.0.0",
     "electron-context-menu": "^0.6.0",
+    "electron-squirrel-startup": "^1.0.0",
     "electron-window-state": "^3.1.0",
     "optimist": "^0.6.1"
   }
