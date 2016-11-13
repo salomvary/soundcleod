@@ -23,7 +23,13 @@ build/background.png: background.svg
 	touch $@
 
 build/icon.ico: build/icon.iconset
-	node_modules/.bin/png-to-ico build/icon.iconset/icon_256x256.png  > build/icon.ico
+	node_modules/.bin/to-ico \
+		build/icon.iconset/icon_16x16.png \
+		build/icon.iconset/icon_32x32.png \
+		build/icon.iconset/icon_32x32@2x.png \
+		build/icon.iconset/icon_128x128.png \
+		build/icon.iconset/icon_256x256.png \
+		> build/icon.ico
 
 clean:
 	rm -rf build dist
