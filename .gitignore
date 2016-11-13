@@ -126,3 +126,6 @@ dist/wc.dmg
 .codesign
 dsa_priv.pem
 _site
+app
+dist
+*.p12
