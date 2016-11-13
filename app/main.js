@@ -112,6 +112,18 @@ app.on('ready', function() {
     soundcloud.previousTrack()
   })
 
+  menu.events.on('playPause', () => {
+    soundcloud.playPause()
+  })
+
+  menu.events.on('nextTrack', () => {
+    soundcloud.nextTrack()
+  })
+
+  menu.events.on('previousTrack', () => {
+    soundcloud.previousTrack()
+  })
+
   menu.events.on('home', () => {
     soundcloud.goHome()
   })

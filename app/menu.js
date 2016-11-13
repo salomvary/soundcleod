@@ -105,15 +105,24 @@ function buildMenu(options) {
       submenu: [
         {
           label: 'Play/Pause',
-          accelerator: 'Space'
+          accelerator: 'Space',
+          click() {
+            events.emit('playPause')
+          }
         },
         {
           label: 'Next',
-          accelerator: 'Shift+Right'
+          accelerator: 'Shift+Right',
+          click() {
+            events.emit('nextTrack')
+          }
         },
         {
           label: 'Previous',
-          accelerator: 'Shift+Left'
+          accelerator: 'Shift+Left',
+          click() {
+            events.emit('previousTrack')
+          }
         }
       ]
     },
