@@ -6,7 +6,6 @@ const Menu = electron.Menu
 const app = electron.app
 const shell = electron.shell
 
-
 function buildMenu(options) {
   const events = new Events()
   const menu = [
@@ -156,6 +155,13 @@ function buildMenu(options) {
         {
           label: 'Learn More',
           click: function() { shell.openExternal('http://soundcleod.com') }
+        },
+        {
+          label: 'About SoundCleod',
+          click: function() {
+            events.emit('about')
+          },
+          visible: process.platform !== 'darwin'
         }
       ]
     }

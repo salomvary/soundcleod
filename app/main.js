@@ -14,10 +14,11 @@ const BrowserWindow = electron.BrowserWindow
 const globalShortcut = electron.globalShortcut
 const Menu = electron.Menu
 const windowState = require('electron-window-state')
-const shell = electron.shell
 const SoundCloud = require('./soundcloud')
+const windowOpenPolicy = require('./window-open-policy')
 
 var mainWindow = null
+var aboutWindow = null
 
 const argv = require('optimist')
   .default('auto-updater', true)
@@ -52,6 +53,8 @@ const shouldQuit = app.makeSingleInstance(() => {
 if (shouldQuit) app.quit()
 
 if (useAutoUpdater) autoUpdater()
+
+windowOpenPolicy(app)
 
 app.on('activate', () => {
   if (mainWindow) mainWindow.show()
@@ -143,6 +146,10 @@ app.on('ready', function() {
     mainWindow.show()
   })
 
+  menu.events.on('about', () => {
+    showAbout()
+  })
+
   require('electron').powerMonitor.on('suspend', () => {
     soundcloud.isPlaying().then(isPlaying => {
       if (isPlaying)
@@ -152,51 +159,6 @@ app.on('ready', function() {
 
   soundcloud.on('play', (title, subtitle) => {
     mainWindow.webContents.send('notification', title, subtitle)
-  })
-
-  function isLoginURL(url) {
-    return [
-      /^https:\/\/accounts\.google\.com.*/i,
-      /^https:\/\/www.facebook.com\/dialog\/oauth.*/i
-    ].some(re => url.match(re))
-  }
-
-  mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
-    // Looks like disposition is 'new-window' on window.open and 'foreground-tab' on
-    // links with target=_blank. The behavior is not very well documented in Electron:
-    // http://electron.atom.io/docs/api/web-contents/#event-new-window
-    //
-    // What we want here is:
-    // - Open share popups within the app
-    // - Open login popups within the app
-    // - Open everything else in the system browser
-    //
-    // Assuming nothing else than share and login use window.open, we are only
-    // checking disposition here.
-    if (disposition == 'new-window') {
-      // Do not copy these from mainWindow to login popups
-      delete options.minWidth
-      delete options.minHeight
-      options.webPreferences = Object.assign({}, options.webPreferences, {
-        preload: `${__dirname}/preload-popup.js`
-      })
-    } else {
-      event.preventDefault()
-      shell.openExternal(url)
-    }
-  })
-
-  function isSoundCloudURL(url) {
-    return [
-      /^https?:\/\/soundcloud\.com.*/i
-    ].some(re => url.match(re))
-  }
-
-  mainWindow.webContents.on('will-navigate', (event, url) => {
-    if (url && !isSoundCloudURL(url) && !isLoginURL(url)) {
-      event.preventDefault()
-      shell.openExternal(url)
-    }
   })
 
   mainWindow.webContents.once('did-start-loading', () => {
@@ -211,4 +173,31 @@ function getUrl() {
     return baseUrl
   else
     return 'https://soundcloud.com'
+}
+
+function showAbout() {
+  if (aboutWindow)
+    aboutWindow.show()
+  else {
+    aboutWindow = new BrowserWindow({
+      fullscreen: false,
+      fullscreenable: false,
+      height: 520,
+      maximizable: false,
+      resizable: false,
+      show: false,
+      skipTaskbar: true,
+      width: 385,
+      modal: true,
+      parent: mainWindow
+    })
+    aboutWindow.setMenu(null)
+    aboutWindow.once('ready-to-show', () => {
+      aboutWindow.show()
+    })
+    aboutWindow.on('close', () => {
+      aboutWindow = null
+    })
+    aboutWindow.loadURL(`file://${__dirname}/about.html`)
+  }
 }
