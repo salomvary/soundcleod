@@ -1,3 +1,8 @@
+## 1.1.4 (November 14, 2016)
+- Fix broken play/pause/prev/next menu items
+- Prevent exception on right clicking certain elements
+- Download updates from https://updates.soundcleod.com
+
 ## 1.1.3 (November  4, 2016)
 - Fix Google login (again)
 - Improve how window position is saved
