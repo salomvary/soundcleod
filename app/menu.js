@@ -238,7 +238,17 @@ function buildMenu(options) {
         role: 'front'
       }
     )
-  }
+  } else
+    menu.unshift({
+      label: 'File',
+      submenu: [
+        {
+          label: 'Quit',
+          accelerator: 'Ctrl+Q',
+          click: function() { app.quit() }
+        }
+      ]
+    })
 
   const built = Menu.buildFromTemplate(menu)
   built.events = events
