@@ -4,7 +4,7 @@ const assert = require('assert')
 const { Application } = require('spectron')
 
 describe('Opening windows', function() {
-  this.timeout(30000)
+  this.timeout(60000)
 
   const soundcleodURL = `file://${__dirname}/window-open.html`
 

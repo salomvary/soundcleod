@@ -5,7 +5,7 @@ const assert = require('assert')
 const tmp = require('tmp')
 
 describe('Logging in', function() {
-  this.timeout(30000)
+  this.timeout(60000)
 
   beforeEach(function() {
     // Start each test with a blank user profile
