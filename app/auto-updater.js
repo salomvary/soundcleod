@@ -4,8 +4,8 @@ const { app, autoUpdater } = require('electron')
 const fs = require('fs')
 const os = require('os')
 
-module.exports = function maybeStartAutoUpdater() {
-  checkAutoUpdater(startAutoUpdater)
+module.exports = function maybeStartAutoUpdater(baseUrl) {
+  checkAutoUpdater(() => startAutoUpdater(baseUrl))
 }
 
 function checkAutoUpdater(callback) {
@@ -19,11 +19,11 @@ function checkAutoUpdater(callback) {
   })
 }
 
-function startAutoUpdater() {
+function startAutoUpdater(baseUrl) {
   const platform = os.platform() + '_' + os.arch()
   const version = app.getVersion()
 
-  autoUpdater.setFeedURL(`https://updates.soundcleod.com/update/${platform}/${version}`)
+  autoUpdater.setFeedURL(`${baseUrl}/update/${platform}/${version}`)
 
   autoUpdater.on('checking-for-update', () => console.log('autoUpdater checking for update'))
   autoUpdater.on('update-available', () => console.log('autoUpdater update available'))

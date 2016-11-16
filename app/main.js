@@ -16,21 +16,20 @@ const Menu = electron.Menu
 const windowState = require('electron-window-state')
 const SoundCloud = require('./soundcloud')
 const windowOpenPolicy = require('./window-open-policy')
+const options = require('./options')
 
 var mainWindow = null
 var aboutWindow = null
 
-const argv = require('optimist')
-  .default('auto-updater', true)
-  .default('quit-after-last-window', process.platform != 'darwin')
-  .argv
-
-const baseUrl = argv['base-url']
-const developerTools = argv['developer-tools']
-const profile = argv['profile']
-const quitAfterLastWindow = argv['quit-after-last-window']
-const useAutoUpdater = argv['auto-updater']
-const userData = argv['user-data-path']
+const {
+  autoUpdaterBaseUrl,
+  baseUrl,
+  developerTools,
+  profile,
+  quitAfterLastWindow,
+  useAutoUpdater,
+  userData
+} = options(process)
 
 if (userData)
   app.setPath('userData', userData)
@@ -53,7 +52,7 @@ const shouldQuit = app.makeSingleInstance(() => {
 
 if (shouldQuit) app.quit()
 
-if (useAutoUpdater) autoUpdater()
+if (useAutoUpdater) autoUpdater(autoUpdaterBaseUrl)
 
 windowOpenPolicy(app)
 
