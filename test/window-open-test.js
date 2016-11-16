@@ -15,7 +15,8 @@ describe('Opening windows', function() {
         '--profile=test',
         '--no-auto-updater',
         '--developer-tools',
-        '--base-url=' + soundcleodURL
+        '--base-url=' + soundcleodURL,
+        '--quit-after-last-window'
       ],
       env: {
         SPECTRON: true

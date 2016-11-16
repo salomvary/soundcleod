@@ -15,7 +15,8 @@ describe('Logging in', function() {
         'app/main.js' ,
         '--user-data-path=' + this.userData.name,
         '--no-auto-updater',
-        '--developer-tools'
+        '--developer-tools',
+        '--quit-after-last-window'
       ],
       env: {
         SPECTRON: true

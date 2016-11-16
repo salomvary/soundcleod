@@ -13,7 +13,8 @@ describe('Application launch', function() {
         'app/main.js' ,
         '--profile=test',
         '--no-auto-updater',
-        '--developer-tools'
+        '--developer-tools',
+        '--quit-after-last-window'
       ],
       env: {
         SPECTRON: true

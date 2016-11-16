@@ -22,6 +22,7 @@ var aboutWindow = null
 
 const argv = require('optimist')
   .default('auto-updater', true)
+  .default('quit-after-last-window', process.platform != 'darwin')
   .argv
 
 const baseUrl = argv['base-url']
@@ -94,7 +95,7 @@ app.on('ready', function() {
     // Due to (probably) a bug in Spectron this prevents quitting
     // the app in tests:
     // https://github.com/electron/spectron/issues/137
-    if (!quitting && quitAfterLastWindow) {
+    if (!quitting && !quitAfterLastWindow) {
       event.preventDefault()
       mainWindow.hide()
     }
