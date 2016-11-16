@@ -1,3 +1,7 @@
+## 1.1.5 (November 16, 2016)
+- Allow hiding main window with Cmd+1
+- Prevent quitting with Cmd+W on macOS
+
 ## 1.1.4 (November 14, 2016)
 - Fix broken play/pause/prev/next menu items
 - Prevent exception on right clicking certain elements
