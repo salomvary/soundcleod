@@ -144,7 +144,10 @@ app.on('ready', function() {
   })
 
   menu.events.on('main-window', () => {
-    mainWindow.show()
+    if (mainWindow.isVisible())
+      mainWindow.hide()
+    else
+      mainWindow.show()
   })
 
   menu.events.on('about', () => {
