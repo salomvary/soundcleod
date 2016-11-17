@@ -34,7 +34,9 @@
       ]
     },
     "win": {
-      "target": [ "squirrel" ]
+      "target": [
+        "squirrel"
+      ]
     },
     "squirrelWindows": {
       "iconUrl": "https://soundcleod.com/favicon.ico"
@@ -48,6 +50,6 @@
     "spectron": "^3.4.0",
     "svg2png": "^1.0.0",
     "tmp": "0.0.29",
-    "to-ico": "^1.1.3"
+    "to-ico-cli": "^1.0.0"
   }
 }
