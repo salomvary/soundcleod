@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dist": "build",
-    "eslint": "eslint",
+    "eslint": "eslint .",
     "pack": "build --dir",
     "postinstall": "install-app-deps",
     "start": "electron ./app --profile=development --no-auto-updater --developer-tools",
