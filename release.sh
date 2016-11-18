@@ -17,7 +17,7 @@ update_readme_version() {
 	 	"s/Current version is [^[:space:]]+ \([^(]+\)/Current version is $version ($date)/"\
 		README.markdown
 	sed -i '' -E -e\
-    "s/download\\/[^\\/]+\\/SoundCleod.dmg/download\\/v$version\\/SoundCleod.dmg/"\
+    "s/download\\/[^\\/]+\\/SoundCleod-[^\\.]+.dmg/download\\/v$version\\/SoundCleod-$version.dmg/"\
 		README.markdown
 }
 
