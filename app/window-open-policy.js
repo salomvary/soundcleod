@@ -11,7 +11,7 @@ module.exports = function windowOpenPolicy(app) {
 function isLoginURL(url) {
   return [
     /^https:\/\/accounts\.google\.com.*/i,
-    /^https:\/\/www.facebook.com\/dialog\/oauth.*/i
+    /^https:\/\/www.facebook.com\/.*\/oauth.*/i
   ].some(re => url.match(re))
 }
 
