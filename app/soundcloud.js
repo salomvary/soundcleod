@@ -62,13 +62,10 @@ module.exports = class SoundCloud extends Events {
       keyCode
     })
 
-    // Triggering keyUp immediately confuses SoundCloud
-    setTimeout(() => {
-      this.window.webContents.sendInputEvent({
-        type: 'keyUp',
-        keyCode
-      })
-    }, 50)
+    this.window.webContents.sendInputEvent({
+      type: 'keyUp',
+      keyCode
+    })
   }
 
   onTitleUpdated(_, title) {
