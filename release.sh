@@ -19,6 +19,9 @@ update_readme_version() {
 	sed -i '' -E -e\
     "s/download\\/[^\\/]+\\/SoundCleod-[^\\.]+.dmg/download\\/v$version\\/SoundCleod-$version.dmg/"\
 		README.markdown
+	sed -i '' -E -e\
+    "s/download\\/[^\\/]+\\/SoundCleod Setup [^\\.]+.exe/download\\/v$version\\/SoundCleod Setup $version.exe/"\
+		README.markdown
 }
 
 # Read changes from git log and open it in an editor

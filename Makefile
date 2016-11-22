@@ -4,11 +4,11 @@ install-mac: pack
 
 pack: dist/mac/SoundCleod.app
 
-dist: build/icon.icns build/background.png $(wildcard app/*)
-	npm run dist
+dist: build/icon.icns build/background.png build/icon.ico $(wildcard app/*)
+	. .codesign && npm run dist
 
 dist/mac/SoundCleod.app: build/icon.icns build/background.png $(wildcard app/*)
-	npm run pack
+	. .codesign && npm run pack
 	touch $@
 
 build/icon.icns: build/icon.iconset

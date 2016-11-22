@@ -1,8 +1,8 @@
 ## What is SoundCleod?
 
-SoundCleod is a macOS application which brings
-[SoundCloud](http://soundcloud.com) to the
-desktop without using a browser.
+SoundCleod is a desktop application which brings
+[SoundCloud](http://soundcloud.com) to macOS and Windows without using a web
+browser.
 
 Why is that good?
 
@@ -16,7 +16,9 @@ SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart
 
 Current version is 1.1.5 (November 16, 2016) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
 
-- [Download from
+### For macOS
+
+- [Download macOS installer from
 	here](https://github.com/salomvary/soundcleod/releases/download/v1.1.5/SoundCleod-1.1.5.dmg)
 - Double click the file
 - Drag SoundCleod into your Applications folder
@@ -26,6 +28,14 @@ Current version is 1.1.5 (November 16, 2016) [see changes](https://github.com/sa
 - Optionally drag SoundCleod from Applications into the Dock
 
 **Important!** Minimum required macOS version is 10.9.x (Mavericks).
+
+### For Windows
+
+- [Download Windows installer from
+	here](https://github.com/salomvary/soundcleod/releases/download/v1.1.5/SoundCleod Setup 1.1.5.exe)
+- Double click the file
+
+**Important!** Windows 7 or newer is required (only 64 bit, 32 bit Windows is not supported).
 
 ### Using [Homebrew Cask](http://caskroom.io/)?
 

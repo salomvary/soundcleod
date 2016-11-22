@@ -1,7 +1,7 @@
 {
   "name": "soundcleod",
   "productName": "SoundCleod",
-  "description": "Standalone macOS browser for SoundCloud",
+  "description": "SoundCloud for macOS and Windows",
   "homepage": "http://soundcleod.com",
   "author": {
     "name": "Márton Salomváry",
