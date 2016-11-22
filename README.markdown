@@ -2,7 +2,7 @@
 
 SoundCleod is a macOS application which brings
 [SoundCloud](http://soundcloud.com) to the
-desktop without using a browser.
+desktop using a webview.
 
 Why is that good?
 
