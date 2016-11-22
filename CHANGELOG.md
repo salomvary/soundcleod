@@ -1,3 +1,7 @@
+## 1.1.6 (November 23, 2016)
+- Release SoundCleod for Windows
+- Yet another fix for Facebook login
+
 ## 1.1.5 (November 16, 2016)
 - Allow hiding main window with Cmd+1
 - Prevent quitting with Cmd+W on macOS
