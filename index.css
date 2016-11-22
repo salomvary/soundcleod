@@ -92,16 +92,16 @@ pre {
 	border-radius: 2px;
 }
 
-.download-button {
+.download-buttons {
 	display: none;
 }
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 500px) {
 	.title-and-download {
 		position: relative;
 	}
 
-	.download-button {
+	.download-buttons {
 		display: inline-block;
 		margin: 0;
 		position: absolute;

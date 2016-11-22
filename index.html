@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <title>SoundCleod - SoundCloud for macOS</title>
+    <title>SoundCleod - SoundCloud for macOS and Windows</title>
     <link rel="stylesheet" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -12,9 +12,12 @@
     <header>
       <div class="title-and-download">
         <h1>SoundCleod</h1>
-        <a href="https://soundcleod-updates.herokuapp.com/download/osx?filetype=dmg"><button class="download-button">⬇ Download for Mac</button></a>
+        <div class="download-buttons">
+          <a href="https://soundcleod-updates.herokuapp.com/download/osx?filetype=dmg"><button>⬇ macOS</button></a>
+          <a href="https://soundcleod-updates.herokuapp.com/download/windows"><button>⬇ Windows</button></a>
+        </div>
       </div>
-      <h2>SoundCloud for macOS</h2>
+      <h2>SoundCloud for macOS and Windows</h2>
     </header>
     <section role="main">
       {% capture readme %}{% include_relative README.markdown %}{% endcapture %}
