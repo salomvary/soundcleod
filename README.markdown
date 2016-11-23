@@ -19,7 +19,7 @@ Current version is 1.1.6 (November 23, 2016) [see changes](https://github.com/sa
 ### For macOS
 
 - [Download macOS installer from
-	here](https://github.com/salomvary/soundcleod/releases/download/v1.1.5/SoundCleod-1.1.5.dmg)
+	here](https://github.com/salomvary/soundcleod/releases/download/v1.1.6/SoundCleod-1.1.6.dmg)
 - Double click the file
 - Drag SoundCleod into your Applications folder
 - Go to Applications, right click (or control-click) on SoundCleod
@@ -32,7 +32,7 @@ Current version is 1.1.6 (November 23, 2016) [see changes](https://github.com/sa
 ### For Windows
 
 - [Download Windows installer from
-	here](https://github.com/salomvary/soundcleod/releases/download/v1.1.5/SoundCleod Setup 1.1.5.exe)
+	here](https://github.com/salomvary/soundcleod/releases/download/v1.1.6/SoundCleod.Setup.1.1.6.exe)
 - Double click the file
 
 **Important!** Windows 7 or newer is required (only 64 bit, 32 bit Windows is not supported).
