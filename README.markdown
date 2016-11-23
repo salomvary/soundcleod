@@ -33,7 +33,8 @@ Current version is 1.1.6 (November 23, 2016) [see changes](https://github.com/sa
 
 - [Download Windows installer from
 	here](https://github.com/salomvary/soundcleod/releases/download/v1.1.6/SoundCleod.Setup.1.1.6.exe)
-- Double click the file
+- Save the file when prompted
+- Run the downloaded installer
 
 **Important!** Windows 7 or newer is required (only 64 bit, 32 bit Windows is not supported).
 
