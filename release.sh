@@ -17,10 +17,10 @@ update_readme_version() {
 	 	"s/Current version is [^[:space:]]+ \([^(]+\)/Current version is $version ($date)/"\
 		README.markdown
 	sed -i '' -E -e\
-    "s/download\\/[^\\/]+\\/SoundCleod-[^\\.]+.dmg/download\\/v$version\\/SoundCleod-$version.dmg/"\
+    "s/download\\/[^\\/]+\\/SoundCleod-[^\\/]+.dmg/download\\/v$version\\/SoundCleod-$version.dmg/"\
 		README.markdown
 	sed -i '' -E -e\
-    "s/download\\/[^\\/]+\\/SoundCleod Setup [^\\.]+.exe/download\\/v$version\\/SoundCleod Setup $version.exe/"\
+    "s/download\\/[^\\/]+\\/SoundCleod.Setup.[^\\/]+.exe/download\\/v$version\\/SoundCleod.Setup.$version.exe/"\
 		README.markdown
 }
 
@@ -62,9 +62,10 @@ write_changelog() {
 }
 
 print_usage() {
-  echo "Usage: $(basename "$0") increment_version Bump app version before build"
-  echo "       $(basename "$0") print_version     Print app version"
-  echo "       $(basename "$0") history           Update README, CHANGELOG and appcast.xml"
+  echo "Usage: $(basename "$0") increment_version     Bump app version before build"
+  echo "       $(basename "$0") print_version         Print app version"
+  echo "       $(basename "$0") update_readme_version Update version information in the README"
+  echo "       $(basename "$0") history               Update README, CHANGELOG and appcast.xml"
 }
 
 main() {
@@ -74,6 +75,9 @@ main() {
 			;;
 		increment_version)
 			increment_version
+			;;
+		update_readme_version)
+			update_readme_version
 			;;
 		history)
 			update_readme_version
