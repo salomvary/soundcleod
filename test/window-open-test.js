@@ -4,7 +4,6 @@ const applicationHelper = require('./application-helper')
 const assert = require('assert')
 
 describe('Opening windows', function() {
-  this.timeout(60000)
 
   const soundcleodURL = `file://${__dirname}/window-open.html`
 

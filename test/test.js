@@ -4,7 +4,6 @@ const applicationHelper = require('./application-helper')
 const assert = require('assert')
 
 describe('Application launch', function() {
-  this.timeout(60000)
 
   applicationHelper()
 
