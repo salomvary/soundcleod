@@ -1,37 +1,14 @@
 'use strict'
 
+const applicationHelper = require('./application-helper')
 const assert = require('assert')
-const { Application } = require('spectron')
 
 describe('Opening windows', function() {
   this.timeout(60000)
 
   const soundcleodURL = `file://${__dirname}/window-open.html`
 
-  beforeEach(function() {
-    this.app = new Application({
-      args: [
-        'app/main.js' ,
-        '--profile=test',
-        '--no-auto-updater',
-        '--developer-tools',
-        '--base-url=' + soundcleodURL,
-        '--quit-after-last-window'
-      ],
-      env: {
-        SPECTRON: true
-      },
-      path: require('electron'),
-      requireName: 'electronRequire',
-      waitTimeout: 10000
-    })
-    return this.app.start()
-  })
-
-  afterEach(function() {
-    if (this.app && this.app.isRunning())
-      return this.app.stop()
-  })
+  applicationHelper({baseURL: soundcleodURL})
 
   it('opens external link in browser', function() {
     return this.app.client

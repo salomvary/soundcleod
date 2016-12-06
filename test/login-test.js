@@ -1,36 +1,12 @@
 'use strict'
 
-const { Application } = require('spectron')
+const applicationHelper = require('./application-helper')
 const assert = require('assert')
-const tmp = require('tmp')
 
 describe('Logging in', function() {
   this.timeout(60000)
 
-  beforeEach(function() {
-    // Start each test with a blank user profile
-    this.userData = tmp.dirSync()
-    this.app = new Application({
-      args: [
-        'app/main.js' ,
-        '--user-data-path=' + this.userData.name,
-        '--no-auto-updater',
-        '--developer-tools',
-        '--quit-after-last-window'
-      ],
-      env: {
-        SPECTRON: true
-      },
-      path: require('electron'),
-      waitTimeout: 10000
-    })
-    return this.app.start()
-  })
-
-  afterEach(function() {
-    if (this.app && this.app.isRunning())
-      return this.app.stop()
-  })
+  applicationHelper()
 
   it('shows Facebook login in the main window', function() {
     return this.app.client

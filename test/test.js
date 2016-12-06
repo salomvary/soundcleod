@@ -1,34 +1,12 @@
 'use strict'
 
-const { Application } = require('spectron')
+const applicationHelper = require('./application-helper')
 const assert = require('assert')
 
 describe('Application launch', function() {
+  this.timeout(60000)
 
-  beforeEach(function() {
-    this.timeout(60000)
-
-    this.app = new Application({
-      args: [
-        'app/main.js' ,
-        '--profile=test',
-        '--no-auto-updater',
-        '--developer-tools',
-        '--quit-after-last-window'
-      ],
-      env: {
-        SPECTRON: true
-      },
-      path: require('electron'),
-      waitTimeout: 10000
-    })
-    return this.app.start()
-  })
-
-  afterEach(function() {
-    if (this.app && this.app.isRunning())
-      return this.app.stop()
-  })
+  applicationHelper()
 
   it('shows main window', function() {
     return this.app.client.getWindowCount().then((count) => {
