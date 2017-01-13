@@ -13,6 +13,7 @@ module.exports = class SoundCloud extends Events {
     window.on('page-title-updated', debounce((_, title) => {
       this.onTitleUpdated(_, title)
     }), titleDebounceWaitMs)
+    fixFlakyMediaKeys(window)
   }
 
   playPause() {
@@ -81,4 +82,23 @@ module.exports = class SoundCloud extends Events {
   }
 }
 
-
+/*
+ * There is apparently no guarantee on a keydown event will be followed by a
+ * keyup of the same key. This for example happens when the application is
+ * switched away from using keyboard shortcuts (Cmd+tab or Cmd+w). In this case
+ * only the keydown events are sent, the keyup is never received by the window.
+ * Same behavior exists in real browsers too, most likely not a bug in Electron.
+ *
+ * However this lack of keyup events behavior confuses SoundCloud and keyboard
+ * shortcuts temporarily stop functioning (until a keyup event is sent again).
+* This is an attempt to workaround the situation.
+ */
+function fixFlakyMediaKeys(mainWindow) {
+  mainWindow.on('blur', () => {
+    mainWindow.webContents.sendInputEvent({
+      type: 'keyUp',
+      // anything should do it, trying something unused as a shortcut
+      keyCode: '|'
+    })
+  })
+}
