@@ -14,7 +14,7 @@ describe('Logging in', function() {
       .click('button=Sign in')
       .waitForVisible('=Continue with Facebook')
       .click('=Continue with Facebook')
-      .waitForVisible('span=Log in to Facebook')
+      .waitForVisible('#loginbutton')
       .then(() => this.app.client.getUrl())
       .then(url => assertFacebookLogin(url))
       .then(() => this.app.client.getWindowCount())
