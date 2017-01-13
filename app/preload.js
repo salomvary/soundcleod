@@ -2,6 +2,8 @@
 
 const {ipcRenderer} = require('electron')
 
+require('./macos-swipe-navigation').register()
+
 // See https://github.com/electron/spectron#node-integration
 if (process.env.SPECTRON)
   window.electronRequire = require
