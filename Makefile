@@ -15,10 +15,12 @@ build/icon.icns: build/icon.iconset
 	iconutil -c icns -o $@ build/icon.iconset
 
 build/icon.iconset: soundcleod.svg soundcleod-lo.svg
+	mkdir -p $@
 	node generate-images.js
 	touch $@
 
 build/background.png: background.svg
+	mkdir -p build
 	node generate-background.js
 	touch $@
 
