@@ -41,12 +41,30 @@ Requirements on macOS:
 - Wine (`brew install wine --without-x11` and `brew install mono`). Be patient, this will take very long.
 - Code signing identity in Keychain
 
-## Working with self-signed code signing certificates
+## Working with self-signed code signing certificates on macOS
+
+Start with opening Keychain Access.
+
+Creating a certificate:
+
+- Keychain Access menu > Certificate Assistant > Create a certificate...
+- Enter your name (or whatever you want)
+- Identity Type: Self Signed Root
+- Certificate Type: Code Signing
+- Continue, Done
+
+Overriding the certificate trust levels:
 
 - Open the certificate (double click)
 - Expand "> Trust"
 - Set "When using this certificate" to "Always Trust"
 - Verify with `security find-identity -v -p codesigning`
+
+Importing a certificate:
+
+- File > Import items
+- Select the certificate file
+- Override trust levels as specified above
 
 ## Tricks and tips
 
