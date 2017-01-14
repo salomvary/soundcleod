@@ -10,12 +10,25 @@ dist-mac: build/icon.icns build/background.png build/icon.ico $(wildcard app/*)
 dist-win: build/icon.icns build/background.png build/icon.ico $(wildcard app/*)
 	. ./.codesign && npm run dist -- --win
 
+release-mac: build/icon.icns build/background.png build/icon.ico $(wildcard app/*)
+	. ./.codesign && npm run release -- --mac
+
+release-win: build/icon.icns build/background.png build/icon.ico $(wildcard app/*)
+	. ./.codesign && npm run release -- --win
+
 docker-dist-win:
 	docker run --rm \
 		-v "$(CURDIR):/project" \
 		-v ~/.electron:/root/.electron \
 		electronuserland/electron-builder:wine \
 		make dist-win
+
+docker-release-win:
+	docker run --rm \
+		-v "$(CURDIR):/project" \
+		-v ~/.electron:/root/.electron \
+		electronuserland/electron-builder:wine \
+		make release-win
 
 dist/mac/SoundCleod.app: build/icon.icns build/background.png $(wildcard app/*)
 	. ./.codesign && npm run pack
@@ -55,8 +68,8 @@ increment_version:
 history:
 	./release.sh history
 
-release: clean increment_version dist history
-	git add README.markdown CHANGELOG.md package.json
+release: clean increment_version dist-mac docker-dist-win history
+	git add README.markdown CHANGELOG.md app/package.json
 	git commit -m "v$$(./release.sh print_version)"
 	git tag -m "v$$(./release.sh print_version)" "v$$(./release.sh print_version)"
 
