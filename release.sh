@@ -17,10 +17,10 @@ update_readme_version() {
 	 	"s/Current version is [^[:space:]]+ \([^(]+\)/Current version is $version ($date)/"\
 		README.markdown
 	sed -i '' -E -e\
-    "s/download\\/[^\\/]+\\/SoundCleod-[^\\/]+.dmg/download\\/v$version\\/SoundCleod-$version.dmg/"\
+    "s/download\\/[^\\/]+\\/soundcleod-[^\\/]+.dmg/download\\/v$version\\/soundcleod-$version.dmg/"\
 		README.markdown
 	sed -i '' -E -e\
-    "s/download\\/[^\\/]+\\/SoundCleod.Setup.[^\\/]+.exe/download\\/v$version\\/SoundCleod.Setup.$version.exe/"\
+    "s/download\\/[^\\/]+\\/soundcleod-Setup-[^\\/]+.exe/download\\/v$version\\/soundcleod-Setup-$version.exe/"\
 		README.markdown
 }
 
