@@ -4,11 +4,21 @@ install-mac: pack
 
 pack: dist/mac/SoundCleod.app
 
-dist: build/icon.icns build/background.png build/icon.ico $(wildcard app/*)
-	. .codesign && npm run dist
+dist-mac: build/icon.icns build/background.png build/icon.ico $(wildcard app/*)
+	. ./.codesign && npm run dist -- --mac
+
+dist-win: build/icon.icns build/background.png build/icon.ico $(wildcard app/*)
+	. ./.codesign && npm run dist -- --win
+
+docker-dist-win:
+	docker run --rm \
+		-v "$(CURDIR):/project" \
+		-v ~/.electron:/root/.electron \
+		electronuserland/electron-builder:wine \
+		make dist-win
 
 dist/mac/SoundCleod.app: build/icon.icns build/background.png $(wildcard app/*)
-	. .codesign && npm run pack
+	. ./.codesign && npm run pack
 	touch $@
 
 build/icon.icns: build/icon.iconset

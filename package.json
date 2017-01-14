@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dist": "build --mac --win",
+    "dist": "build",
     "eslint": "eslint .",
     "pack": "build --dir",
     "postinstall": "install-app-deps",
