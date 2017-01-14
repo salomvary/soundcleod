@@ -5,6 +5,7 @@
     "eslint": "eslint .",
     "pack": "build --dir",
     "postinstall": "install-app-deps",
+    "release": "build",
     "start": "electron ./app --profile=development --no-auto-updater --developer-tools",
     "test": "mocha",
     "svg2png": "svg2png"

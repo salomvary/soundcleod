@@ -1,3 +1,8 @@
+## 1.1.7 (January 14, 2017)
+- Add experimental swipe back/forward navigation
+- Fix media key flakyness under some circumstances
+- Fix crash on startup #130
+
 ## 1.1.6 (November 23, 2016)
 - Release SoundCleod for Windows
 - Yet another fix for Facebook login
