@@ -1,5 +1,4 @@
-// Adopted from https://github.com/MarshallOfSound/Google-Play-Music-Desktop-Player-UNOFFICIAL-/blob/master/src/renderer/windows/GPMWebView/interface/customNavigation/mouseButtonNavigation.js
-// Alternatives to consider:
+// Adopted from
 // https://github.com/wozaki/twitter-js-apps/blob/9bc00eafd575fd180dc7a450e1b1daf425e67b80/redux/src/main/renderer/registries/electron/swipeNavigatorImpl.js
 // TODO publish this as a standalone module
 
@@ -7,13 +6,24 @@
 
 const { remote } = require('electron')
 
+const THRESHOLD_DELTA_X = 70
+const THRESHOLD_LIMIT_DELTA_Y = 50
+const THRESHOLD_TIME = 50
+
+// TODO avoid module global state
+let tracking = false
+let deltaX = 0
+let deltaY = 0
+let startTime = 0
+let time = 0
+
 module.exports.register = function register() {
   remote.getCurrentWindow()
     .on('scroll-touch-begin', onScrollBegin)
     .on('scroll-touch-end', onScrollEnd)
     .on('swipe', onSwipe)
 
-  window.addEventListener('mousewheel', onMouseWheel, {passive: true})
+  window.addEventListener('wheel', onMouseWheel, {passive: true})
   window.addEventListener('beforeunload', remove)
 }
 
@@ -27,38 +37,35 @@ const remove = module.exports.remove = function remove() {
   window.removeEventListener('beforeunload', remove)
 }
 
-let scrolling = false
-let scrollingShouldNav = 0
-const NAV_VELOCITY = 30
-
 function onSwipe(e, direction) {
   if (direction === 'left')
-    remote.getCurrentWebContents.goBack()
+    remote.getCurrentWebContents().goBack()
   else if (direction === 'right')
     remote.getCurrentWebContents().goForward()
 }
 
 function onMouseWheel(e) {
-  if (e.deltaX > NAV_VELOCITY && scrolling)
-    scrollingShouldNav = 1
-  else if (e.deltaX < -1 * NAV_VELOCITY && scrolling)
-    scrollingShouldNav = -1
-}
-
-function onScrollBegin() {
-  scrolling = true
-}
-
-function onScrollEnd() {
-  scrolling = false
-  // TODO figure out how to avoid navigating if the window contents or
-  // a scrollable element within the window was actually scrolled
-  if (scrollingShouldNav) {
-    if (scrollingShouldNav > 0)
-      remote.getCurrentWebContents().goForward()
-    else
-      remote.getCurrentWebContents().goBack()
-    scrollingShouldNav = 0
+  if (tracking) {
+    deltaX = deltaX + e.deltaX
+    deltaY = deltaY + e.deltaY
+    time   = (new Date()).getTime() - startTime
   }
 }
 
+function onScrollBegin() {
+  tracking  = true
+  startTime = (new Date()).getTime()
+}
+
+function onScrollEnd() {
+  if (time > THRESHOLD_TIME && tracking && Math.abs(deltaY) < THRESHOLD_LIMIT_DELTA_Y)
+    if (deltaX > THRESHOLD_DELTA_X)
+      remote.getCurrentWebContents().goForward()
+    else if (deltaX < -THRESHOLD_DELTA_X)
+      remote.getCurrentWebContents().goBack()
+
+  tracking = false
+  deltaX = 0
+  deltaY = 0
+  startTime = 0
+}
