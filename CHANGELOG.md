@@ -1,3 +1,6 @@
+## 1.1.8 (January 17, 2017)
+- Fix accidental back navigation when scrolling
+
 ## 1.1.7 (January 14, 2017)
 - Add experimental swipe back/forward navigation
 - Fix media key flakyness under some circumstances
