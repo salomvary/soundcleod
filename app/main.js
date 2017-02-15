@@ -100,6 +100,22 @@ app.on('ready', function() {
     }
   })
 
+  // For MacOS, disable 'close' and 'minimize' buttons on fullscreen event
+  mainWindow.on('enter-full-screen', (e, cmd) => {
+    if (process.platform == 'darwin') {
+      mainWindow.setMinimizable(false);
+      mainWindow.setClosable(false);
+    }
+  })
+
+  // For MacOS, enable 'close' and 'minimize' buttons on exit-fullscreen event
+  mainWindow.on('leave-full-screen', (e, cmd) => {
+    if (process.platform == 'darwin') {
+      mainWindow.setMinimizable(true);
+      mainWindow.setClosable(true);
+    }
+  })
+
   mainWindow.on('closed', function() {
     if (process.platform !== 'darwin')
       app.quit()
