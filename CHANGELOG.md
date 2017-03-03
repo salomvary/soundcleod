@@ -1,3 +1,6 @@
+## 1.1.9 (March  3, 2017)
+- Fix black screen when closing fullscreen app
+
 ## 1.1.8 (January 17, 2017)
 - Fix accidental back navigation when scrolling
 
