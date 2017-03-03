@@ -101,18 +101,18 @@ app.on('ready', function() {
   })
 
   // For MacOS, disable 'close' and 'minimize' buttons on fullscreen event
-  mainWindow.on('enter-full-screen', (e, cmd) => {
+  mainWindow.on('enter-full-screen', () => {
     if (process.platform == 'darwin') {
-      mainWindow.setMinimizable(false);
-      mainWindow.setClosable(false);
+      mainWindow.setMinimizable(false)
+      mainWindow.setClosable(false)
     }
   })
 
   // For MacOS, enable 'close' and 'minimize' buttons on exit-fullscreen event
-  mainWindow.on('leave-full-screen', (e, cmd) => {
+  mainWindow.on('leave-full-screen', () => {
     if (process.platform == 'darwin') {
-      mainWindow.setMinimizable(true);
-      mainWindow.setClosable(true);
+      mainWindow.setMinimizable(true)
+      mainWindow.setClosable(true)
     }
   })
 
