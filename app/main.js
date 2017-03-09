@@ -170,14 +170,14 @@ app.on('ready', function() {
   })
 
   require('electron').powerMonitor.on('suspend', () => {
-    soundcloud.isPlaying().then(isPlaying => {
+    soundcloud.isPlaying().then(({ isPlaying }) => {
       if (isPlaying)
         soundcloud.playPause()
     })
   })
 
-  soundcloud.on('play', (title, subtitle) => {
-    mainWindow.webContents.send('notification', title, subtitle)
+  soundcloud.on('play', ({ title, subtitle, artworkURL }) => {
+    mainWindow.webContents.send('notification', { title, body: subtitle, icon: artworkURL })
   })
 
   mainWindow.webContents.once('did-start-loading', () => {
