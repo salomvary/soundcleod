@@ -16,15 +16,24 @@ function navigate(url) {
 
 ipcRenderer.on('isPlaying', (event) => {
   const isPlaying = !!document.querySelector('.playing')
-  event.sender.send('isPlaying', isPlaying)
+  const icon = document.getElementsByClassName('playbackSoundBadge__avatar sc-media-image')[0].children[0].children[0].getAttribute('style')
+  var urlStart = icon.indexOf('url("') + 5;
+  var urlEnd = icon.indexOf('");') - urlStart;
+  var iconURL = icon.substr(urlStart, urlEnd)
+  event.sender.send('isPlaying', isPlaying, iconURL)
 })
 ipcRenderer.on('navigate', (_, url) => {
   navigate(url)
 })
 
 const Notification = window.Notification
-ipcRenderer.on('notification', (_, title, body) => {
-  new Notification(title, { body, silent: true })
+ipcRenderer.on('notification', (_, title, body, icon) => {
+  var options = {
+    body: body,
+    icon: icon,
+    silent: true
+  }
+  new Notification(title, options)
 })
 // Disable SoundCloud's own notifications, because:
 // - They are not silent on macOS

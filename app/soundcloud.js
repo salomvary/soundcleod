@@ -50,8 +50,9 @@ module.exports = class SoundCloud extends Events {
 
   isPlaying() {
     return new Promise(resolve => {
-      ipcMain.once('isPlaying', (_, isPlaying) => {
-        resolve(isPlaying)
+      ipcMain.once('isPlaying', (_, isPlaying, icon) => {
+        var values = [isPlaying, icon]
+        resolve(values)
       })
       this.window.webContents.send('isPlaying')
     })
@@ -75,9 +76,11 @@ module.exports = class SoundCloud extends Events {
       titleParts = title.split(' in ', 2)
     if (titleParts.length == 2)
       // Title has " in " in it when not playing but on a playlis page
-      this.isPlaying().then(isPlaying => {
+      this.isPlaying().then(values => {
+        var isPlaying = values[0]
+        var icon = values[1]
         if (isPlaying)
-          this.emit('play', titleParts[0], titleParts[1])
+          this.emit('play', titleParts[0], titleParts[1], icon)
       })
   }
 }

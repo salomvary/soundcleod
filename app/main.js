@@ -176,8 +176,8 @@ app.on('ready', function() {
     })
   })
 
-  soundcloud.on('play', (title, subtitle) => {
-    mainWindow.webContents.send('notification', title, subtitle)
+  soundcloud.on('play', (title, subtitle, icon) => {
+    mainWindow.webContents.send('notification', title, subtitle, icon)
   })
 
   mainWindow.webContents.once('did-start-loading', () => {
