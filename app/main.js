@@ -138,6 +138,10 @@ app.on('ready', function() {
     soundcloud.playPause()
   })
 
+  menu.events.on('likeUnlike', () => {
+    soundcloud.likeUnlike()
+  })
+
   menu.events.on('nextTrack', () => {
     soundcloud.nextTrack()
   })

@@ -20,6 +20,10 @@ module.exports = class SoundCloud extends Events {
     this.trigger('Space')
   }
 
+  likeUnlike() {
+    this.trigger('L')
+  }
+
   nextTrack() {
     this.trigger('J')
   }

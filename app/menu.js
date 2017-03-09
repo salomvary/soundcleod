@@ -110,6 +110,13 @@ function buildMenu(options) {
           }
         },
         {
+          label: 'Like',
+          accelerator: 'L',
+          click() {
+            events.emit('likeUnlike')
+          }
+        },
+        {
           label: 'Next',
           accelerator: 'Shift+Right',
           click() {
