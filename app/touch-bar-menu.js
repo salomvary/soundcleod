@@ -23,6 +23,13 @@ module.exports = function touchBarMenu(window, soundcloud) {
     label: '⏯',
     click: () => {
       soundcloud.playPause()
+      soundcloud.isPlaying().then(isPlaying => {
+        if (isPlaying) {
+          playPause.label = '⏸'
+        } else {
+          playPause.label = '▶️'
+        }
+      })
     }
   })
 
@@ -45,6 +52,6 @@ module.exports = function touchBarMenu(window, soundcloud) {
     trackInfo,
     new TouchBarSpacer({size: 'flexible'})
   ])
-  
+
   window.setTouchBar(touchBar)
 }
