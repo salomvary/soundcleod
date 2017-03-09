@@ -11,6 +11,12 @@ module.exports = function dockMenu(soundcloud) {
     }
   }))
   dockMenu.append(new MenuItem({
+    label: 'Like/Dislike',
+    click() {
+      soundcloud.likeDislike()
+    }
+  }))
+  dockMenu.append(new MenuItem({
     label: 'Next',
     click() {
       soundcloud.nextTrack()

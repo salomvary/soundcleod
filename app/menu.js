@@ -110,6 +110,13 @@ function buildMenu(options) {
           }
         },
         {
+          label: 'Like/Dislike',
+          accelerator: 'L',
+          click() {
+            events.emit('likeDislike')
+          }
+        },
+        {
           label: 'Next',
           accelerator: 'Shift+Right',
           click() {
