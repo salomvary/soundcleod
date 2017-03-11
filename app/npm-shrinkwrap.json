@@ -1,0 +1,102 @@
+{
+  "name": "soundcleod",
+  "version": "1.2.0-pre.1",
+  "dependencies": {
+    "date-now": {
+      "version": "1.0.1",
+      "from": "date-now@1.0.1",
+      "resolved": "https://registry.npmjs.org/date-now/-/date-now-1.0.1.tgz"
+    },
+    "debounce": {
+      "version": "1.0.0",
+      "from": "debounce@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/debounce/-/debounce-1.0.0.tgz"
+    },
+    "debug": {
+      "version": "2.3.3",
+      "from": "debug@>=2.2.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/debug/-/debug-2.3.3.tgz"
+    },
+    "deep-equal": {
+      "version": "1.0.1",
+      "from": "deep-equal@>=1.0.1 <2.0.0",
+      "resolved": "http://npm.dev.s-cloud.net/deep-equal/-/deep-equal-1.0.1.tgz"
+    },
+    "electron-context-menu": {
+      "version": "0.6.0",
+      "from": "electron-context-menu@>=0.6.0 <0.7.0",
+      "resolved": "https://registry.npmjs.org/electron-context-menu/-/electron-context-menu-0.6.0.tgz"
+    },
+    "electron-dl": {
+      "version": "1.5.0",
+      "from": "electron-dl@>=1.2.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/electron-dl/-/electron-dl-1.5.0.tgz"
+    },
+    "electron-is-dev": {
+      "version": "0.1.2",
+      "from": "electron-is-dev@>=0.1.1 <0.2.0",
+      "resolved": "https://registry.npmjs.org/electron-is-dev/-/electron-is-dev-0.1.2.tgz"
+    },
+    "electron-squirrel-startup": {
+      "version": "1.0.0",
+      "from": "electron-squirrel-startup@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/electron-squirrel-startup/-/electron-squirrel-startup-1.0.0.tgz"
+    },
+    "electron-window-state": {
+      "version": "4.0.1",
+      "from": "electron-window-state@>=4.0.1 <5.0.0",
+      "resolved": "https://registry.npmjs.org/electron-window-state/-/electron-window-state-4.0.1.tgz"
+    },
+    "graceful-fs": {
+      "version": "4.1.11",
+      "from": "graceful-fs@>=4.1.6 <5.0.0",
+      "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.11.tgz",
+      "optional": true
+    },
+    "jsonfile": {
+      "version": "2.4.0",
+      "from": "jsonfile@>=2.2.3 <3.0.0",
+      "resolved": "https://registry.npmjs.org/jsonfile/-/jsonfile-2.4.0.tgz"
+    },
+    "minimist": {
+      "version": "0.0.8",
+      "from": "minimist@0.0.8",
+      "resolved": "https://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz"
+    },
+    "mkdirp": {
+      "version": "0.5.1",
+      "from": "mkdirp@>=0.5.1 <0.6.0",
+      "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz"
+    },
+    "modify-filename": {
+      "version": "1.1.0",
+      "from": "modify-filename@>=1.1.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/modify-filename/-/modify-filename-1.1.0.tgz"
+    },
+    "ms": {
+      "version": "0.7.2",
+      "from": "ms@0.7.2",
+      "resolved": "https://registry.npmjs.org/ms/-/ms-0.7.2.tgz"
+    },
+    "optimist": {
+      "version": "0.6.1",
+      "from": "optimist@>=0.6.1 <0.7.0",
+      "resolved": "https://registry.npmjs.org/optimist/-/optimist-0.6.1.tgz"
+    },
+    "path-exists": {
+      "version": "3.0.0",
+      "from": "path-exists@>=3.0.0 <4.0.0",
+      "resolved": "https://registry.npmjs.org/path-exists/-/path-exists-3.0.0.tgz"
+    },
+    "unused-filename": {
+      "version": "0.1.0",
+      "from": "unused-filename@>=0.1.0 <0.2.0",
+      "resolved": "https://registry.npmjs.org/unused-filename/-/unused-filename-0.1.0.tgz"
+    },
+    "wordwrap": {
+      "version": "0.0.3",
+      "from": "wordwrap@>=0.0.2 <0.1.0",
+      "resolved": "https://registry.npmjs.org/wordwrap/-/wordwrap-0.0.3.tgz"
+    }
+  }
+}
