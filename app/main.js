@@ -95,24 +95,17 @@ app.on('ready', function() {
     // the app in tests:
     // https://github.com/electron/spectron/issues/137
     if (!quitting && !quitAfterLastWindow) {
+      // Do not quit
       event.preventDefault()
-      mainWindow.hide()
-    }
-  })
-
-  // For MacOS, disable 'close' and 'minimize' buttons on fullscreen event
-  mainWindow.on('enter-full-screen', () => {
-    if (process.platform == 'darwin') {
-      mainWindow.setMinimizable(false)
-      mainWindow.setClosable(false)
-    }
-  })
-
-  // For MacOS, enable 'close' and 'minimize' buttons on exit-fullscreen event
-  mainWindow.on('leave-full-screen', () => {
-    if (process.platform == 'darwin') {
-      mainWindow.setMinimizable(true)
-      mainWindow.setClosable(true)
+      // Hide the window instead of quitting
+      if (mainWindow.isFullScreen()) {
+        // Avoid blank black screen when closing a fullscreen window on macOS
+        // by only hiding when the leave-fullscreen animation finished.
+        // See https://github.com/electron/electron/issues/6033
+        mainWindow.once('leave-full-screen', () => mainWindow.hide())
+        mainWindow.setFullScreen(false)
+      } else
+        mainWindow.hide()
     }
   })
 
