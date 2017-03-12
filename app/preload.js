@@ -16,10 +16,14 @@ function navigate(url) {
 
 ipcRenderer.on('isPlaying', (event) => {
   const isPlaying = !!document.querySelector('.playing')
-  const icon = document.getElementsByClassName('playbackSoundBadge__avatar sc-media-image')[0].children[0].children[0].getAttribute('style')
-  var urlStart = icon.indexOf('url("') + 5;
-  var urlEnd = icon.indexOf('");') - urlStart;
-  var iconURL = icon.substr(urlStart, urlEnd)
+  const icon = document.querySelector('.playbackSoundBadge__avatar [aria-role=img]')
+  var iconURL
+  if(icon) {
+    const match = icon.style.backgroundImage.match(/(?:url\s*\(\s*['"]?)(.*?)(?:['"]?\s*\))/i)
+    iconURL = match && match[1]
+  } else {
+    iconURL = ''
+  }
   event.sender.send('isPlaying', isPlaying, iconURL)
 })
 ipcRenderer.on('navigate', (_, url) => {
@@ -28,9 +32,9 @@ ipcRenderer.on('navigate', (_, url) => {
 
 const Notification = window.Notification
 ipcRenderer.on('notification', (_, title, body, icon) => {
-  var options = {
-    body: body,
-    icon: icon,
+  const options = {
+    body,
+    icon,
     silent: true
   }
   new Notification(title, options)
