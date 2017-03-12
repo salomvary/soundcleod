@@ -13,14 +13,14 @@
       "resolved": "https://registry.npmjs.org/debounce/-/debounce-1.0.0.tgz"
     },
     "debug": {
-      "version": "2.3.3",
+      "version": "2.6.2",
       "from": "debug@>=2.2.0 <3.0.0",
-      "resolved": "https://registry.npmjs.org/debug/-/debug-2.3.3.tgz"
+      "resolved": "https://registry.npmjs.org/debug/-/debug-2.6.2.tgz"
     },
     "deep-equal": {
       "version": "1.0.1",
       "from": "deep-equal@>=1.0.1 <2.0.0",
-      "resolved": "http://npm.dev.s-cloud.net/deep-equal/-/deep-equal-1.0.1.tgz"
+      "resolved": "https://registry.npmjs.org/deep-equal/-/deep-equal-1.0.1.tgz"
     },
     "electron-context-menu": {
       "version": "0.6.0",
@@ -28,9 +28,9 @@
       "resolved": "https://registry.npmjs.org/electron-context-menu/-/electron-context-menu-0.6.0.tgz"
     },
     "electron-dl": {
-      "version": "1.5.0",
+      "version": "1.6.0",
       "from": "electron-dl@>=1.2.0 <2.0.0",
-      "resolved": "https://registry.npmjs.org/electron-dl/-/electron-dl-1.5.0.tgz"
+      "resolved": "https://registry.npmjs.org/electron-dl/-/electron-dl-1.6.0.tgz"
     },
     "electron-is-dev": {
       "version": "0.1.2",
@@ -43,9 +43,9 @@
       "resolved": "https://registry.npmjs.org/electron-squirrel-startup/-/electron-squirrel-startup-1.0.0.tgz"
     },
     "electron-window-state": {
-      "version": "4.0.1",
+      "version": "4.0.2",
       "from": "electron-window-state@>=4.0.1 <5.0.0",
-      "resolved": "https://registry.npmjs.org/electron-window-state/-/electron-window-state-4.0.1.tgz"
+      "resolved": "https://registry.npmjs.org/electron-window-state/-/electron-window-state-4.0.2.tgz"
     },
     "graceful-fs": {
       "version": "4.1.11",
@@ -87,6 +87,11 @@
       "version": "3.0.0",
       "from": "path-exists@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/path-exists/-/path-exists-3.0.0.tgz"
+    },
+    "pupa": {
+      "version": "1.0.0",
+      "from": "pupa@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/pupa/-/pupa-1.0.0.tgz"
     },
     "unused-filename": {
       "version": "0.1.0",
