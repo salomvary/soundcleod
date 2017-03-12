@@ -33,7 +33,7 @@ module.exports = function touchBarMenu(window, soundcloud) {
     }
   })
 
-  const likeDislike = new TouchBarButton({
+  const likeUnlike = new TouchBarButton({
     icon: './app/res/like.png',
     click: () => {
       soundcloud.likeUnlike()
@@ -50,7 +50,7 @@ module.exports = function touchBarMenu(window, soundcloud) {
     previousTrack,
     playPause,
     nextTrack,
-    likeDislike,
+    likeUnlike,
     new TouchBarSpacer({size: 'flexible'}),
     trackInfo,
     new TouchBarSpacer({size: 'flexible'})
