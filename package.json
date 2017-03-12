@@ -16,9 +16,6 @@
       "dsa_pub.pem",
       "Credits.rtf"
     ],
-    "mac": {
-      "extend-info": "Info.plist"
-    },
     "dmg": {
       "iconSize": 128,
       "contents": [
@@ -46,8 +43,8 @@
   },
   "devDependencies": {
     "electron": "1.6.2",
-    "electron-builder": "14.1.0",
-    "electron-builder-squirrel-windows": "15.0.0",
+    "electron-builder": "15.3.0",
+    "electron-builder-squirrel-windows": "15.3.0",
     "eslint": "^3.5.0",
     "mocha": "^3.1.2",
     "spectron": "^3.4.0",
