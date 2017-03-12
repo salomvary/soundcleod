@@ -110,10 +110,10 @@ function buildMenu(options) {
           }
         },
         {
-          label: 'Like/Dislike',
-          accelerator: 'L',
+          label: 'Like/Unlike',
+          accelerator: 'Shift+Q',
           click() {
-            events.emit('likeDislike')
+            events.emit('likeUnlike')
           }
         },
         {

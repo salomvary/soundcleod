@@ -11,9 +11,9 @@ module.exports = function dockMenu(soundcloud) {
     }
   }))
   dockMenu.append(new MenuItem({
-    label: 'Like/Dislike',
+    label: 'Like/Unlike',
     click() {
-      soundcloud.likeDislike()
+      soundcloud.likeUnlike()
     }
   }))
   dockMenu.append(new MenuItem({
