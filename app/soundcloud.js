@@ -28,7 +28,7 @@ module.exports = class SoundCloud extends Events {
   }
 
   goHome() {
-    this.window.webContents.send('navigate', '/')
+    this.navigate('/')
   }
 
   canGoBack() {
@@ -45,6 +45,10 @@ module.exports = class SoundCloud extends Events {
 
   goForward() {
     this.window.webContents.goForward()
+  }
+
+  navigate(url) {
+    this.window.webContents.send('navigate', url)
   }
 
   isPlaying() {

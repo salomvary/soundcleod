@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: Window;
+  margin: 25px 20px;
+  font-size: 13px;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+p {
+  margin: 15px 0;
+}
+
+input, button {
+  font: inherit;
+}
+
+[type=url] {
+  display: block;
+  width: 100%;
+  padding: 2px;
+}
+
+button {
+  padding: 3px 6px;
+  width: 80px;
+}
+
+.error-message {
+  display: none;
+  float: left;
+}
+
+:invalid .error-message {
+  display: block;
+}
+
+.buttons {
+  text-align: right;
+}

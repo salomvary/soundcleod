@@ -13,6 +13,13 @@ function buildMenu(options) {
       label: 'Edit',
       submenu: [
         {
+          label: 'Location',
+          accelerator: 'CmdOrCtrl+L',
+          click() {
+            events.emit('edit-location')
+          }
+        },
+        {
           label: 'Undo',
           accelerator: 'CmdOrCtrl+Z',
           role: 'undo'

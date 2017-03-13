@@ -17,6 +17,7 @@ const windowState = require('electron-window-state')
 const SoundCloud = require('./soundcloud')
 const windowOpenPolicy = require('./window-open-policy')
 const options = require('./options')
+const editURL = require('./edit-url-window')
 
 var mainWindow = null
 var aboutWindow = null
@@ -151,6 +152,10 @@ app.on('ready', function() {
 
   menu.events.on('about', () => {
     showAbout()
+  })
+
+  menu.events.on('edit-location', () => {
+    editURL(mainWindow, soundcloud)
   })
 
   require('electron').powerMonitor.on('suspend', () => {
