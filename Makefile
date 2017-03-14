@@ -18,6 +18,7 @@ release-win: build/icon.icns build/background.png build/icon.ico $(wildcard app/
 
 docker-dist-win:
 	docker run --rm \
+		-e DEBUG \
 		-v "$(CURDIR):/project" \
 		-v ~/.electron:/root/.electron \
 		electronuserland/electron-builder:wine \
@@ -25,6 +26,7 @@ docker-dist-win:
 
 docker-release-win:
 	docker run --rm \
+		-e DEBUG \
 		-v "$(CURDIR):/project" \
 		-v ~/.electron:/root/.electron \
 		electronuserland/electron-builder:wine \
