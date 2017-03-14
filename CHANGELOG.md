@@ -1,3 +1,8 @@
+## 1.2.0 (March 14, 2017)
+- Fix full screen closing/quitting on macOS
+- Add like/unlike to the main and dock menus
+- Show album art on desktop notification
+
 ## 1.1.9 (March  3, 2017)
 - Fix black screen when closing fullscreen app
 
