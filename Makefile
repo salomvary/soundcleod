@@ -71,7 +71,7 @@ history:
 	./release.sh history
 
 release: clean increment_version release-mac docker-release-win history
-	git add README.markdown CHANGELOG.md app/package.json
+	git add README.markdown CHANGELOG.md app/package.json app/npm-shrinkwrap.json
 	git commit -m "v$$(./release.sh print_version)"
 	git tag -m "v$$(./release.sh print_version)" "v$$(./release.sh print_version)"
 
