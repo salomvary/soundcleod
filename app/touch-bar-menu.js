@@ -1,7 +1,7 @@
 'use strict'
 
-const {app, BrowserWindow, TouchBar} = require('electron')
-const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
+const { TouchBar } = require('electron')
+const { TouchBarButton, TouchBarLabel, TouchBarSpacer } = TouchBar
 
 module.exports = function touchBarMenu(window, soundcloud) {
 
@@ -23,12 +23,11 @@ module.exports = function touchBarMenu(window, soundcloud) {
     icon: './app/res/play.png',
     click: () => {
       soundcloud.playPause()
-      soundcloud.isPlaying().then(({ isPlaying, artworkURL }) => {
-        if (isPlaying) {
+      soundcloud.isPlaying().then(({ isPlaying }) => {
+        if (isPlaying)
           playPause.icon = './app/res/pause.png'
-        } else {
+        else
           playPause.icon = './app/res/play.png'
-        }
       })
     }
   })
@@ -42,7 +41,7 @@ module.exports = function touchBarMenu(window, soundcloud) {
 
   const trackInfo = new TouchBarLabel()
 
-  soundcloud.on('play', ({ title, subtitle, artworkURL }) => {
+  soundcloud.on('play', ({ title, subtitle }) => {
     trackInfo.label = title + ' by ' + subtitle
   })
 
