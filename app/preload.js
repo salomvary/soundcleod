@@ -23,10 +23,9 @@ function getArtworkURL() {
   }
 }
 
-ipcRenderer.on('isPlaying', (event) => {
-  const isPlaying = !!document.querySelector('.playing')
+ipcRenderer.on('getTrackMetadata', ({ sender }) => {
   const artworkURL = getArtworkURL()
-  event.sender.send('isPlaying', { isPlaying, artworkURL })
+  sender.send('trackMetadata', { artworkURL })
 })
 
 ipcRenderer.on('navigate', (_, url) => {

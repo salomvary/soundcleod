@@ -170,10 +170,7 @@ app.on('ready', function() {
   })
 
   require('electron').powerMonitor.on('suspend', () => {
-    soundcloud.isPlaying().then(({ isPlaying }) => {
-      if (isPlaying)
-        soundcloud.playPause()
-    })
+    soundcloud.pause()
   })
 
   soundcloud.on('play', ({ title, subtitle, artworkURL }) => {

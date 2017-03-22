@@ -23,12 +23,6 @@ module.exports = function touchBarMenu(window, soundcloud) {
     icon: './app/res/play.png',
     click: () => {
       soundcloud.playPause()
-      soundcloud.isPlaying().then(({ isPlaying }) => {
-        if (isPlaying)
-          playPause.icon = './app/res/pause.png'
-        else
-          playPause.icon = './app/res/play.png'
-      })
     }
   })
 
@@ -42,7 +36,14 @@ module.exports = function touchBarMenu(window, soundcloud) {
   const trackInfo = new TouchBarLabel()
 
   soundcloud.on('play', ({ title, subtitle }) => {
+    playPause.icon = './app/res/pause.png'
+    // TODO fix this for playlists where subtitle is the playlist title
     trackInfo.label = title + ' by ' + subtitle
+  })
+
+  soundcloud.on('pause', () => {
+    playPause.icon = './app/res/play.png'
+    trackInfo.label = ''
   })
 
   const touchBar = new TouchBar([
