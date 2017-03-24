@@ -1,23 +1,25 @@
 'use strict'
 
-const debounce = require('debounce')
 const { ipcMain } = require('electron')
 const Events = require('events')
-
-const titleDebounceWaitMs = 200
 
 module.exports = class SoundCloud extends Events {
   constructor(window) {
     super()
     this.window = window
-    window.on('page-title-updated', debounce((_, title) => {
-      this.onTitleUpdated(_, title)
-    }), titleDebounceWaitMs)
+    this._playing = false
+    window.webContents
+      .on('media-started-playing', onMediaStartedPlaying.bind(this))
+      .on('media-paused', onMediaPaused.bind(this))
     fixFlakyMediaKeys(window)
   }
 
   playPause() {
     this.trigger('Space')
+  }
+
+  pause() {
+    if (this._playing) this.playPause()
   }
 
   likeUnlike() {
@@ -52,15 +54,6 @@ module.exports = class SoundCloud extends Events {
     this.window.webContents.goForward()
   }
 
-  isPlaying() {
-    return new Promise(resolve => {
-      ipcMain.once('isPlaying', (_, result) => {
-        resolve(result)
-      })
-      this.window.webContents.send('isPlaying')
-    })
-  }
-
   trigger(keyCode) {
     this.window.webContents.sendInputEvent({
       type: 'keyDown',
@@ -72,19 +65,42 @@ module.exports = class SoundCloud extends Events {
       keyCode
     })
   }
+}
 
-  onTitleUpdated(_, title) {
-    var titleParts = title.split(' by ', 2)
-    if (titleParts.length == 1)
-      titleParts = title.split(' in ', 2)
-    if (titleParts.length == 2) {
-      // Title has " in " in it when not playing but on a playlist page
-      const [title, subtitle] = titleParts
-      this.isPlaying().then(({ isPlaying, artworkURL }) => {
-        if (isPlaying)
-          this.emit('play', { title, subtitle, artworkURL })
-      })
-    }
+function onMediaStartedPlaying() {
+  this._playing = true
+  getTrackMetadata.call(this).then(trackMetadata => {
+    if (trackMetadata)
+      this.emit('play', trackMetadata)
+  })
+}
+
+function onMediaPaused() {
+  this._playing = false
+  this.emit('pause')
+}
+
+function getTrackMetadata() {
+  return new Promise(resolve => {
+    ipcMain.once('trackMetadata', (_, trackMetadata) => {
+      const title = parseTitle(this.window.getTitle())
+      if (title)
+        resolve(Object.assign({}, title, trackMetadata))
+      else
+        resolve()
+    })
+    this.window.webContents.send('getTrackMetadata')
+  })
+}
+
+function parseTitle(title) {
+  var titleParts = title.split(' by ', 2)
+  if (titleParts.length == 1)
+    titleParts = title.split(' in ', 2)
+  if (titleParts.length == 2) {
+    // Title has " in " in it when not playing but on a playlist page
+    const [title, subtitle] = titleParts
+    return { title, subtitle }
   }
 }
 

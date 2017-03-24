@@ -17,6 +17,7 @@ const windowState = require('electron-window-state')
 const SoundCloud = require('./soundcloud')
 const windowOpenPolicy = require('./window-open-policy')
 const options = require('./options')
+const touchBarMenu = require('./touch-bar-menu')
 
 var mainWindow = null
 var aboutWindow = null
@@ -85,8 +86,10 @@ app.on('ready', function() {
   const soundcloud = new SoundCloud(mainWindow)
   contextMenu(mainWindow, soundcloud)
   errorHandlers(mainWindow)
-  if (process.platform == 'darwin')
+  if (process.platform == 'darwin') {
     dockMenu(soundcloud)
+    touchBarMenu(mainWindow, soundcloud)
+  }
 
   mainWindowState.manage(mainWindow)
 
@@ -167,10 +170,7 @@ app.on('ready', function() {
   })
 
   require('electron').powerMonitor.on('suspend', () => {
-    soundcloud.isPlaying().then(({ isPlaying }) => {
-      if (isPlaying)
-        soundcloud.playPause()
-    })
+    soundcloud.pause()
   })
 
   soundcloud.on('play', ({ title, subtitle, artworkURL }) => {
