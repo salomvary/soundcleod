@@ -2,6 +2,7 @@
 
 const { TouchBar } = require('electron')
 const { TouchBarButton, TouchBarLabel, TouchBarSpacer } = TouchBar
+const MAX_TITLE_LENGTH = 38
 
 module.exports = function touchBarMenu(window, soundcloud) {
 
@@ -37,8 +38,7 @@ module.exports = function touchBarMenu(window, soundcloud) {
 
   soundcloud.on('play', ({ title, subtitle }) => {
     playPause.icon = './app/res/pause.png'
-    // TODO fix this for playlists where subtitle is the playlist title
-    trackInfo.label = title + ' by ' + subtitle
+    trackInfo.label = formatTitle(title, subtitle)
   })
 
   soundcloud.on('pause', () => {
@@ -57,4 +57,19 @@ module.exports = function touchBarMenu(window, soundcloud) {
   ])
 
   window.setTouchBar(touchBar)
+}
+
+function formatTitle(title, subtitle) {
+  const titleAndSubtitle = `${title} by ${subtitle}`
+  if (titleAndSubtitle.length > MAX_TITLE_LENGTH)
+    if (`${title} by X…`.length > MAX_TITLE_LENGTH)
+      return truncate(title)
+    else
+      return truncate(titleAndSubtitle)
+  else
+    return titleAndSubtitle
+}
+
+function truncate(text) {
+  return text.substring(0, MAX_TITLE_LENGTH - 1) + '…'
 }
