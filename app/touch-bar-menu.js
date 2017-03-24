@@ -43,7 +43,6 @@ module.exports = function touchBarMenu(window, soundcloud) {
 
   soundcloud.on('pause', () => {
     playPause.icon = './app/res/play.png'
-    trackInfo.label = ''
   })
 
   const touchBar = new TouchBar([
