@@ -42,7 +42,7 @@
     }
   },
   "devDependencies": {
-    "electron": "1.6.3",
+    "electron": "1.6.4",
     "electron-builder": "15.3.0",
     "electron-builder-squirrel-windows": "15.3.0",
     "eslint": "^3.5.0",
