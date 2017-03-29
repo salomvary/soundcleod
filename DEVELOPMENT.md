@@ -83,6 +83,14 @@ Debugging packaging and code signing:
 Remove persisted data on macOS:
 
     rm -rf ~/Library/Application\ Support/SoundCleod\ development/
+    
+## Use the Chromium Web Developer Tools
+
+Start SoundCleod with `npm start` or the installed application with `--developer-tools`:
+
+    /Applications/SoundCleod.app/Contents/MacOS/SoundCleod --developer-tools
+    
+Use Cmd+Option+I to toggle Developer Tools or use  View > Toggle Developer Tools from the menu.
 
 ## Building the website
 
