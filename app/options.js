@@ -13,7 +13,7 @@ module.exports = function options(process) {
     autoUpdaterBaseUrl: argv['auto-updater-base-url'],
     baseUrl: argv['base-url'],
     developerTools: argv['developer-tools'],
-    profile: argv['profile'],
+    profile: argv.profile,
     quitAfterLastWindow: argv['quit-after-last-window'],
     useAutoUpdater: argv['auto-updater'],
     userData: argv['user-data-path']

@@ -1,26 +1,23 @@
 'use strict'
 
 // Handle the Squirrel.Windows install madnesss
+/* eslint global-require: "off" */
 if (require('electron-squirrel-startup')) return
 
-const electron = require('electron')
-const contextMenu = require('./context-menu')
+const { app, BrowserWindow, globalShortcut, Menu } = require('electron')
 const autoUpdater = require('./auto-updater')
+const contextMenu = require('./context-menu')
 const dockMenu = require('./dock-menu')
 const errorHandlers = require('./error-handlers')
 const mainMenu = require('./menu')
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
-const globalShortcut = electron.globalShortcut
-const Menu = electron.Menu
-const windowState = require('electron-window-state')
-const SoundCloud = require('./soundcloud')
-const windowOpenPolicy = require('./window-open-policy')
 const options = require('./options')
+const SoundCloud = require('./soundcloud')
 const touchBarMenu = require('./touch-bar-menu')
+const windowOpenPolicy = require('./window-open-policy')
+const windowState = require('electron-window-state')
 
-var mainWindow = null
-var aboutWindow = null
+let mainWindow = null
+let aboutWindow = null
 
 const {
   autoUpdaterBaseUrl,
@@ -37,9 +34,9 @@ if (userData)
 else if (profile)
   app.setPath('userData', app.getPath('userData') + ' ' + profile)
 
-var quitting = false
+let quitting = false
 
-app.on('before-quit', function() {
+app.on('before-quit', () => {
   quitting = true
 })
 
@@ -61,7 +58,7 @@ app.on('activate', () => {
   if (mainWindow) mainWindow.show()
 })
 
-app.on('ready', function() {
+app.on('ready', () => {
   const menu = mainMenu({ developerTools })
   Menu.setApplicationMenu(menu)
 
@@ -112,7 +109,7 @@ app.on('ready', function() {
     }
   })
 
-  mainWindow.on('closed', function() {
+  mainWindow.on('closed', () => {
     if (process.platform !== 'darwin')
       app.quit()
     mainWindow = null
@@ -169,6 +166,9 @@ app.on('ready', function() {
     showAbout()
   })
 
+  // "You cannot require or use this module until the `ready` event of the
+  // `app` module is emitted."
+  /* eslint global-require: off */
   require('electron').powerMonitor.on('suspend', () => {
     soundcloud.pause()
   })
@@ -187,8 +187,7 @@ app.on('ready', function() {
 function getUrl() {
   if (baseUrl)
     return baseUrl
-  else
-    return 'https://soundcloud.com'
+  return 'https://soundcloud.com'
 }
 
 function showAbout() {

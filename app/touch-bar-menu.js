@@ -1,11 +1,11 @@
 'use strict'
 
 const { TouchBar } = require('electron')
+
 const { TouchBarButton, TouchBarLabel, TouchBarSpacer } = TouchBar
 const MAX_TITLE_LENGTH = 38
 
 module.exports = function touchBarMenu(window, soundcloud) {
-
   const nextTrack = new TouchBarButton({
     icon: './app/res/next.png',
     click: () => {
@@ -50,9 +50,9 @@ module.exports = function touchBarMenu(window, soundcloud) {
     playPause,
     nextTrack,
     likeUnlike,
-    new TouchBarSpacer({size: 'flexible'}),
+    new TouchBarSpacer({ size: 'flexible' }),
     trackInfo,
-    new TouchBarSpacer({size: 'flexible'})
+    new TouchBarSpacer({ size: 'flexible' })
   ])
 
   window.setTouchBar(touchBar)
@@ -65,8 +65,7 @@ function formatTitle(title, subtitle) {
       return truncate(title)
     else
       return truncate(titleAndSubtitle)
-  else
-    return titleAndSubtitle
+  return titleAndSubtitle
 }
 
 function truncate(text) {

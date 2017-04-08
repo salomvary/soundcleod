@@ -7,7 +7,7 @@ module.exports = class SoundCloud extends Events {
   constructor(window) {
     super()
     this.window = window
-    this._playing = false
+    this.playing = false
     window.webContents
       .on('media-started-playing', onMediaStartedPlaying.bind(this))
       .on('media-paused', onMediaPaused.bind(this))
@@ -19,7 +19,7 @@ module.exports = class SoundCloud extends Events {
   }
 
   pause() {
-    if (this._playing) this.playPause()
+    if (this.playing) this.playPause()
   }
 
   likeUnlike() {
@@ -68,20 +68,20 @@ module.exports = class SoundCloud extends Events {
 }
 
 function onMediaStartedPlaying() {
-  this._playing = true
-  getTrackMetadata.call(this).then(trackMetadata => {
+  this.playing = true
+  getTrackMetadata.call(this).then((trackMetadata) => {
     if (trackMetadata)
       this.emit('play', trackMetadata)
   })
 }
 
 function onMediaPaused() {
-  this._playing = false
+  this.playing = false
   this.emit('pause')
 }
 
 function getTrackMetadata() {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     ipcMain.once('trackMetadata', (_, trackMetadata) => {
       const title = parseTitle(this.window.getTitle())
       if (title)
@@ -93,15 +93,16 @@ function getTrackMetadata() {
   })
 }
 
-function parseTitle(title) {
-  var titleParts = title.split(' by ', 2)
+function parseTitle(windowTitle) {
+  let titleParts = windowTitle.split(' by ', 2)
   if (titleParts.length == 1)
-    titleParts = title.split(' in ', 2)
+    titleParts = windowTitle.split(' in ', 2)
   if (titleParts.length == 2) {
     // Title has " in " in it when not playing but on a playlist page
     const [title, subtitle] = titleParts
     return { title, subtitle }
   }
+  return null
 }
 
 /*

@@ -1,12 +1,21 @@
 'use strict'
 
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 
 require('./macos-swipe-navigation').register()
 
 // See https://github.com/electron/spectron#node-integration
 if (process.env.SPECTRON)
   window.electronRequire = require
+
+ipcRenderer.on('getTrackMetadata', ({ sender }) => sendTrackMetadata(sender))
+ipcRenderer.on('navigate', (_, url) => navigate(url))
+ipcRenderer.on('notification', (_, metadata) => showNotification(metadata))
+
+function sendTrackMetadata(sender) {
+  const artworkURL = getArtworkURL()
+  sender.send('trackMetadata', { artworkURL })
+}
 
 function navigate(url) {
   history.replaceState(null, null, url)
@@ -21,34 +30,27 @@ function getArtworkURL() {
     const match = artwork.style.backgroundImage.match(/(?:url\s*\(\s*['"]?)(.*?)(?:['"]?\s*\))/i)
     return match && match[1]
   }
+  return null
 }
 
-ipcRenderer.on('getTrackMetadata', ({ sender }) => {
-  const artworkURL = getArtworkURL()
-  sender.send('trackMetadata', { artworkURL })
-})
-
-ipcRenderer.on('navigate', (_, url) => {
-  navigate(url)
-})
-
 const Notification = window.Notification
-ipcRenderer.on('notification', (_, { title, body, icon }) => {
-  new Notification(title, { body, icon, silent: true })
-})
 // Disable SoundCloud's own notifications, because:
 // - They are not silent on macOS
 // - They are hidden behind a feature flag
 delete window.Notification
 
+function showNotification({ title, body, icon }) {
+  /* eslint no-new: off */
+  new Notification(title, { body, icon, silent: true })
+}
+
 const confirm = window.confirm
 
-window.confirm = function(message) {
+window.confirm = (message) => {
   // For some bizarre reason SoundCloud calls comfirm() with { string: 'The message' }
   if (message && message.string)
     return confirm(message.string)
-  else
-    return confirm(message)
+  return confirm(message)
 }
 
 // Facebook login pupup fails to close and notify the main SoundCloud window

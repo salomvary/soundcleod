@@ -3,11 +3,10 @@
 const applicationHelper = require('./application-helper')
 const assert = require('assert')
 
-describe('Logging in', function() {
-
+describe('Logging in', function () {
   applicationHelper()
 
-  it('shows Facebook login in the main window', function() {
+  it('shows Facebook login in the main window', function () {
     return this.app.client
       .waitForVisible('button=Sign in')
       .element('#content')
@@ -21,7 +20,7 @@ describe('Logging in', function() {
       .then(windowCount => assert.equal(windowCount, 1, 'No popup is open'))
   })
 
-  it('shows Google login in a popup', function() {
+  it('shows Google login in a popup', function () {
     return this.app.client
       .waitForVisible('button=Sign in')
       .element('#content')

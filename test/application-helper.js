@@ -9,9 +9,8 @@ const defaultArgs = [
   '--quit-after-last-window'
 ]
 
-module.exports = function({baseURL} = {}) {
-
-  beforeEach('start application', function() {
+module.exports = function ({ baseURL } = {}) {
+  beforeEach('start application', function () {
     // Start each test with a blank user profile
     this.userData = tmp.dirSync()
 
@@ -38,11 +37,11 @@ module.exports = function({baseURL} = {}) {
     return this.app.start()
   })
 
-  afterEach('stop application', function() {
+  afterEach('stop application', function () {
     if (this.app && this.app.isRunning())
       return this.app.stop()
+    return null
   })
-
 }
 
 function entryPoint() {
@@ -50,12 +49,12 @@ function entryPoint() {
   const path = process.env.SOUNDCLEOD_PATH
   if (path)
     return {
-      path: path,
+      path,
       args: []
     }
-  else
-    return {
-      path: require('electron'),
-      args: ['app/main.js']
-    }
+  return {
+    /* eslint global-require: off */
+    path: require('electron'),
+    args: ['app/main.js']
+  }
 }

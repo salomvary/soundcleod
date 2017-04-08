@@ -3,16 +3,7 @@
 const { shell } = require('electron')
 
 module.exports = function windowOpenPolicy(app) {
-  app.on('browser-window-created', (_, window) => {
-    applyPolicy(window)
-  })
-}
-
-function isLoginURL(url) {
-  return [
-    /^https:\/\/accounts\.google\.com.*/i,
-    /^https:\/\/www.facebook.com\/.*\/oauth.*/i
-  ].some(re => url.match(re))
+  app.on('browser-window-created', (_, window) => applyPolicy(window))
 }
 
 function applyPolicy(window) {
@@ -34,6 +25,7 @@ function onNewWindow(event, url, frameName, disposition, options) {
   // checking disposition here.
   if (disposition == 'new-window') {
     // Do not copy these from mainWindow to login popups
+    /* eslint no-param-reassign: off */
     delete options.minWidth
     delete options.minHeight
     options.webPreferences = Object.assign({}, options.webPreferences, {
@@ -45,15 +37,22 @@ function onNewWindow(event, url, frameName, disposition, options) {
   }
 }
 
-function isSoundCloudURL(url) {
-  return [
-    /^https?:\/\/soundcloud\.com.*/i
-  ].some(re => url.match(re))
-}
-
 function onWillNavigate(event, url) {
   if (url && !isSoundCloudURL(url) && !isLoginURL(url)) {
     event.preventDefault()
     shell.openExternal(url)
   }
+}
+
+function isLoginURL(url) {
+  return [
+    /^https:\/\/accounts\.google\.com.*/i,
+    /^https:\/\/www.facebook.com\/.*\/oauth.*/i
+  ].some(re => url.match(re))
+}
+
+function isSoundCloudURL(url) {
+  return [
+    /^https?:\/\/soundcloud\.com.*/i
+  ].some(re => url.match(re))
 }

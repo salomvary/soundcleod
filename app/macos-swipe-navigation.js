@@ -17,17 +17,19 @@ let deltaY = 0
 let startTime = 0
 let time = 0
 
+module.exports.remove = remove
+
 module.exports.register = function register() {
   remote.getCurrentWindow()
     .on('scroll-touch-begin', onScrollBegin)
     .on('scroll-touch-end', onScrollEnd)
     .on('swipe', onSwipe)
 
-  window.addEventListener('wheel', onMouseWheel, {passive: true})
+  window.addEventListener('wheel', onMouseWheel, { passive: true })
   window.addEventListener('beforeunload', remove)
 }
 
-const remove = module.exports.remove = function remove() {
+function remove() {
   remote.getCurrentWindow()
     .removeListener('scroll-touch-begin', onScrollBegin)
     .removeListener('scroll-touch-end', onScrollEnd)
@@ -46,14 +48,14 @@ function onSwipe(e, direction) {
 
 function onMouseWheel(e) {
   if (tracking) {
-    deltaX = deltaX + e.deltaX
-    deltaY = deltaY + e.deltaY
-    time   = (new Date()).getTime() - startTime
+    deltaX += e.deltaX
+    deltaY += e.deltaY
+    time = (new Date()).getTime() - startTime
   }
 }
 
 function onScrollBegin() {
-  tracking  = true
+  tracking = true
   startTime = (new Date()).getTime()
 }
 

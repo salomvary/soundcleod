@@ -3,5 +3,9 @@
     "mocha": true,
     "node": true,
     "es6": true
+  },
+  "rules": {
+    "func-names": "off",
+    "prefer-arrow-callback": "off"
   }
 }

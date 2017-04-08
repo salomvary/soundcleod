@@ -1,3 +1,5 @@
+/* eslint  import/no-extraneous-dependencies: off */
+
 'use strict'
 
 const fs = require('fs')

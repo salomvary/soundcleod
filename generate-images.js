@@ -1,3 +1,5 @@
+/* eslint  import/no-extraneous-dependencies: off */
+
 'use strict'
 
 const fs = require('fs')
@@ -12,11 +14,11 @@ function generate(input, out, ratio) {
   console.log(out)
 }
 
-generate('soundcleod-lo.svg', 'build/icon.iconset/icon_16x16.png', 1/16)
-generate('soundcleod-lo.svg', 'build/icon.iconset/icon_16x16@2x.png', 1/8)
-generate('soundcleod-lo.svg', 'build/icon.iconset/icon_32x32.png', 1/8)
-generate('soundcleod.svg', 'build/icon.iconset/icon_32x32@2x.png', 1/4)
-generate('soundcleod.svg', 'build/icon.iconset/icon_128x128.png', 1/2)
+generate('soundcleod-lo.svg', 'build/icon.iconset/icon_16x16.png', 1 / 16)
+generate('soundcleod-lo.svg', 'build/icon.iconset/icon_16x16@2x.png', 1 / 8)
+generate('soundcleod-lo.svg', 'build/icon.iconset/icon_32x32.png', 1 / 8)
+generate('soundcleod.svg', 'build/icon.iconset/icon_32x32@2x.png', 1 / 4)
+generate('soundcleod.svg', 'build/icon.iconset/icon_128x128.png', 1 / 2)
 generate('soundcleod.svg', 'build/icon.iconset/icon_128x128@2x.png', 1)
 generate('soundcleod.svg', 'build/icon.iconset/icon_256x256.png', 1)
 generate('soundcleod.svg', 'build/icon.iconset/icon_256x256@2x.png', 2)

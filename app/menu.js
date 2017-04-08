@@ -1,10 +1,11 @@
 'use strict'
 
-const electron = require('electron')
+const { app, Menu, shell } = require('electron')
 const Events = require('events')
-const Menu = electron.Menu
-const app = electron.app
-const shell = electron.shell
+
+module.exports = function menu(options = {}) {
+  return buildMenu(options)
+}
 
 function buildMenu(options) {
   const events = new Events()
@@ -52,13 +53,10 @@ function buildMenu(options) {
       submenu: [
         {
           label: 'Toggle Full Screen',
-          accelerator: (function() {
-            if (process.platform == 'darwin')
-              return 'Ctrl+Command+F'
-            else
-              return 'F11'
-          })(),
-          click: function(item, focusedWindow) {
+          accelerator: process.platform == 'darwin'
+            ? 'Ctrl+Command+F'
+            : 'F11',
+          click(item, focusedWindow) {
             if (focusedWindow)
               focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
           }
@@ -66,7 +64,7 @@ function buildMenu(options) {
         {
           label: 'Reload',
           accelerator: 'CmdOrCtrl+R',
-          click: function(item, focusedWindow) {
+          click(item, focusedWindow) {
             if (focusedWindow)
               focusedWindow.reload()
           }
@@ -161,11 +159,11 @@ function buildMenu(options) {
       submenu: [
         {
           label: 'Learn More',
-          click: function() { shell.openExternal('http://soundcleod.com') }
+          click() { shell.openExternal('http://soundcleod.com') }
         },
         {
           label: 'About SoundCleod',
-          click: function() {
+          click() {
             events.emit('about')
           },
           visible: process.platform !== 'darwin'
@@ -178,13 +176,10 @@ function buildMenu(options) {
     menu[1].submenu.push(
       {
         label: 'Toggle Developer Tools',
-        accelerator: (function() {
-          if (process.platform == 'darwin')
-            return 'Alt+Command+I'
-          else
-            return 'Ctrl+Shift+I'
-        })(),
-        click: function(item, focusedWindow) {
+        accelerator: process.platform == 'darwin'
+            ? 'Alt+Command+I'
+            : 'Ctrl+Shift+I',
+        click(item, focusedWindow) {
           if (focusedWindow)
             focusedWindow.toggleDevTools()
         }
@@ -231,7 +226,7 @@ function buildMenu(options) {
         {
           label: 'Quit',
           accelerator: 'Command+Q',
-          click: function() { app.quit() }
+          click() { app.quit() }
         }
       ]
     })
@@ -252,7 +247,7 @@ function buildMenu(options) {
         {
           label: 'Quit',
           accelerator: 'Ctrl+Q',
-          click: function() { app.quit() }
+          click() { app.quit() }
         }
       ]
     })
@@ -260,8 +255,4 @@ function buildMenu(options) {
   const built = Menu.buildFromTemplate(menu)
   built.events = events
   return built
-}
-
-module.exports = function(options) {
-  return buildMenu(options || {})
 }

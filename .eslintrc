@@ -1,15 +1,26 @@
 {
-  "extends": "eslint:recommended",
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "sourceType": "scripts"
+  },
   "env": {
     "browser": true,
     "node": true,
     "es6": true
   },
   "rules": {
+    "comma-dangle": ["error", "never"],
+    "consistent-return": "off",
+    "eqeqeq": "off",
     "indent": [2, 2],
     "no-console": 0,
+    "no-use-before-define": ["error", "nofunc"],
+    "prefer-template": "off",
     "semi": [2, "never"],
     "strict": [2, "global"],
     "curly": [2, "multi"]
+  },
+  "settings": {
+    "import/core-modules": [ "electron" ]
   }
 }

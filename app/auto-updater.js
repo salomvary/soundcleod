@@ -11,7 +11,7 @@ module.exports = function maybeStartAutoUpdater(baseUrl) {
 function checkAutoUpdater(callback) {
   // Test if updates can actually be installed, see also:
   // https://github.com/electron/electron/issues/7357
-  fs.access(app.getPath('exe'), fs.constants.W_OK, err => {
+  fs.access(app.getPath('exe'), fs.constants.W_OK, (err) => {
     if (err && err.code == 'EROFS')
       console.log('Disabled automatic updates on a read-only file system.')
     else
@@ -29,19 +29,21 @@ function startAutoUpdater(baseUrl) {
   autoUpdater.on('update-available', () => console.log('autoUpdater update available'))
   autoUpdater.on('update-downloaded', () => console.log('autoUpdater update downloaded'))
 
-  const oneHourInMs = 60 * 60 * 1000
-
   autoUpdater.on('update-not-available', () => {
     console.log('autoUpdater update not available')
-    // Check again in an hour
-    setTimeout(() => autoUpdater.checkForUpdates(), oneHourInMs)
+    checkforUpdatesLater()
   })
 
-  autoUpdater.on('error', error => {
+  autoUpdater.on('error', (error) => {
     console.error('autoUpdater error', error)
-    // Check again in an hour
-    setTimeout(() => autoUpdater.checkForUpdates(), oneHourInMs)
+    checkforUpdatesLater()
   })
 
   autoUpdater.checkForUpdates()
+}
+
+function checkforUpdatesLater() {
+  // Check again in an hour
+  const oneHourInMs = 60 * 60 * 1000
+  setTimeout(() => autoUpdater.checkForUpdates(), oneHourInMs)
 }
