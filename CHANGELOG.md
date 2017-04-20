@@ -1,3 +1,7 @@
+## 1.3.0 (April 20, 2017)
+- Support Windows back/forward/home keys
+- Add MacBook Touch Bar support
+
 ## 1.2.0 (March 14, 2017)
 - Fix full screen closing/quitting on macOS
 - Add like/unlike to the main and dock menus
