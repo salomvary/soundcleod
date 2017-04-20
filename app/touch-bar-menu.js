@@ -7,28 +7,28 @@ const MAX_TITLE_LENGTH = 38
 
 module.exports = function touchBarMenu(window, soundcloud) {
   const nextTrack = new TouchBarButton({
-    icon: './app/res/next.png',
+    icon: `${__dirname}/res/next.png`,
     click: () => {
       soundcloud.nextTrack()
     }
   })
 
   const previousTrack = new TouchBarButton({
-    icon: './app/res/previous.png',
+    icon: `${__dirname}/res/previous.png`,
     click: () => {
       soundcloud.previousTrack()
     }
   })
 
   const playPause = new TouchBarButton({
-    icon: './app/res/play.png',
+    icon: `${__dirname}/res/play.png`,
     click: () => {
       soundcloud.playPause()
     }
   })
 
   const likeUnlike = new TouchBarButton({
-    icon: './app/res/like.png',
+    icon: `${__dirname}/res/like.png`,
     click: () => {
       soundcloud.likeUnlike()
     }
@@ -37,12 +37,12 @@ module.exports = function touchBarMenu(window, soundcloud) {
   const trackInfo = new TouchBarLabel()
 
   soundcloud.on('play', ({ title, subtitle }) => {
-    playPause.icon = './app/res/pause.png'
+    playPause.icon = `${__dirname}/res/pause.png`
     trackInfo.label = formatTitle(title, subtitle)
   })
 
   soundcloud.on('pause', () => {
-    playPause.icon = './app/res/play.png'
+    playPause.icon = `${__dirname}/res/play.png`
   })
 
   const touchBar = new TouchBar([
