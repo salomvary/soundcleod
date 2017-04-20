@@ -166,6 +166,21 @@ app.on('ready', () => {
     showAbout()
   })
 
+  mainWindow.on('app-command', (e, cmd) => {
+    switch (cmd) {
+    case 'browser-backward':
+      soundcloud.goBack()
+      break
+    case 'browser-forward':
+      soundcloud.goForward()
+      break
+    case 'browser-home':
+      soundcloud.goHome()
+      break
+    default:
+    }
+  })
+
   // "You cannot require or use this module until the `ready` event of the
   // `app` module is emitted."
   /* eslint global-require: off */
