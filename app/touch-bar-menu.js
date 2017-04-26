@@ -31,11 +31,11 @@ module.exports = function touchBarMenu(window, soundcloud) {
     icon: `${__dirname}/res/like.png`,
     click: () => {
       soundcloud.likeUnlike()
-      toggleIcon()
+      toggleLikeUnlikeIcon()
     }
   })
 
-  function toggleIcon() {
+  function toggleLikeUnlikeIcon() {
     if(likeUnlike.icon == `${__dirname}/res/like.png`) {
       likeUnlike.icon = `${__dirname}/res/liked.png`
     } else {
@@ -52,10 +52,10 @@ module.exports = function touchBarMenu(window, soundcloud) {
 
   const trackInfo = new TouchBarLabel()
 
-  soundcloud.on('play', ({ title, subtitle, metaData }) => {
+  soundcloud.on('play', ({ title, subtitle, trackMetadata }) => {
     playPause.icon = `${__dirname}/res/pause.png`
     trackInfo.label = formatTitle(title, subtitle)
-    if(metaData.likeStatus) {
+    if(trackMetadata.isLiked) {
       likeUnlike.icon = `${__dirname}/res/liked.png`
     } else {
       likeUnlike.icon = `${__dirname}/res/like.png`

@@ -15,8 +15,8 @@ ipcRenderer.on('notification', (_, metadata) => showNotification(metadata))
 function sendTrackMetadata(sender) {
   const artworkURL = getArtworkURL()
   const likeStatus = getLikeStatus()
-  const metaData = { artworkURL: artworkURL, likeStatus: likeStatus }
-  sender.send('trackMetadata', { metaData })
+  const trackMetadata = { artworkURL: artworkURL, isLiked: likeStatus }
+  sender.send('trackMetadata', { trackMetadata })
 }
 
 function navigate(url) {
