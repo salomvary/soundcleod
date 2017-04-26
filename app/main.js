@@ -192,8 +192,8 @@ app.on('ready', () => {
     soundcloud.pause()
   })
 
-  soundcloud.on('play', ({ title, subtitle, artworkURL }) => {
-    mainWindow.webContents.send('notification', { title, body: subtitle, icon: artworkURL })
+  soundcloud.on('play', ({ title, subtitle, metaData }) => {
+    mainWindow.webContents.send('notification', { title, body: subtitle, icon: metaData.artworkURL })
   })
 
   mainWindow.webContents.once('did-start-loading', () => {
