@@ -17,6 +17,12 @@ module.exports = function dockMenu(soundcloud) {
       }
     },
     {
+      label: 'Repost',
+      click() {
+        soundcloud.repost()
+      }
+    },
+    {
       label: 'Next',
       click() {
         soundcloud.nextTrack()

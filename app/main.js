@@ -135,6 +135,10 @@ app.on('ready', () => {
     soundcloud.likeUnlike()
   })
 
+  menu.events.on('repost', () => {
+    soundcloud.repost()
+  })
+
   menu.events.on('nextTrack', () => {
     soundcloud.nextTrack()
   })
