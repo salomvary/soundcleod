@@ -33,9 +33,9 @@
       "resolved": "https://registry.npmjs.org/electron-squirrel-startup/-/electron-squirrel-startup-1.0.0.tgz"
     },
     "electron-window-state": {
-      "version": "4.0.2",
+      "version": "4.1.1",
       "from": "electron-window-state@>=4.0.1 <5.0.0",
-      "resolved": "https://registry.npmjs.org/electron-window-state/-/electron-window-state-4.0.2.tgz"
+      "resolved": "https://registry.npmjs.org/electron-window-state/-/electron-window-state-4.1.1.tgz"
     },
     "graceful-fs": {
       "version": "4.1.11",
