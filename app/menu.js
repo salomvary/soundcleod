@@ -115,6 +115,13 @@ function buildMenu(options) {
           }
         },
         {
+          label: 'Repost',
+          accelerator: 'R',
+          click() {
+            events.emit('repost')
+          }
+        },
+        {
           label: 'Next',
           accelerator: 'Shift+Right',
           click() {
