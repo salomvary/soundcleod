@@ -3,7 +3,7 @@
 const { TouchBar } = require('electron')
 
 const { TouchBarButton, TouchBarLabel, TouchBarSpacer } = TouchBar
-const MAX_TITLE_LENGTH = 38
+const MAX_TITLE_LENGTH = 39
 
 module.exports = function touchBarMenu(window, soundcloud) {
   const nextTrack = new TouchBarButton({
@@ -31,14 +31,35 @@ module.exports = function touchBarMenu(window, soundcloud) {
     icon: `${__dirname}/res/like.png`,
     click: () => {
       soundcloud.likeUnlike()
+      toggleLikeUnlikeIcon()
+    }
+  })
+
+  function toggleLikeUnlikeIcon() {
+    if(likeUnlike.icon == `${__dirname}/res/like.png`) {
+      likeUnlike.icon = `${__dirname}/res/liked.png`
+    } else {
+      likeUnlike.icon = `${__dirname}/res/like.png`
+    }
+  }
+
+  const repost = new TouchBarButton({
+    icon: `${__dirname}/res/repost.png`,
+    click: () => {
+      soundcloud.repost()
     }
   })
 
   const trackInfo = new TouchBarLabel()
 
-  soundcloud.on('play', ({ title, subtitle }) => {
+  soundcloud.on('play', ({ title, subtitle, trackMetadata }) => {
     playPause.icon = `${__dirname}/res/pause.png`
     trackInfo.label = formatTitle(title, subtitle)
+    if(trackMetadata.isLiked) {
+      likeUnlike.icon = `${__dirname}/res/liked.png`
+    } else {
+      likeUnlike.icon = `${__dirname}/res/like.png`
+    }
   })
 
   soundcloud.on('pause', () => {
@@ -50,6 +71,7 @@ module.exports = function touchBarMenu(window, soundcloud) {
     playPause,
     nextTrack,
     likeUnlike,
+    repost,
     new TouchBarSpacer({ size: 'flexible' }),
     trackInfo,
     new TouchBarSpacer({ size: 'flexible' })

@@ -14,7 +14,9 @@ ipcRenderer.on('notification', (_, metadata) => showNotification(metadata))
 
 function sendTrackMetadata(sender) {
   const artworkURL = getArtworkURL()
-  sender.send('trackMetadata', { artworkURL })
+  const likeStatus = getLikeStatus()
+  const trackMetadata = { artworkURL: artworkURL, isLiked: likeStatus }
+  sender.send('trackMetadata', { trackMetadata })
 }
 
 function navigate(url) {
@@ -31,6 +33,15 @@ function getArtworkURL() {
     return match && match[1]
   }
   return null
+}
+
+function getLikeStatus() {
+  const liked = document.querySelector('.sc-button-like.playbackSoundBadge__like.sc-button-selected')
+  if(liked) {
+    return true
+  } else {
+    return false
+  }
 }
 
 const Notification = window.Notification
