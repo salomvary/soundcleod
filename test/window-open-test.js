@@ -19,7 +19,7 @@ describe('Opening windows', function () {
       // .then(url => assert.equal(url, soundcleodURL))
   })
 
-  it('opens internal link in main window', function () {
+  xit('opens internal link in main window', function () {
     return this.app.client
       .click('=internal no target')
       .then(() => this.app.client.getWindowCount())

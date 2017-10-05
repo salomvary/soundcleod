@@ -6,7 +6,7 @@ const assert = require('assert')
 describe('Logging in', function () {
   applicationHelper()
 
-  it('shows Facebook login in the main window', function () {
+  xit('shows Facebook login in the main window', function () {
     return this.app.client
       .waitForVisible('button=Sign in')
       .element('#content')
