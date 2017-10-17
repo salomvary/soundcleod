@@ -75,12 +75,13 @@ module.exports = class SoundCloud extends Events {
 function onMediaStartedPlaying() {
   this.playing = true
   getTrackMetadata.call(this).then((trackMetadata) => {
-    if (trackMetadata)
+    if (trackMetadata) {
       this.emit('play', trackMetadata)
       if (!compareTrackMetadata(this.trackMetadata, trackMetadata)) {
         this.emit('play-new-track', trackMetadata)
         this.trackMetadata = trackMetadata
       }
+    }
   })
 }
 
