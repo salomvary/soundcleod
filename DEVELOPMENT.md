@@ -66,6 +66,13 @@ Importing a certificate:
 - Select the certificate file
 - Override trust levels as specified above
 
+Exporting a macOS certificate for signing a Windows application:
+
+- Find the certificate in Keychain Access
+- Right click -> Export
+- Choose .p12 format
+- Add a strong password
+
 ## Tricks and tips
 
 Starting SoundCleod with arguments on Windows (installed location)
