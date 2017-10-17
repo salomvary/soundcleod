@@ -4,5 +4,6 @@
 - Check if everything looks good
 - `git push origin master --tags`
 - `make update-website`
-- Create a GitHub release https://github.com/salomvary/soundcleod/releases
-  - Upload release files from `dist`
+- Go to GitHub releases https://github.com/salomvary/soundcleod/releases
+- Edit the draft release and copy the changes from CHANGELOG.md
+- Publish the release
