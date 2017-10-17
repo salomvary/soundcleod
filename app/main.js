@@ -192,7 +192,7 @@ app.on('ready', () => {
     soundcloud.pause()
   })
 
-  soundcloud.on('new-track', ({ title, subtitle, artworkURL }) => {
+  soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
     mainWindow.webContents.send('notification', { title, body: subtitle, icon: artworkURL })
   })
 

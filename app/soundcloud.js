@@ -78,7 +78,7 @@ function onMediaStartedPlaying() {
     if (trackMetadata)
       this.emit('play', trackMetadata)
       if (!compareTrackMetadata(this.trackMetadata, trackMetadata)) {
-        this.emit('new-track', trackMetadata)
+        this.emit('play-new-track', trackMetadata)
         this.trackMetadata = trackMetadata
       }
   })
