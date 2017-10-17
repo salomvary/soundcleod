@@ -8,6 +8,7 @@ module.exports = class SoundCloud extends Events {
     super()
     this.window = window
     this.playing = false
+    this.trackMetadata = {}
     window.webContents
       .on('media-started-playing', onMediaStartedPlaying.bind(this))
       .on('media-paused', onMediaPaused.bind(this))
@@ -76,6 +77,10 @@ function onMediaStartedPlaying() {
   getTrackMetadata.call(this).then((trackMetadata) => {
     if (trackMetadata)
       this.emit('play', trackMetadata)
+      if (!compareTrackMetadata(this.trackMetadata, trackMetadata)) {
+        this.emit('play-new-track', trackMetadata)
+        this.trackMetadata = trackMetadata
+      }
   })
 }
 
@@ -128,4 +133,10 @@ function fixFlakyMediaKeys(mainWindow) {
       keyCode: '|'
     })
   })
+}
+
+function compareTrackMetadata(lhs, rhs) {
+  return lhs.title == rhs.title &&
+         lhs.subtitle == rhs.subtitle &&
+         lhs.artworkUrl == rhs.artworkUrl
 }
