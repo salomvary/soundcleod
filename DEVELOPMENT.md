@@ -34,6 +34,13 @@ Running the packaged app on macOS:
   - Secret: enter the random string from above
   - Choose "Release published in a repository" event
 
+## Redeploying the update server from CLI
+
+
+- Clone the Nuts repo locally: https://github.com/GitbookIO/nuts
+- Add the Heroku Git remote: `heroku git:remote --app soundcleod-updates`
+- `git push heroku master`
+
 ## Packaging
 
 Requirements on macOS:
