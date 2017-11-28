@@ -33,7 +33,7 @@ function formatCertificate({
 function onDidFailLoad(event, errorCode, description, url, isMainFrame) {
   const redirectErrorCode = -3
   if (isMainFrame && errorCode != redirectErrorCode) {
-    window.loadURL(`file://${__dirname}/error.html?error=${encodeURIComponent(description)}`)
+    this.loadURL(`file://${__dirname}/error.html?error=${encodeURIComponent(description)}`)
     console.error(`Failed to load '${url}' with ${description}`)
   }
 }
