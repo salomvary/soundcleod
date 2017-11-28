@@ -7,3 +7,4 @@
 - Go to GitHub releases https://github.com/salomvary/soundcleod/releases
 - Edit the draft release and copy the changes from CHANGELOG.md
 - Publish the release
+- Bump the version with `npm version prerelease ---no-git-tag-version` and commit the changes
