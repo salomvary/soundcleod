@@ -1,3 +1,8 @@
+## 1.3.2 (November 28, 2017)
+- Fix notification spam when seeking or restarting play
+- Adds a "repost" option to all of the menus
+- Bring in latest security fixes from Electron (see https://electron.atom.io/releases/)
+
 ## 1.3.1 (October 17, 2017) (revoked release due to broken signatures)
 - Fix notification spam when seeking or restarting play
 - Adds a "repost" option to all of the menus
