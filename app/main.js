@@ -123,6 +123,12 @@ app.on('ready', () => {
       app.quit()
     mainWindow = null
   })
+  
+  mainWindow.on('app-command', (e, cmd) => {
+	  if (cmd === 'media-pause' || cmd === 'media-play'){
+		  soundcloud.playPause()
+	  }
+	})
 
   globalShortcut.register('MediaPlayPause', () => {
     soundcloud.playPause()
