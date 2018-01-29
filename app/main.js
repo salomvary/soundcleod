@@ -172,6 +172,15 @@ app.on('ready', () => {
 
   mainWindow.on('app-command', (e, cmd) => {
     switch (cmd) {
+    case 'media-play':
+      soundcloud.play()
+      break
+    case 'media-pause':
+      soundcloud.pause()
+      break
+    case 'media-play-pause':
+      soundcloud.playPause()
+      break
     case 'browser-backward':
       soundcloud.goBack()
       break

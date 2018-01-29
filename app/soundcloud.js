@@ -19,6 +19,10 @@ module.exports = class SoundCloud extends Events {
     this.trigger('Space')
   }
 
+  play() {
+    if (!this.playing) this.playPause()
+  }
+
   pause() {
     if (this.playing) this.playPause()
   }
