@@ -18,21 +18,22 @@
       "integrity": "sha1-9dJgKStmDghO/0zbyfCK0yR0SLU="
     },
     "electron-context-menu": {
-      "version": "0.8.0",
-      "resolved": "https://registry.npmjs.org/electron-context-menu/-/electron-context-menu-0.8.0.tgz",
-      "integrity": "sha1-YMS14p1VFAB76HKKbr3zy2lMTj4=",
+      "version": "0.9.1",
+      "resolved": "https://registry.npmjs.org/electron-context-menu/-/electron-context-menu-0.9.1.tgz",
+      "integrity": "sha1-7U3yDAgEkcPJlqv8s2MVmUajgFg=",
       "requires": {
-        "electron-dl": "1.9.0",
+        "electron-dl": "1.10.0",
         "electron-is-dev": "0.1.2"
       }
     },
     "electron-dl": {
-      "version": "1.9.0",
-      "resolved": "https://registry.npmjs.org/electron-dl/-/electron-dl-1.9.0.tgz",
-      "integrity": "sha1-HzBuMLblkLKWzihP+rFPGlREl8c=",
+      "version": "1.10.0",
+      "resolved": "https://registry.npmjs.org/electron-dl/-/electron-dl-1.10.0.tgz",
+      "integrity": "sha1-+UQWBkBW/G8qhq5JhhTJNSaJCvk=",
       "requires": {
+        "ext-name": "5.0.0",
         "pupa": "1.0.0",
-        "unused-filename": "0.1.0"
+        "unused-filename": "1.0.0"
       }
     },
     "electron-is-dev": {
@@ -58,11 +59,33 @@
         "mkdirp": "0.5.1"
       }
     },
+    "ext-list": {
+      "version": "2.2.2",
+      "resolved": "https://registry.npmjs.org/ext-list/-/ext-list-2.2.2.tgz",
+      "integrity": "sha512-u+SQgsubraE6zItfVA0tBuCBhfU9ogSRnsvygI7wht9TS510oLkBRXBsqopeUG/GBOIQyKZO9wjTqIu/sf5zFA==",
+      "requires": {
+        "mime-db": "1.32.0"
+      }
+    },
+    "ext-name": {
+      "version": "5.0.0",
+      "resolved": "https://registry.npmjs.org/ext-name/-/ext-name-5.0.0.tgz",
+      "integrity": "sha512-yblEwXAbGv1VQDmow7s38W77hzAgJAO50ztBLMcUyUBfxv1HC+LGwtiEN+Co6LtlqT/5uwVOxsD4TNIilWhwdQ==",
+      "requires": {
+        "ext-list": "2.2.2",
+        "sort-keys-length": "1.0.1"
+      }
+    },
     "graceful-fs": {
       "version": "4.1.11",
       "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.11.tgz",
       "integrity": "sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=",
       "optional": true
+    },
+    "is-plain-obj": {
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/is-plain-obj/-/is-plain-obj-1.1.0.tgz",
+      "integrity": "sha1-caUMhCnfync8kqOQpKA7OfzVHT4="
     },
     "jsonfile": {
       "version": "2.4.0",
@@ -71,6 +94,11 @@
       "requires": {
         "graceful-fs": "4.1.11"
       }
+    },
+    "mime-db": {
+      "version": "1.32.0",
+      "resolved": "https://registry.npmjs.org/mime-db/-/mime-db-1.32.0.tgz",
+      "integrity": "sha512-+ZWo/xZN40Tt6S+HyakUxnSOgff+JEdaneLWIm0Z6LmpCn5DMcZntLyUY5c/rTDog28LhXLKOUZKoTxTCAdBVw=="
     },
     "minimist": {
       "version": "0.0.8",
@@ -114,10 +142,26 @@
       "resolved": "https://registry.npmjs.org/pupa/-/pupa-1.0.0.tgz",
       "integrity": "sha1-mpVopa9+ZXuEYqbp1TKHQ1YM7/Y="
     },
+    "sort-keys": {
+      "version": "1.1.2",
+      "resolved": "https://registry.npmjs.org/sort-keys/-/sort-keys-1.1.2.tgz",
+      "integrity": "sha1-RBttTTRnmPG05J6JIK37oOVD+a0=",
+      "requires": {
+        "is-plain-obj": "1.1.0"
+      }
+    },
+    "sort-keys-length": {
+      "version": "1.0.1",
+      "resolved": "https://registry.npmjs.org/sort-keys-length/-/sort-keys-length-1.0.1.tgz",
+      "integrity": "sha1-nLb09OnkgVWmqgZx7dM2/xR5oYg=",
+      "requires": {
+        "sort-keys": "1.1.2"
+      }
+    },
     "unused-filename": {
-      "version": "0.1.0",
-      "resolved": "https://registry.npmjs.org/unused-filename/-/unused-filename-0.1.0.tgz",
-      "integrity": "sha1-5fM7yeSmP4f2TTwR0xl53vXS5/s=",
+      "version": "1.0.0",
+      "resolved": "https://registry.npmjs.org/unused-filename/-/unused-filename-1.0.0.tgz",
+      "integrity": "sha1-00CID3GuIRXrqhMlvvBcxmhEacY=",
       "requires": {
         "modify-filename": "1.1.0",
         "path-exists": "3.0.0"
