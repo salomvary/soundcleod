@@ -4,7 +4,9 @@
 /* eslint global-require: "off" */
 if (require('electron-squirrel-startup')) return
 
-const { app, BrowserWindow, globalShortcut, Menu } = require('electron')
+const {
+  app, BrowserWindow, globalShortcut, Menu
+} = require('electron')
 const autoUpdater = require('./auto-updater')
 const contextMenu = require('./context-menu')
 const dockMenu = require('./dock-menu')

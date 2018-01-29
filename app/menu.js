@@ -180,18 +180,16 @@ function buildMenu(options) {
   ]
 
   if (options.developerTools)
-    menu[1].submenu.push(
-      {
-        label: 'Toggle Developer Tools',
-        accelerator: process.platform == 'darwin'
-            ? 'Alt+Command+I'
-            : 'Ctrl+Shift+I',
-        click(item, focusedWindow) {
-          if (focusedWindow)
-            focusedWindow.toggleDevTools()
-        }
+    menu[1].submenu.push({
+      label: 'Toggle Developer Tools',
+      accelerator: process.platform == 'darwin'
+        ? 'Alt+Command+I'
+        : 'Ctrl+Shift+I',
+      click(item, focusedWindow) {
+        if (focusedWindow)
+          focusedWindow.toggleDevTools()
       }
-    )
+    })
 
   if (process.platform == 'darwin') {
     const name = app.getName()

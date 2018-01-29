@@ -2,6 +2,7 @@
 
 const optimist = require('optimist')
 
+/* eslint prefer-destructuring: off */
 module.exports = function options(process) {
   const argv = optimist(process.argv)
     .default('auto-updater', true)

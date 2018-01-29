@@ -18,7 +18,7 @@ function sendTrackMetadata(sender) {
 }
 
 function navigate(url) {
-  history.replaceState(null, null, url)
+  window.history.replaceState(null, null, url)
   const e = new Event('popstate')
   window.dispatchEvent(e)
 }
@@ -33,7 +33,7 @@ function getArtworkURL() {
   return null
 }
 
-const Notification = window.Notification
+const { Notification } = window
 // Disable SoundCloud's own notifications, because:
 // - They are not silent on macOS
 // - They are hidden behind a feature flag
@@ -44,7 +44,7 @@ function showNotification({ title, body, icon }) {
   new Notification(title, { body, icon, silent: true })
 }
 
-const confirm = window.confirm
+const { confirm } = window
 
 window.confirm = (message) => {
   // For some bizarre reason SoundCloud calls comfirm() with { string: 'The message' }
