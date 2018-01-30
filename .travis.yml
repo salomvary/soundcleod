@@ -1,9 +1,11 @@
 os:
-  - osx
+- osx
 language: node_js
 node_js:
-  - "6"
+- '6'
 script:
-  - npm run eslint
-  - npm test
-  - npm run release
+- npm run eslint
+- npm test
+- npm run release
+env:
+  secure: pTXmdkvqiBTO66GlnMkz8m2WSkXQ3mp3s5JB/0mnP17eMUbd17P0TomKT5yIoBp3CcXGuFmVYzNV/rqZQwgDgEiwNFotIsCEPjd/eLrsLeBt0IYic0qqKhi7+hDFhFzPfMvpkiDl3pNlzH0ehpubZ029uGn1J2id0jmicwcvLsuIHukyuWUhuNIRjounJBuiaLd5CuZc2JnSoGY5Mz5f9rkqu/lYFKIa/8xSLXlor5ABzZVQEQQHY06dc/2cFW5frV4QH0BOkFl84lNFXBkrUoVG/IR3/E3obQOpnrhebdTQBACbyn7DRqYdXCERDEFdsrCyTowsWj8xAGE0vZZ80eu2jDdLeWhY4Wpw/58IhRh4O/zHXn/gWMCN1Dya6P/2reuNqn3jhN3xYkU9su9fZLMTeD4/X/Ru5J5hUx+mv+TCX2t2mkL60cquv7kYg3oiWL17RtJKmA5J/Na2qLPsNzNzmhhu4lvSFCSwAjOdAQ0YorvK2rdd+smWRQTkW2t7oWngrwZS5T0I1RzLlpQpiiXOQCHjfwKKuPtu01XyKH9up7uzwFxvZx8JURy9I0BHHSn4ojz7aIARpcVk3ioMtoaOBruMKwkCaWpqn1RBo96q4BJ1lIKAVSY5XeH7IR6DQ83Z9CsQAizPtihY0WgKrnvgmcnPo8N5cSmhbwiflXI=
