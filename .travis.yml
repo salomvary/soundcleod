@@ -6,3 +6,4 @@ node_js:
 script:
   - npm run eslint
   - npm test
+  - npm run release

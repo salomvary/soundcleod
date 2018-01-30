@@ -1,14 +1,17 @@
 {
   "private": true,
   "scripts": {
+    "predist": "npm run generate-images",
     "dist": "build",
-    "eslint": "eslint .",
+    "prepack": "npm run generate-images",
     "pack": "build --dir",
-    "postinstall": "install-app-deps",
+    "prerelease": "npm run generate-images",
     "release": "build",
+    "eslint": "eslint .",
+    "postinstall": "install-app-deps",
     "start": "electron ./app --profile=development --no-auto-updater --developer-tools",
     "test": "mocha",
-    "svg2png": "svg2png"
+    "generate-images": "gulp images"
   },
   "build": {
     "appId": "com.electron.soundcleod",
@@ -48,10 +51,12 @@
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
+    "gulp": "^4.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-svg2png": "^2.0.2",
+    "gulp-to-ico": "^1.0.0",
     "mocha": "^5.0.0",
     "spectron": "^3.8.0",
-    "svg2png": "^4.1.1",
-    "tmp": "0.0.33",
-    "to-ico-cli": "^1.0.0"
+    "tmp": "0.0.33"
   }
 }

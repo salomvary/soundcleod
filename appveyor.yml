@@ -20,6 +20,7 @@ test_script:
   - npm --version
   # run tests
   - npm test
+  - npm run release
 
 
 # Don't actually build.
