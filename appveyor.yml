@@ -1,6 +1,8 @@
 # Test against this version of Node.js
 environment:
   nodejs_version: '6'
+  GH_TOKEN:
+    secure: Vr09Jk6CRcfJcj8XJWW90ziNw/9Efx7SqEWjtcpwNFDTV941mrL5YpgNBWLiwbVg
 
 platform:
   - x86
