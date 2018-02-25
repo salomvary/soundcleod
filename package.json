@@ -45,17 +45,17 @@
     }
   },
   "devDependencies": {
-    "electron": "^1.7.11",
-    "electron-builder": "^19.55.3",
-    "electron-builder-squirrel-windows": "^19.56.0",
-    "eslint": "^4.16.0",
+    "electron": "^1.8.2",
+    "electron-builder": "^20.2.0",
+    "electron-builder-squirrel-windows": "^20.2.0",
+    "eslint": "^4.18.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-import": "^2.9.0",
     "gulp": "^4.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-svg2png": "^2.0.2",
     "gulp-to-ico": "^1.0.0",
-    "mocha": "^5.0.0",
+    "mocha": "^5.0.1",
     "spectron": "^3.8.0",
     "tmp": "0.0.33"
   }
