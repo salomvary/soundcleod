@@ -11,27 +11,11 @@ dist-mac:
 dist-win:
 	. ./.codesign && npm run dist -- --win
 
-release-mac:
-	. ./.codesign && npm run release -- --mac
+dist-all:
+	. ./.codesign && npm run dist -- --mac --win
 
-release-win:
-	. ./.codesign && npm run release -- --win
-
-docker-dist-win:
-	docker run --rm \
-		-e DEBUG \
-		-v "$(CURDIR):/project" \
-		-v ~/.electron:/root/.electron \
-		electronuserland/electron-builder:wine \
-		make dist-win
-
-docker-release-win:
-	docker run --rm \
-		-e DEBUG \
-		-v "$(CURDIR):/project" \
-		-v ~/.electron:/root/.electron \
-		electronuserland/electron-builder:wine \
-		make release-win
+release-all:
+	. ./.codesign && npm run release -- --mac --win
 
 clean:
 	rm -rf build dist
@@ -45,7 +29,7 @@ increment_version:
 history:
 	./release.sh history
 
-release: clean increment_version release-mac docker-release-win history
+release: clean increment_version release-all history
 	git add README.markdown CHANGELOG.md app/package.json app/npm-shrinkwrap.json
 	git commit -m "v$$(./release.sh print_version)"
 	git tag -m "v$$(./release.sh print_version)" "v$$(./release.sh print_version)"

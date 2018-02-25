@@ -45,7 +45,7 @@ Running the packaged app on macOS:
 
 Requirements on macOS:
 
-- Wine (`brew install wine --without-x11` and `brew install mono`). Be patient, this will take very long.
+- Run `brew install mono`
 - Code signing identity in Keychain
 
 ## Working with self-signed code signing certificates on macOS
