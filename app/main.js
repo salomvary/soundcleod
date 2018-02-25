@@ -111,6 +111,13 @@ app.on('ready', () => {
     }
   })
 
+  // Only send commands from menu accelerators when the app is not focused.
+  // This avoids double-triggering actions and triggering actions during text
+  // is entered into the search input or in other places.
+  function isNotFocused() {
+    return !mainWindow || !mainWindow.isFocused()
+  }
+
   mainWindow.on('closed', () => {
     if (process.platform !== 'darwin')
       app.quit()
@@ -130,35 +137,35 @@ app.on('ready', () => {
   })
 
   menu.events.on('playPause', () => {
-    soundcloud.playPause()
+    if (isNotFocused()) soundcloud.playPause()
   })
 
   menu.events.on('likeUnlike', () => {
-    soundcloud.likeUnlike()
+    if (isNotFocused()) soundcloud.likeUnlike()
   })
 
   menu.events.on('repost', () => {
-    soundcloud.repost()
+    if (isNotFocused()) soundcloud.repost()
   })
 
   menu.events.on('nextTrack', () => {
-    soundcloud.nextTrack()
+    if (isNotFocused()) soundcloud.nextTrack()
   })
 
   menu.events.on('previousTrack', () => {
-    soundcloud.previousTrack()
+    if (isNotFocused()) soundcloud.previousTrack()
   })
 
   menu.events.on('home', () => {
-    soundcloud.goHome()
+    if (isNotFocused()) soundcloud.goHome()
   })
 
   menu.events.on('back', () => {
-    soundcloud.goBack()
+    if (isNotFocused()) soundcloud.goBack()
   })
 
   menu.events.on('forward', () => {
-    soundcloud.goForward()
+    if (isNotFocused()) soundcloud.goForward()
   })
 
   menu.events.on('main-window', () => {
