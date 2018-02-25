@@ -1,3 +1,8 @@
+## 1.3.3 (February 26, 2018)
+- Fix reposting and liking tracks while searching #163 #165
+- Fix Bluetooth headphone Play/Pause #159
+- Fix "window is not defined" on network errors #149
+
 ## 1.3.2 (November 28, 2017)
 - Fix notification spam when seeking or restarting play
 - Adds a "repost" option to all of the menus

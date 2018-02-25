@@ -8,7 +8,7 @@
     "email": "salomvary@gmail.com"
   },
   "private": true,
-  "version": "1.3.3-pre.0",
+  "version": "1.3.3",
   "main": "./main.js",
   "dependencies": {
     "electron-context-menu": "^0.9.1",
