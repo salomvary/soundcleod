@@ -4,8 +4,10 @@ const { execFile } = require('child_process')
 const gulp = require('gulp')
 const { name } = require('./app/package.json')
 const rename = require('gulp-rename')
-const svg2png = require('gulp-svg2png')
+const svg2png = require('svg2png')
+const through = require('through2')
 const toIco = require('gulp-to-ico')
+const Vinyl = require('vinyl')
 
 /* eslint no-multi-spaces: off */
 
@@ -55,8 +57,8 @@ gulp.task('icons', gulp.series(
 
 gulp.task('background', () =>
   gulp.src('background.svg')
+    .pipe(svg2pngPlugin())
     .pipe(rename('background.png'))
-    .pipe(svg2png())
     .pipe(gulp.dest('build')))
 
 gulp.task('images', gulp.parallel(
@@ -66,7 +68,20 @@ gulp.task('images', gulp.parallel(
 
 function generateIcon(inputFile, outputFile, size) {
   return gulp.src(inputFile)
+    .pipe(svg2pngPlugin({ width: size, height: size }))
     .pipe(rename(outputFile))
-    .pipe(svg2png({ width: size, height: size }))
     .pipe(gulp.dest('build/icon.iconset'))
+}
+
+function svg2pngPlugin(options) {
+  return through.obj((file, encoding, callback) => {
+    svg2png(file.contents, options)
+      .then((buffer) => {
+        callback(null, new Vinyl({
+          path: file.path,
+          contents: buffer
+        }))
+      })
+      .catch(callback)
+  })
 }
