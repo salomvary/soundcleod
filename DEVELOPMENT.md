@@ -64,7 +64,8 @@ Overriding the certificate trust levels:
 
 - Open the certificate (double click)
 - Expand "> Trust"
-- Set "When using this certificate" to "Always Trust"
+- Set "Code Signing" to "Always Trust"
+- Close the certificate to save it
 - Verify with `security find-identity -v -p codesigning`
 
 Importing a certificate:
@@ -116,3 +117,23 @@ Use Cmd+Option+I to toggle Developer Tools or use  View > Toggle Developer Tools
 
 See more in [GitHub Pages
 documentation](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/).
+
+## Setting up GitHub tokens on Travis CI and AppVeyor
+
+This is required for automatically publishing releases to GitHub.
+
+- Create a [new personal access token on GitHub](https://github.com/settings/tokens)
+    - Only enable `public_repo` permission
+- [Encrypt the token for AppVeyor here](https://ci.appveyor.com/tools/encrypt)
+- Update `environment.GH_TOKEN.secure` with the token in `appveyor.yml`
+- Update the token in `.travis.yml` with `travis encrypt --add env GH_TOKEN=<the token>` (install the Travis Gem first with `gem install travis`)
+- Commit and push both `.travis.yml` and `appveyor.yml`
+
+## Set up code signing certificates on Travis CI and AppVeyor
+
+- Export the certificate as `codesign-certificate.p12`
+- Encode file to base64 (macOS: `base64 -i codesign-certificate.p12 | pbcopy`, Linux: `base64 codesign-certificate.p12 >
+  codesign-certificate.txt`).
+- Set `CSC_LINK` and `CSC_KEY_PASSWORD` environment variables. The base64 encoded value goes into `CSC_LINK` without change.
+  - [Travis CI Settings](https://travis-ci.org/salomvary/soundcleod/settings)
+  - [AppVeyor Settings](https://ci.appveyor.com/project/salomvary/soundcleod/settings/environment)
