@@ -10,9 +10,14 @@ module.exports = function options(process) {
     .default('quit-after-last-window', process.platform != 'darwin')
     .argv
 
+  var baseurl
+  if (/(http[s]?):\/\/(.*(\.))?(soundcloud.com)(\/.*)?/ig.test(argv['base-url'])){
+    baseurl = argv['base-url']
+  }
+
   return {
     autoUpdaterBaseUrl: argv['auto-updater-base-url'],
-    baseUrl: argv['base-url'],
+    baseUrl: baseurl,
     developerTools: argv['developer-tools'],
     profile: argv.profile,
     quitAfterLastWindow: argv['quit-after-last-window'],
