@@ -1,3 +1,6 @@
+## 1.3.4 (March 23, 2018)
+- Fix broken history navigation shortcuts
+
 ## 1.3.3 (February 26, 2018)
 - Fix reposting and liking tracks while searching #163 #165
 - Fix Bluetooth headphone Play/Pause #159
