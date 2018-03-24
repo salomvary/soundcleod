@@ -1,6 +1,7 @@
 'use strict'
 
 const optimist = require('optimist')
+const url = require('url')
 
 /* eslint prefer-destructuring: off */
 module.exports = function options(process) {
@@ -9,19 +10,22 @@ module.exports = function options(process) {
     .default('auto-updater-base-url', 'https://updates.soundcleod.com')
     .default('quit-after-last-window', process.platform != 'darwin')
     .argv
+  const arg = optimist(process.argv).argv._
+  const {protocol, hostname} = url.parse(arg[2])
 
-  var baseurl
-  if (/(http[s]?):\/\/(.*(\.))?(soundcloud.com)(\/.*)?/ig.test(argv['base-url'])){
-    baseurl = argv['base-url']
+  var startUrl
+  if ((protocol === 'https:' || protocol === 'http:') && hostname === 'soundcloud.com') {
+    startUrl = arg[2]
   }
 
   return {
     autoUpdaterBaseUrl: argv['auto-updater-base-url'],
-    baseUrl: baseurl,
+    baseUrl: argv['base-url'],
     developerTools: argv['developer-tools'],
     profile: argv.profile,
     quitAfterLastWindow: argv['quit-after-last-window'],
     useAutoUpdater: argv['auto-updater'],
-    userData: argv['user-data-path']
+    userData: argv['user-data-path'],
+    startUrl: startUrl
   }
 }

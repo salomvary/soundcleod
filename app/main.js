@@ -28,7 +28,8 @@ const {
   profile,
   quitAfterLastWindow,
   useAutoUpdater,
-  userData
+  userData,
+  startUrl
 } = options(process)
 
 if (userData)
@@ -224,6 +225,8 @@ app.on('ready', () => {
 function getUrl() {
   if (baseUrl)
     return baseUrl
+  if (startUrl)
+    return startUrl
   return 'https://soundcloud.com'
 }
 
