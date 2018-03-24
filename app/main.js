@@ -157,16 +157,19 @@ app.on('ready', () => {
     if (isNotFocused()) soundcloud.previousTrack()
   })
 
+  // The shortcuts *not* handled by SoundCloud itself
+  // don't need the isNotFocused() check to avoid double triggering
+
   menu.events.on('home', () => {
-    if (isNotFocused()) soundcloud.goHome()
+    soundcloud.goHome()
   })
 
   menu.events.on('back', () => {
-    if (isNotFocused()) soundcloud.goBack()
+    soundcloud.goBack()
   })
 
   menu.events.on('forward', () => {
-    if (isNotFocused()) soundcloud.goForward()
+    soundcloud.goForward()
   })
 
   menu.events.on('main-window', () => {
