@@ -4,8 +4,8 @@ const optimist = require('optimist')
 const isSoundcloudUrl = require('./is-soundcloud-url')
 
 /* eslint prefer-destructuring: off */
-module.exports = function options(process) {
-  const argv = optimist(process.argv)
+module.exports = function options(process, processArgv) {
+  const argv = optimist(processArgv || process.argv)
     .boolean('auto-updater')
     .boolean('developer-tools')
     .boolean('quit-after-last-window')

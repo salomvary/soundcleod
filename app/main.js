@@ -43,11 +43,14 @@ app.on('before-quit', () => {
   quitting = true
 })
 
-const shouldQuit = app.makeSingleInstance(() => {
+const shouldQuit = app.makeSingleInstance((argv) => {
   if (mainWindow) {
     if (mainWindow.isMinimized()) mainWindow.restore()
     mainWindow.show()
     mainWindow.focus()
+    const { launchUrl: loadUrl } = options(process, argv)
+    if (loadUrl)
+      mainWindow.loadURL(loadUrl)
   }
 })
 
