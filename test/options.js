@@ -8,7 +8,8 @@ describe('Parsing options', function () {
     assert.deepEqual(options({ argv: [], platform: 'darwin' }), {
       autoUpdaterBaseUrl: 'https://updates.soundcleod.com',
       baseUrl: undefined,
-      developerTools: undefined,
+      developerTools: false,
+      launchUrl: undefined,
       profile: undefined,
       quitAfterLastWindow: false,
       useAutoUpdater: true,
@@ -20,7 +21,8 @@ describe('Parsing options', function () {
     assert.deepEqual(options({ argv: [], platform: 'linux' }), {
       autoUpdaterBaseUrl: 'https://updates.soundcleod.com',
       baseUrl: undefined,
-      developerTools: undefined,
+      developerTools: false,
+      launchUrl: undefined,
       profile: undefined,
       quitAfterLastWindow: true,
       useAutoUpdater: true,

@@ -25,6 +25,7 @@ const {
   autoUpdaterBaseUrl,
   baseUrl,
   developerTools,
+  launchUrl,
   profile,
   quitAfterLastWindow,
   useAutoUpdater,
@@ -225,7 +226,9 @@ app.on('ready', () => {
 })
 
 function getUrl() {
-  if (baseUrl)
+  if (launchUrl)
+    return launchUrl
+  else if (baseUrl)
     return baseUrl
   return 'https://soundcloud.com'
 }
