@@ -1,3 +1,7 @@
+## 1.4.0 (August 31, 2018)
+- Allow launching with a SoundCloud URL from the command line
+- Security updates
+
 ## 1.3.4 (March 23, 2018)
 - Fix broken history navigation shortcuts
 

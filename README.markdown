@@ -14,12 +14,12 @@ SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart
 
 ## How to get it?
 
-Current version is 1.3.4 (March 23, 2018) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
+Current version is 1.4.0 (August 31, 2018) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
 
 ### For macOS
 
 - [Download macOS installer from
-	here](https://github.com/salomvary/soundcleod/releases/download/v1.3.4/soundcleod-1.3.4.dmg)
+	here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-1.4.0.dmg)
 - Double click the file
 - Drag SoundCleod into your Applications folder
 - Go to Applications, right click (or control-click) on SoundCleod
@@ -32,7 +32,7 @@ Current version is 1.3.4 (March 23, 2018) [see changes](https://github.com/salom
 ### For Windows
 
 - [Download Windows installer from
-	here](https://github.com/salomvary/soundcleod/releases/download/v1.3.4/soundcleod-Setup-1.3.4.exe)
+	here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-Setup-1.4.0.exe)
 - Save the file when prompted
 - Run the downloaded installer
 
