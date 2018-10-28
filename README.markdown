@@ -27,6 +27,14 @@ Current version is 1.4.0 (August 31, 2018) [see changes](https://github.com/salo
 - Click Open when prompted **“SoundCleod” is from an unidentified developer. Are you sure you want to open it?**
 - Optionally drag SoundCleod from Applications into the Dock
 
+To use media keys on macOS Mojave (10.14) or newer:
+
+- Click Open System Preferences when prompted **"SoundCleod would like to control this computer using accessibility features.**
+- Alternatively, if you do not get prompted, open System Preferences > Security & Privacy > Privacy > Accessibility
+- Click the lock to make changes (at the bottom)
+- Tick the checkbox to allow SoundCleod access the media keys (add SoundCleod with the + button if it is not listed)
+- **Restart SoundCleod**
+
 **Important!** Minimum required macOS version is 10.9.x (Mavericks).
 
 ### For Windows
