@@ -40,6 +40,11 @@
         "squirrel"
       ]
     },
+    "linux": {
+      "target": [
+        "AppImage"
+      ]
+    },
     "squirrelWindows": {
       "iconUrl": "https://soundcleod.com/favicon.ico"
     }
