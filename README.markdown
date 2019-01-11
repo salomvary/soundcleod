@@ -81,7 +81,8 @@ SoundCleod is an open source project built by [Márton
 Salomváry](https://twitter.com/salomvary) released under [MIT
 license](https://github.com/salomvary/soundcleod/blob/master/LICENSE). The
 project is [hosted on GitHub](https://github.com/salomvary/soundcleod), feel
-free to fork the code and make any changes you want.
+free to fork the code and make any changes you want. We even have [documentation
+for fist time contributors](https://github.com/salomvary/soundcleod/blob/master/CONTRIBUTING.md)!
 
 Found a bug? Have a feature request? [Create a GitHub
 issue](https://github.com/salomvary/soundcleod/issues).
