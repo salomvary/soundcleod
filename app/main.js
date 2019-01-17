@@ -43,7 +43,8 @@ app.on('before-quit', () => {
   quitting = true
 })
 
-const shouldQuit = app.makeSingleInstance((argv) => {
+app.requestSingleInstanceLock()
+app.on('ready', (event, argv) => {
   if (mainWindow) {
     if (mainWindow.isMinimized()) mainWindow.restore()
     mainWindow.show()
@@ -53,8 +54,6 @@ const shouldQuit = app.makeSingleInstance((argv) => {
       mainWindow.loadURL(loadUrl)
   }
 })
-
-if (shouldQuit) app.quit()
 
 if (useAutoUpdater) autoUpdater(autoUpdaterBaseUrl)
 
