@@ -38,15 +38,14 @@ gulp.task('macos-icon', (cb) => {
   }
 })
 
-gulp.task('windows-icon', () =>
-  gulp.src([
-    'build/icon.iconset/icon_16x16.png',
-    'build/icon.iconset/icon_32x32.png',
-    'build/icon.iconset/icon_32x32@2x.png',
-    'build/icon.iconset/icon_128x128.png',
-    'build/icon.iconset/icon_256x256.png'
-  ]).pipe(toIco('icon.ico'))
-    .pipe(gulp.dest('build')))
+gulp.task('windows-icon', () => gulp.src([
+  'build/icon.iconset/icon_16x16.png',
+  'build/icon.iconset/icon_32x32.png',
+  'build/icon.iconset/icon_32x32@2x.png',
+  'build/icon.iconset/icon_128x128.png',
+  'build/icon.iconset/icon_256x256.png'
+]).pipe(toIco('icon.ico'))
+  .pipe(gulp.dest('build')))
 
 gulp.task('icons', gulp.series(
   'iconset',
@@ -56,11 +55,10 @@ gulp.task('icons', gulp.series(
   )
 ))
 
-gulp.task('background', () =>
-  gulp.src('background.svg')
-    .pipe(svg2pngPlugin())
-    .pipe(rename('background.png'))
-    .pipe(gulp.dest('build')))
+gulp.task('background', () => gulp.src('background.svg')
+  .pipe(svg2pngPlugin())
+  .pipe(rename('background.png'))
+  .pipe(gulp.dest('build')))
 
 gulp.task('images', gulp.parallel(
   'icons',

@@ -147,7 +147,7 @@ function fixFlakyMediaKeys(mainWindow) {
 }
 
 function compareTrackMetadata(lhs, rhs) {
-  return lhs.title == rhs.title &&
-         lhs.subtitle == rhs.subtitle &&
-         lhs.artworkUrl == rhs.artworkUrl
+  return lhs.title == rhs.title
+         && lhs.subtitle == rhs.subtitle
+         && lhs.artworkUrl == rhs.artworkUrl
 }

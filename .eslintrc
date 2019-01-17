@@ -12,6 +12,7 @@
     "comma-dangle": ["error", "never"],
     "consistent-return": "off",
     "eqeqeq": "off",
+    "import/order": "off",
     "indent": [2, 2],
     "no-console": 0,
     "no-use-before-define": ["error", "nofunc"],
