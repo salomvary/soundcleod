@@ -40,10 +40,11 @@ function remove() {
 }
 
 function onSwipe(e, direction) {
-  if (direction === 'left')
+  if (direction === 'left') {
     remote.getCurrentWebContents().goBack()
-  else if (direction === 'right')
+  } else if (direction === 'right') {
     remote.getCurrentWebContents().goForward()
+  }
 }
 
 function onMouseWheel(e) {
@@ -60,11 +61,13 @@ function onScrollBegin() {
 }
 
 function onScrollEnd() {
-  if (time > THRESHOLD_TIME && tracking && Math.abs(deltaY) < THRESHOLD_LIMIT_DELTA_Y)
-    if (deltaX > THRESHOLD_DELTA_X)
+  if (time > THRESHOLD_TIME && tracking && Math.abs(deltaY) < THRESHOLD_LIMIT_DELTA_Y) {
+    if (deltaX > THRESHOLD_DELTA_X) {
       remote.getCurrentWebContents().goForward()
-    else if (deltaX < -THRESHOLD_DELTA_X)
+    } else if (deltaX < -THRESHOLD_DELTA_X) {
       remote.getCurrentWebContents().goBack()
+    }
+  }
 
   tracking = false
   deltaX = 0

@@ -12,10 +12,11 @@ function checkAutoUpdater(callback) {
   // Test if updates can actually be installed, see also:
   // https://github.com/electron/electron/issues/7357
   fs.access(app.getPath('exe'), fs.constants.W_OK, (err) => {
-    if (err && err.code == 'EROFS')
+    if (err && err.code == 'EROFS') {
       console.log('Disabled automatic updates on a read-only file system.')
-    else
+    } else {
       callback()
+    }
   })
 }
 

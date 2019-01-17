@@ -5,8 +5,9 @@ const { ipcRenderer } = require('electron')
 require('./macos-swipe-navigation').register()
 
 // See https://github.com/electron/spectron#node-integration
-if (process.env.SPECTRON)
+if (process.env.SPECTRON) {
   window.electronRequire = require
+}
 
 ipcRenderer.on('getTrackMetadata', ({ sender }) => sendTrackMetadata(sender))
 ipcRenderer.on('navigate', (_, url) => navigate(url))
@@ -48,8 +49,9 @@ const { confirm } = window
 
 window.confirm = (message) => {
   // For some bizarre reason SoundCloud calls comfirm() with { string: 'The message' }
-  if (message && message.string)
+  if (message && message.string) {
     return confirm(message.string)
+  }
   return confirm(message)
 }
 

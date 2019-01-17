@@ -20,8 +20,7 @@ module.exports = function ({ baseURL } = {}) {
       .concat(defaultArgs)
       .concat('--user-data-path=' + this.userData.name)
 
-    if (baseURL)
-      appArgs.push('--base-url=' + baseURL)
+    if (baseURL) { appArgs.push('--base-url=' + baseURL) }
 
     this.app = new Application({
       args: appArgs,
@@ -38,8 +37,7 @@ module.exports = function ({ baseURL } = {}) {
   })
 
   afterEach('stop application', function () {
-    if (this.app && this.app.isRunning())
-      return this.app.stop()
+    if (this.app && this.app.isRunning()) { return this.app.stop() }
     return null
   })
 }
@@ -47,11 +45,12 @@ module.exports = function ({ baseURL } = {}) {
 function entryPoint() {
   // Allow running both a built app or electron app/main.js
   const path = process.env.SOUNDCLEOD_PATH
-  if (path)
+  if (path) {
     return {
       path,
       args: []
     }
+  }
   return {
     /* eslint global-require: off */
     path: require('electron'),

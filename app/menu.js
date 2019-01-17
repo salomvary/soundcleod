@@ -57,16 +57,18 @@ function buildMenu(options) {
             ? 'Ctrl+Command+F'
             : 'F11',
           click(item, focusedWindow) {
-            if (focusedWindow)
+            if (focusedWindow) {
               focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
+            }
           }
         },
         {
           label: 'Reload',
           accelerator: 'CmdOrCtrl+R',
           click(item, focusedWindow) {
-            if (focusedWindow)
+            if (focusedWindow) {
               focusedWindow.reload()
+            }
           }
         }
       ]
@@ -179,17 +181,19 @@ function buildMenu(options) {
     }
   ]
 
-  if (options.developerTools)
+  if (options.developerTools) {
     menu[1].submenu.push({
       label: 'Toggle Developer Tools',
       accelerator: process.platform == 'darwin'
         ? 'Alt+Command+I'
         : 'Ctrl+Shift+I',
       click(item, focusedWindow) {
-        if (focusedWindow)
+        if (focusedWindow) {
           focusedWindow.toggleDevTools()
+        }
       }
     })
+  }
 
   if (process.platform == 'darwin') {
     const name = app.getName()
@@ -245,7 +249,7 @@ function buildMenu(options) {
         role: 'front'
       }
     )
-  } else
+  } else {
     menu.unshift({
       label: 'File',
       submenu: [
@@ -256,6 +260,7 @@ function buildMenu(options) {
         }
       ]
     })
+  }
 
   const built = Menu.buildFromTemplate(menu)
   built.events = events

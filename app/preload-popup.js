@@ -5,5 +5,6 @@
 Object.defineProperty(window, 'onbeforeunload', { set() {} })
 
 // See https://github.com/electron/spectron#node-integration
-if (process.env.SPECTRON)
+if (process.env.SPECTRON) {
   window.electronRequire = require
+}

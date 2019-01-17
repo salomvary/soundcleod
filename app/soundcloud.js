@@ -20,11 +20,15 @@ module.exports = class SoundCloud extends Events {
   }
 
   play() {
-    if (!this.playing) this.playPause()
+    if (!this.playing) {
+      this.playPause()
+    }
   }
 
   pause() {
-    if (this.playing) this.playPause()
+    if (this.playing) {
+      this.playPause()
+    }
   }
 
   likeUnlike() {
@@ -98,10 +102,11 @@ function getTrackMetadata() {
   return new Promise((resolve) => {
     ipcMain.once('trackMetadata', (_, trackMetadata) => {
       const title = parseTitle(this.window.getTitle())
-      if (title)
+      if (title) {
         resolve(Object.assign({}, title, trackMetadata))
-      else
+      } else {
         resolve()
+      }
     })
     this.window.webContents.send('getTrackMetadata')
   })
@@ -109,8 +114,9 @@ function getTrackMetadata() {
 
 function parseTitle(windowTitle) {
   let titleParts = windowTitle.split(' by ', 2)
-  if (titleParts.length == 1)
+  if (titleParts.length == 1) {
     titleParts = windowTitle.split(' in ', 2)
+  }
   if (titleParts.length == 2) {
     // Title has " in " in it when not playing but on a playlist page
     const [title, subtitle] = titleParts

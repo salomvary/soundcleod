@@ -3,11 +3,12 @@
 const url = require('url')
 
 module.exports = function isSoundcloudUrl(candidate) {
-  if (candidate)
-    if (validate(candidate))
+  if (candidate) {
+    if (validate(candidate)) {
       return true
-    else
-      console.warn(`Ignored invalid SoundCloud URL argument ${candidate}`)
+    }
+    console.warn(`Ignored invalid SoundCloud URL argument ${candidate}`)
+  }
 }
 
 function validate(candidate) {

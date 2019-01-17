@@ -18,7 +18,7 @@
     "prefer-template": "off",
     "semi": [2, "never"],
     "strict": [2, "global"],
-    "curly": [2, "multi"]
+    "curly": [2, "all"]
   },
   "settings": {
     "import/core-modules": [ "electron" ]

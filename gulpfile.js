@@ -25,7 +25,7 @@ gulp.task('iconset', gulp.parallel(
 ))
 
 gulp.task('macos-icon', (cb) => {
-  if (process.platform == 'darwin')
+  if (process.platform == 'darwin') {
     execFile('iconutil', [
       '-c',
       'icns',
@@ -33,8 +33,9 @@ gulp.task('macos-icon', (cb) => {
       'build/icon.icns',
       'build/icon.iconset'
     ], cb)
-  else
+  } else {
     cb()
+  }
 })
 
 gulp.task('windows-icon', () =>

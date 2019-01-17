@@ -8,8 +8,9 @@ module.exports = function contextMenu(window, soundcloud) {
   electronContextMenu({
     window,
     prepend: (params) => {
-      if (params.mediaType == 'none')
+      if (params.mediaType == 'none') {
         return menuTemplate(soundcloud)
+      }
     }
   })
 }

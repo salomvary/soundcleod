@@ -2,7 +2,7 @@
 
 // Handle the Squirrel.Windows install madnesss
 /* eslint global-require: "off" */
-if (require('electron-squirrel-startup')) return
+if (require('electron-squirrel-startup')) { return }
 
 const {
   app, BrowserWindow, globalShortcut, Menu
@@ -32,10 +32,11 @@ const {
   userData
 } = options(process)
 
-if (userData)
+if (userData) {
   app.setPath('userData', userData)
-else if (profile)
+} else if (profile) {
   app.setPath('userData', app.getPath('userData') + ' ' + profile)
+}
 
 let quitting = false
 
@@ -46,21 +47,26 @@ app.on('before-quit', () => {
 app.requestSingleInstanceLock()
 app.on('ready', (event, argv) => {
   if (mainWindow) {
-    if (mainWindow.isMinimized()) mainWindow.restore()
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore()
+    }
     mainWindow.show()
     mainWindow.focus()
     const { launchUrl: loadUrl } = options(process, argv)
-    if (loadUrl)
+    if (loadUrl) {
       mainWindow.loadURL(loadUrl)
+    }
   }
 })
 
-if (useAutoUpdater) autoUpdater(autoUpdaterBaseUrl)
+if (useAutoUpdater) { autoUpdater(autoUpdaterBaseUrl) }
 
 windowOpenPolicy(app)
 
 app.on('activate', () => {
-  if (mainWindow) mainWindow.show()
+  if (mainWindow) {
+    mainWindow.show()
+  }
 })
 
 app.on('ready', () => {
@@ -109,8 +115,9 @@ app.on('ready', () => {
         // See https://github.com/electron/electron/issues/6033
         mainWindow.once('leave-full-screen', () => mainWindow.hide())
         mainWindow.setFullScreen(false)
-      } else
+      } else {
         mainWindow.hide()
+      }
     }
   })
 
@@ -122,8 +129,9 @@ app.on('ready', () => {
   }
 
   mainWindow.on('closed', () => {
-    if (process.platform !== 'darwin')
+    if (process.platform !== 'darwin') {
       app.quit()
+    }
     mainWindow = null
   })
 
@@ -140,23 +148,33 @@ app.on('ready', () => {
   })
 
   menu.events.on('playPause', () => {
-    if (isNotFocused()) soundcloud.playPause()
+    if (isNotFocused()) {
+      soundcloud.playPause()
+    }
   })
 
   menu.events.on('likeUnlike', () => {
-    if (isNotFocused()) soundcloud.likeUnlike()
+    if (isNotFocused()) {
+      soundcloud.likeUnlike()
+    }
   })
 
   menu.events.on('repost', () => {
-    if (isNotFocused()) soundcloud.repost()
+    if (isNotFocused()) {
+      soundcloud.repost()
+    }
   })
 
   menu.events.on('nextTrack', () => {
-    if (isNotFocused()) soundcloud.nextTrack()
+    if (isNotFocused()) {
+      soundcloud.nextTrack()
+    }
   })
 
   menu.events.on('previousTrack', () => {
-    if (isNotFocused()) soundcloud.previousTrack()
+    if (isNotFocused()) {
+      soundcloud.previousTrack()
+    }
   })
 
   // The shortcuts *not* handled by SoundCloud itself
@@ -175,10 +193,11 @@ app.on('ready', () => {
   })
 
   menu.events.on('main-window', () => {
-    if (mainWindow.isVisible())
+    if (mainWindow.isVisible()) {
       mainWindow.hide()
-    else
+    } else {
       mainWindow.show()
+    }
   })
 
   menu.events.on('about', () => {
@@ -228,17 +247,15 @@ app.on('ready', () => {
 })
 
 function getUrl() {
-  if (launchUrl)
-    return launchUrl
-  else if (baseUrl)
-    return baseUrl
+  if (launchUrl) { return launchUrl }
+  if (baseUrl) { return baseUrl }
   return 'https://soundcloud.com'
 }
 
 function showAbout() {
-  if (aboutWindow)
+  if (aboutWindow) {
     aboutWindow.show()
-  else {
+  } else {
     aboutWindow = new BrowserWindow({
       fullscreen: false,
       fullscreenable: false,

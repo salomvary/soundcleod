@@ -60,11 +60,12 @@ module.exports = function touchBarMenu(window, soundcloud) {
 
 function formatTitle(title, subtitle) {
   const titleAndSubtitle = `${title} by ${subtitle}`
-  if (titleAndSubtitle.length > MAX_TITLE_LENGTH)
-    if (`${title} by X…`.length > MAX_TITLE_LENGTH)
+  if (titleAndSubtitle.length > MAX_TITLE_LENGTH) {
+    if (`${title} by X…`.length > MAX_TITLE_LENGTH) {
       return truncate(title)
-    else
-      return truncate(titleAndSubtitle)
+    }
+    return truncate(titleAndSubtitle)
+  }
   return titleAndSubtitle
 }
 
