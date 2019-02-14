@@ -50,7 +50,7 @@
     }
   },
   "devDependencies": {
-    "electron": "^4.0.1",
+    "electron": "^4.0.4",
     "electron-builder": "20.38.5",
     "electron-builder-squirrel-windows": "^20.38.5",
     "eslint": "^5.12.0",
