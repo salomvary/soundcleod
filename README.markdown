@@ -20,7 +20,10 @@ Current version is 1.4.0 (August 31, 2018) [see changes](https://github.com/salo
 
 - [Download macOS installer from
 	here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-1.4.0.dmg)
-- Double click the file
+- Locate the installer (.dmg) file in the Finder
+- Right click (or control-click) on the installer file
+- If prompted **"SoundCleod-1.4.0.dmg" is from an unidentified developer. Are you sure you want to open it?**,
+  click Open.
 - Drag SoundCleod into your Applications folder
 - Go to Applications, right click (or control-click) on SoundCleod
 - Click Open
@@ -82,7 +85,7 @@ Salomváry](https://twitter.com/salomvary) released under [MIT
 license](https://github.com/salomvary/soundcleod/blob/master/LICENSE). The
 project is [hosted on GitHub](https://github.com/salomvary/soundcleod), feel
 free to fork the code and make any changes you want. We even have [documentation
-for fist time contributors](https://github.com/salomvary/soundcleod/blob/master/CONTRIBUTING.md)!
+for first-time contributors](https://github.com/salomvary/soundcleod/blob/master/CONTRIBUTING.md)!
 
 Found a bug? Have a feature request? [Create a GitHub
 issue](https://github.com/salomvary/soundcleod/issues).
