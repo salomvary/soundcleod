@@ -11,7 +11,7 @@
   "version": "1.4.1-pre.0",
   "main": "./main.js",
   "dependencies": {
-    "electron-context-menu": "^0.9.1",
+    "electron-context-menu": "^0.12.0",
     "electron-squirrel-startup": "^1.0.0",
     "electron-window-state": "^4.0.1",
     "optimist": "^0.6.1"

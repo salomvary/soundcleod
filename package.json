@@ -50,20 +50,20 @@
     }
   },
   "devDependencies": {
-    "electron": "^4.0.4",
-    "electron-builder": "20.38.5",
-    "electron-builder-squirrel-windows": "^20.38.5",
-    "eslint": "^5.12.0",
+    "electron": "^5.0.0",
+    "electron-builder": "20.40.2",
+    "electron-builder-squirrel-windows": "^20.40.0",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "gulp": "^4.0.0",
-    "gulp-rename": "^1.2.2",
+    "eslint-plugin-import": "^2.17.2",
+    "gulp": "^4.0.1",
+    "gulp-rename": "^1.4.0",
     "gulp-to-ico": "^1.0.0",
-    "mocha": "^5.0.1",
+    "mocha": "^6.1.4",
     "spectron": "^5.0.0",
     "svg2png": "^4.1.1",
     "through2": "^2.0.5",
     "tmp": "0.0.33",
-    "vinyl": "^2.1.0"
+    "vinyl": "^2.2.0"
   }
 }
