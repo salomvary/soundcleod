@@ -2,7 +2,7 @@ os:
   - osx
 language: node_js
 node_js:
-  - lts
+  - lts/*
 script:
   - npm run eslint
   - npm run prettier
