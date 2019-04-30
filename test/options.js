@@ -3,8 +3,8 @@
 const assert = require('assert')
 const options = require('../app/options')
 
-describe('Parsing options', function () {
-  it('returns macOS defaults', function () {
+describe('Parsing options', function() {
+  it('returns macOS defaults', function() {
     assert.deepEqual(options({ argv: [], platform: 'darwin' }), {
       autoUpdaterBaseUrl: 'https://updates.soundcleod.com',
       baseUrl: undefined,
@@ -17,7 +17,7 @@ describe('Parsing options', function () {
     })
   })
 
-  it('returns defaults', function () {
+  it('returns defaults', function() {
     assert.deepEqual(options({ argv: [], platform: 'linux' }), {
       autoUpdaterBaseUrl: 'https://updates.soundcleod.com',
       baseUrl: undefined,
@@ -30,9 +30,10 @@ describe('Parsing options', function () {
     })
   })
 
-  it('returns overridden autoUpdaterBaseUrl', function () {
+  it('returns overridden autoUpdaterBaseUrl', function() {
     assert.deepEqual(
-      options({ argv: ['', '--auto-updater-base-url=test'] }).autoUpdaterBaseUrl,
+      options({ argv: ['', '--auto-updater-base-url=test'] })
+        .autoUpdaterBaseUrl,
       'test'
     )
   })

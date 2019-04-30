@@ -14,7 +14,10 @@ module.exports = function isSoundcloudUrl(candidate) {
 function validate(candidate) {
   try {
     const { protocol, hostname } = url.parse(candidate.toLowerCase())
-    return (protocol === 'http:' || protocol === 'https:') && hostname === 'soundcloud.com'
+    return (
+      (protocol === 'http:' || protocol === 'https:') &&
+      hostname === 'soundcloud.com'
+    )
   } catch (e) {
     return false
   }

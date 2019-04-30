@@ -25,10 +25,14 @@ function navigate(url) {
 }
 
 function getArtworkURL() {
-  const artwork = document.querySelector('.playbackSoundBadge__avatar [aria-role=img]')
+  const artwork = document.querySelector(
+    '.playbackSoundBadge__avatar [aria-role=img]'
+  )
   if (artwork) {
     // Extract actual URL from CSS url()
-    const match = artwork.style.backgroundImage.match(/(?:url\s*\(\s*['"]?)(.*?)(?:['"]?\s*\))/i)
+    const match = artwork.style.backgroundImage.match(
+      /(?:url\s*\(\s*['"]?)(.*?)(?:['"]?\s*\))/i
+    )
     return match && match[1]
   }
   return null
@@ -65,7 +69,8 @@ window.confirm = (message) => {
 window.addEventListener('DOMContentLoaded', () => {
   const css = document.createElement('style')
   css.type = 'text/css'
-  css.innerHTML = '.signinInitialStep_fbButton { display: none !important }'
-    + '.signinInitialStep_fbLink { display: block !important }'
+  css.innerHTML =
+    '.signinInitialStep_fbButton { display: none !important }' +
+    '.signinInitialStep_fbLink { display: block !important }'
   document.body.appendChild(css)
 })

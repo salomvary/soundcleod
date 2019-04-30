@@ -48,11 +48,9 @@ function isLoginURL(url) {
   return [
     /^https:\/\/accounts\.google\.com.*/i,
     /^https:\/\/www.facebook.com\/.*\/oauth.*/i
-  ].some(re => url.match(re))
+  ].some((re) => url.match(re))
 }
 
 function isSoundCloudURL(url) {
-  return [
-    /^https?:\/\/soundcloud\.com.*/i
-  ].some(re => url.match(re))
+  return [/^https?:\/\/soundcloud\.com.*/i].some((re) => url.match(re))
 }

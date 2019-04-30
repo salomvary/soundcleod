@@ -3,10 +3,10 @@
 const applicationHelper = require('./application-helper')
 const assert = require('assert')
 
-describe('Logging in', function () {
+describe('Logging in', function() {
   applicationHelper()
 
-  xit('shows Facebook login in the main window', function () {
+  xit('shows Facebook login in the main window', function() {
     return this.app.client
       .waitForVisible('button=Sign in')
       .element('#content')
@@ -15,24 +15,29 @@ describe('Logging in', function () {
       .click('=Continue with Facebook')
       .waitForVisible('#loginbutton')
       .then(() => this.app.client.getUrl())
-      .then(url => assertFacebookLogin(url))
+      .then((url) => assertFacebookLogin(url))
       .then(() => this.app.client.getWindowCount())
-      .then(windowCount => assert.equal(windowCount, 1, 'No popup is open'))
+      .then((windowCount) => assert.equal(windowCount, 1, 'No popup is open'))
   })
 
-  it('shows Google login in a popup', function () {
+  it('shows Google login in a popup', function() {
     return this.app.client
       .waitForVisible('button=Sign in')
       .element('#content')
       .click('button=Sign in')
       .waitForVisible('button=Continue with Google')
       .click('button=Continue with Google')
-      .waitUntil(() => this.app.client.getWindowCount().then(count => count > 1))
+      .waitUntil(() =>
+        this.app.client.getWindowCount().then((count) => count > 1)
+      )
       .then(() => this.app.client.getWindowCount())
-      .then(windowCount => assert.equal(windowCount, 2, 'Opened a popup'))
+      .then((windowCount) => assert.equal(windowCount, 2, 'Opened a popup'))
   })
 
   function assertFacebookLogin(url) {
-    assert.ok(url.includes('www.facebook.com/login'), `'${url}' looks like a Facebook url`)
+    assert.ok(
+      url.includes('www.facebook.com/login'),
+      `'${url}' looks like a Facebook url`
+    )
   }
 })

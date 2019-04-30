@@ -9,8 +9,8 @@ const defaultArgs = [
   '--quit-after-last-window'
 ]
 
-module.exports = function ({ baseURL } = {}) {
-  beforeEach('start application', function () {
+module.exports = function({ baseURL } = {}) {
+  beforeEach('start application', function() {
     // Start each test with a blank user profile
     this.userData = tmp.dirSync()
 
@@ -20,7 +20,9 @@ module.exports = function ({ baseURL } = {}) {
       .concat(defaultArgs)
       .concat('--user-data-path=' + this.userData.name)
 
-    if (baseURL) { appArgs.push('--base-url=' + baseURL) }
+    if (baseURL) {
+      appArgs.push('--base-url=' + baseURL)
+    }
 
     this.app = new Application({
       args: appArgs,
@@ -36,8 +38,10 @@ module.exports = function ({ baseURL } = {}) {
     return this.app.start()
   })
 
-  afterEach('stop application', function () {
-    if (this.app && this.app.isRunning()) { return this.app.stop() }
+  afterEach('stop application', function() {
+    if (this.app && this.app.isRunning()) {
+      return this.app.stop()
+    }
     return null
   })
 }

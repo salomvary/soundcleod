@@ -2,11 +2,11 @@
 
 // Handle the Squirrel.Windows install madnesss
 /* eslint global-require: "off" */
-if (require('electron-squirrel-startup')) { return }
+if (require('electron-squirrel-startup')) {
+  return
+}
 
-const {
-  app, BrowserWindow, globalShortcut, Menu
-} = require('electron')
+const { app, BrowserWindow, globalShortcut, Menu } = require('electron')
 const autoUpdater = require('./auto-updater')
 const contextMenu = require('./context-menu')
 const dockMenu = require('./dock-menu')
@@ -59,7 +59,9 @@ app.on('ready', (event, argv) => {
   }
 })
 
-if (useAutoUpdater) { autoUpdater(autoUpdaterBaseUrl) }
+if (useAutoUpdater) {
+  autoUpdater(autoUpdaterBaseUrl)
+}
 
 windowOpenPolicy(app)
 
@@ -206,25 +208,25 @@ app.on('ready', () => {
 
   mainWindow.on('app-command', (e, cmd) => {
     switch (cmd) {
-    case 'media-play':
-      soundcloud.play()
-      break
-    case 'media-pause':
-      soundcloud.pause()
-      break
-    case 'media-play-pause':
-      soundcloud.playPause()
-      break
-    case 'browser-backward':
-      soundcloud.goBack()
-      break
-    case 'browser-forward':
-      soundcloud.goForward()
-      break
-    case 'browser-home':
-      soundcloud.goHome()
-      break
-    default:
+      case 'media-play':
+        soundcloud.play()
+        break
+      case 'media-pause':
+        soundcloud.pause()
+        break
+      case 'media-play-pause':
+        soundcloud.playPause()
+        break
+      case 'browser-backward':
+        soundcloud.goBack()
+        break
+      case 'browser-forward':
+        soundcloud.goForward()
+        break
+      case 'browser-home':
+        soundcloud.goHome()
+        break
+      default:
     }
   })
 
@@ -236,7 +238,11 @@ app.on('ready', () => {
   })
 
   soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
-    mainWindow.webContents.send('notification', { title, body: subtitle, icon: artworkURL })
+    mainWindow.webContents.send('notification', {
+      title,
+      body: subtitle,
+      icon: artworkURL
+    })
   })
 
   mainWindow.webContents.once('did-start-loading', () => {
@@ -247,8 +253,12 @@ app.on('ready', () => {
 })
 
 function getUrl() {
-  if (launchUrl) { return launchUrl }
-  if (baseUrl) { return baseUrl }
+  if (launchUrl) {
+    return launchUrl
+  }
+  if (baseUrl) {
+    return baseUrl
+  }
   return 'https://soundcloud.com'
 }
 

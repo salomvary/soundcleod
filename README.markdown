@@ -19,7 +19,7 @@ Current version is 1.4.0 (August 31, 2018) [see changes](https://github.com/salo
 ### For macOS
 
 - [Download macOS installer from
-	here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-1.4.0.dmg)
+  here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-1.4.0.dmg)
 - Locate the installer (.dmg) file in the Finder
 - Right click (or control-click) on the installer file
 - If prompted **"SoundCleod-1.4.0.dmg" is from an unidentified developer. Are you sure you want to open it?**,
@@ -43,7 +43,7 @@ To use media keys on macOS Mojave (10.14) or newer:
 ### For Windows
 
 - [Download Windows installer from
-	here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-Setup-1.4.0.exe)
+  here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-Setup-1.4.0.exe)
 - Save the file when prompted
 - Run the downloaded installer
 

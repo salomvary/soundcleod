@@ -24,6 +24,5 @@ test_script:
   - npm test
   - npm run release
 
-
 # Don't actually build.
 build: off

@@ -11,8 +11,7 @@ module.exports = function options(process, processArgv) {
     .boolean('quit-after-last-window')
     .default('auto-updater', true)
     .default('auto-updater-base-url', 'https://updates.soundcleod.com')
-    .default('quit-after-last-window', process.platform != 'darwin')
-    .argv
+    .default('quit-after-last-window', process.platform != 'darwin').argv
 
   // process.argv starts with [SoundCleod] or [Electron, app.js], skip these
   // and get the first non-hyphenated argument

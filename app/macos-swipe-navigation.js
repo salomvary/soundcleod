@@ -20,7 +20,8 @@ let time = 0
 module.exports.remove = remove
 
 module.exports.register = function register() {
-  remote.getCurrentWindow()
+  remote
+    .getCurrentWindow()
     .on('scroll-touch-begin', onScrollBegin)
     .on('scroll-touch-end', onScrollEnd)
     .on('swipe', onSwipe)
@@ -30,7 +31,8 @@ module.exports.register = function register() {
 }
 
 function remove() {
-  remote.getCurrentWindow()
+  remote
+    .getCurrentWindow()
     .removeListener('scroll-touch-begin', onScrollBegin)
     .removeListener('scroll-touch-end', onScrollEnd)
     .removeListener('swipe', onSwipe)
@@ -51,17 +53,21 @@ function onMouseWheel(e) {
   if (tracking) {
     deltaX += e.deltaX
     deltaY += e.deltaY
-    time = (new Date()).getTime() - startTime
+    time = new Date().getTime() - startTime
   }
 }
 
 function onScrollBegin() {
   tracking = true
-  startTime = (new Date()).getTime()
+  startTime = new Date().getTime()
 }
 
 function onScrollEnd() {
-  if (time > THRESHOLD_TIME && tracking && Math.abs(deltaY) < THRESHOLD_LIMIT_DELTA_Y) {
+  if (
+    time > THRESHOLD_TIME &&
+    tracking &&
+    Math.abs(deltaY) < THRESHOLD_LIMIT_DELTA_Y
+  ) {
     if (deltaX > THRESHOLD_DELTA_X) {
       remote.getCurrentWebContents().goForward()
     } else if (deltaX < -THRESHOLD_DELTA_X) {

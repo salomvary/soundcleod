@@ -11,7 +11,7 @@ docs](DEVELOPMENT.md).
 ## Submitting bug reports
 
 Please **do not report issues with soundcloud.com** here. If you found a bug or have some other problem using SoundCloud's website or mobile apps please [contact
- SoundCloud through one of their support channels directly](https://soundcloud.com/pages/contact).
+SoundCloud through one of their support channels directly](https://soundcloud.com/pages/contact).
 
 Besides a clear explanation of what problem you are facing please provide the
 following details:
@@ -23,7 +23,7 @@ following details:
 
 ## Requesting or adding new features
 
-SoundCleod is meant to be a *lightweight* desktop application for
+SoundCleod is meant to be a _lightweight_ desktop application for
 soundcloud.com. Although there are thousands of ways to extend the
 functionality of both the application and the website please be very
 considerate when coming up with new ideas.
@@ -49,7 +49,7 @@ There are a few conventions to follow:
 - Indent with two spaces
 - No semicolons in JavaScript
 - Change one thing only in a pull request
-- Make sure there are no failing tests or linting errors (`npm test` and `npm run eslint` must pass)
+- Make sure there are no failing tests, code quality and styling errors (`npm run verify` must pass)
 - Keep commit messages short
 - Use the present tense in commit messages ("Add feature" not "Added feature")
 - Use the imperative mood in commit messages ("Move cursor to..." not "Moves cursor to...")

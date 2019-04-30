@@ -53,9 +53,7 @@ function buildMenu(options) {
       submenu: [
         {
           label: 'Toggle Full Screen',
-          accelerator: process.platform == 'darwin'
-            ? 'Ctrl+Command+F'
-            : 'F11',
+          accelerator: process.platform == 'darwin' ? 'Ctrl+Command+F' : 'F11',
           click(item, focusedWindow) {
             if (focusedWindow) {
               focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
@@ -168,7 +166,9 @@ function buildMenu(options) {
       submenu: [
         {
           label: 'Learn More',
-          click() { shell.openExternal('http://soundcleod.com') }
+          click() {
+            shell.openExternal('http://soundcleod.com')
+          }
         },
         {
           label: 'About SoundCleod',
@@ -184,9 +184,8 @@ function buildMenu(options) {
   if (options.developerTools) {
     menu[1].submenu.push({
       label: 'Toggle Developer Tools',
-      accelerator: process.platform == 'darwin'
-        ? 'Alt+Command+I'
-        : 'Ctrl+Shift+I',
+      accelerator:
+        process.platform == 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
       click(item, focusedWindow) {
         if (focusedWindow) {
           focusedWindow.toggleDevTools()
@@ -235,7 +234,9 @@ function buildMenu(options) {
         {
           label: 'Quit',
           accelerator: 'Command+Q',
-          click() { app.quit() }
+          click() {
+            app.quit()
+          }
         }
       ]
     })
@@ -256,7 +257,9 @@ function buildMenu(options) {
         {
           label: 'Quit',
           accelerator: 'Ctrl+Q',
-          click() { app.quit() }
+          click() {
+            app.quit()
+          }
         }
       ]
     })

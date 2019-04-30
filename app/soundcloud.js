@@ -134,7 +134,7 @@ function parseTitle(windowTitle) {
  *
  * However this lack of keyup events behavior confuses SoundCloud and keyboard
  * shortcuts temporarily stop functioning (until a keyup event is sent again).
-* This is an attempt to workaround the situation.
+ * This is an attempt to workaround the situation.
  */
 function fixFlakyMediaKeys(mainWindow) {
   mainWindow.on('blur', () => {
@@ -147,7 +147,9 @@ function fixFlakyMediaKeys(mainWindow) {
 }
 
 function compareTrackMetadata(lhs, rhs) {
-  return lhs.title == rhs.title
-         && lhs.subtitle == rhs.subtitle
-         && lhs.artworkUrl == rhs.artworkUrl
+  return (
+    lhs.title == rhs.title &&
+    lhs.subtitle == rhs.subtitle &&
+    lhs.artworkUrl == rhs.artworkUrl
+  )
 }

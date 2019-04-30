@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "prettier"],
   "parserOptions": {
     "sourceType": "scripts"
   },
@@ -9,17 +9,13 @@
     "es6": true
   },
   "rules": {
-    "comma-dangle": ["error", "never"],
     "consistent-return": "off",
     "eqeqeq": "off",
     "import/order": "off",
-    "indent": [2, 2],
     "no-console": 0,
     "no-use-before-define": ["error", "nofunc"],
     "prefer-template": "off",
-    "semi": [2, "never"],
-    "strict": [2, "global"],
-    "curly": [2, "all"]
+    "strict": [2, "global"]
   },
   "settings": {
     "import/core-modules": [ "electron" ]
