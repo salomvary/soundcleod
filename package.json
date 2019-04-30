@@ -9,7 +9,7 @@
     "release": "build",
     "eslint": "eslint .",
     "eslint:fix": "eslint --fix .",
-    "postinstall": "install-app-deps",
+    "postinstall": "electron-builder install-app-deps",
     "start": "electron ./app --profile=development --no-auto-updater --developer-tools",
     "test": "mocha",
     "generate-images": "gulp images",
