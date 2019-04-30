@@ -8,6 +8,7 @@ if (require('electron-squirrel-startup')) {
 
 const { app, BrowserWindow, globalShortcut, Menu } = require('electron')
 const autoUpdater = require('./auto-updater')
+const checkAccessibilityPermissions = require('./check-accessibility-permissions')
 const contextMenu = require('./context-menu')
 const dockMenu = require('./dock-menu')
 const errorHandlers = require('./error-handlers')
@@ -24,6 +25,7 @@ let aboutWindow = null
 const {
   autoUpdaterBaseUrl,
   baseUrl,
+  checkPermissions,
   developerTools,
   launchUrl,
   profile,
@@ -250,6 +252,13 @@ app.on('ready', () => {
   })
 
   mainWindow.loadURL(getUrl())
+
+  // Make sure we can use media keys on macOS
+  // Doing this after creating the main window to ensure the dialogs do not
+  // end up behind the main window.
+  if (checkPermissions) {
+    checkAccessibilityPermissions()
+  }
 })
 
 function getUrl() {

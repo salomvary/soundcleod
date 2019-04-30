@@ -6,7 +6,8 @@ const tmp = require('tmp')
 const defaultArgs = [
   '--no-auto-updater',
   '--developer-tools',
-  '--quit-after-last-window'
+  '--quit-after-last-window',
+  '--no-check-permissions'
 ]
 
 module.exports = function({ baseURL } = {}) {

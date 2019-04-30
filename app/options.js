@@ -7,10 +7,12 @@ const isSoundcloudUrl = require('./is-soundcloud-url')
 module.exports = function options(process, processArgv) {
   const argv = optimist(processArgv || process.argv)
     .boolean('auto-updater')
+    .boolean('check-permissions')
     .boolean('developer-tools')
     .boolean('quit-after-last-window')
     .default('auto-updater', true)
     .default('auto-updater-base-url', 'https://updates.soundcleod.com')
+    .default('check-permissions', true)
     .default('quit-after-last-window', process.platform != 'darwin').argv
 
   // process.argv starts with [SoundCleod] or [Electron, app.js], skip these
@@ -24,6 +26,7 @@ module.exports = function options(process, processArgv) {
     launchUrl: isSoundcloudUrl(launchUrl) ? launchUrl : undefined,
     profile: argv.profile,
     quitAfterLastWindow: argv['quit-after-last-window'],
+    checkPermissions: argv['check-permissions'],
     useAutoUpdater: argv['auto-updater'],
     userData: argv['user-data-path']
   }
