@@ -25,6 +25,8 @@ Now that you are all set start making changes and check out the [Electron docume
 
 ## Packaging
 
+Note: if you don't have a code signing certificate on macOS you should [create a self-signed one](MAINTENANCE.md#working-with-self-signed-code-signing-certificates-on-macos) before packaging SoundCleod.
+
 The application can be packaged into a standalone executable with the npm `pack` script:
 
     npm run pack # package for the current platform
