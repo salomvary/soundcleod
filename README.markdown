@@ -49,7 +49,7 @@ To use media keys on macOS Mojave (10.14) or newer:
 
 **Important!** Windows 7 or newer is required (only 64 bit, 32 bit Windows is not supported).
 
-### Using [Homebrew Cask](http://caskroom.io/)?
+### Using [Homebrew Cask](https://formulae.brew.sh/cask/)?
 
 ```sh
 brew cask install soundcleod
