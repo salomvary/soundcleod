@@ -195,7 +195,7 @@ function buildMenu(options) {
   }
 
   if (process.platform == 'darwin') {
-    const name = app.getName()
+    const { name } = app
     menu.unshift({
       label: name,
       submenu: [
