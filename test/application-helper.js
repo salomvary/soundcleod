@@ -1,6 +1,7 @@
 'use strict'
 
 const { Application } = require('spectron')
+const electronPath = require('electron')
 const tmp = require('tmp')
 
 const defaultArgs = [
@@ -57,8 +58,7 @@ function entryPoint() {
     }
   }
   return {
-    /* eslint global-require: off */
-    path: require('electron'),
+    path: electronPath,
     args: ['app/main.js']
   }
 }
