@@ -1,4 +1,5 @@
 {
+  "name": "soundcleod",
   "private": true,
   "scripts": {
     "predist": "npm run generate-images",
