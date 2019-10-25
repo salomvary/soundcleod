@@ -28,9 +28,10 @@ function onNewWindow(event, url, frameName, disposition, options) {
     /* eslint no-param-reassign: off */
     delete options.minWidth
     delete options.minHeight
-    options.webPreferences = Object.assign({}, options.webPreferences, {
+    options.webPreferences = {
+      ...options.webPreferences,
       preload: `${__dirname}/preload-popup.js`
-    })
+    }
   } else {
     event.preventDefault()
     shell.openExternal(url)

@@ -1,7 +1,7 @@
 {
   "extends": ["airbnb-base", "prettier"],
   "parserOptions": {
-    "sourceType": "scripts"
+    "sourceType": "script"
   },
   "env": {
     "browser": true,

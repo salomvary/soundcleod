@@ -103,7 +103,7 @@ function getTrackMetadata() {
     ipcMain.once('trackMetadata', (_, trackMetadata) => {
       const title = parseTitle(this.window.getTitle())
       if (title) {
-        resolve(Object.assign({}, title, trackMetadata))
+        resolve({ ...title, ...trackMetadata })
       } else {
         resolve()
       }
