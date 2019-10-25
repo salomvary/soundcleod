@@ -56,8 +56,8 @@
   },
   "devDependencies": {
     "electron": "^7.0.0",
-    "electron-builder": "22.0.0",
-    "electron-builder-squirrel-windows": "^22.0.0",
+    "electron-builder": "^21.2.0",
+    "electron-builder-squirrel-windows": "^22.1.0",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.4.0",
