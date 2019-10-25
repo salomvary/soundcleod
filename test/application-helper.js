@@ -34,7 +34,11 @@ module.exports = function({ baseURL } = {}) {
       path,
       // See https://github.com/electron/spectron#node-integration
       requireName: 'electronRequire',
-      waitTimeout: 10000
+      waitTimeout: 10000,
+      // Spectron will never notice the app was started without passing in
+      // the appData dir to Chrome Driver too. See:
+      // https://github.com/electron-userland/spectron/issues/382#issuecomment-513396350
+      chromeDriverArgs: [`--user-data-dir=${this.userData.name}`]
     })
 
     return this.app.start()

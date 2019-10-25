@@ -67,7 +67,7 @@
     "gulp-to-ico": "^1.0.0",
     "mocha": "^6.1.4",
     "prettier": "1.17.0",
-    "spectron": "^5.0.0",
+    "spectron": "^9.0.0",
     "svg2png": "^4.1.1",
     "through2": "^2.0.5",
     "tmp": "0.0.33",
