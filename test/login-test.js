@@ -6,18 +6,18 @@ const assert = require('assert')
 describe('Logging in', function() {
   applicationHelper()
 
-  xit('shows Facebook login in the main window', function() {
+  it('shows Facebook login in a popup', function() {
     return this.app.client
       .waitForVisible('button=Sign in')
       .element('#content')
       .click('button=Sign in')
-      .waitForVisible('=Continue with Facebook')
-      .click('=Continue with Facebook')
-      .waitForVisible('#loginbutton')
-      .then(() => this.app.client.getUrl())
-      .then((url) => assertFacebookLogin(url))
+      .waitForVisible('button=Continue with Facebook')
+      .click('button=Continue with Facebook')
+      .waitUntil(() =>
+        this.app.client.getWindowCount().then((count) => count > 1)
+      )
       .then(() => this.app.client.getWindowCount())
-      .then((windowCount) => assert.equal(windowCount, 1, 'No popup is open'))
+      .then((windowCount) => assert.equal(windowCount, 2, 'Opened a popup'))
   })
 
   it('shows Google login in a popup', function() {
@@ -33,11 +33,4 @@ describe('Logging in', function() {
       .then(() => this.app.client.getWindowCount())
       .then((windowCount) => assert.equal(windowCount, 2, 'Opened a popup'))
   })
-
-  function assertFacebookLogin(url) {
-    assert.ok(
-      url.includes('www.facebook.com/login'),
-      `'${url}' looks like a Facebook url`
-    )
-  }
 })
