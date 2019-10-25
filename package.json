@@ -1,4 +1,5 @@
 {
+  "name": "soundcleod",
   "private": true,
   "scripts": {
     "predist": "npm run generate-images",
@@ -54,9 +55,9 @@
     }
   },
   "devDependencies": {
-    "electron": "^5.0.0",
-    "electron-builder": "20.40.2",
-    "electron-builder-squirrel-windows": "^20.40.0",
+    "electron": "^7.0.0",
+    "electron-builder": "22.0.0",
+    "electron-builder-squirrel-windows": "^22.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.2.0",
