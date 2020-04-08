@@ -10,10 +10,12 @@ module.exports = function options(process, processArgv) {
     .boolean('check-permissions')
     .boolean('developer-tools')
     .boolean('quit-after-last-window')
+    .boolean('use-media-keys')
     .default('auto-updater', true)
     .default('auto-updater-base-url', 'https://updates.soundcleod.com')
     .default('check-permissions', true)
-    .default('quit-after-last-window', process.platform != 'darwin').argv
+    .default('quit-after-last-window', process.platform != 'darwin')
+    .default('use-media-keys', false).argv
 
   // process.argv starts with [SoundCleod] or [Electron, app.js], skip these
   // and get the first non-hyphenated argument
@@ -28,6 +30,7 @@ module.exports = function options(process, processArgv) {
     quitAfterLastWindow: argv['quit-after-last-window'],
     checkPermissions: argv['check-permissions'],
     useAutoUpdater: argv['auto-updater'],
-    userData: argv['user-data-path']
+    userData: argv['user-data-path'],
+    useMediaKeys: argv['use-media-keys']
   }
 }

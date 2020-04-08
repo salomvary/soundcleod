@@ -14,7 +14,8 @@ describe('Parsing options', function() {
       profile: undefined,
       quitAfterLastWindow: false,
       useAutoUpdater: true,
-      userData: undefined
+      userData: undefined,
+      useMediaKeys: false
     })
   })
 
@@ -28,7 +29,8 @@ describe('Parsing options', function() {
       profile: undefined,
       quitAfterLastWindow: true,
       useAutoUpdater: true,
-      userData: undefined
+      userData: undefined,
+      useMediaKeys: false
     })
   })
 

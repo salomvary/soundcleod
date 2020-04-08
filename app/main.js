@@ -31,7 +31,8 @@ const {
   profile,
   quitAfterLastWindow,
   useAutoUpdater,
-  userData
+  userData,
+  useMediaKeys
 } = options(process)
 
 if (userData) {
@@ -139,17 +140,21 @@ app.on('ready', () => {
     mainWindow = null
   })
 
-  globalShortcut.register('MediaPlayPause', () => {
-    soundcloud.playPause()
-  })
+  if (useMediaKeys) {
+    globalShortcut.register('MediaPlayPause', () => {
+      soundcloud.playPause()
+    })
 
-  globalShortcut.register('MediaNextTrack', () => {
-    soundcloud.nextTrack()
-  })
+    globalShortcut.register('MediaNextTrack', () => {
+      soundcloud.nextTrack()
+    })
 
-  globalShortcut.register('MediaPreviousTrack', () => {
-    soundcloud.previousTrack()
-  })
+    globalShortcut.register('MediaPreviousTrack', () => {
+      soundcloud.previousTrack()
+    })
+  } else {
+    console.log('Not using media keys')
+  }
 
   menu.events.on('playPause', () => {
     if (isNotFocused()) {
@@ -256,7 +261,7 @@ app.on('ready', () => {
   // Make sure we can use media keys on macOS
   // Doing this after creating the main window to ensure the dialogs do not
   // end up behind the main window.
-  if (checkPermissions) {
+  if (checkPermissions && useMediaKeys) {
     checkAccessibilityPermissions()
   }
 })
