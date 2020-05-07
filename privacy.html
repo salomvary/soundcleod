@@ -1,0 +1,51 @@
+---
+---
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>SoundCleod - SoundCloud for macOS and Windows</title>
+    <link rel="stylesheet" href="index.css?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <header>
+      <div class="title-and-download">
+        <h1><a href="/">SoundCleod</a></h1>
+        <div class="download-buttons">
+          <a href="https://updates.soundcleod.com/download/osx?filetype=dmg"><button>⬇ macOS</button></a>
+          <a href="https://updates.soundcleod.com/download/windows"><button>⬇ Windows</button></a>
+        </div>
+      </div>
+      <h2>SoundCloud for macOS and Windows</h2>
+    </header>
+    <section role="main">
+      <h2>Privacy</h2>
+      <ul>
+        <li>SoundCleod does not collect any user data.</li>
+        <li>SoundCleod does not send any user data to third parties.</li>
+        <li>
+          SoundCloud.com, the website running inside SoundCleod (the desktop application)
+          has it's own [terms of use](https://soundcloud.com/terms-of-use) and
+          [privacy policy](https://soundcloud.com/pages/privacy).
+        </li>
+    </section>
+    <footer>
+      SoundCleod is maintained by <a href="https://github.com/salomvary">Márton Salomváry</a><br>
+    </footer>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-26943877-3', 'auto');
+      ga('send', 'pageview');
+      document.body.addEventListener('click', function(event) {
+        var link = event.target.closest('a');
+        if (link && link.href.indexOf('SoundCleod.dmg') != -1) {
+          ga('send', 'event', 'Download', 'click');
+        }
+      });
+    </script>
+  </body>
+</html>
