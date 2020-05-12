@@ -1,0 +1,1076 @@
+.uploadTarget__frame {
+  background: rgb(0, 0, 0) !important;
+}
+.uploadTarget__title {
+  color: rgb(26, 26, 26) !important;
+}
+.uploadTarget.entered .uploadTarget__title {
+  color: rgb(51, 51, 51) !important;
+  border: 1px dashed rgb(102, 102, 102) !important;
+}
+.modal.modalWhiteout {
+  background-color: rgba(13, 13, 13, 0.9) !important;
+}
+.modal.modalPureWhite {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+.modal.modalDarken {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+.modal__modal {
+  background: rgb(0, 0, 0) !important;
+}
+.modal__closeButton:focus {
+  outline: rgb(51, 51, 51) dotted 1px !important;
+}
+.dialog {
+  border: 1px solid rgb(51, 51, 51) !important;
+  background: rgb(0, 0, 0) !important;
+}
+.dialog__arrow {
+  background: rgb(0, 0, 0) !important;
+  border-color: rgb(51, 51, 51) !important;
+}
+.unreadConversations {
+  background: rgb(238, 238, 238) !important;
+}
+.notifications__viewAll {
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.notifications.g-dark .notifications__viewAll:hover {
+  background-color: rgb(204, 204, 204) !important;
+  color: rgb(0, 0, 0) !important;
+}
+.notifications__empty {
+  border-bottom: 1px solid rgb(217, 217, 217) !important;
+}
+.activity__sharingNote-container {
+  background-color: rgb(0, 0, 0) !important;
+}
+.ownActivity__title {
+  color: rgb(51, 51, 51) !important;
+}
+.ownActivity__time {
+  color: rgb(102, 102, 102) !important;
+}
+.ownActivity.inactive::before {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+.ownActivity.large .ownActivity__user {
+  border-right: 1px solid rgb(13, 13, 13) !important;
+}
+.g-dark .ownActivity {
+  color: rgb(153, 153, 153) !important;
+}
+.g-dark .ownActivity__trackImg {
+  border-color: rgb(217, 217, 217) !important;
+}
+.g-dark .ownActivity__additional,
+.g-dark .ownActivity__additional a,
+.g-dark .ownActivity__time,
+.g-dark .ownActivity__user a {
+  color: rgb(102, 102, 102) !important;
+}
+.g-dark .ownActivity__additional a:focus,
+.g-dark .ownActivity__additional a:hover,
+.g-dark .ownActivity__user a:focus,
+.g-dark .ownActivity__user a:hover {
+  color: rgb(51, 51, 51) !important;
+}
+.headerMenu {
+  background-color: rgb(17, 17, 17) !important;
+}
+.headerMenu.m-light {
+  background-color: rgb(255, 255, 255) !important;
+  border-right-color: rgb(204, 204, 204) !important;
+  border-bottom-color: rgb(204, 204, 204) !important;
+  border-left-color: rgb(204, 204, 204) !important;
+  border-top-color: initial !important;
+}
+.headerMenu__list {
+  border-bottom: 1px solid rgb(51, 51, 51) !important;
+}
+.m-light .headerMenu__list {
+  border-color: rgb(13, 13, 13) !important;
+}
+.headerMenu__link,
+.headerMenu__link:focus,
+.headerMenu__link:hover {
+  color: rgb(204, 204, 204) !important;
+}
+.m-light .headerMenu__link,
+.m-light .headerMenu__link:focus,
+.m-light .headerMenu__link:hover {
+  color: rgb(204, 204, 204) !important;
+}
+.headerMenu__link.m-highlight,
+.headerMenu__link.m-highlight:focus,
+.headerMenu__link.m-highlight:hover {
+  color: rgb(255, 85, 0) !important;
+}
+.headerMenu__link:focus,
+.headerMenu__link:hover {
+  background-color: rgb(51, 51, 51) !important;
+  outline: 0px !important;
+}
+.m-light .headerMenu__link:focus,
+.m-light .headerMenu__link:hover {
+  background-color: rgb(13, 13, 13) !important;
+}
+.profileMenu__newBadge {
+  background-color: rgb(255, 85, 0) !important;
+  color: rgb(0, 0, 0) !important;
+}
+.header {
+  background: rgb(51, 51, 51) !important;
+}
+.show .header__logo {
+  background: linear-gradient(rgb(255, 119, 0), rgb(255, 51, 0)) !important;
+}
+.header__logoLink {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAWCAQAAAAs/tcnAAABMUlEQVR4Ac3UJfQUARTGUaxnrBHpPeDu7u7uTg/QO/SK9q1U3KHg2i7fH4exNeSdc9/ZNL/RHfRfjdHOuOajt246b7Fh/T38WO/9OnfM7s+hx3gUh5XNWYN7D4wnTlOe6OGsv/6eQlQFmNX9WScTs4jqwD3DOr/j04gJxHyiOsCiTgITibnEdGIJURc410lgJrGYmE+sIuoCz1301BstGwxueqQLiVXEMmI9cVp7c9WIYmAqkUysIjYQa4mtRAJtJwb//kgXEdOJTcR2Yiuxi2g/wIYfgTnEBmIFsYvYS+whDhCdBFo/ApuJvcRO4hBxhDhMHCU6Cbz5EThKHCe+7BNEcXceKFxB/e7yFs0h1hP1u/OHXHiL6nfnr2nhO6jfR3r50L5cR9O+oX5+/FX8vfkElmh0Xu+KRLEAAAAASUVORK5CYII=")
+    12px 11px / 48px 22px no-repeat transparent !important;
+}
+.header__logoLink-wordmark::after {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHMAAAAWCAQAAABZc2uEAAADSUlEQVR4Ae3VbWiVZRgH8Gtrp6aZ017UiSMy06zQLyORYpCEiSl+yMSgIEpdGgjZgl5MLDItkSIbRZwEZfQCRSUppKhpINGw0vyS+Uk0tZSM4+pMt/2CeLihneOOFPRBzvX/sHNf983N9XueBxb/X1WrWtWqVrVc7XmbfeI5N4uU2dpts9701LlDXltarZN3gxAelfdQ1r1WXrsQJsv/nbUWu1FI0WSFzd5xv6tEumGW6JfxVtmiw+NyFSZ4S15euzbThJCSfhjtGIA/LBRCrQ0AeC07+TB2iizHMUUIm1B0qxDGoit7TACcs05kudspAF+rTzcs74ec5yyATqMGnKAIgN3GlGOuw2GtFtmh25x0XZ92j/gA3FuRSafLSpg/e9Jqe0CrEIY6iW8sttIZvVqVZ45UwB6LvKgLGysy11iuQze2l2N+ig4h1JiY9Q7jBZFG2Ksyk2dLmPuzs6/glBCewYnsHTYbL5RnrsZ+demmPk0VmBOEcLteTCtlLgedVhqXdYZAevVTUajI/BzdblOe2QAahY/TQ00py9yKZWl1FDMuihm+wNJSZn32qmG3ccIk9KjJ9keB6yowl9mEfcaVZYbTaBH2Y6HKzB9xX1p9hSUXyXwb6/sxs4zQZqdefCeMAQ3Z3gSclxPmZ/sh1ClgUhqyzXDH8GZZZk4Pxgo78arKzL1YkFYHMK/8BCXMj/B0OWZd9ncOGK5GF+Zm3cdwSAjN6DNCCC1giMQUZqK3LPNBnFGTPev0KRtyQeZGfJj+F3Rj8gATJKYRfsf0UuZ8x8w1SE4relwhvIsjpqjV4iRWCOFKv+F1l5tsBw6IfzDDBpCYDhrmFk8o4GUh3AmeMtj1djlqRrphjZFZrhHuQa8l6o22Dd+rHWCCIpo1me0gflDfn5nzJehRBO8LodEpcB78ZHB2einoBswsYTY4gsQEwPb0zbwHesBpN6UbAPhWCJ+Rzp1z14ATFAHwq4lCYiaotQ7pQ5c3DM26Y2zxJwo6DBMpCxwHh80SJcwwvYR53C4PqEmna61wAmdtNVVckFnnJb+gR6fmChMUQcE+qzSIEmbKcI3SKFnqNKkVJRmZ4P8+jXJC5Yw26L9MEC6lVJmXTqrMvwBTThqYRlj40wAAAABJRU5ErkJggg==")
+    60px 11px / 115px 22px no-repeat transparent !important;
+}
+.header__logoLink:focus {
+  background-color: rgba(255, 72, 0, 0.8) !important;
+  outline: 0px !important;
+}
+.header__navMenu > li > a {
+  border-right: 1px solid rgb(17, 17, 17) !important;
+}
+.header__navMenu > li > a:focus,
+.header__navMenu > li > a:hover {
+  color: rgb(238, 238, 238) !important;
+  outline: 0px !important;
+}
+.header > li > a:focus,
+.header__navMenu > li > a.selected {
+  background-color: rgb(17, 17, 17) !important;
+  outline: 0px !important;
+  color: rgb(255, 255, 255) !important;
+}
+.header__link.header__goUpsell {
+  color: rgb(255, 85, 0) !important;
+}
+.header__link.header__goUpsell:active,
+.header__link.header__goUpsell:focus,
+.header__link.header__goUpsell:hover {
+  color: rgb(255, 119, 0) !important;
+}
+.header__navMenu > li > a.header__moreButton {
+  background: url("https://a-v2.sndcdn.com/assets/images/more-0e9e752c.svg") 50%
+    50% no-repeat !important;
+  border: 0px !important;
+}
+.header__navMenu > li > a.header__moreButton.selected {
+  background-color: rgb(17, 17, 17) !important;
+}
+@media (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 2dppx),
+  (min-resolution: 192dpi) {
+  .header__logoLink {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAsCAQAAAAwC3WkAAACUklEQVR4Ae2YA4wdURSGv+fattu4MWrbtu24bqOacWrbjNHYrm3bOF3vSXrzOpM7d3c22e8k31P03//ME0WdCM6QsvSlNS1pQGV+8JxnPOEKlyM3CD9SVjbJFzFzV1ZKJcKMVJBrkp6PslaqEFZku3jhmXQjPEhjuZkxjQHkgXjjj2yQBOFAFolksAhA/HBM4lgQJShKK/thMPskFoYASWV/DGeTTQCLXdeQUPbLHOlWcA0Mo0nGDAs0AOyQigUVoEyuVRt2KwRQm+UFFSClrNqwbAAmS0UnAdKedFlluwagNDPdNaBPOmW0fQMw3V2AcspJZRXAugGoIy1cBSihnFLWz9s3AB3wTdx3AHcNwABJ0I3m1EB4wm0ucCbyKIgAJZXdXQPQJWNyaZYxPdgiu1geeeJlhdS7jdUKBUuMyVyTvh4DMJwmGTPcwQrZUJZTMtdbgEq5Vm2oABYrZEeUTdLXS4ByyrqNkspJZWMzjiLsl1rGF/RJU1a5mrJ9A/aUZaU52QiaZMyIfxqoqFyI14BigtQxBagNkGHdgApQyO9Cmhj9TAGqA2QYc4AAPwfs6ZU+QNhXCBqbAtQAyHD4Vwhqhb8By2+johxR/q38y2x+KrviiSnAc4AcfwzIrrhtCvAMIMvhD3Dhfw18CMhu+M2Zor1CuyKPTAEeA2Q47A18ZDmYAhziVsYcCnkDfxgdeYKBeOQ2TQFC3cAfFkTOevkcCKqBpwEvz4DIVvAS4E1A3ktQ/GY7LSJn/f91bnc/KavlidjwUa7LRZkldSimGLf8BYloKYNdaWi1AAAAAElFTkSuQmCC") !important;
+  }
+  .header__logoLink-wordmark::after {
+    background-image: url("https://a-v2.sndcdn.com/assets/images/wordmark@2x-8fdb346f.png") !important;
+  }
+}
+.header__userNavButton:focus {
+  outline: 0px !important;
+}
+.header__userNavButton.selected,
+.header__userNavItem.selected {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(17, 17, 17) !important;
+}
+.header__userNavMessagesButton {
+  border-right: 0px !important;
+}
+.header__userNavUsernameButton::after {
+  background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjhweCIgaGVpZ2h0PSI1cHgiIHZpZXdCb3g9IjAgMCA4IDUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjIuMiAoOTk4MykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+RHJvcGRvd248L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4KICAgICAgICA8ZyBpZD0iVG9wLUJhciIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNjYuMDAwMDAwLCAtNTQ1LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8cGF0aCBkPSJNMjA2Nyw1NDUuMDIyNzQ2IEwyMDY2LDU0Ni4wMjI3NDYgTDIwNjkuOTU0NzYsNTQ5Ljk3NzUxMSBMMjA3My45Nzc1MSw1NDUuOTU0NzY1IEwyMDcyLjk3NzUxLDU0NC45NTQ3NjUgTDIwNjkuOTU0NzYsNTQ3Ljk3NzUxMSBMMjA2Nyw1NDUuMDIyNzQ2IFoiIGlkPSJEcm9wZG93biIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+") !important;
+}
+.confirmEmailBanner__inner {
+  background: rgb(0, 7, 25) !important;
+}
+.scheduleBanner__inner {
+  color: rgb(0, 0, 0) !important;
+}
+.scheduleBanner__button.sc-button.sc-button-transparent {
+  border-color: rgb(0, 0, 0) !important;
+}
+.scheduleBanner__button {
+  border: 1px solid rgb(0, 0, 0) !important;
+}
+.trackMonetizationBanner {
+  background: rgb(0, 7, 25) !important;
+}
+.gritter-item-wrapper {
+  color: rgb(204, 204, 204) !important;
+  background-color: rgb(0, 0, 0) !important;
+  border: 1px solid rgb(51, 51, 51) !important;
+}
+.error .gritter-top,
+.gritter-item-wrapper.big-success .gritter-top {
+  border: 1px solid rgb(51, 198, 235) !important;
+}
+.error .gritter-top {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAB4CAMAAACtkqAmAAAAYFBMVEUAAACzLQCzLQCzLQD8/PzVjnf8/PzWknv8/PyzLQDfqZfJa0v8/Pz8/PyzLQDpxbmzLQDmvrH37+zMdFazLQDqyr/v19D8/Pz69vX8/Pzx3NTv18/05uH26+f59PL8/Px1cMInAAAAH3RSTlMAChQfIiQzRmZwcXJ3gIWLj5GRlZmdurvS3d7k5PH4/AKt7QAAAHlJREFUeF7t00kOggAAQ9GKA4KCE+AI//639AImXchG079u8laVGpkazdefceHChQsXLtwW2DvuAPQfODeSGf0QVwMnmUqgdlwBlI7TCGu5HkwLx6nqjvMcYXXlvnHcGbg5bgBeMu2ejBfHFVXXLnPzcOHChQsX7pveYwMMTlNRecEAAAAASUVORK5CYII=")
+      50% center no-repeat,
+    linear-gradient(rgb(0, 153, 255), rgb(0, 178, 255) 40%, rgb(255, 51, 0))
+      rgb(0, 178, 255) !important;
+}
+.gritter-item-wrapper.big-success .gritter-top {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAABh0lEQVRIx2NgGAWjgFbgjDan3AkdbnGaWnJcly/6cqzbgQuBFrvO6PAr08SSY9p8kS9Xz7/1HwT+/v37aHJLBtUtOaHHH/Jy5Zwb/5HArw8f0qjrE13egGeLpl5HtgToo7tAkp96lujw+jydN/EqmiUPgaQsXo37FRg4gBHae0KXf9kxXR57AnHi8WRm1yU0S54ASQWCLrwYbm3x7d6td3++fv75oKvyzAltAUfsqYvf5dGUlotAQ/8hWfIcSBKX0n48f+IN1/jv378H3dVn0X12XIfH4eGEhnNolrwEkupEhzlQsRBQ0xtkyx52VZ4+osVrC05d2rw2D7urz4DEkSwBqdciOYKBmoz+/f37EW7X37//7reXnjqmw598r63kFIiPJPcOSOmRnZqAms2AhnxGcvXf11tW3AXRSJZ8AFKGFCddoCFWQMO+/scCoI4wpVo+ARpmD4yPb6i2/PsCJC2pXrwADXUGGv4DagnIh7Y0K5WBhnsA8XsgdqJ5PQO0RGC0th3eAACf46PZ48ONQwAAAABJRU5ErkJggg==")
+      50% center / 26px 26px no-repeat,
+    linear-gradient(rgb(0, 153, 255), rgb(0, 178, 255) 40%, rgb(255, 51, 0)) 0%
+      0% / auto rgb(0, 178, 255) !important;
+}
+@media (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 2dppx),
+  (min-resolution: 192dpi) {
+  .gritter-item-wrapper.big-success .gritter-top {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAADPUlEQVR42u2XW0hTYRzAv26Uue0cK7qQ0NXQds58CHoIfOihByWLhDLKUOl+g0wqKioqMCILCoMsKCGzNFPLh6IImtPtzFaK5uZmkmQmRS/idbfz9f+XIwrdp7LFDpwf/F6+wTd+53++j42oqKioqKioqKhEDFKCLs4icOlmQbveJHIxyo4RdBkWQffMYuCrUUnkSiRDVCxRIhaDNhMj7Hs3mbpLCh1fCq80NyQnvpQEPld5MaJuO8Z8Ky9yUUplOoyvv9fdkp1yX1kxArcFY75XFrfREehrtjUoKIZP+zWZsntOOgry0KBDGTF6bSrGdD+45aDBqVLCmUnGmK9FN1oYMTKYFOFXM7cOr+auO1c/UDY5kR2j59fCdJ523rzURNmcIJGM1aBNwpjP1883Bq7mIJwhoaJe0K4xi3yBWeQeSwYuz2rgloRmT11VR/7pBirLrJgLoTus8fxiCb4YD+wfuSdWfXQimSBmvW61JHKVn/KOvxtDzGUSSuApbmu/eNTm7urokd1D3j5H04+WrBQjHORySYg2kHECIassIleBe1K/38+IuUZCTdupfedkv/+vpyh7PT7XsWyLBK9gXYJGIGMEp4rTbT97sF72+VgxBSQc9H903KYj4Pe4fa7cTDOeqxq9ZiVh8NagEXCqbSf3SLLXy4opBCeRcAAb59NR8LuHfM6cjDp4hUrNojZ+9J8zmgQMx6nidBkxdwMx4QpKoUHAc+U8vLUWo6zx2hXkH3ANP2s9ssMMU2XFFIOTSZjBqDIaBP/ggLf1wGYTnI9HcIMtJ8PYBG4ZrrUeSq/FcEZMKTiFAP8jaDr4ghHlse9PM1kE7mEdhPy+7rkSXMNgRkwFOJX8RzAqCnwdNGqg32PfvbEGQ6wiX2zftaEG1xgx1eA0wiBcUTNBY/CoPrd9Z6qxJSvZiP8uGTHPcfqEQbijNKCZBgFDvL09rJhX4AwSAWCUDqynE+cNTptEEBgVA76n46cWjCYRCEbNBpvo2JFALYlgMGouaKdsbCBPFABGzQedQWIawVlEQWDUQrB9hJhmcA5RIBi1COwAAzjAeUTBYNRSsBN0gQtIAIVHxYGxREVFRUVFRUX5/ATokQaH7bkfugAAAABJRU5ErkJggg==")
+        50% center / 26px 26px no-repeat,
+      linear-gradient(rgb(0, 153, 255), rgb(0, 178, 255) 40%, rgb(255, 51, 0))
+        0% 0% / auto rgb(0, 178, 255) !important;
+  }
+}
+.playControls__bg,
+.playControls__inner {
+  background-color: rgb(13, 13, 13) !important;
+  border-top: 1px solid rgb(49, 49, 49) !important;
+}
+.searchMenu .loading {
+  background-color: rgb(204, 204, 204) !important;
+}
+.searchMenu__searchFor {
+  background-color: rgb(204, 204, 204) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-left: 1px solid rgb(191, 191, 191) !important;
+  border-right: 1px solid rgb(191, 191, 191) !important;
+}
+.searchMenu__searchFor.g-dark-selected {
+  background-color: rgb(217, 217, 217) !important;
+}
+.uploadButton__status {
+  color: rgb(255, 85, 0) !important;
+}
+.uploadButton.selected,
+.uploadButton:focus {
+  color: rgb(0, 0, 0) !important;
+}
+.uploadButton.selected {
+  background: rgb(238, 238, 238) !important;
+}
+.image__whiteOutline .image__full {
+  border: 2px solid rgb(0, 0, 0) !important;
+}
+.image:focus .image__full {
+  border: 1px dotted rgb(102, 102, 102) !important;
+}
+.image:not(.m-loaded) .sc-artwork.sc-artwork-placeholder-blank {
+  border: 1px dashed rgb(51, 51, 51) !important;
+}
+.newItemBadge.newItems__some {
+  background: rgb(255, 85, 0) !important;
+  border: 1px solid rgb(204, 204, 204) !important;
+}
+.queue {
+  background-color: rgb(0, 0, 0) !important;
+}
+.queue__panel {
+  border-bottom: 1px solid rgb(26, 26, 26) !important;
+}
+.queue__itemWrapper {
+  background-color: rgb(0, 0, 0) !important;
+}
+.queue__dropIndicator {
+  border-top: 1px solid rgb(255, 85, 0) !important;
+}
+.queue__dropIndicatorText {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  color: rgb(0, 0, 0) !important;
+}
+.playbackTimeline__timePassed {
+  color: rgb(255, 85, 0) !important;
+}
+.playbackTimeline__duration {
+  color: rgb(204, 204, 204) !important;
+}
+.playbackTimeline__progressBackground {
+  background-color: rgb(51, 51, 51) !important;
+}
+.playbackTimeline__progressBar {
+  background-color: rgb(255, 85, 0) !important;
+}
+.playbackTimeline__progressHandle {
+  border: 1px solid rgb(255, 85, 0) !important;
+  background-color: rgb(255, 85, 0) !important;
+}
+.volume__sliderWrapper {
+  background-color: rgb(13, 13, 13) !important;
+}
+.volume.expanded .volume__sliderWrapper {
+  border-color: rgb(51, 51, 51) !important;
+}
+.volume__sliderWrapper::before {
+  border-color: transparent transparent rgb(51, 51, 51) rgb(51, 51, 51) !important;
+}
+.volume__sliderWrapper::after {
+  border-color: transparent transparent rgb(13, 13, 13) rgb(13, 13, 13) !important;
+}
+.volume__sliderBackground {
+  background-color: rgb(51, 51, 51) !important;
+}
+.volume__sliderHandle {
+  background-color: rgb(255, 85, 0) !important;
+}
+.volume__sliderProgress {
+  background: rgb(255, 85, 0) !important;
+}
+a.playbackSoundBadge__lightLink:focus,
+a.playbackSoundBadge__lightLink:hover {
+  color: rgb(255, 255, 255) !important;
+}
+.playbackSoundBadge__titleLink,
+.playbackSoundBadge__titleLink:visited {
+  color: rgb(153, 153, 153) !important;
+}
+.playbackSoundBadge__titleLink:focus,
+.playbackSoundBadge__titleLink:hover {
+  color: rgb(255, 255, 255) !important;
+}
+.playbackSoundBadge__queueCircle {
+  background: rgb(255, 255, 255) !important;
+}
+.playControlsPanel {
+  background: rgb(204, 204, 204) !important;
+}
+.playControlsPanel::after {
+  border-color: rgb(204, 204, 204) transparent transparent !important;
+}
+.playControlsPanel__whyAds {
+  color: rgb(102, 102, 102) !important;
+}
+.playControlsPanel__whyAds:active,
+.playControlsPanel__whyAds:hover {
+  color: rgb(0, 0, 0) !important;
+}
+.playControlsPanel__button {
+  color: rgb(0, 0, 0) !important;
+}
+.l-listen-wrapper .l-about-rows {
+  border-right: 1px solid rgb(13, 13, 13) !important;
+}
+.fullHero {
+  background: rgb(26, 26, 26) !important;
+}
+.fullHero__uploadTime {
+  color: rgb(0, 0, 0) !important;
+}
+.fullHero__playerConsumerSubUpsell {
+  background-color: rgba(204, 204, 204, 0.3) !important;
+}
+.listenEngagement {
+  border: 1px solid rgb(0, 0, 0) !important;
+}
+.soundTitle.m-hiddenSound .soundTitle__title {
+  color: rgb(102, 102, 102) !important;
+}
+.soundTitle__uploadTime {
+  color: rgb(51, 51, 51) !important;
+}
+.waveform__emptyMessage {
+  color: rgb(255, 255, 255) !important;
+}
+.listenHero .waveform__emptyMessage {
+  color: rgb(0, 0, 0) !important;
+}
+.playButton.m-stretch {
+  border-color: rgb(255, 85, 0) !important;
+  background-color: rgb(255, 85, 0) !important;
+}
+.playButton.m-stretch:active,
+.playButton.m-stretch:focus,
+.playButton.m-stretch:hover {
+  background-color: rgb(255, 51, 0) !important;
+  border-color: rgb(255, 51, 0) !important;
+}
+.playButton.m-stretch:active::after {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+.genericTrackCount {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  color: rgb(0, 0, 0) !important;
+}
+.embedPanel__tabLink,
+.embedPanel__upsellTabLink {
+  background-color: rgb(26, 26, 26) !important;
+}
+.embedPanel__tabLink.active {
+  border-color: rgb(255, 85, 0) !important;
+}
+.truncatedAudioInfo__collapse:focus {
+  color: rgb(204, 204, 204) !important;
+}
+.truncatedAudioInfo.m-overflow.m-collapsed .truncatedAudioInfo__wrapper::after {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.5) 90%,
+    rgb(0, 0, 0)
+  ) !important;
+}
+.trackItem__content {
+  color: rgb(204, 204, 204) !important;
+}
+.trackItem.active,
+.trackItem.hover {
+  background-color: rgb(13, 13, 13) !important;
+}
+.trackItem:not(.m-disabled).active .trackItem__content,
+.trackItem:not(.m-disabled).active .trackItem__trackTitle {
+  color: rgb(255, 85, 0) !important;
+}
+.trackItem:not(.m-disabled).active .trackItem__trackTitle:focus,
+.trackItem:not(.m-disabled).active .trackItem__trackTitle:hover {
+  color: rgb(0, 238, 255) !important;
+}
+.trackItem:not(.m-disabled).active .trackItem__additional,
+.trackItem:not(.m-disabled).hover .trackItem__additional {
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 13, 0.1),
+    rgb(13, 13, 13) 17px
+  ) !important;
+}
+.trackItem.m-disabled .trackItem__content,
+.trackItem.m-disabled .trackItem__trackTitle {
+  color: rgb(51, 51, 51) !important;
+}
+.moreActions {
+  border: 1px solid rgb(26, 26, 26) !important;
+  background: rgb(0, 0, 0) !important;
+}
+.moreActions__group:not(:first-child) {
+  border-top: 5px solid rgb(26, 26, 26) !important;
+}
+.moreActions__button,
+.moreActions__link {
+  background-color: rgb(0, 0, 0) !important;
+}
+.moreActions__group .moreActions__link {
+  color: rgb(204, 204, 204) !important;
+}
+.moreActions__button:focus,
+.moreActions__button:hover,
+.moreActions__link:hover {
+  background-color: rgb(13, 13, 13) !important;
+}
+.moreActions__button:not(:last-child),
+.moreActions__link {
+  border-bottom: 1px solid rgb(26, 26, 26) !important;
+}
+.localeSelectorContent {
+  background: rgb(0, 0, 0) !important;
+}
+.ab-centering-div .ab-in-app-message,
+.ab-iam-root.v3 .ab-in-app-message {
+  color: rgb(204, 204, 204) !important;
+}
+.ab-centering-div .ab-in-app-message.ab-background,
+.ab-iam-root.v3 .ab-in-app-message.ab-background {
+  background-color: rgb(0, 0, 0) !important;
+}
+.ab-centering-div .ab-in-app-message .ab-message-text::-webkit-scrollbar-thumb,
+.ab-iam-root.v3 .ab-in-app-message .ab-message-text::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+.ab-centering-div .ab-in-app-message.ab-slideup,
+.ab-iam-root.v3 .ab-in-app-message.ab-slideup {
+  background-color: rgb(16, 16, 16) !important;
+}
+.ab-centering-div .ab-in-app-message .ab-message-button,
+.ab-iam-root.v3 .ab-in-app-message .ab-message-button {
+  border: 1px solid rgb(228, 135, 48) !important;
+}
+.ab-centering-div .ab-in-app-message .ab-message-button:first-of-type,
+.ab-iam-root.v3 .ab-in-app-message .ab-message-button:first-of-type {
+  background-color: rgb(0, 0, 0) !important;
+  color: rgb(228, 135, 48) !important;
+}
+.ab-centering-div .ab-in-app-message .ab-message-button:last-of-type,
+.ab-iam-root.v3 .ab-in-app-message .ab-message-button:last-of-type {
+  background-color: rgb(228, 135, 48) !important;
+  color: rgb(0, 0, 0) !important;
+}
+.ab-centering-div .ab-in-app-message .ab-message-button:active::after,
+.ab-iam-root.v3 .ab-in-app-message .ab-message-button:active::after {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+.ab-centering-div .ab-in-app-message .ab-message-button:focus::after,
+.ab-iam-root.v3 .ab-in-app-message .ab-message-button:focus::after {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+.ab-email-capture .ab-page-blocker,
+.ab-iam-root.v3 .ab-page-blocker {
+  background-color: rgba(204, 204, 204, 0.75) !important;
+}
+body > .ab-feed .ab-feed-body {
+  border-left: 1px solid rgb(47, 47, 47) !important;
+}
+.ab-feed {
+  background-color: rgb(17, 17, 17) !important;
+}
+.ab-feed .ab-feed-body {
+  border-right: 1px solid rgb(47, 47, 47) !important;
+  border-bottom: 1px solid rgb(47, 47, 47) !important;
+  border-left: 1px solid rgb(47, 47, 47) !important;
+}
+.ab-feed .ab-card {
+  border: 1px solid rgb(47, 47, 47) !important;
+  background-color: rgb(0, 0, 0) !important;
+}
+.ab-feed .ab-card .ab-pinned-indicator {
+  border-color: transparent rgb(233, 137, 47) transparent transparent !important;
+}
+.ab-feed .ab-card .ab-pinned-indicator .fa-star {
+  color: rgb(0, 0, 0) !important;
+}
+.ab-feed .ab-card .ab-unread-indicator {
+  background-color: rgb(233, 137, 47) !important;
+}
+.ab-feed .ab-card .ab-description {
+  color: rgb(171, 171, 171) !important;
+}
+.ab-feed .ab-card .ab-url-area {
+  color: rgb(233, 137, 47) !important;
+}
+.ab-feed .ab-feed-buttons-wrapper {
+  background-color: rgb(215, 215, 215) !important;
+}
+.ab-feed .ab-feed-buttons-wrapper .ab-close-button,
+.ab-feed .ab-feed-buttons-wrapper .ab-refresh-button {
+  color: rgb(0, 0, 0) !important;
+}
+.dashbox__box {
+  border: 1px solid rgb(26, 26, 26) !important;
+}
+.dashbox__box,
+.dashbox__box:focus,
+.dashbox__box:hover,
+.dashbox__box:visited {
+  color: rgb(204, 204, 204) !important;
+}
+.soundBadge__additional {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.1),
+    rgb(0, 0, 0) 17px
+  ) !important;
+}
+.soundBadge.hiddenSound .soundBadge__artwork::after {
+  background: rgba(105, 105, 105, 0.6) !important;
+}
+.soundBadge.active:not(.compact),
+.soundBadge.hover:not(.compact),
+.soundBadge.selected:not(.compact),
+.soundBadge:hover:not(.compact) {
+  background-color: rgb(13, 13, 13) !important;
+}
+.soundBadge.active:not(.compact) .soundBadge__additional,
+.soundBadge.hover:not(.compact) .soundBadge__additional,
+.soundBadge.selected:not(.compact) .soundBadge__additional,
+.soundBadge:hover:not(.compact) .soundBadge__additional {
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 13, 0.1),
+    rgb(13, 13, 13) 17px
+  ) !important;
+}
+.soundBadge.active:not(.compact),
+.soundBadge.active:not(.compact).hover,
+.soundBadge.active:not(.compact):hover {
+  border-bottom: 1px solid rgb(255, 85, 0) !important;
+}
+.soundBadge.active .soundTitle__title {
+  color: rgb(255, 85, 0) !important;
+}
+.soundBadge__icon {
+  background: rgb(0, 0, 0) !important;
+}
+.mixedSelectionModule {
+  border-bottom: 1px solid rgb(13, 13, 13) !important;
+}
+.statsBadge__upsell-text {
+  color: rgb(153, 153, 153) !important;
+}
+.statsBadge__upsell-text > span {
+  color: rgb(204, 204, 204) !important;
+}
+.tileGallery__sliderButton::after {
+  border-right: 1px solid rgb(204, 204, 204) !important;
+  border-top: 1px solid rgb(204, 204, 204) !important;
+}
+.tileGallery__sliderButton:active,
+.tileGallery__sliderButton:active::after,
+.tileGallery__sliderButton:focus,
+.tileGallery__sliderButton:focus::after,
+.tileGallery__sliderPeek:hover .tileGallery__sliderButton,
+.tileGallery__sliderPeek:hover .tileGallery__sliderButton::after {
+  border-color: rgb(255, 85, 0) !important;
+}
+.playableTile__actions {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  ) !important;
+}
+.playableTile.m-dark .playableTile__heading {
+  color: rgb(0, 0, 0) !important;
+}
+.playableTile.m-dark .playableTile__usernameHeading {
+  color: rgb(26, 26, 26) !important;
+}
+.playableTile.m-dark .playableTile__usernameHeading:hover {
+  color: rgb(0, 0, 0) !important;
+}
+.selectionPlaylistBanner {
+  background: rgb(153, 153, 153) !important;
+}
+.systemPlaylistBannerItem {
+  color: rgba(0, 0, 0, 0.7) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.systemPlaylistBannerItem:not(.m-disabled).m-overlayOpen,
+.systemPlaylistBannerItem:not(.m-disabled).m-playing,
+.systemPlaylistBannerItem:not(.m-disabled):focus,
+.systemPlaylistBannerItem:not(.m-disabled):hover {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+.systemPlaylistBannerItem__trackTitle {
+  color: rgb(0, 0, 0) !important;
+}
+.systemPlaylistBannerItem.m-disabled .systemPlaylistBannerItem__content,
+.systemPlaylistBannerItem.m-disabled .systemPlaylistBannerItem__trackTitle {
+  color: rgb(51, 51, 51) !important;
+}
+.sound__uploadTime {
+  color: rgb(51, 51, 51) !important;
+}
+.sound__soundActions {
+  background-color: rgb(0, 0, 0) !important;
+}
+.soundContext__line {
+  color: rgb(102, 102, 102) !important;
+}
+.compactTrackList__moreLink:focus,
+.compactTrackList__moreLink:hover {
+  background-color: rgb(13, 13, 13) !important;
+}
+.compactTrackListItem {
+  color: rgb(102, 102, 102) !important;
+}
+.compactTrackListItem.clickToPlay.active,
+.compactTrackListItem.clickToPlay:focus,
+.compactTrackListItem.clickToPlay:hover {
+  background-color: rgb(13, 13, 13) !important;
+  color: rgb(102, 102, 102) !important;
+}
+.compactTrackListItem.active,
+.compactTrackListItem.active .compactTrackListItem__content,
+.compactTrackListItem.active .compactTrackListItem__number,
+.compactTrackListItem.active .compactTrackListItem__plays,
+.compactTrackListItem.active .compactTrackListItem__trackTitle,
+.compactTrackListItem.active .compactTrackListItem__user {
+  color: rgb(255, 85, 0) !important;
+}
+.compactTrackListItem__content {
+  color: rgb(204, 204, 204) !important;
+}
+.compactTrackListItem__user {
+  color: rgb(102, 102, 102) !important;
+}
+.compactTrackListItem__number,
+.compactTrackListItem__trackTitle {
+  color: rgb(204, 204, 204) !important;
+}
+.compactTrackListItem.m-disabled .compactTrackListItem__content,
+.compactTrackListItem.m-disabled .compactTrackListItem__number,
+.compactTrackListItem.m-disabled .compactTrackListItem__trackTitle {
+  color: rgb(51, 51, 51) !important;
+}
+.compactTrackListItem.clickToPlay.active .compactTrackListItem__additional,
+.compactTrackListItem.clickToPlay:focus .compactTrackListItem__additional,
+.compactTrackListItem.clickToPlay:hover .compactTrackListItem__additional {
+  background: linear-gradient(
+    90deg,
+    rgba(13, 13, 13, 0.1),
+    rgb(13, 13, 13) 17px
+  ) !important;
+}
+.commentForm__wrapper {
+  background: rgb(13, 13, 13) !important;
+  border: 1px solid rgb(26, 26, 26) !important;
+}
+.commentForm.m-active .commentForm__wrapper {
+  background: rgb(26, 26, 26) !important;
+  border-color: rgb(51, 51, 51) !important;
+}
+.commentForm.m-small.m-active .commentForm__input {
+  border-color: rgb(51, 51, 51) !important;
+}
+.commentForm.m-small.m-invalid .commentForm__avatar::after {
+  border-left: 1px solid rgb(255, 85, 0) !important;
+  border-bottom: 1px solid rgb(255, 85, 0) !important;
+  border-top: 1px solid rgb(255, 85, 0) !important;
+}
+.commentForm.m-recipientActive .commentForm__recipient {
+  color: rgb(0, 0, 0) !important;
+  background: rgb(255, 153, 51) !important;
+}
+.commentForm__input {
+  background: rgb(0, 0, 0) !important;
+  border: 1px solid rgb(26, 26, 26) !important;
+}
+.commentForm .commentForm__input:focus,
+.commentForm.m-large .commentForm__inputWrapper .commentForm__input:focus {
+  border-color: rgb(102, 102, 102) !important;
+}
+.commentForm.m-invalid .commentForm__input {
+  border-color: rgb(255, 85, 0) !important;
+}
+.recipientChooser .tokenInput__wrapper {
+  background-color: rgb(0, 0, 0) !important;
+}
+.recipientChooser.invalid .tokenInput__wrapper {
+  border-color: rgb(48, 255, 255) !important;
+}
+.suggestedUsers {
+  background-color: rgb(13, 13, 13) !important;
+  color: rgb(153, 153, 153) !important;
+}
+.suggestedUsers__listItem.selected {
+  color: rgb(204, 204, 204) !important;
+  background-color: rgb(51, 51, 51) !important;
+}
+.collection.m-overview .collection__section:not(:last-child) {
+  border-bottom: 1px solid rgb(13, 13, 13) !important;
+}
+.readMoreTile__countWrapper {
+  background-color: rgb(0, 0, 0) !important;
+}
+.userBadgeListItem__image {
+  color: rgb(102, 102, 102) !important;
+}
+.audibleTilePlaceholder::before {
+  border: 1px solid rgb(51, 51, 51) !important;
+}
+.select.invalid .select__select {
+  border-color: rgb(48, 255, 255) !important;
+}
+.select.invalid .sc-button-dropdown {
+  border-color: rgb(48, 255, 255) !important;
+}
+.textfield.invalid .textfield__input {
+  border-color: rgb(48, 255, 255) !important;
+}
+.textfield.hint .textfield__input {
+  border-color: rgb(204, 204, 204) !important;
+}
+.textfield__applyAll:focus {
+  border-color: rgb(102, 102, 102) !important;
+}
+.textfield__clear {
+  background: rgb(26, 26, 26) !important;
+}
+.textfield__clear::after,
+.textfield__clear::before {
+  border-top: 2px solid rgb(0, 0, 0) !important;
+}
+.textfield__clear:hover {
+  background: rgb(51, 51, 51) !important;
+}
+.textfield__clear:focus {
+  border-color: rgb(102, 102, 102) !important;
+}
+.commentPopover__username,
+a.commentPopover__username:hover,
+a.commentPopover__username:visited {
+  color: rgb(255, 85, 0) !important;
+}
+.commentPopover__username::before {
+  background-image: linear-gradient(
+    rgba(255, 85, 0, 0.95),
+    rgba(255, 85, 0, 0.1)
+  ) !important;
+}
+.commentPopover__body {
+  color: rgb(0, 0, 0) !important;
+}
+.commentPopover.darkText .commentPopover__body {
+  color: rgb(204, 204, 204) !important;
+}
+.visualSound.streamContext.playing .commentPopover__body {
+  color: rgb(26, 26, 26) !important;
+}
+.creatorsNavigation__onSoundCloudLinkNewBadge {
+  border: 1px solid rgb(255, 85, 0) !important;
+  color: rgb(255, 85, 0) !important;
+}
+.uploadMain__chooserContainer {
+  background-color: rgb(0, 0, 0) !important;
+}
+.uploadMain__foot {
+  background-color: rgb(0, 0, 0) !important;
+}
+.uploadMain__foot > .l-footer {
+  color: rgb(153, 153, 153) !important;
+}
+.uploadMain__foot > .l-footer a:not(.localeSelector) {
+  color: rgb(153, 153, 153) !important;
+}
+.uploadMain__foot > .l-footer a:not(.localeSelector):hover {
+  color: rgb(102, 102, 102) !important;
+}
+.uploadBackground.imageDidLoad:not(.hasActiveUploads) ~ .uploadMain__foot {
+  border-color: rgb(13, 13, 13) !important;
+  background-color: rgba(13, 13, 13, 0.9) !important;
+}
+.uploadMain.hasActiveUploads:not(.hasUnsavedUploads)
+  .uploadMain__chooserContainer {
+  border: 2px dashed rgb(26, 26, 26) !important;
+}
+.uploadBackground__image::after {
+  background-image: linear-gradient(
+    transparent -50%,
+    rgb(0, 0, 0) 34%
+  ) !important;
+}
+.quotaMeterWrapper {
+  background: rgb(0, 0, 0) !important;
+}
+.quotaMeter__minutesUsed {
+  background: linear-gradient(
+    90deg,
+    rgb(255, 119, 0) 0px,
+    rgb(255, 51, 0)
+  ) !important;
+}
+.quotaMeter__lightLine,
+.quotaMeter__upsellText {
+  color: rgb(153, 153, 153) !important;
+}
+.radioGroup .radioGroup__sublabel {
+  color: rgb(153, 153, 153) !important;
+}
+.radioGroup.invalid .radioGroup__radioRadio {
+  border-color: rgb(48, 255, 255) !important;
+}
+.radioGroup__radio[data-disabled] .radioGroup__labelText {
+  color: rgb(102, 102, 102) !important;
+}
+.activeUpload__hqNote {
+  background: rgb(10, 10, 10) !important;
+  border: 1px solid rgba(104, 104, 104, 0.2) !important;
+}
+.activeUpload__form {
+  background-color: rgb(0, 0, 0) !important;
+}
+.activeUpload__shareContainer {
+  background-color: rgb(0, 0, 0) !important;
+}
+.userUpsell {
+  background: url("https://a-v2.sndcdn.com/assets/images/spotlight-99243287.png")
+    right 30px top no-repeat rgb(204, 204, 204) !important;
+}
+.upsellBanner__title {
+  color: rgb(0, 0, 0) !important;
+}
+.profileHeaderBackground {
+  background: rgb(26, 26, 26) !important;
+}
+.profileHeaderBackground__visual {
+  background-color: rgb(153, 153, 153) !important;
+}
+.featuredProfiles {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+.featuredProfiles .featuredProfiles__title {
+  color: rgb(0, 0, 0) !important;
+}
+.featuredProfiles.expanded .featuredProfiles__title {
+  border-bottom: 1px solid rgb(204, 204, 204) !important;
+  color: rgb(102, 102, 102) !important;
+}
+.featuredProfiles__item {
+  border-bottom: 1px solid rgb(204, 204, 204) !important;
+}
+.imageChooser:hover .imageChooser__chooseButton,
+.imageChooser__chooseButton:focus,
+.imageChooser__chooseButton:hover {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+.dropbar__content {
+  background-color: rgb(0, 0, 0) !important;
+}
+.profileUploadFooter {
+  background-color: rgb(0, 0, 0) !important;
+}
+.commentBadge:hover .commentBadge__title a {
+  color: rgb(204, 204, 204) !important;
+}
+.commentBadge__time {
+  color: rgb(51, 51, 51) !important;
+}
+.truncatedUserDescription.m-overflow.m-collapsed
+  .truncatedUserDescription__wrapper::after {
+  background: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0)) !important;
+}
+.spotlight.editing .spotlight__item {
+  background-color: rgb(0, 0, 0) !important;
+}
+.spotlight.editing .spotlight__item:hover {
+  border-color: rgb(13, 13, 13) !important;
+}
+.spotlight__upsellCTA {
+  color: rgb(0, 0, 0) !important;
+}
+.spotlightUpsellBanner__background {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
+.showSpotlightUpsellBanner.spotlightUpsellBanner {
+  color: rgb(0, 0, 0) !important;
+  border: 2px dashed rgb(41, 41, 41) !important;
+}
+.userAudibleSearchResults {
+  background-color: rgb(0, 0, 0) !important;
+}
+.userAudibleSearchResults__item.selected {
+  background-color: rgb(13, 13, 13) !important;
+}
+.userAudibleSearchResults__noResults {
+  color: rgb(153, 153, 153) !important;
+}
+.userAudibleSearchResultItem {
+  color: rgb(153, 153, 153) !important;
+}
+.userAudibleSearchResultItem b {
+  color: rgb(204, 204, 204) !important;
+}
+.trackManager__upsellWrapper {
+  background-color: rgb(0, 0, 0) !important;
+}
+.editTracksDropdown {
+  background-color: rgb(0, 0, 0) !important;
+}
+.statsOverview__separator {
+  background-color: rgb(13, 13, 13) !important;
+}
+.ui-datepicker {
+  background: rgb(0, 0, 0) !important;
+}
+.ui-datepicker-header > a:hover:not(.ui-state-disabled) {
+  background-color: rgb(13, 13, 13) !important;
+}
+.ui-datepicker-header > a:active:not(.ui-state-disabled) {
+  background-color: rgb(26, 26, 26) !important;
+}
+.ui-datepicker-calendar th {
+  color: rgb(102, 102, 102) !important;
+}
+.ui-datepicker .ui-datepicker-unselectable .ui-state-default,
+.ui-datepicker .ui-state-disabled .ui-state-default {
+  color: rgb(51, 51, 51) !important;
+}
+.ui-datepicker .ui-state-default {
+  color: rgb(204, 204, 204) !important;
+  background-color: rgb(0, 0, 0) !important;
+}
+.ui-datepicker .ui-state-default.ui-state-highlight {
+  color: rgb(0, 0, 0) !important;
+  background-color: rgb(102, 102, 102) !important;
+}
+.ui-datepicker .ui-state-default.ui-state-active {
+  color: rgb(0, 0, 0) !important;
+  background-color: rgb(51, 136, 221) !important;
+}
+.ui-datepicker
+  .ui-state-default.ui-state-hover:not(.ui-state-highlight):not(.ui-state-active) {
+  background-color: rgb(13, 13, 13) !important;
+}
+.userStatsLegend {
+  color: rgb(153, 153, 153) !important;
+}
+.userStatsLegend__item.active {
+  color: rgb(204, 204, 204) !important;
+}
+.userStatsLegend__item {
+  border-color: rgb(13, 13, 13) !important;
+}
+.userStatsLegend__item1 {
+  border-color: rgb(255, 85, 0) !important;
+}
+.userStatsLegend__item2 {
+  border-color: rgb(8, 140, 240) !important;
+}
+.userStatsLegend__item3 {
+  border-color: rgb(8, 113, 203) !important;
+}
+.userStatsLegend__item4 {
+  border-color: rgb(7, 90, 178) !important;
+}
+.userStatsLegend__item5 {
+  border-color: rgb(7, 73, 159) !important;
+}
+.statsOverlay {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: rgb(51, 51, 51) !important;
+}
+.statsOverlay a {
+  color: rgb(51, 51, 51) !important;
+}
+.statsOverlay__top {
+  border-bottom: 1px solid rgb(191, 191, 191) !important;
+}
+.statsOverlay__count {
+  color: rgb(0, 0, 0) !important;
+}
+.statsOverlay::after {
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+.topStatsModule__item {
+  border-color: rgb(26, 26, 26) !important;
+}
+.topStatsModule__item:last-child {
+  border-bottom: 1px solid rgb(26, 26, 26) !important;
+}
+.topStats__wrapperEligible:focus,
+.topStats__wrapperEligible:hover {
+  background-color: rgb(13, 13, 13) !important;
+}
+.topStats__wrapperEligible:focus .topStatsItemPlaceholder__text::before,
+.topStats__wrapperEligible:hover .topStatsItemPlaceholder__text::after,
+.topStats__wrapperEligible:hover .topStatsItemPlaceholder__text::before {
+  background-color: rgb(26, 26, 26) !important;
+}
+.topStatsItemPlaceholder__text::after,
+.topStatsItemPlaceholder__text::before {
+  background-color: rgb(13, 13, 13) !important;
+}
+.topStatsItemPlaceholder.playlist .topStatsItemPlaceholder__visual,
+.topStatsItemPlaceholder.track .topStatsItemPlaceholder__visual {
+  border: 1px solid rgb(26, 26, 26) !important;
+}
+.topStatsItemPlaceholder.playlist .topStatsItemPlaceholder__visual::after,
+.topStatsItemPlaceholder.playlist .topStatsItemPlaceholder__visual::before {
+  border: 1px solid rgb(26, 26, 26) !important;
+}
+.topStatsItemPlaceholder.listener .topStatsItemPlaceholder__visual {
+  border: 1px solid rgb(26, 26, 26) !important;
+}
+

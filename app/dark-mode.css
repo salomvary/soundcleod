@@ -1,0 +1,13 @@
+body {
+  background: #111 !important;
+}
+
+.playControl,
+.sc-ministats:before,
+.sc-button:before {
+  filter: invert(1);
+}
+
+.sc-button-lightfg {
+  filter: none;
+}
