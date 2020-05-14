@@ -1,6 +1,6 @@
 'use strict'
 
-const { dialog, systemPreferences } = require('electron')
+const { app, dialog, systemPreferences } = require('electron')
 
 /**
  * Using media keys on macOS requires the user's explicit permission
@@ -18,9 +18,9 @@ module.exports = function checkAccessibilityPermissions() {
         type: 'warning',
         message: 'Turn on accessibility',
         detail:
-          'To control playback in SoundCleod using media keys on your keyboard, ' +
-          'select the SoundCleod checkbox in Security & Privacy > Accessibility.' +
-          '\n\nYou will have to restart SoundCleod after enabling access.',
+          `To control playback in ${app.name} using media keys on your keyboard, ` +
+          `select the ${app.name} checkbox in Security & Privacy > Accessibility.` +
+          `\n\nYou will have to restart ${app.name} after enabling access.`,
         defaultId: 1,
         cancelId: 0,
         buttons: ['Not Now', 'Turn On Accessibility']

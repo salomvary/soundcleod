@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<title>About SoundCleod</title>
+<title>About</title>
 <meta charset="utf-8" />
 <style>
   body {
@@ -20,21 +20,14 @@
     border-bottom: 0.5px solid WindowFrame;
   }
 </style>
-<script>
-  const appVersion = require('electron').remote.app.getVersion()
-</script>
-
 <body>
   <p>
-    <img src="about-icon.png" width="64" height="64" alt="SoundCleod logo" />
+    <img src="about-icon.svg" width="64" height="64" alt="Application logo" />
   </p>
 
   <p>
-    <b>SoundCleod</b><br />
+    <b class="soundcleod-app-name"></b><br />
     Version <span id="app-version"></span>
-    <script>
-      document.getElementById('app-version').textContent = appVersion
-    </script>
   </p>
 
   <p>
@@ -55,7 +48,7 @@
   <p>
     and
     <a href="https://github.com/salomvary/soundcleod/graphs/contributors"
-      >SoundCleod contributors</a
+      ><span class="soundcleod-app-name"></span> contributors</a
     >
   </p>
 
@@ -92,4 +85,13 @@
   <p>
     <button onclick="window.close()">Close</button>
   </p>
+  <script>
+    const appVersion = require('electron').remote.app.getVersion()
+    const appName = require('electron').remote.app.name
+    document.title = 'About ' + appName
+    document.querySelectorAll('.soundcleod-app-name').forEach((node) => {
+      node.textContent = appName
+    })
+    document.getElementById('app-version').textContent = appVersion
+  </script>
 </body>

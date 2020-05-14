@@ -292,7 +292,10 @@ function showAbout() {
       skipTaskbar: true,
       width: 385,
       modal: true,
-      parent: mainWindow
+      parent: mainWindow,
+      webPreferences: {
+        nodeIntegration: true
+      }
     })
     aboutWindow.setMenu(null)
     aboutWindow.once('ready-to-show', () => {

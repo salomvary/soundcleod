@@ -34,7 +34,7 @@ function onDidFailLoad(event, errorCode, description, url, isMainFrame) {
   const redirectErrorCode = -3
   if (isMainFrame && errorCode != redirectErrorCode) {
     this.loadURL(
-      `file://${__dirname}/error.html?error=${encodeURIComponent(description)}`
+      `file://${__dirname}/error.html?error=${encodeURIComponent(description)}&appName=${app.name}`
     )
     console.error(`Failed to load '${url}' with ${description}`)
   }

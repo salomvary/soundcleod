@@ -171,7 +171,7 @@ function buildMenu(options) {
           }
         },
         {
-          label: 'About SoundCleod',
+          label: 'About ' + app.name,
           click() {
             events.emit('about')
           },

@@ -30,7 +30,8 @@
 <body>
   <div>
     <p class="soundcleod-error-title">
-      SoundCleod failed to connect to soundcloud.com :(
+      <span class="soundcleod-app-name"></span> failed to connect to
+      soundcloud.com :(
     </p>
     <p class="soundcleod-error-description"></p>
     <p>
@@ -43,5 +44,8 @@
     document.querySelector(
       '.soundcleod-error-description'
     ).textContent = new URL(location.href).searchParams.get('error')
+    document.querySelector('.soundcleod-app-name').textContent = new URL(
+      location.href
+    ).searchParams.get('appName')
   </script>
 </body>
