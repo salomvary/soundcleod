@@ -11,7 +11,7 @@ exports.default = async function notarizing(context) {
 
   const appName = context.packager.appInfo.productFilename
 
-  console.log(`Notarizing with Apple ID '${process.env.APPLEID}'`)
+  console.log(`Notarizing with Apple, this might take long...`)
   return notarize({
     appBundleId: 'com.electron.soundcleod',
     appPath: `${appOutDir}/${appName}.app`,
