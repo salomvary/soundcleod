@@ -25,6 +25,10 @@
       "dsa_pub.pem",
       "Credits.rtf"
     ],
+    "afterSign": "scripts/notarize.js",
+    "mac": {
+      "hardenedRuntime": true
+    },
     "dmg": {
       "iconSize": 128,
       "contents": [
@@ -59,6 +63,7 @@
     "electron": "^8.2.5",
     "electron-builder": "^22.6.1",
     "electron-builder-squirrel-windows": "^22.6.1",
+    "electron-notarize": "^0.3.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-config-prettier": "^6.10.1",
