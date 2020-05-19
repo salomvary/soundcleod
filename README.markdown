@@ -14,12 +14,12 @@ SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart
 
 ## How to get it?
 
-Current version is 1.4.0 (August 31, 2018) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
+Current version is 2.0.0 (May 19, 2020) [see changes](https://github.com/salomvary/soundcleod/blob/master/CHANGELOG.md)
 
 ### For macOS
 
 - [Download macOS installer from
-	here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-1.4.0.dmg)
+  here](https://updates.soundcleod.com/download/osx?filetype=dmg)
 - Locate the installer (.dmg) file in the Finder
 - Right click (or control-click) on the installer file
 - If prompted **"SoundCleod-1.4.0.dmg" is from an unidentified developer. Are you sure you want to open it?**,
@@ -43,13 +43,13 @@ To use media keys on macOS Mojave (10.14) or newer:
 ### For Windows
 
 - [Download Windows installer from
-	here](https://github.com/salomvary/soundcleod/releases/download/v1.4.0/soundcleod-Setup-1.4.0.exe)
+  here](https://updates.soundcleod.com/download/windows)
 - Save the file when prompted
 - Run the downloaded installer
 
 **Important!** Windows 7 or newer is required (only 64 bit, 32 bit Windows is not supported).
 
-### Using [Homebrew Cask](http://caskroom.io/)?
+### Using [Homebrew Cask](https://formulae.brew.sh/cask/)?
 
 ```sh
 brew cask install soundcleod
