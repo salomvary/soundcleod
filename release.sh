@@ -16,12 +16,6 @@ update_readme_version() {
 	sed -i '' -E -e\
 	 	"s/Current version is [^[:space:]]+ \([^(]+\)/Current version is $version ($date)/"\
 		README.markdown
-	sed -i '' -E -e\
-    "s/download\\/[^\\/]+\\/soundcleod-[^\\/]+.dmg/download\\/v$version\\/soundcleod-$version.dmg/"\
-		README.markdown
-	sed -i '' -E -e\
-    "s/download\\/[^\\/]+\\/soundcleod-Setup-[^\\/]+.exe/download\\/v$version\\/soundcleod-Setup-$version.exe/"\
-		README.markdown
 }
 
 # Read changes from git log and open it in an editor
