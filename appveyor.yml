@@ -5,7 +5,6 @@ environment:
     secure: Vr09Jk6CRcfJcj8XJWW90ziNw/9Efx7SqEWjtcpwNFDTV941mrL5YpgNBWLiwbVg
 
 platform:
-  - x86
   - x64
 
 # Install scripts. (runs after repo cloning)
