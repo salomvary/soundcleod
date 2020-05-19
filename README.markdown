@@ -19,7 +19,7 @@ Current version is 2.0.0 (May 19, 2020) [see changes](https://github.com/salomva
 ### For macOS
 
 - [Download macOS installer from
-  here](https://updates.soundcleod.com/download/osx?filetype=dmg)
+  here](https://updates.soundcleod.com/download/mac)
 - Locate the installer (.dmg) file in the Finder
 - Right click (or control-click) on the installer file
 - If prompted **"SoundCleod-1.4.0.dmg" is from an unidentified developer. Are you sure you want to open it?**,
