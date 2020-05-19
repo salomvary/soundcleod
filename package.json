@@ -19,7 +19,6 @@
     "verify": "npm run eslint && npm run prettier && npm test"
   },
   "build": {
-    "buildVersion": "2",
     "appId": "com.electron.soundcleod",
     "extraResources": [
       "dsa_pub.pem",
