@@ -11,11 +11,18 @@ exports.default = async function notarizing(context) {
 
   const appName = context.packager.appInfo.productFilename
 
-  console.log(`Notarizing with Apple, this might take long...`)
-  return notarize({
-    appBundleId: 'com.electron.soundcleod',
-    appPath: `${appOutDir}/${appName}.app`,
-    appleId: process.env.APPLEID,
-    appleIdPassword: process.env.APPLEIDPASS
-  })
+  if (process.env.APPLEID) {
+    console.log(`Notarizing with Apple, this might take long...`)
+    return notarize({
+      appBundleId: 'com.electron.soundcleod',
+      appPath: `${appOutDir}/${appName}.app`,
+      appleId: process.env.APPLEID,
+      appleIdPassword: process.env.APPLEIDPASS
+    })
+    // eslint-disable-next-line no-else-return
+  } else {
+    console.log(
+      'Skipping notarization: no Apple ID set in APPLEID environment variable.'
+    )
+  }
 }
