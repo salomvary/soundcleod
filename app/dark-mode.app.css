@@ -307,24 +307,24 @@ fieldset {
 .sc-blue {
   color: #38d !important;
 }
-input[type="date"]::-webkit-input-placeholder,
-input[type="email"]::-webkit-input-placeholder,
-input[type="password"]::-webkit-input-placeholder,
-input[type="search"]::-webkit-input-placeholder,
-input[type="tel"]::-webkit-input-placeholder,
-input[type="text"]::-webkit-input-placeholder,
-input[type="url"]::-webkit-input-placeholder,
+input[type='date']::-webkit-input-placeholder,
+input[type='email']::-webkit-input-placeholder,
+input[type='password']::-webkit-input-placeholder,
+input[type='search']::-webkit-input-placeholder,
+input[type='tel']::-webkit-input-placeholder,
+input[type='text']::-webkit-input-placeholder,
+input[type='url']::-webkit-input-placeholder,
 select::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: #666666 !important;
 }
-input[type="date"]:-moz-placeholder,
-input[type="email"]:-moz-placeholder,
-input[type="password"]:-moz-placeholder,
-input[type="search"]:-moz-placeholder,
-input[type="tel"]:-moz-placeholder,
-input[type="text"]:-moz-placeholder,
-input[type="url"]:-moz-placeholder,
+input[type='date']:-moz-placeholder,
+input[type='email']:-moz-placeholder,
+input[type='password']:-moz-placeholder,
+input[type='search']:-moz-placeholder,
+input[type='tel']:-moz-placeholder,
+input[type='text']:-moz-placeholder,
+input[type='url']:-moz-placeholder,
 select:-moz-placeholder,
 textarea:-moz-placeholder {
   color: #666666 !important;
@@ -345,13 +345,13 @@ textarea {
   background: #000000 !important;
   border: 1px solid #333333 !important;
 }
-input[type="date"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="text"]:focus,
-input[type="url"]:focus,
+input[type='date']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='text']:focus,
+input[type='url']:focus,
 select:focus,
 textarea:focus {
   border-color: #666666 !important;
@@ -810,27 +810,27 @@ a.g-type-shrinkwrap-primary:visited:hover {
   color: #000000 !important;
   background: #cccccc !important;
 }
-.g-dark input[type="password"],
-.g-dark input[type="search"],
-.g-dark input[type="text"],
+.g-dark input[type='password'],
+.g-dark input[type='search'],
+.g-dark input[type='text'],
 .g-dark select,
 .g-dark textarea {
   color: #999999 !important;
   background: #1a1a1a !important;
 }
-.g-dark input[type="search"]:focus {
+.g-dark input[type='search']:focus {
   background: #000000 !important;
 }
-.g-dark input[type="password"]::-webkit-input-placeholder,
-.g-dark input[type="search"]::-webkit-input-placeholder,
-.g-dark input[type="text"]::-webkit-input-placeholder,
+.g-dark input[type='password']::-webkit-input-placeholder,
+.g-dark input[type='search']::-webkit-input-placeholder,
+.g-dark input[type='text']::-webkit-input-placeholder,
 .g-dark select::-webkit-input-placeholder,
 .g-dark textarea::-webkit-input-placeholder {
   color: #666666 !important;
 }
-.g-dark input[type="password"]:-moz-placeholder,
-.g-dark input[type="search"]:-moz-placeholder,
-.g-dark input[type="text"]:-moz-placeholder,
+.g-dark input[type='password']:-moz-placeholder,
+.g-dark input[type='search']:-moz-placeholder,
+.g-dark input[type='text']:-moz-placeholder,
 .g-dark select:-moz-placeholder,
 .g-dark textarea:-moz-placeholder {
   color: #666666 !important;
@@ -883,4 +883,3 @@ a.g-type-shrinkwrap-primary:visited:hover {
 .g-button-remove:focus {
   outline: 1px dotted #666666 !important;
 }
-
