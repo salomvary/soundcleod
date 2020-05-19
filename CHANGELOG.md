@@ -1,3 +1,15 @@
+## 2.0.0 (May 19, 2020)
+
+- Add basic dark mode
+- Support the Now Playing widget on macOS
+- Make the app work on macOS Catalina
+- Avoid "Unidentified developer" warnings on macOS
+- Security and performance fixes
+
+Known issues:
+
+- Sign-in only works with username and password, Google, Facebook and Apple methods do not work
+
 ## 1.4.0 (August 31, 2018)
 
 - Allow launching with a SoundCloud URL from the command line
