@@ -4,11 +4,17 @@ SoundCleod is a desktop application which brings
 [SoundCloud](http://soundcloud.com) to macOS and Windows without using a web
 browser.
 
-Why is that good?
+Compared to using SoundCloud.com in a web browser like Chrome or Firefox you
+will get the following extras when using SoundCleod:
 
-- No more 'trying to find in which tab is SoundCloud running'..
-- Media keys support! (Yeah, those with ▶ ❚❚ on them.)
-- Stops on suspend.
+- Dark mode
+- Desktop notifications
+- Control playback using media keys on the keyboard (▶ ❚❚ and friends)
+- True full screen without browser buttons
+- Control playback from the Notification Center using the Now Playing widget on macOS
+- Control playback from the macOS application menu
+- Stop playback when your computer goes to sleep
+- Close or hide all windows without interrupting playback
 
 SoundCleod is a weird name. [How to pronounce it?](https://soundcloud.com/senart/soundcleod)
 
