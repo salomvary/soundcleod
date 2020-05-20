@@ -20,25 +20,13 @@ Current version is 2.0.0 (May 19, 2020) [see changes](https://github.com/salomva
 
 - [Download macOS installer from
   here](https://updates.soundcleod.com/download/mac)
-- Locate the installer (.dmg) file in the Finder
-- Right click (or control-click) on the installer file
-- If prompted **"SoundCleod-1.4.0.dmg" is from an unidentified developer. Are you sure you want to open it?**,
-  click Open.
+- Locate the installer (.dmg) file in Finder
+- Double click on the installer file
 - Drag SoundCleod into your Applications folder
-- Go to Applications, right click (or control-click) on SoundCleod
-- Click Open
-- Click Open when prompted **“SoundCleod” is from an unidentified developer. Are you sure you want to open it?**
+- Double click SoundCleod in the Applications folder
 - Optionally drag SoundCleod from Applications into the Dock
 
-To use media keys on macOS Mojave (10.14) or newer:
-
-- Click Open System Preferences when prompted **"SoundCleod would like to control this computer using accessibility features.**
-- Alternatively, if you do not get prompted, open System Preferences > Security & Privacy > Privacy > Accessibility
-- Click the lock to make changes (at the bottom)
-- Tick the checkbox to allow SoundCleod access the media keys (add SoundCleod with the + button if it is not listed)
-- **Restart SoundCleod**
-
-**Important!** Minimum required macOS version is 10.9.x (Mavericks).
+**Important!** Minimum required macOS version is 10.10 (Yosemite).
 
 ### For Windows
 
