@@ -53,7 +53,9 @@ Note: the homebrew method is supported by the [Caskroom team](https://github.com
 
 ## Screenshots? Yeah!
 
-![SoundCleod screenshot](https://raw.github.com/salomvary/soundcleod/master/screenshot.png)
+![SoundCleod screenshot](https://raw.github.com/salomvary/soundcleod/master/screenshot.jpg)
+
+![SoundCleod dark mode screenshot](https://raw.github.com/salomvary/soundcleod/master/screenshot-dark.jpg)
 
 ## Alternatives
 
