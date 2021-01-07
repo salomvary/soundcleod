@@ -6,6 +6,7 @@ on:
       - master
     paths:
       - README.markdown
+      - Makefile
 
 jobs:
   update-website:

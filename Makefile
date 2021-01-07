@@ -35,6 +35,7 @@ release: clean increment_version release-all history
 	git tag -m "v$$(./release.sh print_version)" "v$$(./release.sh print_version)"
 
 update-website:
+	git fetch origin gh-pages
 	git checkout gh-pages
 	make update-readme update-and-push
 	git checkout master
