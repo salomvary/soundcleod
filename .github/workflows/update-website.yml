@@ -1,0 +1,20 @@
+name: Update Website
+
+on: push
+  branches:
+    - master
+  paths:
+    - README.markdown
+
+jobs:
+  update-website:
+    name: Update Website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      
+      - name: Update Website
+        run: make update-website
