@@ -1,10 +1,11 @@
 name: Update Website
 
-on: push
-  branches:
-    - master
-  paths:
-    - README.markdown
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - README.markdown
 
 jobs:
   update-website:
