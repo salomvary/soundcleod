@@ -49,7 +49,8 @@ Current version is 2.0.0 (May 19, 2020) [see changes](https://github.com/salomva
 brew install soundcleod
 ```
 
-Note: the homebrew method is supported by the [Caskroom team](https://github.com/caskroom/homebrew-cask), please [report installation issues](https://github.com/caskroom/homebrew-cask#reporting-bugs) there.
+Note: the homebrew method is supported by the [Caskroom team](https://github.com/caskroom/homebrew-cask),
+please [report installation issues](https://github.com/caskroom/homebrew-cask#reporting-bugs) there.
 
 ## Screenshots? Yeah!
 
