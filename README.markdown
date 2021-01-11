@@ -1,8 +1,6 @@
-## What is SoundCleod?
+# SoundCleod OBS Edition
 
-SoundCleod is a desktop application which brings
-[SoundCloud](http://soundcloud.com) to macOS and Windows without using a web
-browser.
+This is a fork of [SoundCleod](https://soundcleod.com) originally created by Márton Salomváry. The only purpose of this fork is to integrate with [OBS (Open Broadcaster Software)](https://obsproject.com/).
 
 Compared to using SoundCloud.com in a web browser like Chrome or Firefox you
 will get the following extras when using SoundCleod:
@@ -92,3 +90,7 @@ issue](https://github.com/salomvary/soundcleod/issues).
 
 Use at your own risk. It might destroy the Earth. Or better don't use
 it.
+=======
+**If you have problems with the OBS integration, please contact [ErraticFox](https://github.com/ErraticFox), the creator and maintainer of this fork.**
+
+If you do not use the OBS integration it is strongly recommended to use the latest [SoundCleod](https://soundcleod.com) from the original source.
