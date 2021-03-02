@@ -6,7 +6,7 @@ if (require('electron-squirrel-startup')) {
   return
 }
 
-const { app, BrowserWindow, globalShortcut, Menu } = require('electron')
+const { app, globalShortcut, Menu, BrowserWindow } = require('electron')
 const autoUpdater = require('./auto-updater')
 const checkAccessibilityPermissions = require('./check-accessibility-permissions')
 const contextMenu = require('./context-menu')
