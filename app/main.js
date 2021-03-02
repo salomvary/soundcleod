@@ -6,7 +6,7 @@ if (require('electron-squirrel-startup')) {
   return
 }
 
-const { app, BrowserWindow, globalShortcut, Menu } = require('electron')
+const { app, globalShortcut, Menu, BrowserWindow } = require('electron')
 const autoUpdater = require('./auto-updater')
 const checkAccessibilityPermissions = require('./check-accessibility-permissions')
 const contextMenu = require('./context-menu')
@@ -19,6 +19,9 @@ const SoundCloud = require('./soundcloud')
 const touchBarMenu = require('./touch-bar-menu')
 const windowOpenPolicy = require('./window-open-policy')
 const windowState = require('electron-window-state')
+const storage = require("electron-json-storage")
+
+const defaultDataPath = storage.getDefaultDataPath()
 
 let mainWindow = null
 let aboutWindow = null
@@ -50,6 +53,7 @@ app.on('before-quit', () => {
 
 app.requestSingleInstanceLock()
 app.on('ready', (event, argv) => {
+    console.log('test', 1, defaultDataPath, 2);
   if (mainWindow) {
     if (mainWindow.isMinimized()) {
       mainWindow.restore()
@@ -247,10 +251,15 @@ app.on('ready', () => {
   })
 
   soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
-    mainWindow.webContents.send('notification', {
-      title,
-      body: subtitle,
-      icon: artworkURL
+    storage.get('settings', (error, settings) => {
+      if (error) throw error
+      if (settings && settings.notifications) {
+        mainWindow.webContents.send('notification', {
+          title,
+          body: subtitle,
+          icon: artworkURL
+        })
+      }
     })
   })
 
