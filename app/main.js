@@ -19,6 +19,7 @@ const SoundCloud = require('./soundcloud')
 const touchBarMenu = require('./touch-bar-menu')
 const windowOpenPolicy = require('./window-open-policy')
 const windowState = require('electron-window-state')
+const storage = require("electron-json-storage")
 
 let mainWindow = null
 let aboutWindow = null
@@ -247,10 +248,15 @@ app.on('ready', () => {
   })
 
   soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
-    mainWindow.webContents.send('notification', {
-      title,
-      body: subtitle,
-      icon: artworkURL
+    storage.get('settings', (error, settings) => {
+      if (error) throw error
+      if (settings && settings.notifications) {
+        mainWindow.webContents.send('notification', {
+          title,
+          body: subtitle,
+          icon: artworkURL
+        })
+      }
     })
   })
 
