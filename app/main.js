@@ -19,7 +19,7 @@ const SoundCloud = require('./soundcloud')
 const touchBarMenu = require('./touch-bar-menu')
 const windowOpenPolicy = require('./window-open-policy')
 const windowState = require('electron-window-state')
-const storage = require("electron-json-storage")
+const storage = require('electron-json-storage')
 
 let mainWindow = null
 let aboutWindow = null

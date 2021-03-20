@@ -2,7 +2,7 @@
 
 const { app, Menu, shell } = require('electron')
 const Events = require('events')
-const storage = require("electron-json-storage")
+const storage = require('electron-json-storage')
 
 module.exports = function menu(options = {}) {
   return buildMenu(options)
@@ -291,7 +291,7 @@ function buildMenu(options) {
       settings.notifications = built.items[5].submenu.items[3].checked
       storage.set('settings', settings)
     }
-  });
+  })
 
   return built
 }
