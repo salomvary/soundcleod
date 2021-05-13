@@ -49,24 +49,27 @@ module.exports = function touchBarMenu(window, soundcloud) {
   })
 
   soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
-      https.get(artworkURL, res => {
-        let data = [];
-        const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
-        res.on('data', chunk => {
-          data.push(chunk);
+    titleScrubber.items = [{
+        label: title
+      }]
+     https.get(artworkURL, res => {
+       let data = [];
+       const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
+       res.on('data', chunk => {
+         data.push(chunk);
         });
         res.on('end', () => {
           var x = nativeImage.createFromBuffer(Buffer.concat(data)).resize({height:30, width:30})
           titleScrubber.items = [{
-              icon: x
-            }, {
-              label: title
-            }]
+            icon: x
+           }, {
+             label: title
+           }]
         });
       }).on('error', err => {
         titleScrubber.items = [{
-            label: title
-          }]
+          label: title
+        }]
     });
   })
 
