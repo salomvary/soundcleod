@@ -3,7 +3,7 @@
 const { TouchBar } = require('electron')
 
 const { TouchBarButton, TouchBarLabel, TouchBarSpacer } = TouchBar
-const MAX_TITLE_LENGTH = 38
+const MAX_TITLE_LENGTH = 35
 
 module.exports = function touchBarMenu(window, soundcloud) {
   const nextTrack = new TouchBarButton({
@@ -34,6 +34,13 @@ module.exports = function touchBarMenu(window, soundcloud) {
     }
   })
 
+  const repost = new TouchBarButton({
+    icon: `${__dirname}/res/repost.png`,
+    click: () => {
+      soundcloud.repost()
+    }
+  })
+
   const trackInfo = new TouchBarLabel()
 
   soundcloud.on('play', ({ title, subtitle }) => {
@@ -45,15 +52,18 @@ module.exports = function touchBarMenu(window, soundcloud) {
     playPause.icon = `${__dirname}/res/play.png`
   })
 
-  const touchBar = new TouchBar([
-    previousTrack,
-    playPause,
-    nextTrack,
-    likeUnlike,
-    new TouchBarSpacer({ size: 'flexible' }),
-    trackInfo,
-    new TouchBarSpacer({ size: 'flexible' })
-  ])
+  const touchBar = new TouchBar({
+      items:[
+        previousTrack,
+        playPause,
+        nextTrack,
+        likeUnlike,
+        repost,
+        new TouchBarSpacer({ size: 'flexible' }),
+        trackInfo,
+        new TouchBarSpacer({ size: 'flexible' })
+      ]
+    })
 
   window.setTouchBar(touchBar)
 }
