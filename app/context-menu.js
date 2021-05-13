@@ -10,7 +10,7 @@ module.exports = function contextMenu(window, soundcloud) {
     window,
     prepend: (defaultActions, params, browserWindow) => {
       if (params.mediaType == 'none') {
-        return menuTemplate(soundcloud, params)
+        return menuTemplate(soundcloud)
       }
     },
     append: (defaultActions, params, browserWindow) => [
