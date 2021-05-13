@@ -2,7 +2,7 @@
 
 const { TouchBar, nativeImage } = require('electron')
 
-const { TouchBarButton, TouchBarLabel, TouchBarSpacer, TouchBarScrubber } = TouchBar
+const { TouchBarButton, TouchBarScrubber } = TouchBar
 
 const https = require('https');
 
@@ -49,31 +49,31 @@ module.exports = function touchBarMenu(window, soundcloud) {
     }]
   })
 
-  soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
+  soundcloud.on('play-new-track', ({ title, artworkURL }) => {
     titleScrubber.items = [{
       label: title
     }]
     https.get(artworkURL, res => {
-    let data = [];
+    const data = [];
       res.on('data', chunk => {
         data.push(chunk);
       });
       res.on('end', () => {
-        var x = nativeImage.createFromBuffer(Buffer.concat(data)).resize({height:30, width:30})
+        const x = nativeImage.createFromBuffer(Buffer.concat(data)).resize({height:30, width:30})
         titleScrubber.items = [{
           icon: x
         }, {
           label: title
         }]
       });
-    }).on('error', err => {
+    }).on('error', () => {
       titleScrubber.items = [{
         label: title
       }]
     });
   })
 
-  soundcloud.on('play', ({ title, subtitle }) => {
+  soundcloud.on('play', () => {
     playPause.icon = `${__dirname}/res/pause.png`
   })
 

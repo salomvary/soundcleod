@@ -8,22 +8,19 @@ module.exports = function contextMenu(window, soundcloud) {
   // See https://github.com/sindresorhus/electron-context-menu/pull/25
   electronContextMenu({
     window,
-    prepend: (defaultActions, params, browserWindow) => {
+    prepend: (defaultActions, params) => {
       if (params.mediaType == 'none') {
         return menuTemplate(soundcloud)
       }
     },
-    append: (defaultActions, params, browserWindow) => [
-      {
-        label: 'Open in Browser',
-        after: ['copyLink'],
-        visible: params.linkURL.length !== 0 && params.mediaType === 'none',
-        click(menuItem) {
-          params.linkURL = menuItem.transform ? menuItem.transform(params.linkURL) : params.linkURL;
-          shell.openExternal(params.linkURL)
-        }
-      }        
-    ]
+    append: (defaultActions, params) => [ {
+      label: 'Open in Browser',
+      after: ['copyLink'],
+      visible: params.linkURL.length !== 0 && params.mediaType === 'none',
+      click(menuItem) {
+        shell.openExternal(menuItem.transform ? menuItem.transform(params.linkURL) : params.linkURL)
+      }
+    }]
   })
 }
 
