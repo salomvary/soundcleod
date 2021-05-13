@@ -43,6 +43,7 @@ module.exports = function touchBarMenu(window, soundcloud) {
   })
 
   const titleScrubber = new TouchBarScrubber({
+    continuous: false,
     items:[{
       label: ''
     }]
