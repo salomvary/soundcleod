@@ -1,9 +1,10 @@
 'use strict'
 
-const { TouchBar } = require('electron')
+const { TouchBar, nativeImage } = require('electron')
 
-const { TouchBarButton, TouchBarLabel, TouchBarSpacer } = TouchBar
-const MAX_TITLE_LENGTH = 30
+const { TouchBarButton, TouchBarLabel, TouchBarSpacer, TouchBarScrubber } = TouchBar
+
+const https = require('https');
 
 module.exports = function touchBarMenu(window, soundcloud) {
   const nextTrack = new TouchBarButton({
@@ -41,11 +42,36 @@ module.exports = function touchBarMenu(window, soundcloud) {
     }
   })
 
-  const trackInfo = new TouchBarLabel()
+  const titleScrubber = new TouchBarScrubber({
+    items:[{
+      label: ''
+    }]
+  })
+
+  soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
+      https.get(artworkURL, res => {
+        let data = [];
+        const headerDate = res.headers && res.headers.date ? res.headers.date : 'no response date';
+        res.on('data', chunk => {
+          data.push(chunk);
+        });
+        res.on('end', () => {
+          var x = nativeImage.createFromBuffer(Buffer.concat(data)).resize({height:30, width:30})
+          titleScrubber.items = [{
+              icon: x
+            }, {
+              label: title
+            }]
+        });
+      }).on('error', err => {
+        titleScrubber.items = [{
+            label: title
+          }]
+    });
+  })
 
   soundcloud.on('play', ({ title, subtitle }) => {
     playPause.icon = `${__dirname}/res/pause.png`
-    trackInfo.label = formatTitle(title, subtitle)
   })
 
   soundcloud.on('pause', () => {
@@ -59,24 +85,9 @@ module.exports = function touchBarMenu(window, soundcloud) {
         nextTrack,
         likeUnlike,
         repost,
-        trackInfo
+        titleScrubber
       ]
     })
 
   window.setTouchBar(touchBar)
-}
-
-function formatTitle(title, subtitle) {
-  const titleAndSubtitle = `${title} by ${subtitle}`
-  if (titleAndSubtitle.length > MAX_TITLE_LENGTH) {
-    if (`${title} by X…`.length > MAX_TITLE_LENGTH) {
-      return truncate(title)
-    }
-    return truncate(titleAndSubtitle)
-  }
-  return titleAndSubtitle
-}
-
-function truncate(text) {
-  return text.substring(0, MAX_TITLE_LENGTH - 1) + '…'
 }
