@@ -1,7 +1,7 @@
 'use strict'
 
 const electronContextMenu = require('electron-context-menu')
-const { shell } = require('electron')
+const shell = require('electron')
 
 module.exports = function contextMenu(window, soundcloud) {
   // TODO: apply context menu to all windows but only add navigation items to main window
