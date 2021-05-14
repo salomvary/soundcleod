@@ -54,14 +54,13 @@ module.exports = function touchBarMenu(window, soundcloud) {
       label: title
     }]
     https.get(artworkURL, res => {
-    const data = [];
+      const data = [];
       res.on('data', chunk => {
         data.push(chunk);
       });
       res.on('end', () => {
-        const x = nativeImage.createFromBuffer(Buffer.concat(data)).resize({height:30, width:30})
         titleScrubber.items = [{
-          icon: x
+          icon: nativeImage.createFromBuffer(Buffer.concat(data)).resize({height:30, width:30})
         }, {
           label: title
         }]
