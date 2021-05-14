@@ -49,9 +49,10 @@ module.exports = function touchBarMenu(window, soundcloud) {
     }]
   })
 
-  soundcloud.on('play-new-track', ({ title, artworkURL }) => {
+  soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
+    const displayTitle = `${title} by ${subtitle}                         `
     titleScrubber.items = [{
-      label: title
+      label: displayTitle
     }]
     https.get(artworkURL, res => {
       const data = [];
@@ -60,14 +61,16 @@ module.exports = function touchBarMenu(window, soundcloud) {
       });
       res.on('end', () => {
         titleScrubber.items = [{
+          label:''
+        },{  
           icon: nativeImage.createFromBuffer(Buffer.concat(data)).resize({height:30, width:30})
         }, {
-          label: title
+          label: displayTitle
         }]
       });
     }).on('error', () => {
       titleScrubber.items = [{
-        label: title
+        label: displayTitle
       }]
     });
   })
