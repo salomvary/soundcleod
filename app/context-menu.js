@@ -1,26 +1,17 @@
 'use strict'
 
 const electronContextMenu = require('electron-context-menu')
-const { shell } = require('electron')
 
 module.exports = function contextMenu(window, soundcloud) {
   // TODO: apply context menu to all windows but only add navigation items to main window
   // See https://github.com/sindresorhus/electron-context-menu/pull/25
   electronContextMenu({
     window,
-    prepend: (defaultActions, params) => {
+    prepend: (params) => {
       if (params.mediaType == 'none') {
         return menuTemplate(soundcloud)
       }
-    },
-    append: (defaultActions, params) => [ {
-      label: 'Open in Browser',
-      after: ['copyLink'],
-      visible: params.linkURL.length !== 0 && params.mediaType === 'none',
-      click(menuItem) {
-        shell.openExternal(menuItem.transform ? menuItem.transform(params.linkURL) : params.linkURL)
-      }
-    }]
+    }
   })
 }
 
