@@ -69,10 +69,6 @@ module.exports = function touchBarMenu(window, soundcloud) {
           label: displayTitle
         }]
       });
-    }).on('error', () => {
-      titleScrubber.items = [{
-        label: displayTitle
-      }]
     });
   })
 
