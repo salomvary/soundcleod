@@ -50,7 +50,8 @@ module.exports = function touchBarMenu(window, soundcloud) {
   })
 
   soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
-    const displayTitle = `${title} by ${subtitle}                         `
+    let displayTitle = `${title} by ${subtitle}`
+    displayTitle = displayTitle.padEnd(displayTitle.length * 1.3, ' ')
     titleScrubber.items = [{
       label: displayTitle
     }]
