@@ -1,18 +1,17 @@
 'use strict'
-const discordClient = require('discord-rich-presence')('852328413359767562'); 
+const discordClient = require('discord-rich-presence')('852328413359767562')
 
-let connected = false;
-discordClient.on('error', err => {
-  console.log(`Error: ${err}`);
-});
-discordClient.on("connected", () => {
-  connected = true;
-});
+let connected = false
+discordClient.on('error', (err) => {
+  console.log(`Error: ${err}`)
+})
+discordClient.on('connected', () => {
+  connected = true
+})
 
 module.exports = function discord(window, soundcloud) {
   soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
-    if (!connected)
-      return;
+    if (!connected) return
     let displayTitle = `${title} by ${subtitle}`
     discordClient.updatePresence({
       state: displayTitle,
@@ -21,6 +20,6 @@ module.exports = function discord(window, soundcloud) {
       largeImageKey: 'soundcleod',
       smallImageKey: 'soundcleod',
       instance: false
-    });
-  });
-};
+    })
+  })
+}
