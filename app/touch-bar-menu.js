@@ -45,26 +45,44 @@ module.exports = function touchBarMenu(window, soundcloud) {
   const titleScrubber = new TouchBarScrubber({
     continuous: false,
     items:[{
-      label: ''
+      label: 'Soundcleod'
     }]
   })
 
   soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
     let displayTitle = `${title} by ${subtitle}`
     displayTitle = displayTitle.padEnd(displayTitle.length * 1.3, ' ')
-    titleScrubber.items = [{
-      label: displayTitle
-    }]
+    let loadingFrame = 0
+
+    let intervalId = setInterval(() => {
+      loadingFrame = (loadingFrame > 10) ? 0 : loadingFrame + 1
+      titleScrubber.items = [{
+        label:''
+      },{
+        icon: `${__dirname}/res/ajax${loadingFrame}.png`
+      },{
+        label: displayTitle
+      }]
+    }, 80)  
     https.get(artworkURL, res => {
       const data = [];
       res.on('data', chunk => {
         data.push(chunk);
       });
       res.on('end', () => {
+        clearInterval(intervalId)
         titleScrubber.items = [{
           label:''
         },{  
           icon: nativeImage.createFromBuffer(Buffer.concat(data)).resize({height:30, width:30})
+        },{
+          label: displayTitle
+        }]
+      });
+      res.on('error', () => {
+        clearInterval(intervalId)
+        titleScrubber.items = [{
+          label:''
         }, {
           label: displayTitle
         }]
