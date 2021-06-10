@@ -17,6 +17,7 @@ const mainMenu = require('./menu')
 const options = require('./options')
 const SoundCloud = require('./soundcloud')
 const touchBarMenu = require('./touch-bar-menu')
+const discord = require('./discord')
 const windowOpenPolicy = require('./window-open-policy')
 const windowState = require('electron-window-state')
 
@@ -101,6 +102,7 @@ app.on('ready', () => {
   contextMenu(mainWindow, soundcloud)
   errorHandlers(mainWindow)
   darkMode(mainWindow)
+  discord(mainWindow, soundcloud)
   if (process.platform == 'darwin') {
     dockMenu(soundcloud)
     touchBarMenu(mainWindow, soundcloud)
