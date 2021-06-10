@@ -1,9 +1,10 @@
 'use strict'
 
-const { TouchBar } = require('electron')
+const { TouchBar, nativeImage } = require('electron')
 
-const { TouchBarButton, TouchBarLabel, TouchBarSpacer } = TouchBar
-const MAX_TITLE_LENGTH = 38
+const { TouchBarButton, TouchBarScrubber } = TouchBar
+
+const https = require('https')
 
 module.exports = function touchBarMenu(window, soundcloud) {
   const nextTrack = new TouchBarButton({
@@ -34,41 +35,94 @@ module.exports = function touchBarMenu(window, soundcloud) {
     }
   })
 
-  const trackInfo = new TouchBarLabel()
+  const repost = new TouchBarButton({
+    icon: `${__dirname}/res/repost.png`,
+    click: () => {
+      soundcloud.repost()
+    }
+  })
 
-  soundcloud.on('play', ({ title, subtitle }) => {
+  const titleScrubber = new TouchBarScrubber({
+    continuous: false,
+    items: [
+      {
+        label: 'Soundcleod'
+      }
+    ]
+  })
+
+  soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
+    let displayTitle = `${title} by ${subtitle}`
+    displayTitle = displayTitle.padEnd(displayTitle.length * 1.3, ' ')
+    let loadingFrame = 0
+
+    let intervalId = setInterval(() => {
+      loadingFrame = loadingFrame > 10 ? 0 : loadingFrame + 1
+      titleScrubber.items = [
+        {
+          label: ''
+        },
+        {
+          icon: `${__dirname}/res/ajax${loadingFrame}.png`
+        },
+        {
+          label: displayTitle
+        }
+      ]
+    }, 80)
+    https.get(artworkURL, (res) => {
+      const data = []
+      res.on('data', (chunk) => {
+        data.push(chunk)
+      })
+      res.on('end', () => {
+        clearInterval(intervalId)
+        titleScrubber.items = [
+          {
+            label: ''
+          },
+          {
+            icon: nativeImage
+              .createFromBuffer(Buffer.concat(data))
+              .resize({ height: 30, width: 30 })
+          },
+          {
+            label: displayTitle
+          }
+        ]
+      })
+      res.on('error', () => {
+        clearInterval(intervalId)
+        titleScrubber.items = [
+          {
+            label: ''
+          },
+          {
+            label: displayTitle
+          }
+        ]
+      })
+    })
+  })
+
+  soundcloud.on('play', () => {
     playPause.icon = `${__dirname}/res/pause.png`
-    trackInfo.label = formatTitle(title, subtitle)
   })
 
   soundcloud.on('pause', () => {
     playPause.icon = `${__dirname}/res/play.png`
   })
 
-  const touchBar = new TouchBar([
-    previousTrack,
-    playPause,
-    nextTrack,
-    likeUnlike,
-    new TouchBarSpacer({ size: 'flexible' }),
-    trackInfo,
-    new TouchBarSpacer({ size: 'flexible' })
-  ])
+  const touchBar = new TouchBar({
+    items: [
+      previousTrack,
+      playPause,
+      nextTrack,
+      likeUnlike,
+      repost,
+      titleScrubber
+    ]
+  })
 
   window.setTouchBar(touchBar)
-}
-
-function formatTitle(title, subtitle) {
-  const titleAndSubtitle = `${title} by ${subtitle}`
-  if (titleAndSubtitle.length > MAX_TITLE_LENGTH) {
-    if (`${title} by X…`.length > MAX_TITLE_LENGTH) {
-      return truncate(title)
-    }
-    return truncate(titleAndSubtitle)
-  }
-  return titleAndSubtitle
-}
-
-function truncate(text) {
-  return text.substring(0, MAX_TITLE_LENGTH - 1) + '…'
 }
