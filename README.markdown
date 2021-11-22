@@ -1,3 +1,18 @@
+## This project is NO LONGER MAINTAINED, do not use it!
+
+8 years, 11 months, 11 days after the [first
+commit](https://github.com/salomvary/soundcleod/commit/63c11038cace325d07d25191b01e744ba09a5b19)
+I realized I've lost interest, motivation and time for maintaining SoundCleod
+and decided to retire the project. The GitHub repository is read-only from now,
+the soundcleod.com domain will continue working until it expires on 2022-05-05.
+
+It is strongly recommended to uninstall SoundCleod to prevent future security
+issues, for which no fixes will be released.
+
+For those seeking alternatives I recommend switching to the official
+[SoundCloud Desktop Player](https://help.soundcloud.com/hc/en-us/articles/1260803560930-Desktop-Player)
+or using any modern web browser.
+
 ## What is SoundCleod?
 
 SoundCleod is a desktop application which brings
@@ -46,10 +61,11 @@ Current version is 2.0.0 (May 19, 2020) [see changes](https://github.com/salomva
 ### Using [Homebrew Cask](https://formulae.brew.sh/cask/)?
 
 ```sh
-brew cask install soundcleod
+brew install soundcleod
 ```
 
-Note: the homebrew method is supported by the [Caskroom team](https://github.com/caskroom/homebrew-cask), please [report installation issues](https://github.com/caskroom/homebrew-cask#reporting-bugs) there.
+Note: the homebrew method is supported by the [Caskroom team](https://github.com/caskroom/homebrew-cask),
+please [report installation issues](https://github.com/caskroom/homebrew-cask#reporting-bugs) there.
 
 ## Screenshots? Yeah!
 
@@ -62,10 +78,13 @@ Note: the homebrew method is supported by the [Caskroom team](https://github.com
 To play SoundCloud:
 
 - Any modern web browser
+- [SoundCloud Desktop Player](https://help.soundcloud.com/hc/en-us/articles/1260803560930-Desktop-Player)
+  (official Chromium app)
 - [BeardedSpice](https://github.com/beardedspice/beardedspice) (Mac)
 - [Soundnode App](http://www.soundnodeapp.com/) (Mac, Win, Linux)
 - [Cumulus](https://github.com/gillesdemey/Cumulus) (Mac)
 - [Vox](http://coppertino.com/) (Mac)
+- [DaftCloud](https://daft.cloud/) (Mac)
 
 ## Forks Using SoundCleod "Engine"
 
