@@ -2,6 +2,7 @@
 
 const { app, Menu, shell } = require('electron')
 const Events = require('events')
+const storage = require('electron-json-storage')
 
 module.exports = function menu(options = {}) {
   return buildMenu(options)
@@ -157,6 +158,19 @@ function buildMenu(options) {
           label: 'Close',
           accelerator: 'CmdOrCtrl+W',
           role: 'close'
+        },
+        {
+          label: 'Show notifications',
+          type: 'checkbox',
+          checked: true,
+          click() {
+            storage.get('settings', (error, data) => {
+              if (error) throw error
+              const settings = data || {}
+              settings.notifications = !settings.notifications
+              storage.set('settings', settings)
+            })
+          }
         }
       ]
     },
@@ -267,5 +281,17 @@ function buildMenu(options) {
 
   const built = Menu.buildFromTemplate(menu)
   built.events = events
+
+  storage.get('settings', (error, data) => {
+    if (error) throw error
+    const settings = data || {}
+    if (typeof settings.notifications != 'undefined') {
+      built.items[5].submenu.items[3].checked = settings.notifications
+    } else {
+      settings.notifications = built.items[5].submenu.items[3].checked
+      storage.set('settings', settings)
+    }
+  })
+
   return built
 }
