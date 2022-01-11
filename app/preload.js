@@ -9,6 +9,44 @@ if (process.env.SPECTRON) {
   window.electronRequire = require
 }
 
+let reposted
+
+function subtreeCallback(mutationList) {
+  mutationList.forEach((mutation) => {
+      //console.log(mutation)
+      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+        if (mutation.target.className.indexOf('sc-button-repost') != -1) {
+          if (mutation.target.className.indexOf('sc-button-selected') == -1) {
+            if (reposted === undefined || reposted === true) {
+              reposted = false
+              console.log('UNREPOSTED!!')
+              console.log('UNREPOSTED!!')
+              console.log('UNREPOSTED!!')
+              console.log('UNREPOSTED!!')
+              console.log('UNREPOSTED!!')
+              ipcRenderer.send('repost', {reposted: false})
+            }
+          } else if (reposted === undefined || reposted === false) {
+            reposted = true
+            console.log('REPOSTED!!')
+            console.log('REPOSTED!!')
+            console.log('REPOSTED!!')
+            console.log('REPOSTED!!')
+            ipcRenderer.send('repost', {reposted: true})
+          }
+        }
+      }
+    }
+  )
+}
+
+const observer = new MutationObserver(subtreeCallback)
+observer.observe(document, {
+  childList: true,
+  subtree: true,
+  attributes: true
+})
+
 ipcRenderer.on('getTrackMetadata', ({sender}) => sendTrackMetadata(sender))
 ipcRenderer.on('navigate', (_, url) => navigate(url))
 ipcRenderer.on('notification', (_, metadata) => showNotification(metadata))
@@ -16,7 +54,8 @@ ipcRenderer.on('notification', (_, metadata) => showNotification(metadata))
 function sendTrackMetadata(sender) {
   const artworkURL = getArtworkURL()
   const trackURL = getTrackURL()
-  sender.send('trackMetadata', {artworkURL, trackURL})
+  const isReposted = getReposted()
+  sender.send('trackMetadata', {artworkURL, trackURL, isReposted})
 }
 
 function navigate(url) {
@@ -43,11 +82,23 @@ function getTrackURL() {
   const track = document.querySelector('.playbackSoundBadge__titleLink')
   if (track) {
     const url = `https://soundcloud.com${track.getAttribute('href')}`
-    if (url.indexOf('?') === -1)
+    if (url.indexOf('?') === -1) {
       return url
+    }
     return url.split('?')[0]
   }
   return null
+}
+
+function getReposted() {
+  const nowPlaying = document.querySelector('.playing')
+  if (nowPlaying) {
+    const repostButton = nowPlaying.querySelector('.sc-button-repost')
+    if (repostButton) {
+      return repostButton.className.indexOf('sc-button-selected') != -1
+    }
+  }
+  return false
 }
 
 const {Notification} = window
