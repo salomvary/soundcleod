@@ -1,6 +1,6 @@
 'use strict'
 
-const { ipcRenderer } = require('electron')
+const {ipcRenderer} = require('electron')
 
 require('./macos-swipe-navigation').register()
 
@@ -9,13 +9,14 @@ if (process.env.SPECTRON) {
   window.electronRequire = require
 }
 
-ipcRenderer.on('getTrackMetadata', ({ sender }) => sendTrackMetadata(sender))
+ipcRenderer.on('getTrackMetadata', ({sender}) => sendTrackMetadata(sender))
 ipcRenderer.on('navigate', (_, url) => navigate(url))
 ipcRenderer.on('notification', (_, metadata) => showNotification(metadata))
 
 function sendTrackMetadata(sender) {
   const artworkURL = getArtworkURL()
-  sender.send('trackMetadata', { artworkURL })
+  const trackURL = getTrackURL()
+  sender.send('trackMetadata', {artworkURL, trackURL})
 }
 
 function navigate(url) {
@@ -38,18 +39,29 @@ function getArtworkURL() {
   return null
 }
 
-const { Notification } = window
+function getTrackURL() {
+  const track = document.querySelector('.playbackSoundBadge__titleLink')
+  if (track) {
+    const url = `https://soundcloud.com${track.getAttribute('href')}`
+    if (url.indexOf('?') === -1)
+      return url
+    return url.split('?')[0]
+  }
+  return null
+}
+
+const {Notification} = window
 // Disable SoundCloud's own notifications, because:
 // - They are not silent on macOS
 // - They are hidden behind a feature flag
 delete window.Notification
 
-function showNotification({ title, body, icon }) {
+function showNotification({title, body, icon}) {
   /* eslint no-new: off */
-  new Notification(title, { body, icon, silent: true })
+  new Notification(title, {body, icon, silent: true})
 }
 
-const { confirm } = window
+const {confirm} = window
 
 window.confirm = (message) => {
   // For some bizarre reason SoundCloud calls comfirm() with { string: 'The message' }

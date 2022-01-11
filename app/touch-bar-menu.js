@@ -1,46 +1,23 @@
 'use strict'
 
-const { TouchBar, nativeImage } = require('electron')
+const {TouchBar, nativeImage, shell} = require('electron')
 
-const { TouchBarButton, TouchBarScrubber } = TouchBar
+const {TouchBarScrubber, TouchBarSegmentedControl} = TouchBar
 
 const https = require('https')
 
 module.exports = function touchBarMenu(window, soundcloud) {
-  const nextTrack = new TouchBarButton({
-    icon: `${__dirname}/res/next.png`,
-    click: () => {
-      soundcloud.nextTrack()
-    }
-  })
+  const playPause = {
+    icon: `${__dirname}/res/play.png`
+  }
+  /*  const likeUnlike = new TouchBarButton({
+      icon: `${__dirname}/res/like.png`,
+      click: () => {
+        soundcloud.likeUnlike()
+      }
+    }) */
 
-  const previousTrack = new TouchBarButton({
-    icon: `${__dirname}/res/previous.png`,
-    click: () => {
-      soundcloud.previousTrack()
-    }
-  })
-
-  const playPause = new TouchBarButton({
-    icon: `${__dirname}/res/play.png`,
-    click: () => {
-      soundcloud.playPause()
-    }
-  })
-
-  const likeUnlike = new TouchBarButton({
-    icon: `${__dirname}/res/like.png`,
-    click: () => {
-      soundcloud.likeUnlike()
-    }
-  })
-
-  const repost = new TouchBarButton({
-    icon: `${__dirname}/res/repost.png`,
-    click: () => {
-      soundcloud.repost()
-    }
-  })
+  let openTrackLink
 
   const titleScrubber = new TouchBarScrubber({
     continuous: false,
@@ -48,15 +25,21 @@ module.exports = function touchBarMenu(window, soundcloud) {
       {
         label: 'Soundcleod'
       }
-    ]
+    ],
+    highlight: highlightedIndex => {
+      if (openTrackLink !== undefined && highlightedIndex === 1)
+        shell.openExternal(openTrackLink)
+    }
   })
 
-  soundcloud.on('play-new-track', ({ title, subtitle, artworkURL }) => {
+  soundcloud.on('play-new-track', ({title, subtitle, artworkURL, trackURL}) => {
     let displayTitle = `${title} by ${subtitle}`
     displayTitle = displayTitle.padEnd(displayTitle.length * 1.3, ' ')
     let loadingFrame = 0
 
-    let intervalId = setInterval(() => {
+    openTrackLink = undefined
+
+    const intervalId = setInterval(() => {
       loadingFrame = loadingFrame > 10 ? 0 : loadingFrame + 1
       titleScrubber.items = [
         {
@@ -84,12 +67,13 @@ module.exports = function touchBarMenu(window, soundcloud) {
           {
             icon: nativeImage
               .createFromBuffer(Buffer.concat(data))
-              .resize({ height: 30, width: 30 })
+              .resize({height: 30, width: 30})
           },
           {
             label: displayTitle
           }
         ]
+        openTrackLink = trackURL
       })
       res.on('error', () => {
         clearInterval(intervalId)
@@ -107,22 +91,45 @@ module.exports = function touchBarMenu(window, soundcloud) {
 
   soundcloud.on('play', () => {
     playPause.icon = `${__dirname}/res/pause.png`
+    resetTouchBar()
   })
 
   soundcloud.on('pause', () => {
     playPause.icon = `${__dirname}/res/play.png`
+    resetTouchBar()
   })
+
+  const touchBarSegmentedControl = new TouchBarSegmentedControl({
+    segmentStyle: "rounded",
+    mode: "buttons",
+    change: selectedIndex => {
+      if (selectedIndex === 0)
+        soundcloud.previousTrack()
+      else if (selectedIndex === 1)
+        soundcloud.playPause()
+      else if (selectedIndex === 2)
+        soundcloud.nextTrack()
+      else if (selectedIndex === 3)
+        soundcloud.repost()
+    }
+  })
+
+  resetTouchBar()
 
   const touchBar = new TouchBar({
     items: [
-      previousTrack,
-      playPause,
-      nextTrack,
-      likeUnlike,
-      repost,
+      touchBarSegmentedControl,
       titleScrubber
     ]
   })
-
   window.setTouchBar(touchBar)
+
+  function resetTouchBar() {
+    touchBarSegmentedControl.segments = [
+      {icon: `${__dirname}/res/previous.png`},
+      playPause,
+      {icon: `${__dirname}/res/next.png`},
+      {icon: `${__dirname}/res/repost.png`}
+    ]
+  }
 }
