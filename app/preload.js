@@ -9,29 +9,22 @@ if (process.env.SPECTRON) {
   window.electronRequire = require
 }
 
-let reposted
+let reposted = false
 
 function subtreeCallback(mutationList) {
   mutationList.forEach((mutation) => {
-      //console.log(mutation)
+      // console.log(mutation)
       if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        if (mutation.target.className.indexOf('sc-button-repost') != -1) {
-          if (mutation.target.className.indexOf('sc-button-selected') == -1) {
+        if (mutation.target.className.indexOf('sc-button-repost') !== -1) {
+          if (mutation.target.className.indexOf('sc-button-selected') === -1) {
             if (reposted === undefined || reposted === true) {
               reposted = false
-              console.log('UNREPOSTED!!')
-              console.log('UNREPOSTED!!')
-              console.log('UNREPOSTED!!')
-              console.log('UNREPOSTED!!')
-              console.log('UNREPOSTED!!')
+              // console.log('UNREPOSTED!!')
               ipcRenderer.send('repost', {reposted: false})
             }
           } else if (reposted === undefined || reposted === false) {
             reposted = true
-            console.log('REPOSTED!!')
-            console.log('REPOSTED!!')
-            console.log('REPOSTED!!')
-            console.log('REPOSTED!!')
+            // console.log('REPOSTED!!')
             ipcRenderer.send('repost', {reposted: true})
           }
         }
@@ -91,7 +84,19 @@ function getTrackURL() {
 }
 
 function getReposted() {
-  const nowPlaying = document.querySelector('.playing')
+  // get track from the track's page
+  let nowPlaying = document.querySelector('.listenEngagement__footer')
+  if (!nowPlaying) {
+    // get track from stream
+    nowPlaying = document.querySelector('.playing')
+  } else {
+    // on the track's main page, check if it's playing or not
+    const playButton = document.querySelector('.fullHero__title').querySelector(
+      '.sc-button-pause')
+    if (!playButton) {
+      return false
+    }
+  }
   if (nowPlaying) {
     const repostButton = nowPlaying.querySelector('.sc-button-repost')
     if (repostButton) {

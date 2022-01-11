@@ -11,7 +11,7 @@ module.exports = function touchBarMenu(window, soundcloud) {
     icon: `${__dirname}/res/play.png`
   }
 
-  let trackReposted
+  let trackReposted = false
   const repost = {
     icon: `${__dirname}/res/repost.png`
   }
@@ -94,7 +94,7 @@ module.exports = function touchBarMenu(window, soundcloud) {
           ]
         })
       })
-      if (trackReposted != isReposted) {
+      if (trackReposted !== isReposted) {
         trackReposted = isReposted
         resetTouchBar()
       }

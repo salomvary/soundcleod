@@ -121,10 +121,10 @@ function getTrackMetadata() {
 
 function parseTitle(windowTitle) {
   let titleParts = windowTitle.split(' by ', 2)
-  if (titleParts.length == 1) {
+  if (titleParts.length === 1) {
     titleParts = windowTitle.split(' in ', 2)
   }
-  if (titleParts.length == 2) {
+  if (titleParts.length === 2) {
     // Title has " in " in it when not playing but on a playlist page
     const [title, subtitle] = titleParts
     return {title, subtitle}
@@ -155,8 +155,8 @@ function fixFlakyMediaKeys(mainWindow) {
 
 function compareTrackMetadata(lhs, rhs) {
   return (
-    lhs.title == rhs.title &&
-    lhs.subtitle == rhs.subtitle &&
-    lhs.artworkUrl == rhs.artworkUrl
+    lhs.title === rhs.title &&
+    lhs.subtitle === rhs.subtitle &&
+    lhs.artworkUrl === rhs.artworkUrl
   )
 }

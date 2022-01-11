@@ -101,7 +101,7 @@ app.on('ready', () => {
   contextMenu(mainWindow, soundcloud)
   errorHandlers(mainWindow)
   darkMode(mainWindow)
-  if (process.platform == 'darwin') {
+  if (process.platform === 'darwin') {
     dockMenu(soundcloud)
     touchBarMenu(mainWindow, soundcloud)
   }
