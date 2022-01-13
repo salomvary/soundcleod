@@ -9,23 +9,17 @@ if (process.env.SPECTRON) {
   window.electronRequire = require
 }
 
-let reposted = false
+let isReposted = false
 
 function subtreeCallback(mutationList) {
   mutationList.forEach((mutation) => {
       // console.log(mutation)
       if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
         if (mutation.target.className.indexOf('sc-button-repost') !== -1) {
-          if (mutation.target.className.indexOf('sc-button-selected') === -1) {
-            if (reposted === undefined || reposted === true) {
-              reposted = false
-              // console.log('UNREPOSTED!!')
-              ipcRenderer.send('repost', {reposted: false})
-            }
-          } else if (reposted === undefined || reposted === false) {
-            reposted = true
-            // console.log('REPOSTED!!')
-            ipcRenderer.send('repost', {reposted: true})
+          const oldReposted = isReposted
+          isReposted = getReposted()
+          if (oldReposted === undefined || isReposted !== oldReposted) {
+            ipcRenderer.send('repost', {reposted: isReposted})
           }
         }
       }
@@ -47,7 +41,7 @@ ipcRenderer.on('notification', (_, metadata) => showNotification(metadata))
 function sendTrackMetadata(sender) {
   const artworkURL = getArtworkURL()
   const trackURL = getTrackURL()
-  const isReposted = getReposted()
+  isReposted = getReposted()
   sender.send('trackMetadata', {artworkURL, trackURL, isReposted})
 }
 
@@ -94,18 +88,15 @@ function getReposted() {
     const playButton = document.querySelector('.fullHero__title').querySelector(
       '.sc-button-pause')
     if (!playButton) {
-      reposted = false
       return false
     }
   }
   if (nowPlaying) {
     const repostButton = nowPlaying.querySelector('.sc-button-repost')
     if (repostButton) {
-      reposted = repostButton.className.indexOf('sc-button-selected') != -1
-      return reposted
+      return repostButton.className.indexOf('sc-button-selected') != -1
     }
   }
-  reposted = false
   return false
 }
 
