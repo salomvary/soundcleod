@@ -94,15 +94,18 @@ function getReposted() {
     const playButton = document.querySelector('.fullHero__title').querySelector(
       '.sc-button-pause')
     if (!playButton) {
+      reposted = false
       return false
     }
   }
   if (nowPlaying) {
     const repostButton = nowPlaying.querySelector('.sc-button-repost')
     if (repostButton) {
-      return repostButton.className.indexOf('sc-button-selected') != -1
+      reposted = repostButton.className.indexOf('sc-button-selected') != -1
+      return reposted
     }
   }
+  reposted = false
   return false
 }
 
