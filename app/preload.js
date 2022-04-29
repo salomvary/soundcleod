@@ -13,18 +13,30 @@ let isReposted = false
 
 function subtreeCallback(mutationList) {
   mutationList.forEach((mutation) => {
-      // console.log(mutation)
-      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-        if (mutation.target.className.indexOf('sc-button-repost') !== -1) {
+    // console.log(mutation)
+    if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+      if (mutation.target.className.indexOf('sc-button-repost') !== -1) {
+        const oldReposted = isReposted
+        isReposted = getReposted()
+        if (oldReposted === undefined || isReposted !== oldReposted) {
+          ipcRenderer.send('repost', {reposted: isReposted})
+        }
+      }
+    } else if (mutation.type === 'childList' && mutation.target !== undefined) {
+      if (mutation.target.id.indexOf('gritter-notice-wrapper') !== -1) {
+        // reposted popup
+        if (mutation.addedNodes.length > 0
+          && mutation.addedNodes[0].innerText.indexOf('was reposted to')
+          !== -1) {
           const oldReposted = isReposted
-          isReposted = getReposted()
+          isReposted = true
           if (oldReposted === undefined || isReposted !== oldReposted) {
             ipcRenderer.send('repost', {reposted: isReposted})
           }
         }
       }
     }
-  )
+  })
 }
 
 const observer = new MutationObserver(subtreeCallback)
@@ -79,6 +91,13 @@ function getTrackURL() {
 
 function getReposted() {
   // get track from the track's page
+  const gritter = document.querySelector('.gritter-with-image p')
+  if (gritter != null) {
+    if (gritter.innerText.indexOf('was reposted to') !== -1) {
+      return true
+    }
+  }
+
   let nowPlaying = document.querySelector('.listenEngagement__footer')
   if (!nowPlaying) {
     // get track from stream
@@ -94,7 +113,7 @@ function getReposted() {
   if (nowPlaying) {
     const repostButton = nowPlaying.querySelector('.sc-button-repost')
     if (repostButton) {
-      return repostButton.className.indexOf('sc-button-selected') != -1
+      return repostButton.className.indexOf('sc-button-selected') !== -1
     }
   }
   return false

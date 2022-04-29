@@ -24,7 +24,7 @@ module.exports = function options(process, processArgv) {
   return {
     autoUpdaterBaseUrl: argv['auto-updater-base-url'],
     baseUrl: argv['base-url'],
-    developerTools: argv['developer-tools'],
+    developerTools: true, // argv['developer-tools'],
     launchUrl: isSoundcloudUrl(launchUrl) ? launchUrl : undefined,
     profile: argv.profile,
     quitAfterLastWindow: argv['quit-after-last-window'],
