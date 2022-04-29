@@ -1,74 +1,157 @@
 'use strict'
 
-const { TouchBar } = require('electron')
+const {TouchBar, nativeImage, shell} = require('electron')
 
-const { TouchBarButton, TouchBarLabel, TouchBarSpacer } = TouchBar
-const MAX_TITLE_LENGTH = 38
+const {TouchBarScrubber, TouchBarSegmentedControl} = TouchBar
+
+const https = require('https')
 
 module.exports = function touchBarMenu(window, soundcloud) {
-  const nextTrack = new TouchBarButton({
-    icon: `${__dirname}/res/next.png`,
-    click: () => {
-      soundcloud.nextTrack()
+  const playPause = {
+    icon: `${__dirname}/res/play.png`
+  }
+
+  let trackReposted = false
+  const repost = {
+    icon: `${__dirname}/res/repost.png`
+  }
+  /*  const likeUnlike = new TouchBarButton({
+      icon: `${__dirname}/res/like.png`,
+      click: () => {
+        soundcloud.likeUnlike()
+      }
+    }) */
+
+  let openTrackLink
+
+  const titleScrubber = new TouchBarScrubber({
+    continuous: false,
+    items: [
+      {
+        label: 'Soundcleod'
+      }
+    ],
+    highlight: highlightedIndex => {
+      if (openTrackLink !== undefined && highlightedIndex === 1) {
+        shell.openExternal(openTrackLink)
+      }
     }
   })
 
-  const previousTrack = new TouchBarButton({
-    icon: `${__dirname}/res/previous.png`,
-    click: () => {
-      soundcloud.previousTrack()
-    }
+  soundcloud.on('play-new-track',
+    ({title, subtitle, artworkURL, trackURL, isReposted}) => {
+      let displayTitle = `${title} by ${subtitle}`
+      displayTitle = displayTitle.padEnd(displayTitle.length * 1.3, ' ')
+      let loadingFrame = 0
+
+      openTrackLink = undefined
+
+      const intervalId = setInterval(() => {
+        loadingFrame = loadingFrame > 10 ? 0 : loadingFrame + 1
+        titleScrubber.items = [
+          {
+            label: ''
+          },
+          {
+            icon: `${__dirname}/res/ajax${loadingFrame}.png`
+          },
+          {
+            label: displayTitle
+          }
+        ]
+      }, 80)
+      https.get(artworkURL, (res) => {
+        const data = []
+        res.on('data', (chunk) => {
+          data.push(chunk)
+        })
+        res.on('end', () => {
+          clearInterval(intervalId)
+          titleScrubber.items = [
+            {
+              label: ''
+            },
+            {
+              icon: nativeImage
+                .createFromBuffer(Buffer.concat(data))
+                .resize({height: 30, width: 30})
+            },
+            {
+              label: displayTitle
+            }
+          ]
+          openTrackLink = trackURL
+        })
+        res.on('error', () => {
+          clearInterval(intervalId)
+          titleScrubber.items = [
+            {
+              label: ''
+            },
+            {
+              label: displayTitle
+            }
+          ]
+        })
+      })
+      if (trackReposted !== isReposted) {
+        trackReposted = isReposted
+        resetTouchBar()
+      }
+    })
+
+  soundcloud.on('repost', (reposted) => {
+    trackReposted = reposted.reposted
+    resetTouchBar()
   })
 
-  const playPause = new TouchBarButton({
-    icon: `${__dirname}/res/play.png`,
-    click: () => {
-      soundcloud.playPause()
-    }
-  })
-
-  const likeUnlike = new TouchBarButton({
-    icon: `${__dirname}/res/like.png`,
-    click: () => {
-      soundcloud.likeUnlike()
-    }
-  })
-
-  const trackInfo = new TouchBarLabel()
-
-  soundcloud.on('play', ({ title, subtitle }) => {
+  soundcloud.on('play', () => {
     playPause.icon = `${__dirname}/res/pause.png`
-    trackInfo.label = formatTitle(title, subtitle)
+    resetTouchBar()
   })
 
   soundcloud.on('pause', () => {
     playPause.icon = `${__dirname}/res/play.png`
+    resetTouchBar()
   })
 
-  const touchBar = new TouchBar([
-    previousTrack,
-    playPause,
-    nextTrack,
-    likeUnlike,
-    new TouchBarSpacer({ size: 'flexible' }),
-    trackInfo,
-    new TouchBarSpacer({ size: 'flexible' })
-  ])
-
-  window.setTouchBar(touchBar)
-}
-
-function formatTitle(title, subtitle) {
-  const titleAndSubtitle = `${title} by ${subtitle}`
-  if (titleAndSubtitle.length > MAX_TITLE_LENGTH) {
-    if (`${title} by X…`.length > MAX_TITLE_LENGTH) {
-      return truncate(title)
+  const touchBarSegmentedControl = new TouchBarSegmentedControl({
+    segmentStyle: "rounded",
+    mode: "buttons",
+    change: selectedIndex => {
+      if (selectedIndex === 0) {
+        soundcloud.previousTrack()
+      } else if (selectedIndex === 1) {
+        soundcloud.playPause()
+      } else if (selectedIndex === 2) {
+        soundcloud.nextTrack()
+      } else if (selectedIndex === 3) {
+        soundcloud.repost()
+      }
     }
-    return truncate(titleAndSubtitle)
-  }
-  return titleAndSubtitle
-}
+  })
 
-function truncate(text) {
-  return text.substring(0, MAX_TITLE_LENGTH - 1) + '…'
+  resetTouchBar()
+
+  const touchBar = new TouchBar({
+    items: [
+      touchBarSegmentedControl,
+      titleScrubber
+    ]
+  })
+  window.setTouchBar(touchBar)
+
+  function resetTouchBar() {
+    if (trackReposted === true) {
+      repost.icon = `${__dirname}/res/reposted.png`
+    } else {
+      repost.icon = `${__dirname}/res/repost.png`
+    }
+    touchBarSegmentedControl.segments = [
+      {icon: `${__dirname}/res/previous.png`},
+      playPause,
+      {icon: `${__dirname}/res/next.png`},
+      repost
+    ]
+  }
 }

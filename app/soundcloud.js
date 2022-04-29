@@ -1,6 +1,6 @@
 'use strict'
 
-const { ipcMain } = require('electron')
+const {ipcMain} = require('electron')
 const Events = require('events')
 
 module.exports = class SoundCloud extends Events {
@@ -12,6 +12,9 @@ module.exports = class SoundCloud extends Events {
     window.webContents
       .on('media-started-playing', onMediaStartedPlaying.bind(this))
       .on('media-paused', onMediaPaused.bind(this))
+    ipcMain.on('repost', (event, args) => {
+      onMediaRepost(this, args)
+    })
     fixFlakyMediaKeys(window)
   }
 
@@ -98,12 +101,16 @@ function onMediaPaused() {
   this.emit('pause')
 }
 
+function onMediaRepost(emitter, reposted) {
+  emitter.emit('repost', reposted)
+}
+
 function getTrackMetadata() {
   return new Promise((resolve) => {
     ipcMain.once('trackMetadata', (_, trackMetadata) => {
       const title = parseTitle(this.window.getTitle())
       if (title) {
-        resolve({ ...title, ...trackMetadata })
+        resolve({...title, ...trackMetadata})
       } else {
         resolve()
       }
@@ -114,13 +121,13 @@ function getTrackMetadata() {
 
 function parseTitle(windowTitle) {
   let titleParts = windowTitle.split(' by ', 2)
-  if (titleParts.length == 1) {
+  if (titleParts.length === 1) {
     titleParts = windowTitle.split(' in ', 2)
   }
-  if (titleParts.length == 2) {
+  if (titleParts.length === 2) {
     // Title has " in " in it when not playing but on a playlist page
     const [title, subtitle] = titleParts
-    return { title, subtitle }
+    return {title, subtitle}
   }
   return null
 }
@@ -148,8 +155,8 @@ function fixFlakyMediaKeys(mainWindow) {
 
 function compareTrackMetadata(lhs, rhs) {
   return (
-    lhs.title == rhs.title &&
-    lhs.subtitle == rhs.subtitle &&
-    lhs.artworkUrl == rhs.artworkUrl
+    lhs.title === rhs.title &&
+    lhs.subtitle === rhs.subtitle &&
+    lhs.artworkUrl === rhs.artworkUrl
   )
 }
